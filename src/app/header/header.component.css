@@ -1,0 +1,123 @@
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.151);
+  position: fixed;
+  background-color: white;
+  z-index: 100000;
+}
+.headerContainer {
+  display: flex;
+  width: 1300px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.logo {
+  font-size: 40px;
+}
+
+.navArea {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.logoContainer {
+  width: 20%;
+}
+
+.wishListAndCart,
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.links {
+  width: 65%;
+}
+.wishListAndCart {
+  width: 35%;
+}
+
+.cart,
+.wishList {
+  position: relative;
+  display: flex;
+  align-content: center;
+  margin-left: 20px;
+  padding: 5px;
+}
+
+.cart > p,
+.wishList > p {
+  display: inline;
+  position: absolute;
+  background-color: rgb(230, 3, 3);
+  padding: 0px 5px;
+  border-radius: 100px;
+  color: white;
+  font-size: 12px;
+  right: 0;
+  top: 0;
+}
+
+.total {
+  font-size: 16px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.links li {
+  margin-right: 25px;
+  list-style-type: none;
+}
+
+.user {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  padding: 15px 0px;
+}
+.user ul {
+  display: none;
+  position: absolute;
+  z-index: 10000;
+  top: 90%;
+  list-style-type: none;
+  background-color: white;
+
+  margin: 0;
+  padding: 10px 0px;
+  min-width: 200px;
+
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.151);
+}
+
+span {
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.user li a {
+  display: block;
+  padding: 5px 15px;
+  font-weight: 400;
+}
+
+.user:hover ul {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+a:hover {
+  color: rgb(230, 3, 3);
+}
