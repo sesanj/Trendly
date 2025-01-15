@@ -1,55 +1,47 @@
-<div class="allProdicts">
-  @for(item of product; track item){
-  <div class="product">
-    <div class="imageContainer">
-      <img [src]="item.image ? item.image : 'bag.jpg'" alt="bag">
-      <div class="favorite">
+<div class="product">
+  <div class="imageContainer">
+    <img [src]="product.image ? product.image : 'bag.jpg'" alt="bag">
+    <div class="favorite">
 
-        @if(!favoriteProducts.includes(item)){
-        <img (click)="favoriteClicked(item)" src="heart.svg" alt="favorite icon">
-        }
-
-        @if(favoriteProducts.includes(item)){
-        <img (click)="unFavorite(item)" src="love.svg" alt="favorite icon">
-        }
-
-      </div>
-      <div class="view">
-        <img src="view.svg" alt="A quick view icon">
-      </div>
-      <div class="wishlist">
-        <img src="cart1.svg" alt="a cart basket">
-      </div>
-
-      @if(item.tag || item.discount){
-      <p [class]="{tag: true, discount: item.discount, hot: item.tag == 'HOT'}">{{item.discount ?
-        calculateDiscount(item.price, item.discount) : item.tag}}
-      </p>
+      @if(!favoriteProducts.includes(product)){
+      <img (click)="favoriteClicked(product)" src="heart.svg" alt="favorite icon">
       }
 
-      <div class="buttonContainer" (click)="addToCart()">
-        <button>ADD TO CART</button>
-        <div><img src="bag.svg" alt="A shopping cart"></div>
-      </div>
+      @if(favoriteProducts.includes(product)){
+      <img (click)="unFavorite(product)" src="love.svg" alt="favorite icon">
+      }
+
     </div>
-    <div class="details">
-      <p class="title">{{item.title}}</p>
-      @if(item.discount){
-      <p class="slashedPrice">${{item.price}} <span [class]="{
-        inStock: item.quantity > 0,
-        outOfStock: item.quantity < 1}">{{item.quantity > 0? "In stock" : "Out of stock"}}</span></p>
-      <p class="discountPrice">${{item.discount}}</p>
-      }@else {
-      <p class="price">${{item.price}} <span [class]="{
-          inStock: item.quantity > 0,
-          outOfStock: item.quantity < 1}">{{item.quantity > 0? "In stock" : "Out of stock"}}</span>
-      </p>
-      }
-      <!-- <p class="price">${{item.price}} <span [class]="{
-          inStock: item.quantity > 0,
-          outOfStock: item.quantity < 1}">{{item.quantity > 0? "In stock" : "Out of stock"}}</span>
-      </p> -->
+    <div class="view">
+      <img src="view.svg" alt="A quick view icon">
+    </div>
+    <div class="wishlist">
+      <img src="cart1.svg" alt="a cart basket">
+    </div>
+
+    @if(product.tag || product.discount){
+    <p [class]="{tag: true, discount: product.discount, hot: product.tag == 'HOT'}">{{product.discount ?
+      calculateDiscount(product.price, product.discount) : product.tag}}
+    </p>
+    }
+
+    <div class="buttonContainer" (click)="addToCart()">
+      <button>ADD TO CART</button>
+      <div><img src="bag.svg" alt="A shopping cart"></div>
     </div>
   </div>
-  }
+  <div class="details">
+    <p class="title">{{product.title}}</p>
+    @if(product.discount){
+    <p class="slashedPrice">${{product.price}} <span [class]="{
+        inStock: product.quantity > 0,
+        outOfStock: product.quantity < 1}">{{product.quantity > 0? "In stock" : "Out of stock"}}</span></p>
+    <p class="discountPrice">${{product.discount}}</p>
+    }@else {
+    <p class="price">${{product.price}} <span [class]="{
+          inStock: product.quantity > 0,
+          outOfStock: product.quantity < 1}">{{product.quantity > 0? "In stock" : "Out of stock"}}</span>
+    </p>
+    }
+  </div>
 </div>

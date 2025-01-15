@@ -1,0 +1,40 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.features {
+  width: 1300px;
+  display: flex;
+  /* margin: auto;  */ /*This style rule is used to align a div to center*/
+  justify-content: space-between;
+  margin-top: 200px; /* This code is to be removed later*/
+  padding: 30px 0px;
+  border-top: 1px grey dotted;
+  border-bottom: 1px grey dotted;
+}
+.item {
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  border-right: 1px grey dotted;
+}
+
+.item + .item + .item + .item {
+  border-right: 0px;
+}
+
+img {
+  width: 70px;
+  margin-right: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+p {
+  color: grey;
+}
