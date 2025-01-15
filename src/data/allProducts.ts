@@ -1,6 +1,6 @@
-import { Product } from '../app/product/models/product.model';
+import { Product } from '../app/models/product.model';
 
-export const allProducts: Product[] = [
+export const ProductData: Product[] = [
   {
     id: '15353',
     title: 'Hooded Inflatable Coat Printed Waterproof',
