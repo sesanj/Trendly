@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="wrap">
+    <div class="title">
+      <h1>Featured Products</h1>
+      <p>Checkout our most compelling and top performing products</p>
+    </div>
+
+    <div class="nav">
+      <div class="buttons">
+        <button [class.clicked]="activeNav == 'Men'" (click)="getFeaturedMen()" href="">Men</button>
+        <button [class.clicked]="activeNav == 'Women'" (click)="getFeaturedWomen()" href="">Women</button>
+        <button [class.clicked]="activeNav == 'Trending'" (click)="getFeaturedTrending()" href="">Trending</button>
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    @if(loading){
+    <div class="overlay"></div>
+    }
+    <!-- <app-carousel [products]="filteredProducts"></app-carousel> -->
+  </div>
+</div>

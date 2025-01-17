@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product.model';
-import { ProductData } from '../../data/allProducts';
 
 @Component({
   selector: 'app-product',
