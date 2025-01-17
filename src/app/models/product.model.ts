@@ -4,6 +4,15 @@ export interface ProductCategory {
   men?: boolean;
   women?: boolean;
   bag?: boolean;
+  shirt?: boolean;
+  jacket?: boolean;
+  hoodie?: boolean;
+  shoe?: boolean;
+  jeans?: boolean;
+  skirt?: boolean;
+  dress?: boolean;
+  sweatshirt?: boolean;
+  pants?: boolean;
 }
 
 export interface Product {
@@ -13,7 +22,15 @@ export interface Product {
   description: string;
   category: ProductCategory;
   quantity: number;
+  size?: string[];
+  color?: string[];
   discount?: number;
-  image?: string;
+  image?: {
+    image1?: string;
+    image2?: string;
+    image3?: string;
+    image4?: string;
+  };
   tag?: Tag;
+  featured?: boolean;
 }

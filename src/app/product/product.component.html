@@ -1,6 +1,9 @@
 <div class="product">
   <div class="imageContainer">
-    <img [src]="product.image ? product.image : 'bag.jpg'" alt="bag">
+
+    <img class="productImage" [src]="product.image?.image1 ? product.image?.image1 : 'bag.jpg'"
+      alt="image of a product">
+
     <div class="favorite">
 
       @if(!favoriteProducts.includes(product)){

@@ -1,13 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { FeaturesComponent } from './features/features.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { ProductServiceService } from './product service/product-service.service';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { SalesProductsComponent } from './sales-products/sales-products.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, FeaturesComponent, CarouselComponent],
+  imports: [
+    HeaderComponent,
+    FeaturesComponent,
+    FeaturedProductsComponent,
+    SalesProductsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

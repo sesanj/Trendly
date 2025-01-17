@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { ProductServiceService } from '../product service/product-service.service';
+import { Component, Input } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductComponent } from '../product/product.component';
 
@@ -11,20 +10,18 @@ import { ProductComponent } from '../product/product.component';
   styleUrl: './carousel.component.css',
 })
 export class CarouselComponent {
-  productService = inject(ProductServiceService);
-
-  products: Product[] = this.productService.getAllProducts();
+  @Input({ required: true }) products!: Product[];
 
   currentIndex: number = 0;
-  visibleImages: number = 4; // Number of images to display at a time
+  visibleImages: number = 4;
 
   // Compute the transform style dynamically
-  getTransform(): string {
+  get getTransform(): string {
     return `translateX(-${this.currentIndex * (100 / this.visibleImages)}%)`;
   }
 
   // Navigate to the previous slide
-  prevSlide(): void {
+  prevSlide() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
     } else {
@@ -33,7 +30,7 @@ export class CarouselComponent {
   }
 
   // Navigate to the next slide
-  nextSlide(): void {
+  nextSlide() {
     if (this.currentIndex < this.products.length - this.visibleImages) {
       this.currentIndex++;
     } else {

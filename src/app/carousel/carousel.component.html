@@ -1,5 +1,5 @@
 <div class="carousel">
-  <div class="carousel-images" [style.transform]="getTransform()">
+  <div class="carousel-images" [style.transform]="getTransform">
     @for(product of products; track product.id){
     <div>
       <app-product [product]="product"></app-product>

@@ -8,7 +8,12 @@
 img {
   width: 100%;
   transition: transform 0.5s ease;
+  margin-bottom: -8px;
 }
+
+/* .productImage {
+  min-height: 366px;
+} */
 
 .title {
   font-size: 14px;
@@ -40,9 +45,8 @@ img {
   text-align: center;
   color: white;
   background-color: rgba(0, 0, 0, 0.568);
-
   position: absolute;
-  bottom: -60px;
+  bottom: -50px;
   left: 0;
   right: 0;
   width: 100%;
@@ -61,7 +65,7 @@ img {
 }
 
 .buttonContainer img {
-  width: 80%;
+  width: 60%;
 }
 
 .product:hover .buttonContainer {
