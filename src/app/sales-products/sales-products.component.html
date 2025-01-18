@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="wrap">
+    <div class="title">
+      <h1>Trendly Deals For You</h1>
+      <p>Special deals this week on different categories, buy now before they run out.</p>
+    </div>
+
+    <div class="nav">
+      <div class="buttons">
+        <button [class.clicked]="activeNav == 'Men'" (click)="getSalesMen()" href="">Men</button>
+        <button [class.clicked]="activeNav == 'Women'" (click)="getSalesWomen()" href="">Women</button>
+        <button [class.clicked]="activeNav == 'Shoe'" (click)="getSalesShoes()" href="">Shoes</button>
+        <button [class.clicked]="activeNav == 'Bag'" (click)="getSalesBags()" href="">Bags</button>
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    @if(isLoading){
+    <div class="overlay"></div>
+    }
+    @if(filteredProducts.length == 0){
+    <p class="notice">Sorry, there's currently no products on sale for this category. Please come back later or try
+      another category.</p>
+    }@else{
+    <app-carousel [products]="filteredProducts"></app-carousel>
+    }
+
+  </div>
+</div>

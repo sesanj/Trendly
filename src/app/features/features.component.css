@@ -7,11 +7,10 @@
 .features {
   width: 1300px;
   display: flex;
-  /* margin: auto;  */ /*This style rule is used to align a div to center*/
   justify-content: space-between;
-  margin-top: 200px; /* This code is to be removed later*/
-  padding: 30px 0px;
-  border-top: 1px grey dotted;
+  margin-top: 20px; /* This code is to be removed later*/
+  padding: 20px 0px;
+  /* border-top: 1px grey dotted; */
   border-bottom: 1px grey dotted;
 }
 .item {
