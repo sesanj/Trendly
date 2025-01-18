@@ -7,6 +7,10 @@ node_modules
 
 /.angular/cache/18.2.12/Trendly/.tsbuildinfo
 
+.angular/cache
+
+.angular/cache/18.2.12/Trendly/.tsbuildinfo
+
 # Compiled output
 /dist
 /tmp
