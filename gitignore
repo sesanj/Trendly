@@ -4,6 +4,8 @@ node_modules
 
 .angular
 
+.angular/cache/18.2.12/Trendly/.tsbuildinfo
+
 # Compiled output
 /dist
 /tmp
