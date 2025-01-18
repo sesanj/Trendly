@@ -13,27 +13,26 @@ import { Product } from '../models/product.model';
 export class FeaturedProductsComponent implements OnInit {
   productService = inject(ProductServiceService);
 
-  allProducts: Product[] = this.productService.getAllProducts();
+  allProducts: Product[] = [];
 
   navStyle: string = '';
   loading: boolean = false;
 
   ngOnInit() {
-    this.allProducts = this.productService.getAllProducts();
-    this.getFeaturedMen();
-  }
-
-  getFeaturedMen() {
-    // this.loading = true;
-    // setTimeout(() => {
-    //   this.loading = false;
-    //   return this.allProducts.filter((product) => product.category.men);
-    // }, 0);
-    this.navStyle = 'Men';
-
     this.allProducts = this.productService
       .getAllProducts()
       .filter((product) => product.category.men);
+  }
+
+  getFeaturedMen() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.allProducts = this.productService
+        .getAllProducts()
+        .filter((product) => product.category.men);
+    }, 500);
+    this.navStyle = 'Men';
   }
 
   getFeaturedWomen() {
@@ -49,14 +48,14 @@ export class FeaturedProductsComponent implements OnInit {
   }
 
   getFeaturedTrending() {
-    // this.loading = true;
-    // setTimeout(() => {
-    //   this.loading = false;
-    //   return this.allProducts.filter((product) => product.tag === 'TRENDING');
-    // }, 0);
+    this.loading = true;
     this.navStyle = 'Trending';
-    this.allProducts = this.productService
-      .getAllProducts()
-      .filter((product) => product.tag === 'TRENDING');
+
+    setTimeout(() => {
+      this.loading = false;
+      this.allProducts = this.productService
+        .getAllProducts()
+        .filter((product) => product.tag === 'TRENDING');
+    }, 500);
   }
 }
