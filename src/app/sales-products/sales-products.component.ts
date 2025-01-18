@@ -16,48 +16,60 @@ export class SalesProductsComponent {
   filteredProducts: Product[] = [];
 
   activeNav!: string;
-  loading: boolean = false;
+  isLoading: boolean = false;
 
   ngOnInit() {
     this.filteredProducts = this.productService
       .getAllProducts()
-      .filter((product) => product.category.men);
+      .filter((product) => product.discount);
   }
 
-  getFeaturedMen() {
-    this.loading = true;
+  getSalesMen() {
+    this.isLoading = true;
 
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
         .filter((product) => product.category.men);
-      this.loading = false;
+      this.isLoading = false;
     }, 600);
     this.activeNav = 'Men';
   }
 
-  getFeaturedWomen() {
-    this.loading = true;
+  getSalesWomen() {
+    this.isLoading = true;
+    this.activeNav = 'Women';
 
     setTimeout(() => {
-      this.activeNav = 'Women';
       this.filteredProducts = this.productService
         .getAllProducts()
         .filter((product) => product.category.women);
 
-      this.loading = false;
+      this.isLoading = false;
     }, 600);
   }
 
-  getFeaturedTrending() {
-    this.loading = true;
+  getSalesShoes() {
+    this.isLoading = true;
 
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
-        .filter((product) => product.tag === 'TRENDING');
-      this.loading = false;
+        .filter((product) => product.category.shoe);
+      this.isLoading = false;
     }, 600);
-    this.activeNav = 'Trending';
+    this.activeNav = 'Shoe';
+  }
+
+  getSalesBags() {
+    this.isLoading = true;
+
+    setTimeout(() => {
+      this.filteredProducts = this.productService
+        .getAllProducts()
+        .filter((product) => product.category.bag);
+      this.isLoading = false;
+    }, 600);
+    this.activeNav = 'Bag';
   }
 }
