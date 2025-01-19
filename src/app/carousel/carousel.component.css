@@ -1,0 +1,48 @@
+/* Carousel container */
+.carousel {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-bottom: 500px;
+}
+
+/* Image container */
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Images */
+.carousel-images div {
+  width: 23.6%;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+/* Navigation buttons */
+button {
+  background-color: rgb(56, 56, 56);
+  color: white;
+  border: none;
+  width: 120px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 15px;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin: auto;
+  margin-top: 20px;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: rgb(195, 0, 0);
+}

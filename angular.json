@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "WebProject": {
+=======
+    "Trendly": {
+>>>>>>> 3317c231c89db792a5bb85cd888b3081c5f8bb6b
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/web-project",
+=======
+            "outputPath": "dist/trendly",
+>>>>>>> 3317c231c89db792a5bb85cd888b3081c5f8bb6b
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -41,8 +49,13 @@
                 },
                 {
                   "type": "anyComponentStyle",
+<<<<<<< HEAD
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
+=======
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+>>>>>>> 3317c231c89db792a5bb85cd888b3081c5f8bb6b
                 }
               ],
               "outputHashing": "all"
@@ -59,10 +72,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "buildTarget": "WebProject:build:production"
             },
             "development": {
               "buildTarget": "WebProject:build:development"
+=======
+              "buildTarget": "Trendly:build:production"
+            },
+            "development": {
+              "buildTarget": "Trendly:build:development"
+>>>>>>> 3317c231c89db792a5bb85cd888b3081c5f8bb6b
             }
           },
           "defaultConfiguration": "development"
@@ -81,11 +101,17 @@
             "assets": [
               {
                 "glob": "**/*",
+<<<<<<< HEAD
                 "input": "public/",
                 "output": "/assets/"
               }
             ],
 
+=======
+                "input": "public"
+              }
+            ],
+>>>>>>> 3317c231c89db792a5bb85cd888b3081c5f8bb6b
             "styles": [
               "src/styles.css"
             ],

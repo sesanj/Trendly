@@ -1,0 +1,17 @@
+<div class="carousel">
+  <div class="carousel-images" [style.transform]="getTransform()">
+    @for(product of products; track product.id){
+    <div>
+      <app-product [product]="product"></app-product>
+    </div>
+    }
+  </div>
+  <div class="buttonContainer">
+    <div class="prev">
+      <button (click)="prevSlide()">&#10094; Previous</button>
+    </div>
+    <div class="next">
+      <button (click)="nextSlide()">Next &#10095;</button>
+    </div>
+  </div>
+</div>
