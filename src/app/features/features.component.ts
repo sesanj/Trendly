@@ -1,4 +1,4 @@
-import { Features } from './../models/features.model';
+import { Features } from '../models/features.model';
 import { Component } from '@angular/core';
 
 @Component({
