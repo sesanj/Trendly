@@ -28,10 +28,9 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man1.jpg",
-      image2: "man2.jpg",
-      image3: "man3.jpg",
-      image4: "man4.jpg",
+      image1: "man1-1.jpg",
+      image2: "man1-2.jpg",
+      image3: "man1-3.jpg",
     },
     tag: "HOT",
   },
@@ -86,404 +85,229 @@ let products = [
   },
   {
     id: "m4",
-    title: "Blue men hat",
-    price: 23,
-    //discount: 24,
-    description:
-      "classic men's blue cap, designed for both comfort and versatility.",
-    category: {
-      men: true,
-      hat:true,
-    },
-    quantity: 0,
-    color: [
-
-      "BLUE",
-
-    ],
-    size: ["M", "L"],
-    image: {
-      image1: "man4-1.webp",
-      image2: "man4-2.webp",
-
-    },
-
-  },
-  {
-    id: "m5",
-    title: "black classci men belt",
-    price: 53,
-    discount: 42.99,
-    description:
-      " men's black leather belt, crafted from high-quality leather for a smooth and durable finish",
-    category: {
-      men: true,
-      belt:true,
-    },
-    quantity: 0,
-    color: [
-      "BLACK",
-      "BLUE",
-    ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man5.webp",
-
-    },
-    tag: "HOT",
-  },
-
-  {
-    id: "m6",
-    title: "light blue men Jean",
+    title: "Men's College T-Shirt Printed Crew Neck Short Sleeve",
     price: 99,
-    // discount: 24,
+    discount: 66,
     description:
-      "Men's light blue straight-leg jeans, perfect for a casual, laid-back look.",
+      "This men's white crewneck short-sleeve T-shirt combines a minimalist design with a stylish print, offering a trendy and casual urban look. Made from premium-quality cotton, it is soft, breathable, and perfect for spring and summer wear.",
     category: {
       men: true,
-      jean:true,
+      shirt:true
     },
-    quantity: 50,
-
+    quantity: 11,
+    color: [
+      "WHITE",
+    ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man6-1.webp",
-      image2: "man6-2.webp",
-      image3: "man6-3.webp",
-
-    },
-    tag: "HOT",
-  },
-  {
-    id: "m7",
-    title: "black men Jean",
-    price: 99.99,
-    // discount: 24,
-    description:
-      "Men's black straight-leg jeans, perfect for a casual, laid-back look.",
-    category: {
-      men: true,
-      jean:true,
-    },
-    quantity: 0,
-
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man7-1.webp",
-      image2: "man7-2.webp",
-      image3: "man7-3.webp",
-
+      image1: "man4-1.jpeg",
+      image2: "man4-2.jpeg",
+      image3: "man4-3.jpeg",
+      image4: "man4-4.jpeg"
     },
     tag: "TRENDING",
   },
   {
-    id: "m8",
-    title: "light blue classic men jean",
-    price: 105,
-    // discount: 24,
+    id: "m5",
+    title: "Cotton Crew Neck Long Sleeve T-Shirt",
+    price: 25,
+    //discount: 66,
     description:
-      "Men's light blue classic jeans, perfect for a casual, laid-back look.",
+      "Stay comfortable and stylish with our Cotton Crew Neck Long Sleeve Men T-Shirt, designed for versatile everyday wear. Made from high-quality cotton, this shirt offers a perfect balance of comfort, durability, and timeless style.",
     category: {
       men: true,
-      jean:true,
+      shirt:true
     },
-    quantity: 80,
-
+    quantity: 11,
+    color: [
+      "GREEN",
+    ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man8-1.webp",
-      image2: "man8-2.webp",
-      image3: "man8-3.webp",
-
-    },
+      image1: "man5-1.jpeg",
+      image2: "man5-2.jpeg",
+      image3: "man5-3.jpeg",
+      image4: "man5-4.jpeg"
+    }
   },
-
   {
-    id: "m9",
-    title: " blue classic men denim jacket",
-    price: 125,
-    // discount: 24,
+    id: "m6",
+    title: "MEN College Jacket Bomber Collar Embroidered Detailed Snap Buttons Pocket",
+    price: 199,
+    //discount: 66,
     description:
-      "men's denim jacket, a timeless classic for any season. Made from premium-quality denim, it features a durable design with button closures, multiple pockets, and a versatile fit. ",
+      "Elevate your casual style with our College Jacket, a perfect blend of classic varsity vibes and modern design. This jacket combines comfort, functionality, and standout details, making it a wardrobe essential for any season.",
     category: {
       men: true,
-      jacket:true,
+      jacket:true
     },
     quantity: 0,
-
+    color: [
+      "GREEN",
+    ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man9-1.webp",
-      image2: "man9-2.webp",
-      image3: "man9-3.webp",
-
-    },
+      image1: "man6-1.jpeg",
+      image2: "man6-2.jpeg",
+      image3: "man6-3.jpeg",
+      image4: "man6-4.jpeg"
+    }
   },
-
+  {
+    id: "m7",
+    title: "MEN Orange Knitwear Sweater Crew Neck",
+    price: 99,
+    //discount: 66,
+    description:
+      "Stay cozy and stylish with our vibrant Orange Knitwear Sweater, designed for comfort and versatility. Perfect for adding a pop of color to your wardrobe, this sweater combines classic design with premium craftsmanship.",
+    category: {
+      men: true,
+      jacket:true
+    },
+    quantity: 50,
+    // color: [
+    //   "GREEN",
+    // ],
+    size: ["M", "L", "XL"],
+    image: {
+      image1: "man7-1.jpeg",
+      image2: "man7-2.jpeg",
+    }
+  },
+  {
+    id: "m8",
+    title: "MEN Pocket Basic T-Shirt",
+    price: 79.99,
+    //discount: 66,
+    description:
+      "Upgrade your wardrobe with the effortlessly versatile Pocket Basic T-Shirt, a perfect blend of simplicity and functionality. Designed for everyday comfort and style, this t-shirt is a must-have staple.",
+    category: {
+      men: true,
+      shirt:true
+    },
+    quantity: 50,
+    // color: [
+    //   "GREEN",
+    // ],
+    size: ["M", "L", "XL"],
+    image: {
+      image1: "man8-1.jpeg",
+      image2: "man8-2.jpeg",
+      image3: "man8-3.jpg",
+      image4: "man8-4.jpeg"
+    }
+  },
+  {
+    id: "m9",
+    title: "MEN Plaid Lumberjack Shirt Classic Collar Long Sleeve",
+    price: 99.99,
+    //discount: 66,
+    description:
+      "Stay cozy and stylish with the timeless Plaid Men Lumberjack Shirt, a wardrobe essential that combines rugged charm with everyday functionality.",
+    category: {
+      men: true,
+      shirt:true
+    },
+    quantity: 99,
+    // color: [
+    //   "GREEN",
+    // ],
+    size: ["M", "L", "XL"],
+    image: {
+      image1: "man9-1.jpeg",
+      image2: "man9-2.jpeg",
+      image3: "man9-3.jpeg",
+      image4: "man9-4.jpeg"
+    }
+  },
   {
     id: "m10",
-    title: " dark blue classic men denim jean",
-    price: 89.99,
-    discount: 63.99,
+    title: "MEN Hooded Inflatable Coat Printed Waterproof",
+    price: 199.99,
+    //discount: 66,
     description:
-      "men's classic dark blue jeans, a versatile wardrobe essential. Crafted from high-quality, durable denim, they offer a comfortable fit with a timeless straight-leg design.  ",
+      "The Hooded Inflatable Coat is a stylish and practical outerwear designed to keep you warm and dry in all conditions. Made from high-quality, waterproof material, this coat ensures protection against rain and wind.",
     category: {
       men: true,
-      jacket:true,
+      jacket:true
     },
-    quantity: 29,
-
+    quantity: 99,
+    // color: [
+    //   "GREEN",
+    // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man10-1.webp",
-      image2: "man10-2.webp",
-      image3: "man10-3.webp",
+      image1: "man10-2.jpeg",
+      image2: "man10-3.jpeg",
+      image3: "man10-4.jpeg",
 
-    },
+    }
   },
-
   {
     id: "m11",
-    title: "  blue classic men shirt",
-    price: 32.99,
-    //discount: 63.99,
+    title: "Basic T-Shirt Crew Neck",
+    price: 49.99,
+    //discount: 66,
     description:
-      "Stay cool and stylish with this men's blue t-shirt, crafted from soft and breathable fabric for all-day comfort.  ",
+      "The Basic T-Shirt with a Crew Neck is a timeless and versatile wardrobe essential. Made from soft, breathable fabric, it offers comfort for all-day wear. The classic crew neck design provides a flattering fit for both casual and active occasions. ",
     category: {
       men: true,
-      shirt:true,
+      shirt:true
     },
-    quantity:12,
-
+    quantity: 50,
+    // color: [
+    //   "GREEN",
+    // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man11-1.webp",
-      image2: "man11-2.webp",
-      image3: "man11-3.webp",
-
-    },
+      image1: "man11-1.jpeg",
+      image2: "man11-2.jpeg"
+    }
   },
-
   {
     id: "m12",
-    title: "  blue classic men checkered shirt",
-    price: 98,
-    //discount: 63.99,
-    description :
-      "Men's blue checkered shirt, combining classic style with modern versatility. Made from premium, breathable fabric, it features a tailored fit, button-down collar, and adjustable cuffs for added comfort and sophistication.",
+    title: "Basic Shirt Classic Collar Buttoned Pocket Detailed",
+    price: 59.99,
+    discount: 46.99,
+    description:
+      "The Basic Shirt with a Classic Collar and Buttoned Pocket is the perfect blend of smart and casual style. Crafted from soft, durable fabric, this shirt offers both comfort and versatility. ",
     category: {
       men: true,
-      shirt:true,
+      jacket:true
     },
-    quantity:12,
-    color: [
-      "BLUE",
-    ],
+    quantity: 50,
+    // color: [
+    //   "GREEN",
+    // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man12-1.webp",
-      image2: "man12-2.webp",
-      image3: "man12-3.webp",
-
-    },
-    tag: "NEW",
+      image1: "man12-1.jpeg",
+      image2: "man12-2.jpeg",
+      image3: "man12-3.jpeg",
+      image4: "man12-4.jpeg"
+    }
   },
-
   {
     id: "m13",
-    title: "  blue men distressed retro jeans",
-    price: 105,
-    //discount: 63.99,
+    title: "Basic Melange Sweater Knitwear Crew Neck Long Sleeve",
+    price: 59.99,
+    discount: 46.99,
     description:
-      "   men's distressed retro jeans. Designed with a perfectly worn-in look, they feature high-quality denim for durability and comfort.",
+      "The Basic Melange Sweater is a cozy and stylish knitwear piece designed for year-round comfort. Featuring a classic crew neck and long sleeves, it provides a relaxed fit perfect for layering or wearing on its own. ",
     category: {
       men: true,
-      jean:true,
+      shirt:true
     },
-    quantity:99,
-    color: [
-      "BLUE",
-    ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man13-1.webp",
-      image2: "man13-2.webp",
-      image3: "man13-3.webp",
-
-    },
-    tag: "HOT",
-  },
-  {
-    id: "m14",
-    title: "  white men letter shirt",
-    price: 49.99,
-    //discount: 63.99,
-    description:
-      "men's white graphic t-shirt, featuring bold letter detailing for a modern touch. Made from soft, breathable cotton, it offers all-day comfort and a relaxed fit.",
-    category: {
-      men: true,
-      shirt:true,
-    },
-    quantity:99,
+    quantity: 50,
     // color: [
-    //   "BLUE",
+    //   "GREEN",
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man14-1.webp",
-      image2: "man14-2.webp",
-      image3: "man14-3.webp",
-
-    },
-
+      image1: "man13-1.jpeg",
+      image2: "man13-2.jpeg",
+      image3: "man13-3.jpeg",
+      image4: "man13-4.jpeg"
+    }
   },
-
-  {
-    id: "m15",
-    title: "  green men letter shirt",
-    price: 49.99,
-    //discount: 63.99,
-    description:
-      "men's green graphic t-shirt, featuring bold letter detailing for a modern touch. Made from soft, breathable cotton, it offers all-day comfort and a relaxed fit.",
-    category: {
-      men: true,
-      shirt:true,
-    },
-    quantity:99,
-    // color: [
-    //   "BLUE",
-    // ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man15-1.webp",
-      image2: "man15-2.webp",
-      image3: "man15-3.webp",
-
-    },
-
-  },
-  {
-    id: "m16",
-    title: "men distressed vintage denim jacket",
-    price: 150.99,
-    //discount: 63.99,
-    description:
-      "Men's distressed vintage denim jacket, crafted from high-quality denim for a durable, rugged look. Featuring a worn-in, aged finish with subtle fading and frayed edges, it brings a touch of retro charm to any outfit.",
-    category: {
-      men: true,
-      jacket:true,
-    },
-    quantity:99,
-    // color: [
-    //   "BLUE",
-    // ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man16-1.webp",
-      image2: "man16-2.webp",
-      image3: "man16-3.webp",
-
-    },
-
-  },
-  {
-    id: "m17",
-    title: "men's green checkered jacket",
-    price: 199.99,
-    //discount: 63.99,
-    description:
-      "casual wardrobe with this men's green checkered jacket. Made from soft, breathable fabric, it combines a comfortable fit with a stylish design.",
-    category: {
-      men: true,
-      jacket:true,
-    },
-    quantity:99,
-    // color: [
-    //   "BLUE",
-    //   "GREEN"
-    // ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man17-1.webp",
-      image2: "man17-2.webp",
-    },
-
-  },
-  {
-    id: "m18",
-    title: "men's grey puff jacket",
-    price: 299.99,
-    //discount: 63.99,
-    description:
-      " men's puffer down jacket, designed to provide exceptional insulation without compromising on style. Made from high-quality, lightweight materials, it features a sleek, quilted design and a comfortable, relaxed fit.",
-    category: {
-      men: true,
-      jacket:true,
-    },
-    quantity:99,
-    // color: [
-    //   "BLUE",
-    //   "GREEN"
-    // ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man18-1.webp",
-      image2: "man18-2.webp",
-      image3: "man18-3.webp",
-    },
-
-  },
-
-  {
-    id: "m19",
-    title: "men's classic belt",
-    price: 60,
-    //discount: 63.99,
-    description:
-      "Men's classic leather belt, a timeless accessory that combines elegance and durability. Crafted from high-quality genuine leather, it features a sleek, minimalist design with a polished metal buckle for a sophisticated touch..",
-    category: {
-      men: true,
-      belt:true,
-    },
-    quantity:25,
-    // color: [
-    //   "BLUE",
-    //   "GREEN"
-    // ],
-    size: ["M", "L", "XL"],
-    image: {
-      image1: "man19-1.webp",
-
-    },
-
-  },
-
-  {
-    id: "m20",
-    title: "men's classic bag",
-    price: 99,
-    //discount: 63.99,
-    description:
-      "Men's black backpack is the perfect combination of style, functionality, and durability. Crafted from high-quality materials, it features a sleek, minimalist design with multiple compartments to keep your essentials organized.",
-    category: {
-      men: true,
-      bag:true,
-    },
-    quantity:30,
-    // color: [
-    //   "BLUE",
-    //   "GREEN"
-    // ],
-    size: ["M"],
-    image: {
-      image1: "man20-1.webp",
-      image2: "man20-2.webp",
-
-    },
-
-  },
-
-
-
-];
+  ]
