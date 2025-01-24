@@ -6,11 +6,11 @@
 
     <div class="favorite">
 
-      @if(!favoriteProducts.includes(product)){
+      @if(!favoriteProducts.includes(product.id)){
       <img (click)="favoriteClicked(product)" src="heart.svg" alt="favorite icon">
       }
 
-      @if(favoriteProducts.includes(product)){
+      @if(favoriteProducts.includes(product.id)){
       <img (click)="unFavorite(product)" src="love.svg" alt="favorite icon">
       }
 

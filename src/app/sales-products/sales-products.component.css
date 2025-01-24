@@ -26,7 +26,6 @@
 button {
   margin-left: 20px;
   padding: 5px 15px;
-  font-weight: 500;
   border: 0px;
 }
 
@@ -36,8 +35,10 @@ button {
   border: 0px;
 }
 
-.product {
+.products {
+  margin-top: 50px;
   position: relative;
+  overflow: hidden;
 }
 
 .overlay {
@@ -45,19 +46,18 @@ button {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.368);
   z-index: 10000;
-  min-height: 526px;
+  height: 100%;
 }
 
 h1 {
   font-size: 22px;
   font-weight: 600;
   padding-bottom: 4px;
-  border-bottom: solid 3px red;
   display: inline;
 }
 
 p {
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .notice {

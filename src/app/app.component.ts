@@ -5,6 +5,8 @@ import { ProductServiceService } from './product service/product-service.service
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { SalesProductsComponent } from './sales-products/sales-products.component';
 import { CardSectionComponent } from './card-section/card-section.component';
+import { ReviewComponent } from './review/review.component';
+import { SpecialCollectionComponent } from './special-collection/special-collection.component';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,8 @@ import { CardSectionComponent } from './card-section/card-section.component';
     FeaturedProductsComponent,
     SalesProductsComponent,
     CardSectionComponent,
+    ReviewComponent,
+    SpecialCollectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
