@@ -3,7 +3,7 @@
 node_modules
 
 /.angular
-.angular/cache
+/.angular/cache
 
 /.angular/cache/18.2.12/Trendly/.tsbuildinfo
 
