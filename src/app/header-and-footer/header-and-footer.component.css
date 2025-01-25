@@ -117,18 +117,19 @@ hr{
 }
 
 .text-overlay {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-left:5px ;
     position: absolute; /* Position text on top of the image */
-    top: 150px; /* Position vertically in the middle */
-    left: 200px; /* Position horizontally in the middle */
+    top: 180px; /* Position vertically in the middle */
+    left: 220px; /* Position horizontally in the middle */
     transform: translate(-50%, -50%); /* Center the text */
-    color: #ffffff; /* Text color */
-    font-size: 24px; /* Font size */
-    font-style: oblique;
-    font-weight: bold; /* Optional: Make text bold */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for better readability */
+    color: #323232; /* Text color */
+    font-size: 20px; /* Font size */
+    font-style: normal;
+    font-family: 'Open Sans', sans-serif;
+
 }
-
-
 
 
 .image-container3{
@@ -165,21 +166,21 @@ img{
 /* Text overlay styling */
 .text-overlay2 {
     position: absolute;
-    top: 150px; /* Position the text vertically at the center */
-    left: 50%; /* Position the text horizontally at the center */
+    padding-left: 5px;
+    top: 125px; /* Position the text vertically at the center */
+    left: 30%; /* Position the text horizontally at the center */
     transform: translate(-50%, -50%); /* Adjust to perfectly center the text */
-    color: white; /* White color for the text */
-    font-size: 2rem; /* Adjust the font size */
+    color: #252525; /* White color for the text */
+    font-size: 20px; /* Adjust the font size */
+    font-style: normal;
     font-family: 'Open Sans', sans-serif;
-    font-style: oblique;
     padding: 10px; /* Padding for better spacing around the text */
-    text-align: center; /* Center the text inside the overlay */
+
 }
 /* Image container for both images */
 .image-container3 {
     display: flex; /* Align images in a row */
-    justify-content: space-between; /* Space out images evenly */
-    gap: 10px; /* Add space between the images */
+    gap: 5%; /* Add space between the images */
     flex-wrap: wrap; /* Allow images to wrap on smaller screens */
 }
 
@@ -200,17 +201,17 @@ img{
 /* Text overlay styling */
 .text-overlay3, .text-overlay4 {
     position: absolute;
-    top: 50px; /* Position the text vertically in the center */
+    top: 40px; /* Position the text vertically in the center */
     left: 50%; /* Position the text horizontally in the center */
     transform: translate(-50%, -50%); /* Adjust to center the text perfectly */
-    color: #ffffff; /* White text color */
-    font-size: 1.5rem; /* Adjust the font size */
-    font-weight: bold; /* Make the text bold */
+    color: #222121; /* White text color */
+    font-size: 20px; /* Adjust the font size */
     padding: 10px;
     width: 10rem;
-    font-style: oblique;
+    font-style: normal;
     font-family: 'Open Sans', sans-serif;
     text-align: center; /* Center the text inside the overlay */
+    margin-left: -20px;
 }
 
 .first-img{
@@ -223,17 +224,37 @@ img{
     max-width: 1300px; /* Constrain the width */
     margin: auto; /* Center the container */
 }
+
+
 .text-overlay5 {
     position: absolute; /* Position relative to the container */
+    top:25%;
     bottom: 20rem; /* Center vertically */
-    right: -15rem; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Perfect centering */
+    left: 20%;
     color: white; /* White text color for contrast */
-    font-size: 3.5rem; /* Adjust font size */
-    font-weight: bold; /* Bold text */
+    font-size: 2rem;
     text-align: center; /* Center the text */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
     text-transform: uppercase; /* Optional: make the text uppercase */
+    font-style: normal;
     font-family: 'Open Sans', sans-serif;
-    font-style: oblique;
+
+}
+
+em{
+    font-family: "Times New Roman";
+}
+
+.header-text2{
+    font-size: 20px;
+}
+
+.shopping{
+    width: 200px;
+    height: 50px;
+    background-color: #e45656;
+    border:none;
+    color: #faf7f7;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
 }
