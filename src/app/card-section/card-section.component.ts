@@ -19,7 +19,7 @@ export class CardSectionComponent {
     },
     {
       label: 'New Arrivals',
-      title: 'Look Different',
+      title: 'A Different Look',
       description: 'For different occasions.',
       click: this.menClothing,
       image: 'fashion1.png',
