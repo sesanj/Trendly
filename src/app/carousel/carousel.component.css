@@ -37,10 +37,10 @@ button {
   background-color: rgba(56, 56, 56, 0.309);
   color: white;
   border: none;
-  width: 100px;
-  padding: 8px 0px;
+  width: 50px;
+  padding: 6px 0px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
 }
 

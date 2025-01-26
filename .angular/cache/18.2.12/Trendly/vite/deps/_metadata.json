@@ -1,31 +1,54 @@
 {
+<<<<<<< HEAD
   "hash": "58961e70",
   "configHash": "5aa6c995",
   "lockfileHash": "030ca03e",
   "browserHash": "2ce63cd4",
+=======
+  "hash": "a83fd3cc",
+  "configHash": "d87faf30",
+  "lockfileHash": "0609317c",
+  "browserHash": "58496278",
+>>>>>>> womens-products
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
       "fileHash": "abd13005",
+=======
+      "fileHash": "17ae7617",
+>>>>>>> womens-products
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
       "fileHash": "b40bba76",
+=======
+      "fileHash": "a3fd93fe",
+>>>>>>> womens-products
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
       "fileHash": "b2db8db1",
+=======
+      "fileHash": "bca8178c",
+>>>>>>> womens-products
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
       "fileHash": "99234c53",
+=======
+      "fileHash": "4b66ebe9",
+>>>>>>> womens-products
       "needsInterop": false
     }
   },
