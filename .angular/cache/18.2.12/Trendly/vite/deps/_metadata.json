@@ -1,77 +1,31 @@
 {
-<<<<<<< HEAD
-  "hash": "b4ac64c0",
-  "configHash": "d51b1e04",
-  "lockfileHash": "162401a4",
-  "browserHash": "090a9cd6",
-=======
-<<<<<<< HEAD
-  "hash": "58961e70",
+  "hash": "2340d8c8",
   "configHash": "5aa6c995",
-  "lockfileHash": "030ca03e",
-  "browserHash": "2ce63cd4",
-=======
-  "hash": "a83fd3cc",
-  "configHash": "d87faf30",
-  "lockfileHash": "0609317c",
-  "browserHash": "58496278",
->>>>>>> womens-products
->>>>>>> home
+  "lockfileHash": "162401a4",
+  "browserHash": "3f9ccbb7",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-<<<<<<< HEAD
-      "fileHash": "48684720",
-=======
-<<<<<<< HEAD
-      "fileHash": "abd13005",
-=======
-      "fileHash": "17ae7617",
->>>>>>> womens-products
->>>>>>> home
+      "fileHash": "d5ad974e",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-<<<<<<< HEAD
-      "fileHash": "26f3b01c",
-=======
-<<<<<<< HEAD
-      "fileHash": "b40bba76",
-=======
-      "fileHash": "a3fd93fe",
->>>>>>> womens-products
->>>>>>> home
+      "fileHash": "605f5fbb",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-<<<<<<< HEAD
-      "fileHash": "8ed11012",
-=======
-<<<<<<< HEAD
-      "fileHash": "b2db8db1",
-=======
-      "fileHash": "bca8178c",
->>>>>>> womens-products
->>>>>>> home
+      "fileHash": "fbd5ff96",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-<<<<<<< HEAD
-      "fileHash": "4bf77672",
-=======
-<<<<<<< HEAD
-      "fileHash": "99234c53",
-=======
-      "fileHash": "4b66ebe9",
->>>>>>> womens-products
->>>>>>> home
+      "fileHash": "976eec68",
       "needsInterop": false
     }
   },

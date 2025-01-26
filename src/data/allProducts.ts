@@ -2,31 +2,6 @@ import { Product } from '../app/models/product.model';
 
 export const ProductData: Product[] = [
   {
-    id: 'w2',
-    title: 'Light Camel Long Woolen Coat',
-    price: 93,
-    discount: 35,
-    description:
-      'Looking for a way to elevate your fall wardrobe? This timeless double-breasted coat made in a resilient and durable wool blend is sure to provide you with absolute elegance, giving the perfect finishing touch to any of your seasonal outfits. ',
-    category: {
-      women: true,
-      jacket: true,
-    },
-    quantity: 25,
-
-    size: ['XS', 'S', 'M', 'L', 'XL'],
-    image: {
-      image1: 'gJacket1.jpg',
-      image2: 'gJacket2.jpg',
-      image3: 'gJacket3.jpg',
-      image4: 'gJacket4.jpg',
-    },
-    tag: 'TRENDING',
-
-    featured: true,
-  },
-
-  {
     id: '15353',
     title: 'Hooded Inflatable Coat Printed Waterproof',
     price: 75.62,
