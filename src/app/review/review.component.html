@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="heading">
+    <h1>Top Reviews From Shoppers</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      <br>
+      magna aliqua. Quis ipsum suspendisse ultrices gravida
+
+    </p>
+  </div>
+  <div class="reviewContainer" [style.transform]="getTransform">
+    @for (review of reviews; track review) {
+    <div class="review">
+      <div class="nameAndReview">
+        <div class="name">
+          <h3>{{review.writer}}</h3>
+          <p>{{review.country}}</p>
+        </div>
+        <img src="5star.svg" alt="A 5 star icon">
+      </div>
+      <p>{{review.description}}</p>
+    </div>
+    }
+  </div>
+  <div class="buttonContainer">
+    <div class="prev">
+      <button (click)="prevSlide()">&#10094;</button>
+    </div>
+    <div class="next">
+      <button (click)="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+</div>
