@@ -2,7 +2,14 @@
 
 node_modules
 
-.angular
+/.angular
+/.angular/cache
+
+/.angular/cache/18.2.12/Trendly/.tsbuildinfo
+
+.angular/cache
+
+.angular/cache/18.2.12/Trendly/.tsbuildinfo
 
 # Compiled output
 /dist

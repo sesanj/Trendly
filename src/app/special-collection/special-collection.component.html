@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="wrap">
+    <div class="title">
+      <h1>Special Collections</h1>
+      <p>Check out our special new and hot collections just for you.</p>
+    </div>
+    <div class="nav">
+      <div class="buttons">
+        <button class="navButton" [class.clicked]="navStyle == 'New'" (click)="getNew()" href="">New</button>
+        <button class="navButton" [class.clicked]="navStyle == 'Hot'" (click)="getHot()" href="">Hot</button>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="product">
+      <app-product [product]="product[0]"></app-product>
+    </div>
+    <div class="image">
+      <img src="womenFashion.png" alt="An advert">
+      <div class="details">
+        <div>
+          <h3>New Arrivals | Hot Collections</h3>
+          <h2>You Are What You Wear</h2>
+          <p>Shop for all seasons, top quality designs with best prices. <br>We've got you covered all year long.</p>
+          <button>Shop Now ---></button>
+        </div>
+
+      </div>
+    </div>
+    <div class="product">
+      <app-product [product]="product[1]"></app-product>
+    </div>
+  </div>
+</div>
