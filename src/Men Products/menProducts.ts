@@ -28,9 +28,9 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man1-1.jpg",
-      image2: "man1-2.jpg",
-      image3: "man1-3.jpg",
+      image1: "men1-1.jpg",
+      image2: "men1-2.jpg",
+      image3: "men1-3.jpg",
     },
     tag: "HOT",
   },
@@ -53,9 +53,9 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man2-1.jpg",
-      image2: "man2-2.jpg",
-      image3: "man2-3.jpg",
+      image1: "men2-1.jpg",
+      image2: "men2-2.jpg",
+      image3: "men2-3.jpg",
     },
     tag: "NEW",
   },
@@ -76,10 +76,10 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man3-1.jpeg",
-      image2: "man3-2.jpeg",
-      image3: "man3-3.jpeg",
-      image4: "man3-4.jpeg"
+      image1: "men3-1.jpeg",
+      image2: "men3-2.jpeg",
+      image3: "men3-3.jpeg",
+      image4: "men3-4.jpeg"
     },
     tag: "TRENDING",
   },
@@ -100,10 +100,10 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man4-1.jpeg",
-      image2: "man4-2.jpeg",
-      image3: "man4-3.jpeg",
-      image4: "man4-4.jpeg"
+      image1: "men4-1.jpeg",
+      image2: "men4-2.jpeg",
+      image3: "men4-3.jpeg",
+      image4: "men4-4.jpeg"
     },
     tag: "TRENDING",
   },
@@ -124,10 +124,10 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man5-1.jpeg",
-      image2: "man5-2.jpeg",
-      image3: "man5-3.jpeg",
-      image4: "man5-4.jpeg"
+      image1: "men5-1.jpeg",
+      image2: "men5-2.jpeg",
+      image3: "men5-3.jpeg",
+      image4: "men5-4.jpeg"
     }
   },
   {
@@ -147,10 +147,10 @@ let products = [
     ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man6-1.jpeg",
-      image2: "man6-2.jpeg",
-      image3: "man6-3.jpeg",
-      image4: "man6-4.jpeg"
+      image1: "men6-1.jpeg",
+      image2: "men6-2.jpeg",
+      image3: "men6-3.jpeg",
+      image4: "men6-4.jpeg"
     }
   },
   {
@@ -170,8 +170,8 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man7-1.jpeg",
-      image2: "man7-2.jpeg",
+      image1: "men7-1.jpeg",
+      image2: "men7-2.jpeg",
     }
   },
   {
@@ -191,10 +191,10 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man8-1.jpeg",
-      image2: "man8-2.jpeg",
-      image3: "man8-3.jpg",
-      image4: "man8-4.jpeg"
+      image1: "men8-1.jpeg",
+      image2: "men8-2.jpeg",
+      image3: "men8-3.jpg",
+      image4: "men8-4.jpeg"
     }
   },
   {
@@ -214,10 +214,10 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man9-1.jpeg",
-      image2: "man9-2.jpeg",
-      image3: "man9-3.jpeg",
-      image4: "man9-4.jpeg"
+      image1: "men9-1.jpeg",
+      image2: "men9-2.jpeg",
+      image3: "men9-3.jpeg",
+      image4: "men9-4.jpeg"
     }
   },
   {
@@ -237,9 +237,10 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man10-2.jpeg",
-      image2: "man10-3.jpeg",
-      image3: "man10-4.jpeg",
+      image1: "men10-2.jpeg",
+      image2: "men10-3.jpeg",
+      image3: "men10-4.jpeg",
+      image4: "men10-1.jpeg"
 
     }
   },
@@ -260,8 +261,8 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man11-1.jpeg",
-      image2: "man11-2.jpeg"
+      image1: "men11-1.jpeg",
+      image2: "men11-2.jpeg"
     }
   },
   {
@@ -281,10 +282,8 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man12-1.jpeg",
-      image2: "man12-2.jpeg",
-      image3: "man12-3.jpeg",
-      image4: "man12-4.jpeg"
+      image1: "men12-1.jpeg",
+      image2: "men12-3.jpeg",
     }
   },
   {
@@ -304,10 +303,10 @@ let products = [
     // ],
     size: ["M", "L", "XL"],
     image: {
-      image1: "man13-1.jpeg",
-      image2: "man13-2.jpeg",
-      image3: "man13-3.jpeg",
-      image4: "man13-4.jpeg"
+      image1: "men13-1.jpeg",
+      image2: "men13-2.jpeg",
+      image3: "men13-3.jpeg",
+      image4: "men13-4.jpeg"
     }
   },
   ]
