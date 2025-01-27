@@ -7,6 +7,7 @@ import { SalesProductsComponent } from './sales-products/sales-products.componen
 import { CardSectionComponent } from './card-section/card-section.component';
 import { ReviewComponent } from './review/review.component';
 import { SpecialCollectionComponent } from './special-collection/special-collection.component';
+import { HeroSectionComponent } from './hero-section/hero-section.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { SpecialCollectionComponent } from './special-collection/special-collect
     CardSectionComponent,
     ReviewComponent,
     SpecialCollectionComponent,
+    HeroSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

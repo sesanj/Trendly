@@ -1,0 +1,166 @@
+/* Carousel container */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel:hover .prev,
+.carousel:hover .next {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Image container */
+.carousel-images {
+  display: flex;
+  transition: transform 0s ease-in-out;
+}
+
+/* Images */
+.carousel-images div {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Navigation buttons */
+.prev button,
+.next button {
+  background-color: rgba(56, 56, 56, 0.309);
+  color: white;
+  border: none;
+  width: 50px;
+  padding: 6px 0px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  margin-top: 20px;
+  opacity: 0;
+}
+
+.prev {
+  transform: translateX(-50px);
+  transition: opacity 0.2s ease, transform 0.5s ease;
+}
+
+.next {
+  right: 0;
+  justify-content: flex-end;
+
+  transform: translateX(50px);
+  transition: opacity 0.2s ease, transform 0.5s ease;
+}
+
+/* Button hover effect */
+.prev button:hover,
+.next button:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+/* Couresel content starts here */
+
+.section {
+  position: relative;
+  opacity: 0.2;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.section.active {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  top: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.content div {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 75px;
+  margin-top: -6px;
+  margin-bottom: 0px;
+  font-weight: 500;
+
+  transform: translateX(0%) translateY(50%);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1.2s ease;
+}
+
+.section.active h1 {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 0px;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+
+  transform: translateX(0%) translateY(50%);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1.6s ease;
+}
+
+.section.active .content button {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.content button:hover {
+  background-color: rgb(59, 59, 59);
+  color: rgb(255, 255, 255);
+}
+
+.label {
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(0, 103, 0);
+
+  transform: translateX(0%) translateY(50%);
+  opacity: 0;
+  transition: opacity 1s ease, transform 0.8s ease;
+}
+
+.section.active .label {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+p {
+  font-size: 20px;
+
+  transform: translateX(0%) translateY(50%);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1.6s ease;
+}
+
+.section.active p {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
