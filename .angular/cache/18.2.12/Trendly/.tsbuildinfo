@@ -263,18 +263,21 @@
       "../../../../src/app/app.routes.ts",
       "../../../../src/app/app.config.ts",
       "../../../../src/app/app.component.ngtypecheck.ts",
-      "../../../../src/app/header/header.component.ngtypecheck.ts",
-      "../../../../src/app/header/header.component.ts",
-      "../../../../src/app/features/features.component.ngtypecheck.ts",
-      "../../../../src/app/models/features.model.ngtypecheck.ts",
-      "../../../../src/app/models/features.model.ts",
-      "../../../../src/app/features/features.component.ts",
       "../../../../src/app/product service/product-service.service.ngtypecheck.ts",
       "../../../../src/app/models/product.model.ngtypecheck.ts",
       "../../../../src/app/models/product.model.ts",
       "../../../../src/data/allproducts.ngtypecheck.ts",
       "../../../../src/data/allproducts.ts",
       "../../../../src/app/product service/product-service.service.ts",
+      "../../../../src/app/home/home.component.ngtypecheck.ts",
+      "../../../../src/app/header/header.component.ngtypecheck.ts",
+      "../../../../src/app/header/header.component.ts",
+      "../../../../src/app/hero-section/hero-section.component.ngtypecheck.ts",
+      "../../../../src/app/models/features.model.ngtypecheck.ts",
+      "../../../../src/app/models/features.model.ts",
+      "../../../../src/app/features/features.component.ngtypecheck.ts",
+      "../../../../src/app/features/features.component.ts",
+      "../../../../src/app/hero-section/hero-section.component.ts",
       "../../../../src/app/product/product.component.ngtypecheck.ts",
       "../../../../node_modules/@angular/forms/index.d.ts",
       "../../../../src/app/product/product.component.ts",
@@ -282,16 +285,21 @@
       "../../../../src/app/carousel/carousel.component.ts",
       "../../../../src/app/featured-products/featured-products.component.ngtypecheck.ts",
       "../../../../src/app/featured-products/featured-products.component.ts",
-      "../../../../src/app/sales-products/sales-products.component.ngtypecheck.ts",
-      "../../../../src/app/sales-products/sales-products.component.ts",
+      "../../../../src/app/category-section/category-section.component.ngtypecheck.ts",
+      "../../../../src/app/category-section/category-section.component.ts",
+      "../../../../src/app/special-collection/special-collection.component.ngtypecheck.ts",
+      "../../../../src/app/special-collection/special-collection.component.ts",
       "../../../../src/app/fashion-card/fashion-card.component.ngtypecheck.ts",
       "../../../../src/app/fashion-card/fashion-card.component.ts",
       "../../../../src/app/card-section/card-section.component.ngtypecheck.ts",
       "../../../../src/app/card-section/card-section.component.ts",
+      "../../../../src/app/sales-products/sales-products.component.ngtypecheck.ts",
+      "../../../../src/app/sales-products/sales-products.component.ts",
       "../../../../src/app/review/review.component.ngtypecheck.ts",
       "../../../../src/app/review/review.component.ts",
-      "../../../../src/app/special-collection/special-collection.component.ngtypecheck.ts",
-      "../../../../src/app/special-collection/special-collection.component.ts",
+      "../../../../src/app/footer/footer.component.ngtypecheck.ts",
+      "../../../../src/app/footer/footer.component.ts",
+      "../../../../src/app/home/home.component.ts",
       "../../../../src/app/app.component.ts",
       "../../../../src/main.ts"
     ],
@@ -710,28 +718,7 @@
       "ddd578018a259d1c494c834bdd8707769d07d1eb64f87f5217560cd2181b9e93",
       "e2ef74b4c1f7f52a30a417c6808f01b2a29e69bb0d20302527ae5001607f7180",
       "216aa2fb444cad9f7b3103f36f6e480dc2eb0bbbe13da6b5f2b1f640358a357b",
-      {
-        "version": "88070b2a82a6fd5ab0e8b666af3a823ef4482abcb86b364eb67537c4e05b058d",
-        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
-      },
-      {
-        "version": "30562f5e35d65633f18b20f3d8c522dda94e9f57b25f3c7a55427c9f1e1d4008",
-        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
-      },
-      "43207327f6f3b2a697f6a463d9354ab0c556d6bc929c940d4dd4ae703e86c7b4",
-      {
-        "version": "cbbb3b9d7dce61afa7a0e519c622de83e55344624321fa8c5c4f3922d35f0872",
-        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
-      },
-      {
-        "version": "ddd578018a259d1c494c834bdd8707769d07d1eb64f87f5217560cd2181b9e93",
-        "signature": "da14a67372982ca6e605fea114900b492b3316618581634e0ce72afbcb09baca"
-      },
-      {
-        "version": "60854a46afc217cfe6612e13ecc995bd06187417ac6dd52ce93aed084ce64084",
-        "signature": "5f099128151fd97d043a905cca403bbccc01639aab94a6249383dae81d526d8b"
-      },
-      "3df697d2ca8a845acc6f7d55f912ddc720e50c48f1c7e72c12a3243970f2ae62",
+      "88070b2a82a6fd5ab0e8b666af3a823ef4482abcb86b364eb67537c4e05b058d",
       {
         "version": "ddd578018a259d1c494c834bdd8707769d07d1eb64f87f5217560cd2181b9e93",
         "signature": "da14a67372982ca6e605fea114900b492b3316618581634e0ce72afbcb09baca"
@@ -749,10 +736,37 @@
         "signature": "da14a67372982ca6e605fea114900b492b3316618581634e0ce72afbcb09baca"
       },
       {
-        "version": "002808d29a36e23803f5f54e0a8839675989736b9f20dc20179939527191a705",
+        "version": "7ae83bb615aa21102f7ec57bb8c0829d036daf7175dc69d1ca97e5aed654e44f",
         "signature": "65a5883f6ecf7d46ee6b0726efad11e2fd90b7ddfbf2225e4782cb9f823f8605"
       },
-      "3aed91b6ddb61d0b64e41e77a5124337e7a370fae28c22fdc6ed62a322ee399c",
+      {
+        "version": "3aed91b6ddb61d0b64e41e77a5124337e7a370fae28c22fdc6ed62a322ee399c",
+        "signature": "5e8eaa72b9aa45b1cda59fe4303ff1a37413ca897755fa3ff9e37f64d46098e2"
+      },
+      "67c2483b6a81b9dba0530b679c588db74a027e899ee069a56f1d8307a93a6d32",
+      {
+        "version": "30562f5e35d65633f18b20f3d8c522dda94e9f57b25f3c7a55427c9f1e1d4008",
+        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
+      },
+      "43207327f6f3b2a697f6a463d9354ab0c556d6bc929c940d4dd4ae703e86c7b4",
+      "5db9656ee7a309c727aa110caa3f64e19202c14eb5dc18555d0fa1844dd234ab",
+      {
+        "version": "ddd578018a259d1c494c834bdd8707769d07d1eb64f87f5217560cd2181b9e93",
+        "signature": "da14a67372982ca6e605fea114900b492b3316618581634e0ce72afbcb09baca"
+      },
+      {
+        "version": "60854a46afc217cfe6612e13ecc995bd06187417ac6dd52ce93aed084ce64084",
+        "signature": "5f099128151fd97d043a905cca403bbccc01639aab94a6249383dae81d526d8b"
+      },
+      {
+        "version": "fc4038b2ad913f8732e7e9b12b8c74c9a2ac7549b01dd3fcc6bbe65fdb589ebd",
+        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
+      },
+      "3df697d2ca8a845acc6f7d55f912ddc720e50c48f1c7e72c12a3243970f2ae62",
+      {
+        "version": "e942dc166c43c0a7a5de76e12b5911830091fbdc5a9a492673c2691c6b03f43b",
+        "signature": "d6c000c5ffc6762fbe2e42cae2e0292d7ec757dc9836974479ef11a2e84fe9d2"
+      },
       {
         "version": "b316c189eeda684b58f849e828beed720061814597ee229f4a35c69e6902ad23",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
@@ -765,41 +779,52 @@
       },
       "314ec8b5d7b53de23d92e410a6e937d17b2020b80af3e31c99c6a24efc94bd6f",
       {
-        "version": "c0c2b1b74695bcc31c287c156febcc4f5c5b074d2f5dfa2144263c8bb55c3237",
+        "version": "3e57e93a6aa7ee3c100de1bd793ca8980d1831da5244b3e4bdf1bc08980ca1f6",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
-      "fa88028c152373a9e9788d97cfe5945c48449ab6fd74d9af04b5e68037d4140e",
+      "7bfba40c3e296655ff62874847f9e48d8337acec46ce1ebf64638b8f6f5dd9ad",
       {
-        "version": "a1f09baf0db138f3616abf5af2f69caedc49f81c59c91d77cb27943bacef4891",
+        "version": "349ad770ec0df46a1bc511e7a6325266382d4b44d52642bed41483070db556ac",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
-      "486f1754e13a931d74863a15916321233cde10f9caf3fbb333b043581c948787",
+      "8bbcd99ea86244183f97d7105edbe3a12bb121742b061cc3e26784a2c7020b93",
+      {
+        "version": "0a635f0ff94bd3877ff8a404ca8a7732dd27a433bd99cf0f5da27a93e8fb61b7",
+        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
+      },
+      "2ba1e1190108ea8e5697a51a7271524ff5bf058689c591220cf0022a9a41ad30",
       {
         "version": "e35d6d5bfac5ca78f8c286c3e4847032f122bfcfcacb058a63dbb091b03ad18e",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
-      "c20bfd1252f129c991eb1a9befec514be968b2a031cce65414281a3fd8c8bc1a",
+      "0c26e0109d552e7f03b69446bd6093c6fc7ddc9a1e2172927c041a111f96e0bc",
       {
         "version": "cecfde0867af3675b92902dfc63678a75862a15b0ac9e772e1d7a5b491cb69e5",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
       "fe768d27809ecbada682fdb8f281d9229d47a085394dfa6d9d882fd2ed830ebb",
       {
+        "version": "3ac9ca767068521e5935caa223ef8d3acad0ea55963873f129363cfde57a50fc",
+        "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
+      },
+      "486f1754e13a931d74863a15916321233cde10f9caf3fbb333b043581c948787",
+      {
         "version": "07f4f1d8850a4cb1c21034dd069d7263b494c192c70342dc5426ab575e1fef97",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
       "7eaf4a2cfb101de3cfcd891599460fac709c4d15b085c0da2b52c93c8248a906",
       {
-        "version": "132331734ec83c6b84bf3b3732d35475428cf45722ba3bcec4d7dddbd19d39ef",
+        "version": "16ceaebdcfe9740d60639cf8178c80d5c6dc41acf23b7f326aff3fd31517e67c",
         "signature": "b52dcd199c97746007e4589749483d8b943e6bac0bbf6a90c0b9c7be86f9b793"
       },
-      "2ba1e1190108ea8e5697a51a7271524ff5bf058689c591220cf0022a9a41ad30",
-      "6f550dd6a82daf0a08539aa08457673a6845fda0356e130324ecc67c6b3e7411",
+      "a72e8ab94f4474d7c3bc143a1d2eaa502ff91f30727bea7e199bfd63c0a36051",
+      "27229b543285296d1d0067fde286447f7009e241bcf8449fd13ef84270a94a56",
+      "8db1d41b019fab45e3bd59a7ed7689c0aaecb640225ae8cdb5baf6b9736a3d44",
       "beeccb7598a00b8d0530c329f38cd28468e968c7f28fe1a5a6743e638fe7e173"
     ],
     "root": [
       61,
-      293
+      301
     ],
     "options": {
       "declaration": false,
@@ -1317,20 +1342,14 @@
       [
         60,
         253,
-        292
+        300
       ],
       [
         60,
         253,
         262,
-        264,
         268,
-        274,
-        281,
-        283,
-        287,
-        289,
-        291
+        299
       ],
       [
         60
@@ -1350,27 +1369,32 @@
       [
         60,
         253,
-        285,
-        287
+        290,
+        292
       ],
       [
         60,
         253,
-        285,
+        290,
+        291
+      ],
+      [
+        60,
+        253,
+        280,
+        282
+      ],
+      [
+        60,
+        253,
+        265,
+        280,
+        281
+      ],
+      [
+        60,
+        253,
         286
-      ],
-      [
-        60,
-        253,
-        277,
-        279
-      ],
-      [
-        60,
-        253,
-        271,
-        277,
-        278
       ],
       [
         60,
@@ -1380,69 +1404,7 @@
       [
         60,
         253,
-        284
-      ],
-      [
-        60,
-        253,
-        279,
-        281
-      ],
-      [
-        60,
-        253,
-        271,
-        274,
-        279,
-        280
-      ],
-      [
-        60,
-        253,
-        268
-      ],
-      [
-        60,
-        253,
-        265,
-        267
-      ],
-      [
-        60,
-        253,
-        264
-      ],
-      [
-        60,
-        253,
-        263
-      ],
-      [
-        60,
-        266
-      ],
-      [
-        60,
-        270
-      ],
-      [
-        60,
-        253,
-        269,
-        271,
-        273
-      ],
-      [
-        60,
-        253,
-        277
-      ],
-      [
-        60,
-        253,
-        271,
-        275,
-        276
+        290
       ],
       [
         60,
@@ -1452,47 +1414,157 @@
       [
         60,
         253,
-        288
+        282,
+        284
       ],
       [
         60,
         253,
-        279,
+        265,
+        268,
+        282,
         283
       ],
       [
         60,
         253,
-        271,
-        274,
-        279,
-        282
+        276
       ],
       [
         60,
         253,
-        277,
-        291
+        274,
+        275
       ],
       [
         60,
         253,
-        271,
-        274,
-        277,
-        290
+        298
       ],
       [
         60,
+        253,
+        297
+      ],
+      [
+        60,
+        253,
+        271
+      ],
+      [
+        60,
+        253,
+        270
+      ],
+      [
+        60,
+        253,
+        277
+      ],
+      [
+        60,
+        250,
+        253,
+        265,
+        272,
+        274,
+        276
+      ],
+      [
+        60,
+        253,
+        299
+      ],
+      [
+        60,
+        253,
+        269,
         271,
-        272
+        277,
+        284,
+        286,
+        288,
+        292,
+        294,
+        296,
+        298
+      ],
+      [
+        60,
+        273
+      ],
+      [
+        60,
+        264
+      ],
+      [
+        60,
+        253,
+        263,
+        265,
+        267
+      ],
+      [
+        60,
+        253,
+        280
+      ],
+      [
+        60,
+        253,
+        265,
+        278,
+        279
+      ],
+      [
+        60,
+        253,
+        296
+      ],
+      [
+        60,
+        253,
+        295
+      ],
+      [
+        60,
+        253,
+        282,
+        294
+      ],
+      [
+        60,
+        253,
+        265,
+        268,
+        282,
+        293
+      ],
+      [
+        60,
+        253,
+        280,
+        288
+      ],
+      [
+        60,
+        253,
+        265,
+        268,
+        280,
+        287
+      ],
+      [
+        60,
+        265,
+        266
       ],
       [
         60,
         61,
         256,
         261,
-        292
+        300
       ]
     ],
     "referencedMap": [
@@ -1509,7 +1581,7 @@
         3
       ],
       [
-        276,
+        279,
         2
       ],
       [
@@ -2237,7 +2309,7 @@
         48
       ],
       [
-        292,
+        300,
         49
       ],
       [
@@ -2257,52 +2329,140 @@
         52
       ],
       [
-        286,
+        291,
         53
       ],
       [
-        287,
+        292,
         54
       ],
       [
-        278,
+        281,
         55
       ],
       [
-        279,
+        282,
         56
       ],
       [
-        284,
+        285,
         57
       ],
       [
-        285,
+        286,
         58
       ],
       [
-        280,
+        289,
         59
       ],
       [
-        281,
+        290,
         60
       ],
       [
-        265,
+        283,
         61
       ],
       [
-        268,
+        284,
         62
       ],
       [
-        263,
+        275,
         63
       ],
       [
-        264,
+        276,
         64
+      ],
+      [
+        297,
+        65
+      ],
+      [
+        298,
+        66
+      ],
+      [
+        270,
+        67
+      ],
+      [
+        271,
+        68
+      ],
+      [
+        272,
+        69
+      ],
+      [
+        277,
+        70
+      ],
+      [
+        269,
+        71
+      ],
+      [
+        299,
+        72
+      ],
+      [
+        273,
+        50
+      ],
+      [
+        274,
+        73
+      ],
+      [
+        264,
+        50
+      ],
+      [
+        265,
+        74
+      ],
+      [
+        263,
+        50
+      ],
+      [
+        268,
+        75
+      ],
+      [
+        278,
+        76
+      ],
+      [
+        280,
+        77
+      ],
+      [
+        295,
+        78
+      ],
+      [
+        296,
+        79
+      ],
+      [
+        293,
+        80
+      ],
+      [
+        294,
+        81
+      ],
+      [
+        287,
+        82
+      ],
+      [
+        288,
+        83
       ],
       [
         266,
@@ -2310,71 +2470,15 @@
       ],
       [
         267,
-        65
-      ],
-      [
-        270,
-        50
-      ],
-      [
-        271,
-        66
-      ],
-      [
-        269,
-        50
-      ],
-      [
-        274,
-        67
-      ],
-      [
-        275,
-        68
-      ],
-      [
-        277,
-        69
-      ],
-      [
-        288,
-        70
-      ],
-      [
-        289,
-        71
-      ],
-      [
-        282,
-        72
-      ],
-      [
-        283,
-        73
-      ],
-      [
-        290,
-        74
-      ],
-      [
-        291,
-        75
-      ],
-      [
-        272,
-        50
-      ],
-      [
-        273,
-        76
+        84
       ],
       [
         61,
         50
       ],
       [
-        293,
-        77
+        301,
+        85
       ]
     ],
     "semanticDiagnosticsPerFile": [
@@ -2383,19 +2487,26 @@
       259,
       262,
       263,
-      265,
+      264,
       266,
       269,
       270,
       272,
+      273,
       275,
       278,
-      280,
-      282,
-      284,
-      286,
-      288,
-      290
+      281,
+      283,
+      285,
+      287,
+      289,
+      291,
+      293,
+      295,
+      297,
+      299,
+      300,
+      301
     ]
   },
   "version": "5.5.4"
