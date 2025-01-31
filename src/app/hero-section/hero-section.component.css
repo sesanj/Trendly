@@ -164,3 +164,9 @@ p {
   opacity: 1;
   transform: translateX(0) translateY(0);
 }
+
+.features {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+}

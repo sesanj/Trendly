@@ -1,0 +1,33 @@
+main {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.hero {
+  margin-bottom: 60px;
+}
+
+.featuredProducts {
+  margin-bottom: 50px;
+}
+
+.category {
+  margin-bottom: 50px;
+}
+
+.sales {
+  margin-bottom: 50px;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+.review {
+  margin-top: 100px;
+}
+
+footer {
+  margin-top: 150px;
+}

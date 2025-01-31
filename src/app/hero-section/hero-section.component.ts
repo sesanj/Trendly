@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Features } from '../models/features.model';
 import { interval } from 'rxjs';
+import { FeaturesComponent } from '../features/features.component';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [],
+  imports: [FeaturesComponent],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css',
 })
@@ -54,7 +55,7 @@ export class HeroSectionComponent {
   ngOnInit() {
     setInterval(() => {
       this.nextSlide();
-    }, 6000);
+    }, 5000);
   }
 
   // Compute the transform style dynamically

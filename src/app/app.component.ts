@@ -1,30 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { FeaturesComponent } from './features/features.component';
 import { ProductServiceService } from './product service/product-service.service';
-import { FeaturedProductsComponent } from './featured-products/featured-products.component';
-import { SalesProductsComponent } from './sales-products/sales-products.component';
-import { CardSectionComponent } from './card-section/card-section.component';
-import { ReviewComponent } from './review/review.component';
-import { SpecialCollectionComponent } from './special-collection/special-collection.component';
-import { HeroSectionComponent } from './hero-section/hero-section.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    FeaturesComponent,
-    FeaturedProductsComponent,
-    SalesProductsComponent,
-    CardSectionComponent,
-    ReviewComponent,
-    SpecialCollectionComponent,
-    HeroSectionComponent,
-  ],
+  imports: [HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  productService = inject(ProductServiceService);
-}
+export class AppComponent {}

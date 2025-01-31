@@ -1,15 +1,13 @@
-<div class="container">
-  <div class="features">
-    @for(feature of features; track feature.id){
-    <div class="item">
-      <div>
-        <img [src]="feature.img.src" [alt]="feature.img.alt">
-      </div>
-      <div>
-        <h3>{{feature.title}}</h3>
-        <p>{{feature.description}}</p>
-      </div>
+<div class="features">
+  @for(feature of features; track feature.id){
+  <div class="item">
+    <div>
+      <img [src]="feature.img.src" [alt]="feature.img.alt">
     </div>
-    }
+    <div>
+      <h3>{{feature.title}}</h3>
+      <p>{{feature.description}}</p>
+    </div>
   </div>
+  }
 </div>
