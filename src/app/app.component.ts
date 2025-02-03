@@ -5,6 +5,7 @@ import { ProductServiceService } from './product service/product-service.service
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { SalesProductsComponent } from './sales-products/sales-products.component';
 import { CardSectionComponent } from './card-section/card-section.component';
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { CardSectionComponent } from './card-section/card-section.component';
     FeaturedProductsComponent,
     SalesProductsComponent,
     CardSectionComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

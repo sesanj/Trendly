@@ -1,61 +1,43 @@
 {
-  "hash": "47b0e5a2",
-  "configHash": "c821054a",
+  "hash": "75c07519",
+  "configHash": "d51b1e04",
   "lockfileHash": "030ca03e",
-  "browserHash": "dc4a1427",
+  "browserHash": "d28fa06a",
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "42035209",
+      "fileHash": "6ef2a496",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "c5934ebc",
+      "fileHash": "ccf7dbd5",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "63345449",
+      "fileHash": "e28052f5",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "0e9674ac",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "b796539a",
-      "needsInterop": false
-    },
-    "tslib": {
-      "src": "../../../../../../node_modules/tslib/tslib.es6.mjs",
-      "file": "tslib.js",
-      "fileHash": "2a8544ac",
+      "fileHash": "05e2b194",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-DV53QNVX": {
-      "file": "chunk-DV53QNVX.js"
+    "chunk-Y546BG7K": {
+      "file": "chunk-Y546BG7K.js"
     },
-    "chunk-4UZW7THI": {
-      "file": "chunk-4UZW7THI.js"
+    "chunk-VJPMOY72": {
+      "file": "chunk-VJPMOY72.js"
     },
-    "chunk-HIMBMV67": {
-      "file": "chunk-HIMBMV67.js"
-    },
-    "chunk-NUUYHDWF": {
-      "file": "chunk-NUUYHDWF.js"
-    },
-    "chunk-EPAV4CNQ": {
-      "file": "chunk-EPAV4CNQ.js"
+    "chunk-SXHOZHTL": {
+      "file": "chunk-SXHOZHTL.js"
     }
   }
 }
