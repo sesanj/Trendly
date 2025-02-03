@@ -1,11 +1,3 @@
-.container {
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 .wrap {
   display: flex;
   align-items: last baseline;
@@ -17,7 +9,7 @@
 
 .nav {
   width: 50%;
-  float: right;
+  /* float: right; */
 }
 .buttons {
   float: right;
@@ -26,7 +18,6 @@
 button {
   margin-left: 20px;
   padding: 5px 15px;
-  font-weight: 500;
   border: 0px;
 }
 
@@ -36,26 +27,27 @@ button {
   border: 0px;
 }
 
-.product {
+.products {
+  margin-top: 50px;
   position: relative;
+  overflow: hidden;
 }
 
 .overlay {
   position: absolute;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.368);
-  z-index: 10000;
-  min-height: 526px;
+  z-index: 1000;
+  height: 100%;
 }
 
 h1 {
   font-size: 22px;
   font-weight: 600;
   padding-bottom: 4px;
-  border-bottom: solid 3px red;
   display: inline;
 }
 
 p {
-  margin-top: 25px;
+  margin-top: 5px;
 }

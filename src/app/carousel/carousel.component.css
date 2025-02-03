@@ -5,9 +5,6 @@
   max-width: 1300px;
   margin: auto;
   overflow: hidden;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  /* background-color: red; */
 }
 
 .carousel:hover .prev,
@@ -20,13 +17,16 @@
 .carousel-images {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  margin-right: -10px;
+  margin-left: -10px;
 }
 
 /* Images */
 .carousel-images div {
-  width: 24.13%;
+  width: 23.49%;
   flex-shrink: 0;
-  margin-right: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Navigation buttons */
@@ -34,10 +34,10 @@ button {
   background-color: rgba(56, 56, 56, 0.309);
   color: white;
   border: none;
-  width: 100px;
-  padding: 8px 0px;
+  width: 50px;
+  padding: 6px 0px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -55,6 +55,7 @@ button {
 .prev {
   transform: translateX(-50px);
   transition: opacity 0.2s ease, transform 0.3s ease;
+  /* margin-left: 10px; */
 }
 
 .next {
@@ -63,6 +64,7 @@ button {
 
   transform: translateX(50px);
   transition: opacity 0.2s ease, transform 0.3s ease;
+  /* margin-right: 10px; */
 }
 
 /* Button hover effect */

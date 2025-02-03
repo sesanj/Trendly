@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  gap: 20px;
+  color: rgb(53, 53, 53);
+}
+
+.women {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.womenContent,
+.menContent,
+.shoeContent,
+.bagContent {
+  position: absolute;
+  top: 0;
+  padding: 50px;
+}
+
+.sectionTwo {
+  width: 50%;
+}
+
+.men {
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionThree {
+  display: flex;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.shoes,
+.bags {
+  width: 50%;
+  position: relative;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 500;
+  margin: 10px 0px 0px 0px;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+img {
+  width: 100%;
+  margin-bottom: -6px;
+}
+
+ul {
+  margin-top: 10px;
+}
+span {
+  margin-right: 20px;
+}
+
+h1 + p {
+  line-height: 28px;
+  margin: 20px 0px 40px 0px;
+}

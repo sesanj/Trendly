@@ -1,16 +1,16 @@
 <div class="product">
   <div class="imageContainer">
 
-    <img class="productImage" [src]="product.image?.image1 ? product.image?.image1 : 'bag.jpg'"
+    <img class="productImage" [src]=" product.image?.image1 ? 'products/' + product.image?.image1 : 'products/bag.jpg'"
       alt="image of a product">
 
     <div class="favorite">
 
-      @if(!favoriteProducts.includes(product)){
+      @if(!favoriteProducts.includes(product.id)){
       <img (click)="favoriteClicked(product)" src="heart.svg" alt="favorite icon">
       }
 
-      @if(favoriteProducts.includes(product)){
+      @if(favoriteProducts.includes(product.id)){
       <img (click)="unFavorite(product)" src="love.svg" alt="favorite icon">
       }
 
