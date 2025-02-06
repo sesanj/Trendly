@@ -1,10 +1,6 @@
 import {
   getDOM
-<<<<<<< HEAD
-} from "./chunk-LC63JU7F.js";
-=======
 } from "./chunk-UEHWNTFI.js";
->>>>>>> product-page
 import {
   ChangeDetectorRef,
   Directive,

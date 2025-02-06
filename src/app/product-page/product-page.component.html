@@ -8,9 +8,12 @@
     </div>
     <div class="allImages">
       @for(image of productImages; track image){
+
       <img [src]="'products/' + image" (click)="imagePath($index)" [class.imageClicked]="imageIndex == $index"
         alt="product image">
       }
+
+
     </div>
     @if(product.discount){
     <p>{{calculateDiscount()}}</p>

@@ -13,7 +13,7 @@ import { RelatedProductsComponent } from '../related-products/related-products.c
 export class ProductPageComponent implements OnInit {
   service = inject(ProductServiceService);
 
-  product: Product = this.service.getAllProducts()[12];
+  product: Product = this.service.getAllProducts()[29];
   imageUrl!: string;
   imageIndex: number = 0;
   productQuantity: number = 1;
@@ -23,10 +23,10 @@ export class ProductPageComponent implements OnInit {
   viewedProducts: Product[] = this.service.getAllProducts();
 
   productImages: string[] = [
-    this.product.image?.image1 ? this.product.image.image1 : 'image1',
-    this.product.image?.image2 ? this.product.image.image2 : 'image2',
-    this.product.image?.image3 ? this.product.image.image3 : 'image3',
-    this.product.image?.image4 ? this.product.image.image4 : 'maage4',
+    this.product.image?.image1 ? this.product.image.image1 : 'image',
+    this.product.image?.image2 ? this.product.image.image2 : 'image',
+    this.product.image?.image3 ? this.product.image.image3 : 'image',
+    this.product.image?.image4 ? this.product.image.image4 : 'image',
   ];
 
   ngOnInit(): void {

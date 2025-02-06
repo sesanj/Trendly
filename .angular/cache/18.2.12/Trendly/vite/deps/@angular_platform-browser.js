@@ -83,14 +83,6 @@ import {
   withDomHydration,
   withEventReplay,
   withI18nSupport,
-<<<<<<< HEAD
-  withNoHttpTransferCache
-} from "./chunk-LX3WVF5P.js";
-import {
-  getDOM
-} from "./chunk-LC63JU7F.js";
-import "./chunk-SXHOZHTL.js";
-=======
   ɵɵdefineInjectable,
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
@@ -4151,7 +4143,6 @@ function provideClientHydration(...features) {
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
 var VERSION = new Version("18.2.13");
->>>>>>> product-page
 export {
   BrowserModule,
   By,
