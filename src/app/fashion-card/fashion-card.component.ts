@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './fashion-card.component.css',
 })
 export class FashionCardComponent {
-  @Input({ required: true }) cardDetails!: {
+  @Input() cardDetails!: {
     label: string;
     title: string;
     description: string;

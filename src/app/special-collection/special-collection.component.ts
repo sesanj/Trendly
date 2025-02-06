@@ -14,7 +14,7 @@ export class SpecialCollectionComponent {
   productService = inject(ProductServiceService);
   allProducts: Product[] = this.productService.getAllProducts();
 
-  product: Product[] = [this.allProducts[0], this.allProducts[1]];
+  product: Product[] = [this.allProducts[7], this.allProducts[16]];
 
   navStyle: string = '';
 
