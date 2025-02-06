@@ -32,7 +32,7 @@ export const ProductData: Product[] = [
   },
   {
     id: '09755',
-    title: 'Zippered Sweatshirt Hooded Pocket Fleece Inside',
+    title: 'Zippered Sweatshirt With Hooded Pocket Fleece',
     price: 75.67,
     description: 'a bag befiting a princess, suitable for all weather',
     category: { women: true, bag: true },
@@ -45,7 +45,7 @@ export const ProductData: Product[] = [
     title: 'Green Hoddie Jacket For All Seasons ',
     price: 75.62,
     description: 'a bag befiting a princess, suitable for all weather',
-    category: { men: true },
+    category: { men: true, pants: true },
     quantity: 10,
     image: { image1: 'man1.jpg' },
     featured: true,
@@ -108,6 +108,7 @@ export const ProductData: Product[] = [
     category: { women: true, bag: true },
     quantity: 10,
     tag: 'NEW',
+    image: { image1: 'jacket.jpg' },
     featured: true,
   },
   {
@@ -124,16 +125,16 @@ export const ProductData: Product[] = [
   {
     id: 'w1',
     title: 'Red Women Hoodie Jacket',
-    price: 65,
-    discount: 23,
+    price: 65.23,
+    discount: 23.5,
     description:
-      'Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      'Lorem Ipsum: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     category: {
       women: true,
       hoodie: true,
     },
-    quantity: 0,
-
+    quantity: 10,
+    color: ['RED', 'BLACK'],
     size: ['M', 'L', 'XL'],
     image: {
       image1: 'image1.jpg',
@@ -154,8 +155,8 @@ export const ProductData: Product[] = [
       women: true,
       jacket: true,
     },
-    quantity: 0,
-    color: ['CAMEL'],
+    quantity: 5,
+    color: ['#C19A6B'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'gJacket1.jpg',
@@ -212,7 +213,7 @@ export const ProductData: Product[] = [
     id: 'w5',
     title: 'Oversized Zip - up Hoodie',
     price: 75.99,
-    discount: 50,
+    discount: 50.65,
     description:
       'Knit fleece. Mid-weight fabric in an oversized fit for a loose and baggy fit. Long sleeves. Hooded with a zipped front. Available in multiple colours. 2 pockets. Size down for a more fitted look.',
     category: {
@@ -220,7 +221,7 @@ export const ProductData: Product[] = [
       hoodie: true,
     },
     quantity: 30,
-    color: ['HUNTERGREEN'],
+    color: ['#355E3B'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'gHoodie1.jpg',
@@ -241,7 +242,7 @@ export const ProductData: Product[] = [
       hoodie: true,
     },
     quantity: 30,
-    color: ['DARKBLUE'],
+    color: ['#00008B'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'bHoodie1.jpg',
@@ -347,6 +348,7 @@ export const ProductData: Product[] = [
     category: {
       women: true,
       jeans: true,
+      dress: true,
     },
     quantity: 24,
     color: ['BLUE'],
@@ -362,7 +364,7 @@ export const ProductData: Product[] = [
   {
     id: 'w12',
     title: 'Crew-Neck Linen-Blend Blouse',
-    price: 24,
+    price: 125.06,
     description:
       'Step into vacation mode in style with this stunning sleeveless blouse featuring a unique box pleat in the back and made in a perfectly cool linen blend fabric.',
     category: {
@@ -370,8 +372,9 @@ export const ProductData: Product[] = [
       shirt: true,
     },
     quantity: 56,
-    color: ['ETRUSCAND RED'],
+    color: ['#A13D2D'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
+    discount: 75.32,
     image: {
       image1: 'cTops1.jpg',
       image2: 'cTops2.jpg',
@@ -411,7 +414,7 @@ export const ProductData: Product[] = [
       dress: true,
     },
     quantity: 34,
-    color: ['IVORY'],
+    color: ['#FFFFF1'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'cDresses1.jpg',
@@ -444,7 +447,7 @@ export const ProductData: Product[] = [
   },
   {
     id: 'w17',
-    title: 'tatiana skirt',
+    title: 'Tatiana Skirt',
     price: 45,
     description:
       'This lovely A-line mini skirt features a front zipper and a stretch fabrication so you can enjoy all your activities without any worries.',
@@ -474,7 +477,7 @@ export const ProductData: Product[] = [
       skirt: true,
     },
     quantity: 14,
-    color: ['NAVY BLUR/STRIPED'],
+    color: ['#00008B'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'cSkirt1.jpg',
@@ -507,7 +510,7 @@ export const ProductData: Product[] = [
   },
   {
     id: 'w20',
-    title: 'cargo jumpsuit',
+    title: 'Cargo Jumpsuit',
     price: 74,
     description:
       'This is a strapless jumpsuit with front patch pockets, side cargo pockets and a smocked back panel for a more comfortable fit. It’s made with Crepette™ — our one-of-a-kind Japanese crepe fabric beloved for its subtle texture, breezy drape and the fact that it basically never wrinkles.',
@@ -516,7 +519,7 @@ export const ProductData: Product[] = [
       dress: true,
     },
     quantity: 14,
-    color: ['NAMAD TAUPE'],
+    color: ['#AF9483'],
     size: ['XS', 'S', 'M', 'L', 'XL'],
     image: {
       image1: 'bJumpsuit1.jpg',
