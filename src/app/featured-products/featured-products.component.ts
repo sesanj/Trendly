@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { ProductServiceService } from '../product service/product-service.service';
 import { Product } from '../models/product.model';

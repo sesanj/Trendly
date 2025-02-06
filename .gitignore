@@ -1,5 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+.angular
+/.angular
+
+/.angular/cache
+.angular/cache
+
+/.angular/cache/18.2.12/Trendly/.tsbuildinfo
+
+.angular/cache/18.2.12/Trendly/.tsbuildinfo
+
 # Compiled output
 /dist
 /tmp
