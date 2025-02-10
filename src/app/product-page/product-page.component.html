@@ -1,0 +1,100 @@
+<nav><a href="">Home &#8250; </a><a href="">Shop &#8250; </a>{{product.title}}</nav>
+<div class="container">
+  <div class="images">
+    <div class="imageDisplay" [style.transform]="getTransform">
+      @for(image of productImages; track image){
+      <img [src]="'products/' + image" alt="Product image">
+      }
+    </div>
+    <div class="allImages">
+      @for(image of productImages; track image){
+
+      <img [src]="'products/' + image" (click)="imagePath($index)" [class.imageClicked]="imageIndex == $index"
+        alt="product image">
+      }
+
+
+    </div>
+    @if(product.discount){
+    <p>{{calculateDiscount()}}</p>
+    }
+  </div>
+  <div class="productInfo">
+    <h1>{{product.title}}</h1>
+    @if(product.discount){
+    <p class="price"><span class="discount">${{product.price}}</span>${{product.discount}} <span
+        [class.inStock]="product.quantity > 0" [class.outOfStock]="product.quantity == 0">{{stock()}}</span>
+    </p>
+    }@else {
+    <p class="price">${{product.price}} <span [class.inStock]="product.quantity > 0"
+        [class.outOfStock]="product.quantity == 0">{{stock()}}</span></p>
+    }
+
+    <p class="description">{{product.description}}</p>
+    @if(product.color){
+    <div class="color">
+      <p>Color:</p>
+      @for(color of product.color ; track color){
+      <div [class.selectedColor]="color == selectedColor" (click)="selectColor(color)">
+        <span [style.backgroundColor]="color"></span>
+      </div>
+      }
+    </div>
+    }
+    @if(product.size){
+    <div class="size">
+      <p>Size:</p>
+      @for(size of product.size ; track size){
+      <span [class.selectedSize]="size == selectedSize" (click)="selectSize(size)">{{size}}</span>
+      }
+    </div>
+    }
+    <div class="quantity">
+      <p><button (click)="decrease()">---</button><span>{{productQuantity}}</span><button
+          (click)="increase()">+</button>
+      </p>
+      <button class="addToCart">Add to Cart</button>
+    </div>
+    <div class="wishlist">
+      <button><img src="heart.svg" alt="love icon"><span>Add this product to your Wishlist!</span></button>
+    </div>
+    <div class="info">
+      <ul>
+        <li><span>&check;</span>24 Hours Delivery Time</li>
+        <li><span>&check;</span>Free Delivery For Orders Above $350</li>
+        <li><span>&check;</span>Pay On Delivery Available</li>
+        <li><span>&check;</span>24/7 Customer Service</li>
+        <li><span>&check;</span>Item Available For Pickup At Our Location</li>
+      </ul>
+    </div>
+    <div class="category">
+      <p>Category: </p>
+      @for (cat of categories; track $index) {
+      <p class="cat">{{cat.toUpperCase()}}</p>
+      }
+    </div>
+    @if(product.tag){
+    <p class="tag">Tag: <span>{{tag}}</span></p>
+    }
+
+  </div>
+  <div class="viewed">
+    <h3>Recently Viewed</h3>
+    @for(product of viewedProducts; track product.id){
+    <div class="viewedProducts">
+      <div>
+        <img [src]="'products/' + product.image?.image1" alt="product image">
+      </div>
+      <div>
+        <p>{{product.title}}</p>
+        <p>${{product.price}}</p>
+      </div>
+    </div>
+    }
+
+  </div>
+</div>
+<div class="relatedProducts">
+  <h2>Related Products</h2>
+  <app-related-products [product]="product"></app-related-products>
+</div>
