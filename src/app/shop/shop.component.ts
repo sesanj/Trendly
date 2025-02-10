@@ -82,7 +82,7 @@ export class ShopComponent {
         );
         break;
       default:
-        this.filteredProducts = this.allProducts;
+        this.filteredProducts = this.allProducts.slice();
     }
 
     // Handling product sort selection
