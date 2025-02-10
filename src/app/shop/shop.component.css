@@ -70,6 +70,8 @@ select:focus {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px rgb(219, 219, 219);
 }
 
 .control label {
