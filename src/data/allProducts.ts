@@ -148,7 +148,7 @@ export const ProductData: Product[] = [
     },
     quantity: 5,
     color: ['#C19A6B'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'gJacket1.jpg',
       image2: 'gJacket2.jpg',
@@ -169,7 +169,7 @@ export const ProductData: Product[] = [
     },
     quantity: 0,
     color: ['BLACK'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bJacket1.jpg',
       image2: 'bJacket2.jpg',
@@ -191,7 +191,7 @@ export const ProductData: Product[] = [
     },
     quantity: 0,
     color: ['BUTTERCREAM'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'wJacket1.jpg',
       image2: 'wJacket2.jpg',
@@ -213,7 +213,7 @@ export const ProductData: Product[] = [
     },
     quantity: 30,
     color: ['#355E3B'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'gHoodie1.jpg',
       image2: 'gHoodie2.jpg',
@@ -347,7 +347,7 @@ export const ProductData: Product[] = [
     },
     quantity: 30,
     color: ['#00008B'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bHoodie1.jpg',
       image2: 'bHoodie2.jpg',
@@ -364,12 +364,12 @@ export const ProductData: Product[] = [
       'Made to flatter your figure, the Levi’s Wedgie Boot features a high rise cut and flared leg that’s perfect with boots or sneakers.',
     category: {
       women: true,
-      jeans: true,
-      pants: true,
+      jean: true,
+      pant: true,
     },
     quantity: 30,
     color: ['BLUE'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'aJeans1.jpg',
       image2: 'aJeans2.jpg',
@@ -386,12 +386,12 @@ export const ProductData: Product[] = [
       'A body-hugging, leg-lengthening fit with a super high rise & flared leg.',
     category: {
       women: true,
-      jeans: true,
-      pants: true,
+      jean: true,
+      pant: true,
     },
     quantity: 19,
     color: ['BLUE'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bJeans1.jpg',
       image2: 'bJeans2.jpg',
@@ -408,12 +408,12 @@ export const ProductData: Product[] = [
       'Regular fit, snug across seat, High waist, Classic 5-pocket, Zip fly',
     category: {
       women: true,
-      jeans: true,
-      pants: true,
+      jean: true,
+      pant: true,
     },
     quantity: 24,
     color: ['BLUE'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'cJeans1.jpg',
       image2: 'cJeans2.jpg',
@@ -434,7 +434,7 @@ export const ProductData: Product[] = [
     },
     quantity: 5,
     color: ['RED'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'aTops1.jpg',
       image2: 'aTops2.jpg',
@@ -451,12 +451,12 @@ export const ProductData: Product[] = [
       'More Sustainable Cotton: Made with 5% recycled cotton. Compared to virgin materials, using recycled materials helps to reduce resource use and waste.',
     category: {
       women: true,
-      jeans: true,
+      jean: true,
       dress: true,
     },
     quantity: 24,
     color: ['BLUE'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bTops1.jpg',
       image2: 'bTops2.jpg',
@@ -477,7 +477,7 @@ export const ProductData: Product[] = [
     },
     quantity: 56,
     color: ['#A13D2D'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     discount: 75.32,
     image: {
       image1: 'cTops1.jpg',
@@ -498,7 +498,7 @@ export const ProductData: Product[] = [
     },
     quantity: 56,
     color: ['WHITE'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bDresses1.jpg',
       image2: 'bDresses2.jpg',
@@ -519,7 +519,7 @@ export const ProductData: Product[] = [
     },
     quantity: 34,
     color: ['#FFFFF1'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'cDresses1.jpg',
       image2: 'cDresses2.jpg',
@@ -540,7 +540,7 @@ export const ProductData: Product[] = [
     },
     quantity: 24,
     color: ['BLACK'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'aSkirt1.jpg',
       image2: 'aSkirt2.jpg',
@@ -561,7 +561,7 @@ export const ProductData: Product[] = [
     },
     quantity: 24,
     color: ['LIGHTGREY'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bSkirt1.jpg',
       image2: 'bSkirt2.jpg',
@@ -582,7 +582,7 @@ export const ProductData: Product[] = [
     },
     quantity: 14,
     color: ['#00008B'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'cSkirt1.jpg',
       image2: 'cSkirt2.jpg',
@@ -669,7 +669,7 @@ export const ProductData: Product[] = [
     },
     quantity: 14,
     color: ['BLACK'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'aJumpsuit2.jpg',
       image2: 'aJumpsuit1.jpg',
@@ -690,7 +690,7 @@ export const ProductData: Product[] = [
     },
     quantity: 14,
     color: ['#AF9483'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bJumpsuit1.jpg',
       image2: 'bJumpsuit2.jpg',
@@ -711,7 +711,7 @@ export const ProductData: Product[] = [
     },
     quantity: 0,
     color: ['BROWN'],
-    size: ['XS', 'S', 'M', 'L', 'XL'],
+    size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'cJumpsuit1.jpg',
       image2: 'cJumpsuit2.jpg',
