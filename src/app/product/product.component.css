@@ -153,13 +153,13 @@ span {
   letter-spacing: 0.8px;
 }
 
-.discount {
-  background-color: red;
+.hot {
+  background-color: rgb(255, 102, 0);
   color: white;
 }
 
-.hot {
-  background-color: rgb(255, 102, 0);
+.discount {
+  background-color: red;
   color: white;
 }
 

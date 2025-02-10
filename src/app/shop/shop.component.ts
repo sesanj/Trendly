@@ -89,14 +89,18 @@ export class ShopComponent {
 
     switch (this.sortSelection) {
       case 'lowHigh':
-        this.filteredProducts = this.filteredProducts.sort(
-          (a, b) => a.price - b.price
-        );
+        this.filteredProducts = this.filteredProducts.sort((a, b) => {
+          const priceA = a.discount ? a.discount : a.price;
+          const priceB = b.discount ? b.discount : b.price;
+          return priceA - priceB;
+        });
         break;
       case 'highLow':
-        this.filteredProducts = this.filteredProducts.sort(
-          (a, b) => b.price - a.price
-        );
+        this.filteredProducts = this.filteredProducts.sort((a, b) => {
+          const priceA = a.discount ? a.discount : a.price;
+          const priceB = b.discount ? b.discount : b.price;
+          return priceB - priceA;
+        });
         break;
       default:
         break;
