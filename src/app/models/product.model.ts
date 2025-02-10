@@ -1,4 +1,4 @@
-export type Tag = 'TRENDING' | 'HOT' | 'NEW';
+export type Tag = 'TRENDING' | 'HOT' | 'NEW' | 'FEATURED';
 
 export interface ProductCategory {
   men?: boolean;
@@ -8,11 +8,11 @@ export interface ProductCategory {
   jacket?: boolean;
   hoodie?: boolean;
   shoe?: boolean;
-  jeans?: boolean;
+  jean?: boolean;
   skirt?: boolean;
   dress?: boolean;
   sweatshirt?: boolean;
-  pants?: boolean;
+  pant?: boolean;
 }
 
 export interface Product {

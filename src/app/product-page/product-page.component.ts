@@ -13,7 +13,7 @@ import { RelatedProductsComponent } from '../related-products/related-products.c
 export class ProductPageComponent implements OnInit {
   service = inject(ProductServiceService);
 
-  product: Product = this.service.getAllProducts()[29];
+  product: Product = this.service.getAllProducts()[5];
   imageUrl!: string;
   imageIndex: number = 0;
   productQuantity: number = 1;
