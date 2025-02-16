@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Input } from '@angular/core';
 import { Product, ProductCategory } from '../models/product.model';
 import { ProductServiceService } from '../product service/product-service.service';
 import { RelatedProductsComponent } from '../related-products/related-products.component';
@@ -13,8 +13,21 @@ import { RelatedProductsComponent } from '../related-products/related-products.c
 export class ProductPageComponent implements OnInit {
   service = inject(ProductServiceService);
 
-  product: Product = this.service.getAllProducts()[12];
-  imageUrl!: string;
+  productID!: string;
+
+  allProducts = this.service.allProducts;
+
+  // Getting product id from url
+  @Input()
+  set productId(pId: string) {
+    this.productID = pId;
+    this.loadProduct();
+  }
+
+  // Variables to hold product and product images
+  product!: Product;
+  productImages: string[] = [];
+
   imageIndex: number = 0;
   productQuantity: number = 1;
   selectedColor!: string;
@@ -22,19 +35,31 @@ export class ProductPageComponent implements OnInit {
 
   viewedProducts: Product[] = this.service.getAllProducts();
 
-  productImages: string[] = [
-    this.product.image?.image1 ? this.product.image.image1 : 'image1',
-    this.product.image?.image2 ? this.product.image.image2 : 'image2',
-    this.product.image?.image3 ? this.product.image.image3 : 'image3',
-    this.product.image?.image4 ? this.product.image.image4 : 'maage4',
-  ];
-
   ngOnInit(): void {
-    this.imageUrl = this.product.image?.image1
-      ? this.product.image.image1
-      : 'man1.png';
-
     this.viewedProducts = this.viewedProducts.slice(0, 4);
+
+    // Load page info if product ID is valid
+    if (this.productID) {
+      this.loadProduct();
+    }
+  }
+
+  // Function to load products
+  private loadProduct() {
+    this.product = this.service.selectedProduct(this.productID);
+
+    if (!this.product) {
+      console.error('Product not found!');
+
+      return;
+    }
+
+    this.productImages = [
+      this.product.image?.image1 || 'image.jpg',
+      this.product.image?.image2 || 'image.jpg',
+      this.product.image?.image3 || 'image.jpg',
+      this.product.image?.image4 || 'image.jpg',
+    ];
   }
 
   currentIndex: number = 0;
@@ -50,8 +75,6 @@ export class ProductPageComponent implements OnInit {
 
   increase() {
     this.productQuantity = this.productQuantity + 1;
-
-    console.log(this.productQuantity);
   }
 
   decrease() {
@@ -59,7 +82,6 @@ export class ProductPageComponent implements OnInit {
       return;
     } else {
       this.productQuantity = this.productQuantity - 1;
-      console.log(this.productQuantity);
     }
   }
 
@@ -72,11 +94,7 @@ export class ProductPageComponent implements OnInit {
   }
 
   stock() {
-    if (this.product.quantity > 0) {
-      return 'In Stock';
-    } else {
-      return 'Out of Stock';
-    }
+    return this.product.quantity > 0 ? 'In Stock' : 'Out of Stock';
   }
 
   calculateDiscount() {
@@ -133,5 +151,9 @@ export class ProductPageComponent implements OnInit {
     );
 
     return productCategory;
+  }
+
+  addToCart(product: Product) {
+    this.service.addToCart(product);
   }
 }

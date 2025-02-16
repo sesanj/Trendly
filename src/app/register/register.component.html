@@ -1,0 +1,61 @@
+<div class="register">
+  <div class="form">
+    <h1>Register</h1>
+    <br>
+    <p>There are many advantages to creating an account: the payment process is faster, shipment tracking is possible, and much more.</p>
+    <br>
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+
+      <!-- Username Field -->
+      <label>Username*</label>
+      <input
+        type="text"
+        class="username"
+        id="username"
+        formControlName="username"
+      >
+      <div *ngIf="myForm.get('username')?.invalid && myForm.get('username')?.touched" class="error">
+        Only alphabets are allowed!
+      </div>
+
+      <!-- Email Field -->
+      <label for="email">Email*</label>
+      <input id="email" type="email" formControlName="email" class="form-control"/>
+
+      <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" class="error">
+        Enter email properly
+      </div>
+
+      <!-- Password Field -->
+      <label>Password*</label>
+      <div class="passwordInput">
+        <input [type]="showPassword ? 'text' : 'password'" class="password" id="password" formControlName="password">
+
+        <div class="eyes">
+        <!-- Closed Eye Icon (Password Hidden) -->
+        <svg *ngIf="!showPassword" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" (click)="togglePasswordVisibility()">
+          <path d="M8.137 15.147c-.71-.857-1.146-1.947-1.146-3.147 0-2.76 2.241-5 5-5 1.201 0 2.291.435 3.148 1.145l1.897-1.897c-1.441-.738-3.122-1.248-5.035-1.248-6.115 0-10.025 5.355-10.842 6.584.529.834 2.379 3.527 5.113 5.428l1.865-1.865zm6.294-6.294c-.673-.53-1.515-.853-2.44-.853-2.207 0-4 1.792-4 4 0 .923.324 1.765.854 2.439l5.586-5.586z"/>
+        </svg>
+
+        <!-- Open Eye Icon (Password Visible) -->
+        <svg *ngIf="showPassword" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" (click)="togglePasswordVisibility()">
+          <path d="M12.01 20c-5.065 0-9.586-4.211-12.01-8.424 2.418-4.103 6.943-7.576 12.01-7.576 5.135 0 9.635 3.453 11.999 7.564-2.241 4.43-6.726 8.436-11.999 8.436zm-10.842-8.416c.843 1.331 5.018 7.416 10.842 7.416 6.305 0 10.112-6.103 10.851-7.405-.772-1.198-4.606-6.595-10.851-6.595-6.116 0-10.025 5.355-10.842 6.584zm10.832-4.584c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 1c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4z"/>
+        </svg>
+        </div>
+      </div>
+
+
+
+
+      <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched" class="error">
+        Enter password correctly!
+      </div>
+
+      <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our Privacy policy.</p>
+      <br>
+
+      <!-- Submit Button (Disabled When Form is Invalid) -->
+      <button type="submit" [disabled]="myForm.invalid" class="btn">Register</button>
+    </form>
+  </div>
+</div>

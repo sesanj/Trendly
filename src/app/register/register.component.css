@@ -1,0 +1,110 @@
+.btn {
+  background-color: #ee403d;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  border-color: transparent;
+  display: flex;
+  border-radius: 5px;
+}
+
+.register {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;  /* Center the content both vertically and horizontally */
+  min-height: 100vh;  /* Ensure full viewport height */
+  width: 100%;
+}
+
+.register label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.register input {
+  width: 100%;  /* Make the input fields take 50% of the container width */
+  padding: 8px;
+  border: 0;
+  margin-bottom: 10px;
+  background-color: rgba(211, 211, 211, 0.5);  /* Light grey with transparency */
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  align-items: center;
+  justify-content: center; /* Center the form elements vertically */
+  width: 100%;
+  max-width: 400px;  /* Ensure the form does not stretch too wide */
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;  /* Add spacing below the title */
+}
+
+p {
+  text-align: center;  /* Center the paragraph text */
+  width: 100%;  /* Ensure paragraph takes up full width */
+  margin-bottom: 20px;  /* Add space between the paragraph and form elements */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.passwordInput {
+  position: relative;
+  width: 92%;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+#show-password{
+ position: absolute;
+
+}
+
+.passwordInput input {
+  padding-right: 40px; /* Make space for the toggle button */
+}
+
+
+
+.eyes {
+  position: absolute;
+  top: 50%;
+  right: -25px; /* Adjust to move the icon horizontally */
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1; /* Ensure the icon stays above the input */
+}
+.btn:hover {
+  background-color: #ff5c59; /* A lighter shade of red */
+}
