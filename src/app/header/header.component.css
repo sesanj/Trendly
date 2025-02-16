@@ -56,22 +56,23 @@ nav {
 
 .cart > p,
 .wishList > p {
-  display: inline;
   position: absolute;
   background-color: rgb(230, 3, 3);
-  padding: 0px 5px;
+  text-align: center;
+  width: 18px;
+  height: 18px;
   border-radius: 100px;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   right: 0;
   top: 0;
 }
 
 .total {
+  width: 50px;
   font-size: 15px;
   margin-left: 10px;
-  font-weight: 500;
-  color: rgb(0, 84, 0);
+  color: black;
 }
 
 .links li {
@@ -80,7 +81,7 @@ nav {
 }
 
 .user {
-  margin-left: 15px;
+  margin-left: 25px;
   display: flex;
   align-items: center;
   padding: 15px 0px;

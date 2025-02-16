@@ -1,13 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../models/product.model';
-import { Features } from '../models/features.model';
-import { interval } from 'rxjs';
+import { Component } from '@angular/core';
 import { FeaturesComponent } from '../features/features.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [FeaturesComponent],
+  imports: [FeaturesComponent, RouterLink],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css',
 })

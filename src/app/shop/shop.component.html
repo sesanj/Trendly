@@ -30,7 +30,7 @@
         <h3>Product Categories</h3>
         <div class="control">
           @for(select of radio; track $index){
-          <label for="">
+          <label [routerLink]="'/shop/' + select.toLowerCase()">
             <span>{{select}}</span>
             <input type="radio" name="category" [value]="select" [(ngModel)]="radioSelection"
               (ngModelChange)="filterProducts()">

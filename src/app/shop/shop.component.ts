@@ -1,30 +1,62 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Product, ProductCategory } from '../models/product.model';
 import { ProductServiceService } from '../product service/product-service.service';
 import { ProductComponent } from '../product/product.component';
 import { FormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [ProductComponent, FormsModule, NgxSliderModule],
+  imports: [ProductComponent, FormsModule, NgxSliderModule, RouterLink],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
+  @Input()
+  set filter(filter: string) {
+    switch (filter) {
+      case 'men':
+        this.radioSelection = 'Men';
+        break;
+      case 'women':
+        this.radioSelection = 'Women';
+        break;
+      case 'deals':
+        this.productStatus.filter((status) =>
+          status.status === 'ON SALE' ? (status.selected = true) : false
+        );
+        break;
+      default:
+        this.radioSelection = 'All';
+    }
+    this.filterProducts();
+  }
+
   service = inject(ProductServiceService);
   allProducts: Product[] = this.service.allProducts;
   filteredProducts: Product[] = this.allProducts;
   selectedSize!: string;
 
-  radio = ['Men', 'Women', 'All'];
-  radioSelection = 'All';
+  radio = ['All', 'Men', 'Women'];
+  radioSelection: string = 'All';
 
   sortSelection: string = 'default';
 
   print() {
     console.log('Radio ' + this.radioSelection);
+  }
+
+  ngOnInit(): void {
+    // if (this.filter === 'men') {
+    //   this.radioSelection = 'Men';
+    // } else if (this.filter === 'women') {
+    //   this.radioSelection = 'Women';
+    // } else {
+    //   this.radioSelection = 'All';
+    // }
+    // this.filterProducts();
   }
 
   categoriesList = [
