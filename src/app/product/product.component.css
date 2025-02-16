@@ -21,8 +21,14 @@ img {
 .title {
   font-size: 15px;
   font-weight: 400;
-  /* line-height: 20px; */
+  display: block;
   margin-bottom: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.title:hover {
+  color: rgb(158, 0, 0);
 }
 
 .details {
