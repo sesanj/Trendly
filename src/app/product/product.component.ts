@@ -25,13 +25,7 @@ export class ProductComponent implements OnInit {
     return off + '%';
   }
 
-  ngOnInit() {
-    // this.favoriteProducts = this.service.getFavourite();
-    // this.favoriteProducts.push('One');
-    // this.favoriteProducts.push('Two');
-    // this.favoriteProducts.push('Three');
-    // this.favoriteProducts.push('Four');
-  }
+  ngOnInit() {}
 
   addToCart(product: Product) {
     this.service.addToCart(product);
