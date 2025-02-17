@@ -5,7 +5,7 @@ nav {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.151);
   position: fixed;
   background-color: rgb(255, 255, 255);
-  z-index: 100000;
+  z-index: 10000;
 }
 .headerContainer {
   display: flex;
@@ -52,6 +52,7 @@ nav {
   align-content: center;
   margin-left: 15px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .cart > p,
@@ -71,8 +72,9 @@ nav {
 .total {
   width: 50px;
   font-size: 15px;
-  margin-left: 10px;
   color: black;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .links li {
@@ -81,7 +83,7 @@ nav {
 }
 
 .user {
-  margin-left: 25px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
   padding: 15px 0px;
@@ -89,7 +91,7 @@ nav {
 .user ul {
   display: none;
   position: absolute;
-  z-index: 10000;
+  z-index: 1000;
   top: 90%;
   list-style-type: none;
   background-color: white;
