@@ -1,0 +1,40 @@
+<div class="container" [class.cartActive]="cartActive">
+  <div (click)="closeCart()" class="empty"></div>
+  <div class="cart" [class.cartActive]="cartActive">
+    <div class="allProducts">
+      @if(cart.length != 0){
+      @for(product of cart; track $index){
+      <div class="product">
+        <img [src]="'products/' + product.image?.image1" alt="Product Image">
+        <div class="content">
+          <a [routerLink]="'product/' + product.id" class="title" (click)="closeCart()">{{product.title}}</a>
+          <div>
+            <p>{{getPrice(product) | currency: "USD"}}</p>
+            <p class="count">x1</p>
+          </div>
+        </div>
+        <p (click)="deleteProduct(product)" class="delete">x</p>
+      </div>
+      }
+      }@else {
+      <div class="emptyCart">
+        <div>
+          <img src="empty.png" alt="emptyCart">
+          <h3>Your Cart is <span>Empty!</span></h3>
+          <p>Looks like you have not added anything to your cart. Go ahead and explore our top categories</p>
+        </div>
+
+
+      </div>
+      }
+    </div>
+    <div class="totals">
+      <div class="subTotal">Subtotal: <span>{{cartTotal | currency: "USD"}}</span></div>
+      <div class="buttons">
+        <button>View Cart</button>
+        <Button>Checkout</Button>
+      </div>
+      <p>Free Shopping on All Orders Above <span>$350.00</span></p>
+    </div>
+  </div>
+</div>

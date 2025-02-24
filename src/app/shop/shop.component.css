@@ -1,0 +1,222 @@
+nav {
+  padding-top: 100px;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: grey;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.shop {
+  padding-top: 100px;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+.filterHeader {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px rgb(216, 216, 216);
+}
+
+.filterHeader p {
+  width: 50%;
+  color: grey;
+}
+
+.filterHeader .sortContainer {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort,
+.show {
+  margin-left: 20px;
+}
+
+.sortContainer label {
+  font-weight: 500;
+}
+
+select {
+  border: none;
+}
+
+select:focus {
+  outline: none;
+  /* border: none; */
+}
+
+.mainSection {
+  display: flex;
+  gap: 30px;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px rgb(219, 219, 219);
+}
+
+.control label {
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  accent-color: red;
+  margin-left: 5px;
+}
+
+.filter {
+  width: 20%;
+  border-right: solid rgb(219, 219, 219) 1px;
+  padding-right: 30px;
+}
+
+.allProducts {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  height: fit-content;
+}
+
+/* Price Filter style starts here */
+
+.price-filter {
+  border-radius: 5px;
+  background: #fff;
+}
+.price-filter p {
+  color: grey;
+  margin-top: 10px;
+}
+
+.price-filter p span {
+  color: black;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.price-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-inputs label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: grey;
+}
+
+/* Works on Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  width: 90px;
+  padding: 8px 0px 8px 15px;
+  border: 1px solid rgb(238, 238, 238);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(238, 238, 238);
+}
+
+input:focus {
+  outline: none;
+}
+
+.priceSlider {
+  margin-top: 0px;
+}
+
+::ng-deep .priceSlider ngx-slider .ngx-slider-pointer {
+  background-color: rgb(51, 51, 51);
+  width: 15px;
+  height: 15px;
+  top: -6px;
+}
+
+::ng-deep .priceSlider .ngx-slider-active:focus {
+  outline: none;
+}
+
+::ng-deep .priceSlider .ngx-slider .ngx-slider-selection {
+  background-color: rgb(51, 51, 51);
+}
+
+::ng-deep .priceSlider .ngx-slider .ngx-slider-bar {
+  height: 2px;
+}
+
+::ng-deep .priceSlider ngx-slider .ngx-slider-pointer::after {
+  display: none;
+}
+
+/* Price Filter style ends here */
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.categories,
+.price-filter,
+.sizeFilter {
+  margin-bottom: 50px;
+}
+
+.cat {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.cat span {
+  cursor: pointer;
+}
+
+.cat p {
+  margin-left: auto;
+  font-size: 13px;
+  color: rgb(167, 167, 167);
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  margin-right: 12px;
+  width: 15px;
+  height: 15px;
+  accent-color: red;
+}
+
+.cat input[type="checkbox"]:checked + span {
+  font-weight: 500;
+  color: red;
+}
