@@ -1,20 +1,14 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ProductServiceService } from './product service/product-service.service';
+import { HomeComponent } from './home/home.component';
+import {RouterOutlet} from "@angular/router";
+import {LoginPageComponent} from "./login-page/login-page.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-
-  imports: [HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [HomeComponent, RouterOutlet, LoginPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  constructor(private router: Router) {
-    this.router.events.subscribe(() => {
-      window.scrollTo({ top: 0 });
-    });
-  }
-}
+export class AppComponent {}

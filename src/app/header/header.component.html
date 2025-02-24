@@ -1,6 +1,6 @@
 <nav>
   <div class="headerContainer">
-
+    //<router-outlet></router-outlet>
     <div class="logoContainer">
       <h1 class="logo">Trendly</h1>
     </div>
@@ -8,27 +8,29 @@
     <div class="navArea">
 
       <ul class="links">
-        <li><a routerLink="home">Home</a></li>
-        <li><a routerLink="shop">Shop</a></li>
-        <li><a [routerLink]="'/shop/' + 'men'">Men</a></li>
-        <li><a [routerLink]="'/shop/' + 'women'">Women</a></li>
-        <li><a [routerLink]="'/shop/' + 'deals'">Deals</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">All Categories</a></li>
       </ul>
       <div class="wishListAndCart">
         <div class="wishList">
-          <img src="headerHeader.svg" alt="A heart icon">
-          <p class="wishListCounter">{{favourites}}</p>
+          <img src="headerHeart.svg" alt="A heart icon">
+          <p class="wishListCounter">{{3}}</p>
         </div>
-        <div class="cart" (click)="viewCart()">
-          <img src="headerBag.svg" alt="A cart icon">
-          <p class="cartCounter">{{cartTotal}}</p>
+        <div class="cart">
+          <img src="headerCart.svg" alt="A cart icon">
+          <p class="cartCounter">{{5}}</p>
         </div>
-        <div class="total" (click)="viewCart()">
-          <p>{{cartPrice | currency: "USD"}}</p>
+        <div class="total">
+          <p>${{total}}</p>
         </div>
         <div class="user">
-          <img src="headerUser.svg" alt="A person icon">
+          <img src="user.svg" alt="A person icon">
+          <!-- <span>Account</span> -->
           <ul>
+<!--            //routerLink="/login" routerLinkActive="active"-->
             <li><a href="">Sign In</a></li>
             <li><a href="">Create Account</a></li>
           </ul>
@@ -37,6 +39,3 @@
     </div>
   </div>
 </nav>
-<div [class.cartActive]="cartActive" class="cartSidebar">
-  <app-cart-sidebar (cartClosed)="closeCart($event)" [cartActive]="cartActive"></app-cart-sidebar>
-</div>
