@@ -4,33 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="correct img path">
+    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="changes">
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_core.js" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_core.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_forms.js" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_forms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_forms.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_forms.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_platform-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_platform-browser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/@angular_router.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-4UZW7THI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-4UZW7THI.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-DV53QNVX.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-DV53QNVX.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-EPAV4CNQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-EPAV4CNQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-HIMBMV67.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-HIMBMV67.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-NUUYHDWF.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-NUUYHDWF.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/rxjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/rxjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/tslib.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/tslib.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-VJPMOY72.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-VJPMOY72.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-Y546BG7K.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/vite/deps/chunk-Y546BG7K.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +65,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JavaScript Debug.login-page.component.html.executor": "Run",
     "JavaScript Debug.login.component.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Log-in",
@@ -80,6 +75,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Angular CLI Server.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "ts.external.directory.path": "/Users/apple/PhpstormProjects/Trendly/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -92,6 +88,9 @@
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="login-page.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/Trendly/src/app/login-page/login-page.component.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="login.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/Trendly/src/app/login-page/login.component.html" useBuiltInWebServerPort="true">
@@ -109,6 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.login-page.component.html" />
         <item itemvalue="JavaScript Debug.login.component.html" />
       </list>
     </recent_temporary>
@@ -133,7 +133,10 @@
       <workItem from="1737688653529" duration="5345000" />
       <workItem from="1737949904316" duration="1851000" />
       <workItem from="1738604732039" duration="360000" />
-      <workItem from="1738605096336" duration="7030000" />
+      <workItem from="1738605096336" duration="12799000" />
+      <workItem from="1738789649685" duration="173000" />
+      <workItem from="1739109187207" duration="4139000" />
+      <workItem from="1740394315194" duration="1312000" />
     </task>
     <task id="LOCAL-00001" summary="add new imgs and details">
       <option name="closed" value="true" />
@@ -167,7 +170,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737950493457</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="create login page">
+      <option name="closed" value="true" />
+      <created>1738616920067</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738616920067</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changes">
+      <option name="closed" value="true" />
+      <created>1738617076014</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738617076014</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +197,24 @@
     <MESSAGE value="add new imgs" />
     <MESSAGE value="re-making products" />
     <MESSAGE value="correct img path" />
-    <option name="LAST_COMMIT_MESSAGE" value="correct img path" />
+    <MESSAGE value="create login page" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/login/login.component.ts</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/login-page/login-page.component.html</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

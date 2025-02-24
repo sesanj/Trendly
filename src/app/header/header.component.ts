@@ -16,7 +16,4 @@ export class HeaderComponent {
 
   total: number = 127.06;
   constructor(private router: Router) {}
-  goToLoginPage() {
-    this.router.navigate(['/login'])
-  }
 }
