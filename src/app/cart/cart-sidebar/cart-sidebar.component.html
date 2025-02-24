@@ -3,17 +3,17 @@
   <div class="cart" [class.cartActive]="cartActive">
     <div class="allProducts">
       @if(cart.length != 0){
-      @for(product of cart; track $index){
+      @for(item of cart; track $index){
       <div class="product">
-        <img [src]="'products/' + product.image?.image1" alt="Product Image">
+        <img [src]="'products/' + item.product.image?.image1" alt="Product Image">
         <div class="content">
-          <a [routerLink]="'product/' + product.id" class="title" (click)="closeCart()">{{product.title}}</a>
+          <a [routerLink]="'product/' + item.product.id" class="title" (click)="closeCart()">{{item.product.title}}</a>
           <div>
-            <p>{{getPrice(product) | currency: "USD"}}</p>
-            <p class="count">x1</p>
+            <p>{{getPrice(item) | currency: "USD"}}</p>
+            <p class="count">x{{item.count}}</p>
           </div>
         </div>
-        <p (click)="deleteProduct(product)" class="delete">x</p>
+        <p (click)="deleteProduct(item.product)" class="delete">x</p>
       </div>
       }
       }@else {
@@ -30,11 +30,14 @@
     </div>
     <div class="totals">
       <div class="subTotal">Subtotal: <span>{{cartTotal | currency: "USD"}}</span></div>
+      <!-- @if(cart.length > 0){ -->
       <div class="buttons">
-        <button>View Cart</button>
-        <Button>Checkout</Button>
+        <button routerLink="cart" (click)="closeCart()">View Bag</button>
+        <Button (click)="closeCart()">Checkout</Button>
       </div>
-      <p>Free Shopping on All Orders Above <span>$350.00</span></p>
+      <!-- } -->
+
+      <p>Free Shipping on All Orders Above <span>$350.00</span></p>
     </div>
   </div>
 </div>

@@ -17,12 +17,9 @@ export class CartSidebarComponent {
   @Output() cartClosed = new EventEmitter<boolean>();
 
   @Input({ required: true }) cartActive: boolean = false;
-  //  cartTotal: number = 0;
-
-  // cart: Product[] = [];
 
   get cart() {
-    return this.service.cart;
+    return this.service.modifiedCart;
   }
 
   closeCart() {
@@ -31,18 +28,26 @@ export class CartSidebarComponent {
 
   get cartTotal() {
     let price = 0;
-    for (let item of this.service.cart) {
-      price += item.discount ? item.discount : item.price;
+    for (let item of this.service.modifiedCart) {
+      price += item.product.discount
+        ? item.product.discount * item.count
+        : item.product.price * item.count;
     }
     return price;
   }
 
   deleteProduct(product: Product) {
-    const index = this.service.cart.indexOf(product);
-    this.service.cart.splice(index, 1);
+    const index = this.service.modifiedCart.findIndex(
+      (item) => item.product.id == product.id
+    );
+    this.service.modifiedCart.splice(index, 1);
+
+    this.service.addCartToLocalStorage();
   }
 
-  getPrice(product: Product) {
-    return product.discount ? product.discount : product.price;
+  getPrice(cartItem: { product: Product; count: number }) {
+    return cartItem.product.discount
+      ? cartItem.product.discount * cartItem.count
+      : cartItem.product.price * cartItem.count;
   }
 }

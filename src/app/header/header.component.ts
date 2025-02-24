@@ -25,13 +25,19 @@ export class HeaderComponent implements OnInit {
   }
 
   get cartTotal() {
-    return this.service.cart.length;
+    let count = 0;
+    for (let item of this.service.modifiedCart) {
+      count += item.count;
+    }
+    return count;
   }
 
   get cartPrice() {
     let price = 0;
-    for (let item of this.service.cart) {
-      price += item.discount ? item.discount : item.price;
+    for (let item of this.service.modifiedCart) {
+      price += item.product.discount
+        ? item.product.discount * item.count
+        : item.product.price * item.count;
     }
     return price;
   }
