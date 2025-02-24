@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="change css">
+    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="change ts">
       <change beforePath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/18.2.12/Trendly/.tsbuildinfo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -117,7 +117,7 @@
       <workItem from="1738605096336" duration="12799000" />
       <workItem from="1738789649685" duration="173000" />
       <workItem from="1739109187207" duration="4139000" />
-      <workItem from="1740394315194" duration="3636000" />
+      <workItem from="1740394315194" duration="4917000" />
     </task>
     <task id="LOCAL-00001" summary="add new imgs and details">
       <option name="closed" value="true" />
@@ -175,7 +175,23 @@
       <option name="project" value="LOCAL" />
       <updated>1740395739026</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="change eye icon">
+      <option name="closed" value="true" />
+      <created>1740414897891</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1740414897891</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change ts">
+      <option name="closed" value="true" />
+      <created>1740415037717</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1740415037717</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +205,9 @@
     <MESSAGE value="create login page" />
     <MESSAGE value="changes" />
     <MESSAGE value="change css" />
-    <option name="LAST_COMMIT_MESSAGE" value="change css" />
+    <MESSAGE value="change eye icon" />
+    <MESSAGE value="change ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="change ts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -198,11 +216,6 @@
           <url>file://$PROJECT_DIR$/src/app/login/login.component.ts</url>
           <line>11</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/login-page/login-page.component.html</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
