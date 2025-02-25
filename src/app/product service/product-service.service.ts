@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductData } from '../../data/allProducts';
+import { provideRouter } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,17 @@ export class ProductServiceService {
 
   clickedProduct!: Product;
 
-  cart: Product[] = [];
+  modifiedCart: { product: Product; count: number }[] = [];
 
   favourites: Product[] = [];
 
-  constructor() {}
+  constructor() {
+    if (this.getCartFromLocalStorage()) {
+      for (let item of this.getCartFromLocalStorage()) {
+        this.modifiedCart.push(item);
+      }
+    }
+  }
 
   getAllProducts() {
     return this.allProducts;
@@ -31,11 +38,21 @@ export class ProductServiceService {
   }
 
   addToCart(product: Product) {
-    this.cart.push(product);
+    if (this.modifiedCart.some((item) => item.product.id == product.id)) {
+      let index = this.modifiedCart.findIndex(
+        (item) => item.product.id == product.id
+      );
+
+      this.modifiedCart[index].count += 1;
+    } else {
+      this.modifiedCart.push({ product: product, count: 1 });
+    }
+
+    this.addCartToLocalStorage();
   }
 
   getCart() {
-    return this.cart;
+    return this.modifiedCart;
   }
 
   addToFavourite(product: Product) {
@@ -44,5 +61,15 @@ export class ProductServiceService {
 
   getFavourite() {
     return this.favourites;
+  }
+
+  getCartFromLocalStorage() {
+    let value = localStorage.getItem('cart');
+
+    return value ? JSON.parse(value) : null;
+  }
+
+  addCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(this.modifiedCart));
   }
 }

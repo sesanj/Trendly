@@ -6,8 +6,9 @@
 
   <div class="nav">
     <div class="buttons">
-      <button [class.clicked]="activeNav == 'Men'" (click)="getSalesMen()" href="">Men</button>
       <button [class.clicked]="activeNav == 'Women'" (click)="getSalesWomen()" href="">Women</button>
+      <button [class.clicked]="activeNav == 'Men'" (click)="getSalesMen()" href="">Men</button>
+
       <button [class.clicked]="activeNav == 'Shoe'" (click)="getSalesShoes()" href="">Shoes</button>
       <button [class.clicked]="activeNav == 'Bag'" (click)="getSalesBags()" href="">Bags</button>
     </div>
