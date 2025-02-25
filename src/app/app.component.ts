@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import {TrackingComponent} from "./tracking/tracking.component";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     HeaderComponent,
     FooterComponent,
     ProductPageComponent,
+    TrackingComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
