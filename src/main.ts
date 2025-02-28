@@ -28,7 +28,3 @@ const appConfig = {
 bootstrapApplication(AppComponent, appConfig).catch((err) =>
   console.error(err)
 );
-const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'login', component: LoginPageComponent },
-];
