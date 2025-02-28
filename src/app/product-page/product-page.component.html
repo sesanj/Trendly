@@ -2,12 +2,12 @@
 <div class="container">
   <div class="images">
     <div class="imageDisplay" [style.transform]="getTransform">
-      @for(image of productImages; track image){
+      @for(image of productImages; track $index){
       <img [src]="'products/' + image" alt="Product image">
       }
     </div>
     <div class="allImages">
-      @for(image of productImages; track image){
+      @for(image of productImages; track $index){
 
       <img [src]="'products/' + image" (click)="imagePath($index)" [class.imageClicked]="imageIndex == $index"
         alt="product image">
@@ -34,7 +34,7 @@
     @if(product.color){
     <div class="color">
       <p>Color:</p>
-      @for(color of product.color ; track color){
+      @for(color of product.color ; track $index){
       <div [class.selectedColor]="color == selectedColor" (click)="selectColor(color)">
         <span [style.backgroundColor]="color"></span>
       </div>
@@ -44,7 +44,7 @@
     @if(product.size){
     <div class="size">
       <p>Size:</p>
-      @for(size of product.size ; track size){
+      @for(size of product.size ; track $index){
       <span [class.selectedSize]="size == selectedSize" (click)="selectSize(size)">{{size}}</span>
       }
     </div>
@@ -53,7 +53,7 @@
       <p><button (click)="decrease()">---</button><span>{{productQuantity}}</span><button
           (click)="increase()">+</button>
       </p>
-      <button class="addToCart">Add to Cart</button>
+      <button class="addToCart" (click)="addToCart(product)">Add to Cart</button>
     </div>
     <div class="wishlist">
       <button><img src="heart.svg" alt="love icon"><span>Add this product to your Wishlist!</span></button>
@@ -73,11 +73,14 @@
       <p class="cat">{{cat.toUpperCase()}}</p>
       }
     </div>
+    @if(product.tag){
     <p class="tag">Tag: <span>{{tag}}</span></p>
+    }
+
   </div>
   <div class="viewed">
     <h3>Recently Viewed</h3>
-    @for(product of viewedProducts; track product.id){
+    @for(product of viewedProducts; track $index){
     <div class="viewedProducts">
       <div>
         <img [src]="'products/' + product.image?.image1" alt="product image">

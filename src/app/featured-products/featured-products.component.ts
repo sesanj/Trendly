@@ -15,7 +15,7 @@ export class FeaturedProductsComponent implements OnInit {
 
   allProducts: Product[] = [];
 
-  navStyle: string = '';
+  navStyle: string = 'Men';
   loading: boolean = false;
 
   ngOnInit() {
