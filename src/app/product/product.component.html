@@ -1,16 +1,15 @@
 <div class="product">
   <div class="imageContainer">
-
     <img class="productImage" [src]=" product.image?.image1 ? 'products/' + product.image?.image1 : 'products/bag.jpg'"
-      alt="image of a product">
+      alt="image of a product" [routerLink]="'/product/' + product.id">
 
     <div class="favorite">
 
-      @if(!favoriteProducts.includes(product.id)){
+      @if(!favoriteProducts.includes(product)){
       <img (click)="favoriteClicked(product)" src="heart.svg" alt="favorite icon">
       }
 
-      @if(favoriteProducts.includes(product.id)){
+      @if(favoriteProducts.includes(product)){
       <img (click)="unFavorite(product)" src="love.svg" alt="favorite icon">
       }
 
@@ -23,18 +22,18 @@
     </div>
 
     @if(product.tag || product.discount){
-    <p [class]="{tag: true, discount: product.discount, hot: product.tag == 'HOT'}">{{product.discount ?
+    <p [class]="{tag: true,  hot: product.tag == 'HOT', discount: product.discount}">{{product.discount ?
       calculateDiscount(product.price, product.discount) : product.tag}}
     </p>
     }
 
-    <div class="buttonContainer" (click)="addToCart()">
+    <div class="buttonContainer" (click)="addToCart(product)">
       <button>ADD TO CART</button>
       <div><img src="bag.svg" alt="A shopping cart"></div>
     </div>
   </div>
   <div class="details">
-    <p class="title">{{product.title}}</p>
+    <a [routerLink]="'/product/' + product.id" class="title">{{product.title}}</a>
     @if(product.discount){
     <p class="slashedPrice">${{product.price}} <span [class]="{
         inStock: product.quantity > 0,
