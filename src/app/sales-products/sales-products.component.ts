@@ -15,13 +15,13 @@ export class SalesProductsComponent {
 
   filteredProducts: Product[] = [];
 
-  activeNav!: string;
+  activeNav: string = 'Women';
   isLoading: boolean = false;
 
   ngOnInit() {
     this.filteredProducts = this.productService
       .getAllProducts()
-      .filter((product) => product.discount);
+      .filter((product) => product.discount && product.category.women);
   }
 
   getSalesMen() {
@@ -30,7 +30,7 @@ export class SalesProductsComponent {
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
-        .filter((product) => product.category.men);
+        .filter((product) => product.discount && product.category.men);
       this.isLoading = false;
     }, 600);
     this.activeNav = 'Men';
@@ -43,7 +43,7 @@ export class SalesProductsComponent {
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
-        .filter((product) => product.category.women);
+        .filter((product) => product.discount && product.category.women);
 
       this.isLoading = false;
     }, 600);
@@ -55,7 +55,7 @@ export class SalesProductsComponent {
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
-        .filter((product) => product.category.shoe);
+        .filter((product) => product.discount && product.category.shoe);
       this.isLoading = false;
     }, 600);
     this.activeNav = 'Shoe';
@@ -67,7 +67,7 @@ export class SalesProductsComponent {
     setTimeout(() => {
       this.filteredProducts = this.productService
         .getAllProducts()
-        .filter((product) => product.category.bag);
+        .filter((product) => product.discount && product.category.bag);
       this.isLoading = false;
     }, 600);
     this.activeNav = 'Bag';

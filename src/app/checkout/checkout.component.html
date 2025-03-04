@@ -4,7 +4,7 @@
 
           <h1>Billing details</h1>
           <br>
-        <div *ngIf="isFormSubmitted && formHasEmptyFields" class="error-message">
+        <div *ngIf="isFormSubmitted && formHasEmptyFields " class="error-message">
          ** Please fill out all the fields in the form.**
         </div>
         <div class="order">
@@ -14,12 +14,18 @@
           <div class="form-group" id="Name">
             <div class="firstname">
               <label for="firstname">First Name</label>
-              <input type="text" id="firstname" [(ngModel)]="firstname" name="firstname">
+              <input type="text" id="firstname" class="form-control" formControlName="firstname">
+              <div *ngIf="orderForm.get('firstname')?.invalid && orderForm.get('firstname')?.touched" class="error-message">
+                **Only alphabets are allowed
+              </div>
             </div>
             <br>
             <div class="lastname">
               <label for="lastname">Last Name</label>
-              <input type="text" id="lastname" [(ngModel)]="lastname" name="lastname">
+              <input type="text" id="lastname" class="form-control" formControlName="lastname">
+              <div *ngIf="orderForm.get('lastname')?.invalid && orderForm.get('lastname')?.touched" class="error-message">
+                **Only alphabets are allowed
+              </div>
             </div>
           </div>
 
@@ -38,30 +44,31 @@
 
           <div class="form-group">
             <label for="Street address">Street address</label>
-            <input type="text" id="Street address" formControlName="street">
-            <div>
-              Street Address is required.
-            </div>
+            <input type="text" id="Street address" class="form-control" formControlName="street">
+
           </div>
 
           <div class="form-group">
             <label for="town">Town or city</label>
-            <input type="text" id="town">
+            <input type="text" id="town" class="form-control" formControlName="Town">
           </div>
 
           <div class="form-group">
             <label for="state">State</label>
-            <input type="text" id="state">
+            <input type="text" id="state" class="form-control" formControlName="State">
           </div>
 
           <div class="form-group">
             <label for="postal">Postal Code</label>
-            <input type="text" id="postal">
+            <input type="text" id="postal"  class="form-control" formControlName="Postal">
           </div>
 
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" id="phone">
+            <input type="text" id="phone" class="form-control" formControlName="phone">
+            <div *ngIf="orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched" class="error-message">
+              **Only numeric values are allowed
+            </div>
           </div>
 
           <!-- Checkboxes with labels on the left and checkboxes on the right -->
@@ -109,7 +116,7 @@
        <h3>Subtotal</h3>
        <br>
        <div>
-         $70
+        $75
        </div>
         <br>
         <div>

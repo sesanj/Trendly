@@ -1,18 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product.model';
+import { RouterLink } from '@angular/router';
+import { ProductServiceService } from '../product service/product-service.service';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+  service = inject(ProductServiceService);
   @Input({ required: true }) product!: Product;
 
-  favoriteProducts: String[] = [];
+  favoriteProducts: Product[] = this.service.getFavourite();
 
   calculateDiscount(price: number, discount: number): string {
     let percent: number = (discount / price) * 100;
@@ -22,24 +25,18 @@ export class ProductComponent implements OnInit {
     return off + '%';
   }
 
-  ngOnInit() {
-    // this.favoriteProducts.push('One');
-    // this.favoriteProducts.push('Two');
-    // this.favoriteProducts.push('Three');
-    // this.favoriteProducts.push('Four');
-  }
+  ngOnInit() {}
 
-  addToCart() {
-    console.log('Product Added To Cart!');
+  addToCart(product: Product) {
+    this.service.addToCart(product);
   }
 
   favoriteClicked(product: Product) {
-    this.favoriteProducts.push(product.id);
-    console.log(this.favoriteProducts);
+    this.service.addToFavourite(product);
   }
 
   unFavorite(product: Product) {
-    this.favoriteProducts.splice(this.favoriteProducts.indexOf(product.id), 1);
-    console.log(this.favoriteProducts);
+    const index = this.service.favourites.indexOf(product);
+    this.service.favourites.splice(index, 1);
   }
 }
