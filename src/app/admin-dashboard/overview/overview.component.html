@@ -1,0 +1,69 @@
+<div class="overview">
+  <div class="heading">
+    <h1>Overview</h1>
+    <h2>Revenue: <span>$23,020.43</span></h2>
+  </div>
+  <section class="metrics">
+    <div class="item">
+      <img src="dashboard/sales.jpg" alt="order icon">
+      <div class="content">
+        <h4>Total Sales</h4>
+        <p>23</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/customer.png" alt="order icon">
+      <div class="content">
+        <h4>Customer Count</h4>
+        <p>23</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/product.png" alt="order icon">
+      <div class="content">
+        <h4>Total Products</h4>
+        <p>23</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/orders.png" alt="order icon">
+      <div class="content">
+        <h4>Pending Orders</h4>
+        <p>23</p>
+      </div>
+    </div>
+  </section>
+  <section class="orders">
+    <div>
+      <h3>Recent Orders</h3>
+      <button [routerLink]=" '/myAccount/'+ 'manage-orders'">Manage Orders</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ORDER ID</th>
+          <th>CUSTOMER</th>
+          <th>PRODUCTS ORDERED</th>
+          <th>DELIVERY INFO</th>
+          <th>ORDER STATUS</th>
+        </tr>
+      </thead>
+      @for(product of service.modifiedCart; track $index){
+      <tbody>
+        <tr>
+          <td>{{ product.product.id }}</td>
+          <td>{{ product.product.title }}</td>
+          <td>{{product.product.tag}} <button>View Products</button></td>
+          <td>{{ product.product.tag }}</td>
+          <td>${{ product.product.price }}</td>
+        </tr>
+      </tbody>
+      }
+    </table>
+
+    @if(service.modifiedCart.length < 1){ <p>You have no recent pending orders</p>
+      }
+
+  </section>
+
+</div>

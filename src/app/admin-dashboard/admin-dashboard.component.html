@@ -1,0 +1,23 @@
+<div class="dashboard">
+  <div class="nav">
+    <div class="nav-items">
+      <ul>
+        <li><a [routerLink]=" '/myAccount/'+ 'overview'" [class.selected]="navigation == 'overview'">Overview</a></li>
+        <li><a [routerLink]=" '/myAccount/'+ 'manage-orders'" [class.selected]="navigation == 'manage-orders'">Manage
+            Orders</a></li>
+        <li><a [routerLink]=" '/myAccount/'+ 'customers'" [class.selected]="navigation == 'customers'">Customers</a>
+        </li>
+        <li><a [routerLink]=" '/myAccount/'+ 'history'" [class.selected]="navigation == 'history'">History</a></li>
+        <li><a routerLink="/home">Shop</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="content">
+    <div>
+      @if(navigation == "overview"){
+      <app-overview></app-overview>
+      }
+
+    </div>
+  </div>
+</div>

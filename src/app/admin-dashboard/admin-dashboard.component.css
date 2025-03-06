@@ -1,0 +1,47 @@
+.dashboard {
+  height: 100vh;
+  width: 100%;
+  border-bottom: solid 4px white;
+  display: flex;
+}
+.nav {
+  height: 100%;
+  width: 15%;
+  background-color: rgb(34, 33, 42);
+}
+
+.content {
+  width: 85%;
+}
+
+.content div {
+  width: 90%;
+  margin: auto;
+}
+
+.nav-items {
+  padding-top: 150px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: block;
+  padding: 15px;
+  padding-left: 20px;
+}
+
+.nav a:hover {
+  background-color: rgb(83, 82, 94);
+  transition: ease-in-out 0.2s;
+}
+
+.nav li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.selected {
+  background-color: rgb(83, 82, 94);
+}
