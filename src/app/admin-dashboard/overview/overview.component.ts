@@ -4,34 +4,43 @@ import { RouterLink } from '@angular/router';
 import { OrderServiceService } from '../../services/order-service.service';
 import { Order, OrderStatus } from '../../models/product-order.model';
 import { NgClass } from '@angular/common';
-import { ProductServiceService } from '../../services/product-service.service';
 import { FormsModule } from '@angular/forms';
+import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [RouterLink, CurrencyPipe, NgClass, DatePipe, FormsModule],
+  imports: [
+    RouterLink,
+    CurrencyPipe,
+    NgClass,
+    DatePipe,
+    FormsModule,
+    OrderDialogComponent,
+  ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.css',
 })
 export class OverviewComponent {
   orderService = inject(OrderServiceService);
-  productService = inject(ProductServiceService);
 
   orders = this.orderService.getOrders();
-  orderIsUpdatable = false;
 
-  orderID = '';
-
+  selectedOrderID = '';
   orderStatus!: OrderStatus;
 
   recentOrders() {
     return this.orderService.getOrders();
   }
 
+  isDialogClosed(event: boolean) {
+    if (event == true) {
+      this.selectedOrderID = ' ';
+    }
+  }
+
   revenue() {
     let revenue = 0;
-
     this.orderService
       .getOrders()
       .filter((order) => (revenue += order.orderTotal));
@@ -54,23 +63,7 @@ export class OverviewComponent {
   }
 
   displayOrderInfo(id: string, status: OrderStatus) {
-    this.orderID = id;
+    this.selectedOrderID = id;
     this.orderStatus = status;
-  }
-
-  closeDialogBox() {
-    this.orderID = '';
-  }
-
-  productImage(id: string) {
-    let product = this.productService
-      .getAllProducts()
-      .filter((product) => product.id === id);
-
-    return product[0].image?.image1;
-  }
-
-  updateOrder(orderid: string) {
-    this.orderService.updateOrderStatus(this.orderStatus, orderid);
   }
 }
