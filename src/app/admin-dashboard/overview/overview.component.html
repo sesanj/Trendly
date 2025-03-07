@@ -1,7 +1,7 @@
 <div class="overview">
   <div class="heading">
     <h1>Overview</h1>
-    <h2>Revenue: <span>$23,020.43</span></h2>
+    <h2>Revenue: <span>{{revenue() | currency: "USD"}}</span></h2>
   </div>
   <section class="metrics">
     <div class="item">
@@ -29,7 +29,7 @@
       <img src="dashboard/orders.png" alt="order icon">
       <div class="content">
         <h4>Pending Orders</h4>
-        <p>23</p>
+        <p>{{pendingOrders()}}</p>
       </div>
     </div>
   </section>
@@ -45,25 +45,144 @@
           <th>CUSTOMER</th>
           <th>PRODUCTS ORDERED</th>
           <th>DELIVERY INFO</th>
+          <th>PRICE</th>
+          <th>DATE</th>
           <th>ORDER STATUS</th>
         </tr>
       </thead>
-      @for(product of service.modifiedCart; track $index){
+      @for(order of recentOrders(); track $index){
       <tbody>
-        <tr>
-          <td>{{ product.product.id }}</td>
-          <td>{{ product.product.title }}</td>
-          <td>{{product.product.tag}} <button>View Products</button></td>
-          <td>{{ product.product.tag }}</td>
-          <td>${{ product.product.price }}</td>
+        <tr (click)="displayOrderInfo(order.orderID, order.status)">
+          <td>{{ order.orderID }}</td>
+          <td><a>{{customer(order)}}</a></td>
+          <td><a>View all products</a></td>
+          <td><a>{{ delivery(order)}}</a></td>
+          <td> <span class="price">{{ order.orderTotal | currency: "USD"}}</span></td>
+          <td>{{order.date | date}}</td>
+          <td>
+            <span
+              [ngClass]="{'status': true,'pending': order.status == 'PENDING', 'processing': order.status == 'PROCESSING', 'inDelivery': order.status == 'OUT FOR DELIVERY', 'delivered': order.status == 'DELIVERED', 'canceled': order.status == 'CANCELED'}">{{
+              order.status }}</span>
+          </td>
         </tr>
       </tbody>
+      <dialog class="customerInfo" [class.openDialog]="order.orderID == orderID" (click)="closeDialogBox()">
+        <div (click)="$event.stopPropagation()" class="dialogcontainer" [class.orderIsUpdatable]="orderIsUpdatable">
+          <div class="dialogHead" [class.updatedHeader]="orderIsUpdatable">
+            <h1>Order #{{order.orderID}} - {{order.date | date}}</h1>
+            <div>
+              <p (click)="closeDialogBox()">X</p>
+            </div>
+          </div>
+          @if(orderIsUpdatable){
+          <div class="orderUpdate">
+            <div>
+              <span
+                [ngClass]="{'status': true,'pending': order.status == 'PENDING', 'processing': order.status == 'PROCESSING', 'inDelivery': order.status == 'OUT FOR DELIVERY', 'delivered': order.status == 'DELIVERED', 'canceled': order.status == 'CANCELED'}">{{
+                order.status }}</span>
+            </div>
+            <div>
+              <p>Update Order: </p>
+              <select type="" [(ngModel)]="orderStatus">
+                <option value="PENDING">Pending</option>
+                <option value="PROCESSING">Processing</option>
+                <option value="OUT FOR DELIVERY">Out For Delivery</option>
+                <option value="DELIVERED">Delivered</option>
+                <option value="CANCELED">Canceled</option>
+              </select>
+              <button (click)="updateOrder(order.orderID)">Update</button>
+            </div>
+          </div>
+          }
+          <div class="dialogContent">
+            <div class="customerSection">
+              <h2>Customer Information </h2>
+              <div class="info">
+                <div>
+                  <h3>First Name</h3>
+                  <p>{{order.customer.firstName}}</p>
+                </div>
+                <div>
+                  <h3>Last Name</h3>
+                  <p>{{order.customer.lastName}}</p>
+                </div>
+              </div>
+              <div class="info">
+                <div>
+                  <h3>Email address</h3>
+                  <p>{{order.customer.email}}</p>
+                </div>
+                <div>
+                  <h3>Phone Number</h3>
+                  <p>{{order.customer.phoneNumber}}</p>
+                </div>
+              </div>
+              <h3>Status</h3>
+              <p>{{order.customer.registered ? "Registered" : "Not Registered"}}</p>
+            </div>
+            <div class="deliveryInfo">
+              <h2>Delivery Information </h2>
+              <div class="info">
+                <div>
+                  <h3>Country</h3>
+                  <p>{{order.deliveryInfo.country}}</p>
+                </div>
+                <div>
+                  <h3>State</h3>
+                  <p>{{order.deliveryInfo.state}}</p>
+                </div>
+              </div>
+              <div class="info">
+                <div>
+                  <h3>Town/City</h3>
+                  <p>{{order.deliveryInfo.townCity}}</p>
+                </div>
+                <div>
+                  <h3>Postal Code</h3>
+                  <p>{{order.deliveryInfo.postalCode}}</p>
+                </div>
+              </div>
+              <h3>Street Address</h3>
+              <p>{{order.deliveryInfo.address}}</p>
+            </div>
+          </div>
+          <div class="orderedProducts">
+            <h2>{{order.products.length}} Ordered Products</h2>
+            @for(product of order.products; track $index){
+            <div class="product" [routerLink]="'/product/' + product.ID">
+              <img [src]="'products/' + productImage(product.ID)" alt="product image">
+              <div class="productDetails">
+                <div>
+                  <h3>Product Name</h3>
+                  <p>{{product.productName}}</p>
+                </div>
+                <div>
+                  <h3>Quantity</h3>
+                  <p>{{product.quantity}}</p>
+                </div>
+                <div>
+                  <h3>Size</h3>
+                  <p>{{product.size}}</p>
+                </div>
+                <div>
+                  <h3>Color</h3>
+                  <p>{{product.color}}</p>
+                </div>
+                <div>
+                  <h3>Total Price</h3>
+                  <p>{{product.totalPrice | currency: "USD" }}</p>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </dialog>
       }
     </table>
 
-    @if(service.modifiedCart.length < 1){ <p>You have no recent pending orders</p>
+    @if(recentOrders().length < 1){ <p>You currently have no recent orders</p>
       }
 
   </section>
-
 </div>

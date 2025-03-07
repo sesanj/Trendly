@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, Input } from '@angular/core';
 import { Product, ProductCategory } from '../models/product.model';
-import { ProductServiceService } from '../product service/product-service.service';
+import { ProductServiceService } from '../services/product-service.service';
 import { RelatedProductsComponent } from '../related-products/related-products.component';
 
 @Component({

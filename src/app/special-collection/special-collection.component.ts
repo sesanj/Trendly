@@ -1,7 +1,7 @@
 import { Product } from './../models/product.model';
 import { Component, inject } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
-import { ProductServiceService } from '../product service/product-service.service';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-special-collection',

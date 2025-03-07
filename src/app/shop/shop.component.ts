@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { Product, ProductCategory } from '../models/product.model';
-import { ProductServiceService } from '../product service/product-service.service';
+import { ProductServiceService } from '../services/product-service.service';
 import { ProductComponent } from '../product/product.component';
 import { FormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
