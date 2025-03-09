@@ -39,4 +39,11 @@ export class OrderDialogComponent {
 
     return product[0].image?.image1;
   }
+
+  totalProducts(order: Order) {
+    let productsTotal = 0;
+    order.products.forEach((product) => (productsTotal += product.quantity));
+
+    return productsTotal;
+  }
 }

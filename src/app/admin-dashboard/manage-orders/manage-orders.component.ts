@@ -1,59 +1,43 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { OrderServiceService } from '../../services/order-service.service';
 import { Order, OrderStatus } from '../../models/product-order.model';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
-import { ProductServiceService } from '../../services/product-service.service';
 
 @Component({
-  selector: 'app-overview',
+  selector: 'app-manage-orders',
   standalone: true,
-  imports: [
-    RouterLink,
-    CurrencyPipe,
-    NgClass,
-    DatePipe,
-    FormsModule,
-    OrderDialogComponent,
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.css',
+  imports: [CurrencyPipe, NgClass, DatePipe, FormsModule, OrderDialogComponent],
+  templateUrl: './manage-orders.component.html',
+  styleUrl: './manage-orders.component.css',
 })
-export class OverviewComponent {
+export class ManageOrdersComponent {
   orderService = inject(OrderServiceService);
-  productService = inject(ProductServiceService);
 
   orders = this.orderService.getOrders();
 
   selectedOrderID = '';
   orderStatus!: OrderStatus;
+  nav = 'ALL';
 
-  recentOrders() {
-    return this.orderService.getOrders();
+  filterOrders(filter: string) {
+    this.nav = filter;
+    if (filter == 'ALL') {
+      this.orders = this.orderService.getOrders();
+      return;
+    }
+
+    this.orders = this.orderService
+      .getOrders()
+      .filter((order) => order.status == filter);
   }
 
   isDialogClosed(event: boolean) {
     if (event == true) {
       this.selectedOrderID = ' ';
     }
-  }
-
-  revenue() {
-    let revenue = 0;
-    this.orderService
-      .getOrders()
-      .filter((order) => (revenue += order.orderTotal));
-
-    return revenue;
-  }
-
-  pendingOrders() {
-    return this.orderService
-      .getOrders()
-      .filter((order) => order.status === 'PENDING').length;
   }
 
   customer(order: Order) {
@@ -74,18 +58,5 @@ export class OverviewComponent {
     order.products.forEach((product) => (productsTotal += product.quantity));
 
     return productsTotal;
-  }
-
-  totalSales() {
-    let totalSales = 0;
-    this.orders.forEach((order) =>
-      order.products.forEach((product) => (totalSales += product.quantity))
-    );
-
-    return totalSales;
-  }
-
-  productInventory() {
-    return this.productService.getAllProducts().length;
   }
 }

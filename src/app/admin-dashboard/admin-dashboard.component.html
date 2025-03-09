@@ -1,21 +1,35 @@
 <div class="dashboard">
   <div class="nav">
+    <h1>Trendly</h1>
     <div class="nav-items">
       <ul>
-        <li><a [routerLink]=" '/myAccount/'+ 'overview'" [class.selected]="navigation == 'overview'">Overview</a></li>
-        <li><a [routerLink]=" '/myAccount/'+ 'manage-orders'" [class.selected]="navigation == 'manage-orders'">Manage
+        <li><a [routerLink]=" '/myAccount/'+ 'overview'" [class.selected]="navigation == 'overview'"><img
+              src="dashboard/overview.png" alt="overview icon">Overview</a></li>
+        <li><a [routerLink]=" '/myAccount/'+ 'manage-orders'" [class.selected]="navigation == 'manage-orders'"><img
+              src="dashboard/order.png" alt="orders icon">Manage
             Orders</a></li>
-        <li><a [routerLink]=" '/myAccount/'+ 'customers'" [class.selected]="navigation == 'customers'">Customers</a>
+        <li><a [routerLink]=" '/myAccount/'+ 'customers'" [class.selected]="navigation == 'customers'"><img
+              src="dashboard/users.png" alt="customer icon">Customers</a>
         </li>
-        <li><a [routerLink]=" '/myAccount/'+ 'history'" [class.selected]="navigation == 'history'">History</a></li>
-        <li><a routerLink="/home">Shop</a></li>
+        <!-- <li><a [routerLink]=" '/myAccount/'+ 'settings'" [class.selected]="navigation == 'settings'">Settings</a></li> -->
       </ul>
     </div>
   </div>
   <div class="content">
-    <div>
+    <div class="header">
+      <h2>{{heading}}</h2>
+      <div class="icons">
+        <p>Sesan Popoola</p>
+        <img src="dashboard/homeIcon.png" alt="nav icon" routerLink="/home">
+        <img src="headerUser.svg" alt="A person icon">
+        <img src="dashboard/logout.png" alt="nav icon">
+      </div>
+    </div>
+    <div class="view">
       @if(navigation == "overview"){
       <app-overview></app-overview>
+      }@else if (navigation == "manage-orders") {
+      <app-manage-orders></app-manage-orders>
       }
 
     </div>

@@ -5,11 +5,20 @@ import { ProductComponent } from '../product/product.component';
 import { FormsModule } from '@angular/forms';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [ProductComponent, FormsModule, NgxSliderModule, RouterLink],
+  imports: [
+    ProductComponent,
+    FormsModule,
+    NgxSliderModule,
+    RouterLink,
+    HeaderComponent,
+    FooterComponent,
+  ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
@@ -48,16 +57,7 @@ export class ShopComponent implements OnInit {
     console.log('Radio ' + this.radioSelection);
   }
 
-  ngOnInit(): void {
-    // if (this.filter === 'men') {
-    //   this.radioSelection = 'Men';
-    // } else if (this.filter === 'women') {
-    //   this.radioSelection = 'Women';
-    // } else {
-    //   this.radioSelection = 'All';
-    // }
-    // this.filterProducts();
-  }
+  ngOnInit(): void {}
 
   categoriesList = [
     { cat: 'Shirt', selected: false },

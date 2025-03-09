@@ -1,26 +1,38 @@
 .dashboard {
   height: 100vh;
   width: 100%;
-  border-bottom: solid 4px white;
   display: flex;
 }
 .nav {
-  height: 100%;
   width: 15%;
   background-color: rgb(34, 33, 42);
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .content {
   width: 85%;
+  position: relative;
+  left: 15%;
+  height: fit-content;
+  padding-bottom: 100px;
 }
 
-.content div {
+.view {
   width: 90%;
   margin: auto;
 }
 
 .nav-items {
-  padding-top: 150px;
+  padding-top: 50px;
+}
+
+.nav-items img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
 }
 
 .nav a {
@@ -28,8 +40,10 @@
   color: white;
   font-size: 16px;
   display: block;
-  padding: 15px;
-  padding-left: 20px;
+  padding: 16px;
+  padding-left: 25px;
+  display: flex;
+  align-items: center;
 }
 
 .nav a:hover {
@@ -40,8 +54,56 @@
 .nav li {
   list-style-type: none;
   margin-bottom: 10px;
+  /* background-color: red; */
 }
 
 .selected {
   background-color: rgb(83, 82, 94);
+}
+
+h1 {
+  color: white;
+  font-size: 45px;
+  font-weight: 500;
+  padding-left: 25px;
+  margin-top: 50px;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.header {
+  padding: 0px 50px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.142);
+  /* margin-bottom: 40px; */
+  display: flex;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 15%;
+  background-color: white;
+  /* width: 100%; */
+}
+
+.icons {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.header img {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  padding: 15px 5px;
+  cursor: pointer;
+}
+
+.header img:hover {
+  background-color: rgb(240, 240, 240);
+}
+.header p {
+  margin-right: 20px;
 }

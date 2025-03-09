@@ -1,42 +1,17 @@
 <div class="overview">
-  <p>Revenue:</p>
-  <h2><span>{{revenue() | currency: "USD"}}</span></h2>
-
-  <section class="metrics">
-    <div class="item">
-      <img src="dashboard/sales.jpg" alt="order icon">
-      <div class="content">
-        <h4>Total Sales</h4>
-        <p>{{totalSales()}}+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/customer.png" alt="order icon">
-      <div class="content">
-        <h4>Customer Count</h4>
-        <p>23+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/product.png" alt="order icon">
-      <div class="content">
-        <h4>Total Products</h4>
-        <p>{{productInventory()}}+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/orders.png" alt="order icon">
-      <div class="content">
-        <h4>Pending Orders</h4>
-        <p>{{pendingOrders()}}+</p>
-      </div>
-    </div>
-  </section>
-  <section class="orders">
+  <div class="heading">
+    <h1>{{orders.length}} Total Orders</h1>
     <div>
-      <h3>Recent Orders</h3>
-      <button [routerLink]=" '/myAccount/'+ 'manage-orders'">Manage Orders</button>
+      <button [class.active]="nav == 'ALL'" (click)="filterOrders('ALL')">View All</button>
+      <button [class.active]="nav == 'PENDING'" (click)="filterOrders('PENDING')">Pending Orders</button>
+      <button [class.active]="nav == 'PROCESSING'" (click)="filterOrders('PROCESSING')">Processing</button>
+      <button [class.active]="nav == 'OUT FOR DELIVERY'" (click)="filterOrders('OUT FOR DELIVERY')">Out For
+        Delivery</button>
+      <button [class.active]="nav == 'CANCELED'" (click)="filterOrders('CANCELED')">Canceled</button>
+      <button [class.active]="nav == 'DELIVERED'" (click)="filterOrders('DELIVERED')">Delivered</button>
     </div>
+  </div>
+  <section class="orders">
     <table>
       <thead>
         <tr>
@@ -49,7 +24,7 @@
           <th>ORDER STATUS</th>
         </tr>
       </thead>
-      @for(order of recentOrders(); track $index){
+      @for(order of orders; track $index){
       <tbody>
         <tr (click)="displayOrderInfo(order.orderID, order.status)">
           <td>{{ order.orderID }}</td>
@@ -66,13 +41,13 @@
         </tr>
       </tbody>
       <div class="dialog" [class.openDialog]="order.orderID == selectedOrderID">
-        <app-order-dialog [order]="order" [orderIsUpdatable]="false" [orderStatus]="orderStatus"
+        <app-order-dialog [order]="order" [orderIsUpdatable]="true" [orderStatus]="orderStatus"
           (closeDialog)="isDialogClosed($event)"></app-order-dialog>
       </div>
       }
     </table>
 
-    @if(recentOrders().length < 1){ <p>You currently have no recent orders</p>
+    @if(orders.length < 1){ <p>You currently have no {{nav.toLowerCase()}} orders</p>
       }
 
   </section>

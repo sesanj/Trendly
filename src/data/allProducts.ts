@@ -247,7 +247,6 @@ export const ProductData: Product[] = [
     id: 'm7',
     title: 'Brown Knitwear Sweater Crew Neck',
     price: 99,
-    //discount: 66,
     description:
       'Stay cozy and stylish with our vibrant Orange Knitwear Sweater, designed for comfort and versatility. Perfect for adding a pop of color to your wardrobe, this sweater combines classic design with premium craftsmanship.',
     category: {
@@ -269,7 +268,6 @@ export const ProductData: Product[] = [
     id: 'm8',
     title: 'Pocket Basic T-Shirt',
     price: 79.99,
-    //discount: 66,
     description:
       'Upgrade your wardrobe with the effortlessly versatile Pocket Basic T-Shirt, a perfect blend of simplicity and functionality. Designed for everyday comfort and style, this t-shirt is a must-have staple.',
     category: {
@@ -277,9 +275,7 @@ export const ProductData: Product[] = [
       shirt: true,
     },
     quantity: 50,
-    // color: [
-    //   "GREEN",
-    // ],
+    color: ['ORANGE'],
     size: ['M', 'L', 'XL'],
     image: {
       image1: 'men8-1.jpeg',
@@ -315,7 +311,6 @@ export const ProductData: Product[] = [
     id: 'm10',
     title: 'Hooded Inflatable Coat Printed Waterproof',
     price: 199.99,
-    //discount: 66,
     description:
       'The Hooded Inflatable Coat is a stylish and practical outerwear designed to keep you warm and dry in all conditions. Made from high-quality, waterproof material, this coat ensures protection against rain and wind.',
     category: {
@@ -324,9 +319,6 @@ export const ProductData: Product[] = [
       hoodie: true,
     },
     quantity: 99,
-    // color: [
-    //   "GREEN",
-    // ],
     size: ['M', 'L', 'XL'],
     image: {
       image1: 'men10-2.jpeg',

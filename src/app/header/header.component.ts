@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductServiceService } from '../services/product-service.service';
 import { CurrencyPipe } from '@angular/common';

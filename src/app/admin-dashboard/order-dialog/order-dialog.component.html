@@ -79,7 +79,7 @@
       </div>
     </div>
     <div class="orderedProducts">
-      <h2>{{order.products.length}} Ordered Products</h2>
+      <h2>{{totalProducts(order)}} Ordered Products</h2>
       @for(product of order.products; track $index){
       <div class="product" [routerLink]="'/product/' + product.ID">
         <img [src]="'products/' + productImage(product.ID)" alt="product image">
