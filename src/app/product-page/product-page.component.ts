@@ -1,12 +1,14 @@
 import { Component, inject, OnInit, Input } from '@angular/core';
 import { Product, ProductCategory } from '../models/product.model';
-import { ProductServiceService } from '../product service/product-service.service';
+import { ProductServiceService } from '../services/product-service.service';
 import { RelatedProductsComponent } from '../related-products/related-products.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [RelatedProductsComponent],
+  imports: [RelatedProductsComponent, HeaderComponent, FooterComponent],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
 })

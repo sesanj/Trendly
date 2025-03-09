@@ -1,0 +1,33 @@
+import { Injectable } from '@angular/core';
+import { orders } from '../../data/orders';
+import { Order, OrderStatus } from '../models/product-order.model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class OrderServiceService {
+  allOrders: Order[] = orders;
+
+  constructor() {}
+
+  getOrders() {
+    return this.allOrders;
+  }
+
+  updateOrderStatus(status: OrderStatus, orderId: string) {
+    if (
+      status != 'PENDING' &&
+      status != 'PROCESSING' &&
+      status != 'OUT FOR DELIVERY' &&
+      status != 'DELIVERED' &&
+      status != 'CANCELED'
+    ) {
+      console.log('Invalid Status Entered');
+      return;
+    }
+
+    this.allOrders.some((order) =>
+      order.orderID == orderId ? (order.status = status) : ''
+    );
+  }
+}
