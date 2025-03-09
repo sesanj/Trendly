@@ -1,0 +1,73 @@
+
+<div class="checkoutWrapper">
+  <div class="checkoutContainer">
+    <div class="freeShipping">
+      <div class="notice">
+        <span>Add <b>${{ thePriceToFreeShipping }} to cart and get free shipping!</b></span>
+      </div>
+      <div class="progress">
+        <div class="filled" [style.width]="(cartTotal / freeShippingStandard) * 100 + '%'"></div>
+      </div>
+    </div>
+
+    <table class="cartTable">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Remove</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><img src="products/aDresses3.jpg" alt="Item"></td>
+        <td>Hooded Sweatshirt With Kangaroo Pocket - Red, XXL</td>
+        <td>$70.90</td>
+        <td>
+          <button>-</button>
+          <span>1</span>
+          <button>+</button>
+        </td>
+        <td>$70.90</td>
+        <td class="remove">❌</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="coupon">
+      <div class="theCoupon">
+        <input type="text" placeholder="Coupon Code" [(ngModel)]="coupon">
+        <button (click)="applyCoupon()">Apply coupon</button>
+      </div>
+      <button class="clearAll">Clear All</button>
+    </div>
+  </div>
+
+  <div class="cartTotal">
+    <div class="subTotal">
+      <span>Subtotal</span>
+      <span>${{ cartTotal }}</span>
+    </div>
+    <div class="shipping">
+      <span>Shipping</span>
+      <div class="options">
+        <label>
+          <input type="radio" name="shipping" (click)="shippingMethod('flat')" [checked]="theShippingMethod == 'flat'">
+          Flat rate: $15.00
+        </label>
+        <label>
+          <input type="radio" name="shipping" (click)="shippingMethod('local')" [checked]="theShippingMethod == 'local'">
+          Local pickup
+        </label>
+      </div>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span class="price">${{ totalPrice }}</span>
+    </div>
+    <button class="checkout-btn">Proceed to checkout</button>
+  </div>
+</div>

@@ -1,0 +1,187 @@
+.checkoutWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  width: 80%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+  .checkoutContainer, .cartTotal {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+  }
+
+  .checkoutContainer {
+    width: 65%;
+
+    .freeShipping {
+      background: #ffecec;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      .notice {
+        font-size: 14px;
+        color: #d9534f;
+      }
+
+      .progress {
+        width: 100%;
+        height: 8px;
+        background: #f8d7da;
+        border-radius: 5px;
+        margin-top: 10px;
+        position: relative;
+
+        .filled {
+          height: 8px;
+          background: red;
+          border-radius: 5px;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+
+    .cartTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+      th, td {
+        padding: 16px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background: #f8f8f8;
+        font-weight: bold;
+      }
+
+      .remove {
+        cursor: pointer;
+        color: red;
+        font-size: 20px;
+      }
+
+      img {
+        width: 90px;
+        border-radius: 8px;
+      }
+    }
+
+    .coupon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+
+      .theCoupon {
+        display: flex;
+        gap: 10px;
+
+        input {
+          padding: 8px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          width: 180px;
+        }
+
+        button {
+          background: #17a2b8;
+          color: white;
+          border: none;
+          padding: 8px 15px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-weight: bold;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #138496;
+          }
+        }
+      }
+
+      .clearAll {
+        background: #ddd;
+        border: none;
+        padding: 8px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: #bbb;
+        }
+      }
+    }
+  }
+
+  .cartTotal {
+    width: 30%;
+    margin-top: 25px;
+
+    .subTotal, .shipping, .total {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .shipping .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 5px;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+      }
+    }
+
+    .total .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: red;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #e63946;
+      color: white;
+      border: none;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-top: 15px;
+      text-align: center;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #d62828;
+      }
+    }
+  }
+}
+
+
