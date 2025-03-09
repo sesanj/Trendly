@@ -1,8 +1,8 @@
-import { Component, Inject, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product.model';
 import { RouterLink } from '@angular/router';
-import { ProductServiceService } from '../product service/product-service.service';
+import { ProductServiceService } from '../services/product-service.service';
 
 @Component({
   selector: 'app-product',

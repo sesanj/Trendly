@@ -1,0 +1,167 @@
+.overview {
+  color: rgb(72, 72, 72);
+  padding-top: 100px;
+}
+
+h1 {
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.heading span {
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.item {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
+}
+
+.metrics .content {
+  margin-left: 20px;
+}
+
+.metrics img {
+  width: 60px;
+  height: 60px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+h4 + p {
+  font-size: 25px;
+}
+
+.orders {
+  margin-top: 80px;
+}
+
+.orders > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 + button {
+  padding: 10px 16px;
+  border: 0px;
+  cursor: pointer;
+  background-color: rgb(34, 33, 42);
+  color: white;
+}
+
+h3 + button:hover {
+  background-color: rgb(230, 230, 230);
+  color: black;
+  transition: ease-in-out 0.2s;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+  border: solid 5px rgb(244, 245, 255);
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(244, 245, 255);
+}
+
+tbody {
+  width: 100%;
+}
+
+tbody tr {
+  border: solid 5px rgb(244, 245, 255);
+  margin: 5px;
+  background-color: white;
+}
+
+tbody tr:hover {
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
+}
+
+table + p {
+  margin-top: 20px;
+  padding: 15px;
+}
+
+th {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+}
+
+td {
+  padding: 15px;
+  font-weight: 350;
+}
+
+td a:hover {
+  color: rgb(193, 32, 0);
+  cursor: pointer;
+}
+
+.price {
+  color: rgb(0, 86, 0);
+}
+
+.dialog {
+  display: none;
+}
+
+.openDialog {
+  display: flex;
+}
+
+.status {
+  font-size: 12px;
+  padding: 4px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+.pending {
+  background-color: rgb(209, 129, 0);
+}
+
+.delivered {
+  background-color: rgb(0, 121, 0);
+}
+
+.inDelivery {
+  background-color: rgb(2, 0, 139);
+}
+
+.processing {
+  background-color: rgb(156, 0, 130);
+}
+
+.canceled {
+  background-color: rgb(226, 0, 0);
+}
