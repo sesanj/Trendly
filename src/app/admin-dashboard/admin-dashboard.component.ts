@@ -2,7 +2,6 @@ import { Component, inject, Inject, Input, input } from '@angular/core';
 import { OverviewComponent } from './overview/overview.component';
 import { Router, RouterLink } from '@angular/router';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
-import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -29,9 +28,6 @@ export class AdminDashboardComponent {
         this.heading = 'Customer Insight';
         this.navigation = 'customers';
         break;
-      // case 'settings':
-      //   this.navigation = 'settings';
-      //   break;
       default:
         this.navigate();
     }
