@@ -20,7 +20,6 @@ export const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'checkout', component: CheckoutComponent },
-
   { path: 'myAccount', component: AdminDashboardComponent },
   { path: 'myAccount/:nav', component: AdminDashboardComponent },
 ];
