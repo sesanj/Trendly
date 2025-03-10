@@ -1,33 +1,35 @@
+<app-header></app-header>
 <div class="container">
   <h2>Wish-List</h2>
   <table class="table">
     <thead>
-    <tr>
-      <th></th>
-      <th>Product</th>
-      <th>Price</th>
-      <th>Stock</th>
-      <th>Add to cart</th>
-      <th>Remove</th>
-    </tr>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Add to cart</th>
+        <th>Remove</th>
+      </tr>
     </thead>
     <tbody>
-    <tr>
-      <td><img src="/products/aJeans1.jpg" class="image"></td>
-      <td>Skirt</td>
-      <td>
-        <span class="original">$34.55</span>
-        <span class="salePrice">$25.55</span>
-      </td>
-      <td>Stock</td>
-      <td>
-        <button (click)="cart" class="button">Add to cart
-        </button>
-      </td>
-      <td>
-        <button (click)="remove" class="button2"><img src="remove.png" class="remove" alt="remove "></button>
-      </td>
-    </tr>
+      <tr>
+        <td><img src="/products/aJeans1.jpg" class="image"></td>
+        <td>Skirt</td>
+        <td>
+          <span class="original">$34.55</span>
+          <span class="salePrice">$25.55</span>
+        </td>
+        <td>Stock</td>
+        <td>
+          <button class="button">Add to cart
+          </button>
+        </td>
+        <td>
+          <button class="button2"><img src="remove.png" class="remove" alt="remove "></button>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
+<app-footer></app-footer>

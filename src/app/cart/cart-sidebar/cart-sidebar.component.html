@@ -32,8 +32,8 @@
       <div class="subTotal">Subtotal: <span>{{cartTotal | currency: "USD"}}</span></div>
       <!-- @if(cart.length > 0){ -->
       <div class="buttons">
-        <button routerLink="cart" (click)="closeCart()">View Bag</button>
-        <Button (click)="closeCart()">Checkout</Button>
+        <button routerLink="/cart" (click)="closeCart()">View Bag</button>
+        <Button routerLink="/checkout" (click)="closeCart()">Checkout</Button>
       </div>
       <!-- } -->
 

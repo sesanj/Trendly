@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
-import {Product} from "../models/product.model";
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-wishing-list',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, FooterComponent],
   templateUrl: './wishing-list.component.html',
-  styleUrl: './wishing-list.component.css'
+  styleUrl: './wishing-list.component.css',
 })
-export class WishingListComponent {
-  remove(product: Product) {}
-  cart(product: any){
-    this.remove(product);
-  }
-}
+export class WishingListComponent {}

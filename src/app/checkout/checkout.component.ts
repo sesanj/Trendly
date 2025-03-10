@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-checkout',
@@ -8,13 +15,14 @@ import { NgForOf, NgIf } from '@angular/common';
   imports: [
     ReactiveFormsModule, // This should be enough
     NgForOf,
-    NgIf
+    NgIf,
+    HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+  styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent {
-
   selectedOption: string = '';
   options: string[] = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
   orderForm: FormGroup;
@@ -28,13 +36,16 @@ export class CheckoutComponent {
   constructor(private fb: FormBuilder) {
     // Initialize the form group with validators
     this.orderForm = this.fb.group({
-      firstname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      lastname: ['', [Validators.required,Validators.pattern('^[a-zA-Z ]*$')]],
+      firstname: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z ]*$')],
+      ],
+      lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       street: ['', [Validators.required]],
       Town: ['', [Validators.required]],
       State: ['', [Validators.required]],
       Postal: ['', [Validators.required]],
-      phone: ['', [Validators.required,Validators.pattern('^[0-9]+$')]]
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
   }
 
@@ -50,7 +61,7 @@ export class CheckoutComponent {
     // Check if any required fields are empty
     if (this.orderForm.invalid) {
       this.formHasEmptyFields = true; // Set flag if the form has invalid (empty) fields
-      console.log("Form has empty fields");
+      console.log('Form has empty fields');
     } else {
       this.formHasEmptyFields = false; // Set flag to false if all fields are filled
       console.log('Form Submitted:', this.orderForm.value);

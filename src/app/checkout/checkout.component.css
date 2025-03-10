@@ -1,28 +1,23 @@
 .container {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
   display: flex;
   gap: 20rem;
   align-items: center;
-  padding: 0 20px; /* Adds equal spacing on both sides */
-  margin: 20px;
-
+  padding-top: 150px;
 }
 
-.box1{
-
-  padding-left: 50px;
-
-}
-
-.box2{
+.box2 {
   margin-bottom: 30rem;
 }
 
-.orderInfo{
+.orderInfo {
   display: flex;
   gap: 5rem;
 }
 
-Button{
+Button {
   margin-top: 20px; /* Add spacing before the button */
   background-color: #f13c3c;
   width: 23rem;
@@ -33,26 +28,23 @@ Button{
   border-radius: 5px;
 }
 
-form input[type="text"]{
+form input[type="text"] {
   border: none;
   background-color: #faf7f7;
   height: 30px;
   width: 40rem;
 }
 
-.order{
-    display: flex;
-    flex-direction: column; /* Stack label and input vertically */
-    gap: 10px; /* Optional: adds space between label and input */
-
+.order {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  gap: 10px; /* Optional: adds space between label and input */
 }
 .form-container {
   width: 100%;
   max-width: 600px; /* Optional: sets a max width for the form */
   margin: 0 auto; /* Centers the form */
 }
-
-
 
 .form-group label {
   display: block; /* Ensures labels are displayed above the input fields */
@@ -62,7 +54,6 @@ form input[type="text"]{
 .form-group input[type="text"],
 .form-group select,
 .form-group textarea {
-
   padding: 10px;
   font-size: 16px;
   border-radius: 4px;
@@ -73,8 +64,6 @@ form input[type="text"]{
   align-items: center; /* Aligns the checkbox and label on the same line */
 }
 
-
-
 textarea {
   background-color: #faf7f7;
   height: 100px; /* Sets a height for the textarea */
@@ -84,7 +73,6 @@ textarea {
 }
 
 #dropdown {
-
   font-size: 16px;
   border: none;
   width: 41rem;
@@ -92,12 +80,14 @@ textarea {
   background-color: #faf7f7;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   background-color: white; /* White background when clicked */
   border: 2px solid #ff5c59; /* Red border on focus */
   outline: none; /* Remove default focus outline */
 }
 
-.error-message{
+.error-message {
   color: red;
 }
