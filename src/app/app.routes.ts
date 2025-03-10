@@ -5,6 +5,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { CartComponent } from './cart/cart.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 export const routes: Routes = [
@@ -18,6 +19,8 @@ export const routes: Routes = [
   { path: 'product/:productId', component: ProductPageComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'login', component: LoginPageComponent },
+  { path: 'checkout', component: CheckoutComponent },
+
   { path: 'myAccount', component: AdminDashboardComponent },
   { path: 'myAccount/:nav', component: AdminDashboardComponent },
 ];

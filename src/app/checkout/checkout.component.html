@@ -1,0 +1,165 @@
+<div class="container">
+  <div class="box1">
+      <form [formGroup]="orderForm" class="form-container" (ngSubmit)="onSubmit()" >
+
+          <h1>Billing details</h1>
+          <br>
+        <div *ngIf="isFormSubmitted && formHasEmptyFields " class="error-message">
+         ** Please fill out all the fields in the form.**
+        </div>
+        <div class="order">
+          <h2>Your order</h2>
+
+
+          <div class="form-group" id="Name">
+            <div class="firstname">
+              <label for="firstname">First Name</label>
+              <input type="text" id="firstname" class="form-control" formControlName="firstname">
+              <div *ngIf="orderForm.get('firstname')?.invalid && orderForm.get('firstname')?.touched" class="error-message">
+                **Only alphabets are allowed
+              </div>
+            </div>
+            <br>
+            <div class="lastname">
+              <label for="lastname">Last Name</label>
+              <input type="text" id="lastname" class="form-control" formControlName="lastname">
+              <div *ngIf="orderForm.get('lastname')?.invalid && orderForm.get('lastname')?.touched" class="error-message">
+                **Only alphabets are allowed
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Company name">Company name*</label>
+            <input type="text" id="Company name">
+          </div>
+
+          <div class="form-group">
+            <label for="dropdown">Choose an option:</label>
+            <select id="dropdown" (change)="onSelectChange($event)">
+              <option value="">-- Select an option --</option>
+              <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Street address">Street address</label>
+            <input type="text" id="Street address" class="form-control" formControlName="street">
+
+          </div>
+
+          <div class="form-group">
+            <label for="town">Town or city</label>
+            <input type="text" id="town" class="form-control" formControlName="Town">
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" class="form-control" formControlName="State">
+          </div>
+
+          <div class="form-group">
+            <label for="postal">Postal Code</label>
+            <input type="text" id="postal"  class="form-control" formControlName="Postal">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" class="form-control" formControlName="phone">
+            <div *ngIf="orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched" class="error-message">
+              **Only numeric values are allowed
+            </div>
+          </div>
+
+          <!-- Checkboxes with labels on the left and checkboxes on the right -->
+          <div class="form-group checkbox-group">
+            <label for="create">Create an account?</label>
+            <input type="checkbox" id="create">
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label for="shipping">Ship to a different address?</label>
+            <input type="checkbox" id="shipping">
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Write a note</label>
+            <textarea id="notes"></textarea>
+          </div>
+        </div>
+      </form>
+  </div>
+
+  <div class="box2">
+    <h2>Orders</h2>
+    <div class="orderInfo">
+     <div class="product">
+       <h3>Product</h3>
+       <br>
+       <div>
+         Subtotal
+       </div>
+       <br>
+       <div>
+         Shipping
+       </div>
+       <br>
+       <br>
+       <div>
+         Total
+       </div>
+     </div>
+
+
+
+    <div class="Subtotal">
+       <h3>Subtotal</h3>
+       <br>
+       <div>
+        $75
+       </div>
+        <br>
+        <div>
+          <input type="radio" name="option" value="option1"> Flat Fee ($15.50)
+               <br>
+              <input type="radio" name="option" value="option2"> Local Fees
+        </div>
+         <br>
+
+         <div>
+           $70
+         </div>
+    </div>
+  </div>
+    <br>
+    <div>
+
+      <label>
+      <input type="radio" name="option" value="option1">
+         Make your payment directly into our bank account.<br> Please use your Order ID as the payment reference.<br>
+          Your order will not be shipped until the funds have <br>cleared in our account.
+        </label>
+        <br>
+        <br>
+        <label>
+          <input type="radio" name="option" value="option2">
+          Check Payment
+        </label>
+        <br>
+        <br>
+        <label>
+          <input type="radio" name="option" value="option3">
+          Cash on delivery
+        </label>
+        <br>
+        <br>
+      <input type="checkbox" id="myCheckbox">
+        <label for="myCheckbox"> I agree to the terms and conditions</label>
+
+    </div>
+    <button class="submit" (click)="onSubmit()">
+      Place your order
+    </button>
+  </div>
+
+</div>
