@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { ProductServiceService } from '../../product service/product-service.service';
+import { ProductServiceService } from '../../services/product-service.service';
 import { Product } from '../../models/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';

@@ -7,14 +7,14 @@
     <div class="navArea">
 
       <ul class="links">
-        <li><a routerLink="home">Home</a></li>
-        <li><a routerLink="shop">Shop</a></li>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/shop">Shop</a></li>
         <li><a [routerLink]="'/shop/' + 'men'">Men</a></li>
         <li><a [routerLink]="'/shop/' + 'women'">Women</a></li>
         <li><a [routerLink]="'/shop/' + 'deals'">Deals</a></li>
       </ul>
       <div class="wishListAndCart">
-        <div class="wishList">
+        <div routerLink="/wishlist" class="wishList">
           <img src="headerHeader.svg" alt="A heart icon">
           <p class="wishListCounter">{{favourites}}</p>
         </div>
@@ -28,8 +28,8 @@
         <div class="user">
           <img src="headerUser.svg" alt="A person icon">
           <ul>
-            <li><a routerLink="login">Sign In</a></li>
-            <li><a routerLink="signup">Create Account</a></li>
+            <li><a routerLink="/login">Sign In</a></li>
+            <li><a routerLink="/signup">Create Account</a></li>
           </ul>
         </div>
       </div>

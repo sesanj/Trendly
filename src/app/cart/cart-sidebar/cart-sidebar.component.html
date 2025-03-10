@@ -7,7 +7,7 @@
       <div class="product">
         <img [src]="'products/' + item.product.image?.image1" alt="Product Image">
         <div class="content">
-          <a [routerLink]="'product/' + item.product.id" class="title" (click)="closeCart()">{{item.product.title}}</a>
+          <a [routerLink]="'/product/' + item.product.id" class="title" (click)="closeCart()">{{item.product.title}}</a>
           <div>
             <p>{{getPrice(item) | currency: "USD"}}</p>
             <p class="count">x{{item.count}}</p>
@@ -32,8 +32,8 @@
       <div class="subTotal">Subtotal: <span>{{cartTotal | currency: "USD"}}</span></div>
       <!-- @if(cart.length > 0){ -->
       <div class="buttons">
-        <button routerLink="cart" (click)="closeCart()">View Bag</button>
-        <Button (click)="closeCart()">Checkout</Button>
+        <button routerLink="/cart" (click)="closeCart()">View Bag</button>
+        <Button routerLink="/checkout" (click)="closeCart()">Checkout</Button>
       </div>
       <!-- } -->
 

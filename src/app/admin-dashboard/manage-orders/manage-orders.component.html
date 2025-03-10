@@ -1,0 +1,54 @@
+<div class="overview">
+  <div class="heading">
+    <h1>{{orders.length}} Total Orders</h1>
+    <div>
+      <button [class.active]="nav == 'ALL'" (click)="filterOrders('ALL')">View All</button>
+      <button [class.active]="nav == 'PENDING'" (click)="filterOrders('PENDING')">Pending Orders</button>
+      <button [class.active]="nav == 'PROCESSING'" (click)="filterOrders('PROCESSING')">Processing</button>
+      <button [class.active]="nav == 'OUT FOR DELIVERY'" (click)="filterOrders('OUT FOR DELIVERY')">Out For
+        Delivery</button>
+      <button [class.active]="nav == 'CANCELED'" (click)="filterOrders('CANCELED')">Canceled</button>
+      <button [class.active]="nav == 'DELIVERED'" (click)="filterOrders('DELIVERED')">Delivered</button>
+    </div>
+  </div>
+  <section class="orders">
+    <table>
+      <thead>
+        <tr>
+          <th>ORDER ID</th>
+          <th>CUSTOMER</th>
+          <th>PRODUCTS ORDERED</th>
+          <th>DELIVERY INFO</th>
+          <th>PRICE</th>
+          <th>DATE</th>
+          <th>ORDER STATUS</th>
+        </tr>
+      </thead>
+      @for(order of orders; track $index){
+      <tbody>
+        <tr (click)="displayOrderInfo(order.orderID, order.status)">
+          <td>{{ order.orderID }}</td>
+          <td><a>{{customer(order)}}</a></td>
+          <td><a>{{totalProducts(order)}} Products</a></td>
+          <td><a>{{ delivery(order)}}</a></td>
+          <td> <span class="price">{{ order.orderTotal | currency: "USD"}}</span></td>
+          <td>{{order.date | date}}</td>
+          <td>
+            <span
+              [ngClass]="{'status': true,'pending': order.status == 'PENDING', 'processing': order.status == 'PROCESSING', 'inDelivery': order.status == 'OUT FOR DELIVERY', 'delivered': order.status == 'DELIVERED', 'canceled': order.status == 'CANCELED'}">{{
+              order.status }}</span>
+          </td>
+        </tr>
+      </tbody>
+      <div class="dialog" [class.openDialog]="order.orderID == selectedOrderID">
+        <app-order-dialog [order]="order" [orderIsUpdatable]="true" [orderStatus]="orderStatus"
+          (closeDialog)="isDialogClosed($event)"></app-order-dialog>
+      </div>
+      }
+    </table>
+
+    @if(orders.length < 1){ <p>You currently have no {{nav.toLowerCase()}} orders</p>
+      }
+
+  </section>
+</div>

@@ -6,6 +6,8 @@ import { SpecialCollectionComponent } from '../special-collection/special-collec
 import { CardSectionComponent } from '../card-section/card-section.component';
 import { SalesProductsComponent } from '../sales-products/sales-products.component';
 import { ReviewComponent } from '../review/review.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +20,8 @@ import { ReviewComponent } from '../review/review.component';
     CardSectionComponent,
     SalesProductsComponent,
     ReviewComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

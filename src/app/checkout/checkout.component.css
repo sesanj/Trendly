@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+  gap: 20rem;
+  align-items: center;
+  padding-top: 150px;
+}
+
+.box2 {
+  margin-bottom: 30rem;
+}
+
+.orderInfo {
+  display: flex;
+  gap: 5rem;
+}
+
+Button {
+  margin-top: 20px; /* Add spacing before the button */
+  background-color: #f13c3c;
+  width: 23rem;
+  height: 2rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form input[type="text"] {
+  border: none;
+  background-color: #faf7f7;
+  height: 30px;
+  width: 40rem;
+}
+
+.order {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  gap: 10px; /* Optional: adds space between label and input */
+}
+.form-container {
+  width: 100%;
+  max-width: 600px; /* Optional: sets a max width for the form */
+  margin: 0 auto; /* Centers the form */
+}
+
+.form-group label {
+  display: block; /* Ensures labels are displayed above the input fields */
+  margin-bottom: 5px; /* Adds space between the label and the input field */
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center; /* Aligns the checkbox and label on the same line */
+}
+
+textarea {
+  background-color: #faf7f7;
+  height: 100px; /* Sets a height for the textarea */
+  width: 40rem;
+  border: none;
+  resize: none;
+}
+
+#dropdown {
+  font-size: 16px;
+  border: none;
+  width: 41rem;
+  border-radius: 4px;
+  background-color: #faf7f7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: white; /* White background when clicked */
+  border: 2px solid #ff5c59; /* Red border on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+.error-message {
+  color: red;
+}

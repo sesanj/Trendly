@@ -1,0 +1,79 @@
+<div class="overview">
+  <p>Revenue:</p>
+  <h2><span>{{revenue() | currency: "USD"}}</span></h2>
+
+  <section class="metrics">
+    <div class="item">
+      <img src="dashboard/sales.jpg" alt="order icon">
+      <div class="content">
+        <h4>Total Sales</h4>
+        <p>{{totalSales()}}+</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/customer.png" alt="order icon">
+      <div class="content">
+        <h4>Customer Count</h4>
+        <p>23+</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/product.png" alt="order icon">
+      <div class="content">
+        <h4>Total Products</h4>
+        <p>{{productInventory()}}+</p>
+      </div>
+    </div>
+    <div class="item">
+      <img src="dashboard/orders.png" alt="order icon">
+      <div class="content">
+        <h4>Pending Orders</h4>
+        <p>{{pendingOrders()}}+</p>
+      </div>
+    </div>
+  </section>
+  <section class="orders">
+    <div>
+      <h3>Recent Orders</h3>
+      <button [routerLink]=" '/myAccount/'+ 'manage-orders'">Manage Orders</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ORDER ID</th>
+          <th>CUSTOMER</th>
+          <th>PRODUCTS ORDERED</th>
+          <th>DELIVERY INFO</th>
+          <th>PRICE</th>
+          <th>DATE</th>
+          <th>ORDER STATUS</th>
+        </tr>
+      </thead>
+      @for(order of recentOrders(); track $index){
+      <tbody>
+        <tr (click)="displayOrderInfo(order.orderID, order.status)">
+          <td>{{ order.orderID }}</td>
+          <td><a>{{customer(order)}}</a></td>
+          <td><a>{{totalProducts(order)}} Products</a></td>
+          <td><a>{{ delivery(order)}}</a></td>
+          <td> <span class="price">{{ order.orderTotal | currency: "USD"}}</span></td>
+          <td>{{order.date | date}}</td>
+          <td>
+            <span
+              [ngClass]="{'status': true,'pending': order.status == 'PENDING', 'processing': order.status == 'PROCESSING', 'inDelivery': order.status == 'OUT FOR DELIVERY', 'delivered': order.status == 'DELIVERED', 'canceled': order.status == 'CANCELED'}">{{
+              order.status }}</span>
+          </td>
+        </tr>
+      </tbody>
+      <div class="dialog" [class.openDialog]="order.orderID == selectedOrderID">
+        <app-order-dialog [order]="order" [orderIsUpdatable]="false" [orderStatus]="orderStatus"
+          (closeDialog)="isDialogClosed($event)"></app-order-dialog>
+      </div>
+      }
+    </table>
+
+    @if(recentOrders().length < 1){ <p>You currently have no recent orders</p>
+      }
+
+  </section>
+</div>
