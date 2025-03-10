@@ -27,8 +27,12 @@
     </p>
     }
 
-    <div class="buttonContainer" (click)="addToCart(product)">
-      <button>ADD TO CART</button>
+    <div class="buttonContainer">
+      @if(product.size || product.color){
+      <button [routerLink]="'/product/' + product.id">SELECT OPTIONS</button>
+      }@else {
+      <button (click)="addToCart(product)">ADD TO CART</button>
+      }
       <div><img src="bag.svg" alt="A shopping cart"></div>
     </div>
   </div>

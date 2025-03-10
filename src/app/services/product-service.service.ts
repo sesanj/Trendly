@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductData } from '../../data/allProducts';
-import { provideRouter } from '@angular/router';
+import { CartProduct } from '../models/product-order.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,14 +11,14 @@ export class ProductServiceService {
 
   clickedProduct!: Product;
 
-  modifiedCart: { product: Product; count: number }[] = [];
+  cart: CartProduct[] = [];
 
   favourites: Product[] = [];
 
   constructor() {
     if (this.getCartFromLocalStorage()) {
       for (let item of this.getCartFromLocalStorage()) {
-        this.modifiedCart.push(item);
+        this.cart.push(item);
       }
     }
   }
@@ -37,22 +37,22 @@ export class ProductServiceService {
     return this.clickedProduct;
   }
 
-  addToCart(product: Product) {
-    if (this.modifiedCart.some((item) => item.product.id == product.id)) {
-      let index = this.modifiedCart.findIndex(
-        (item) => item.product.id == product.id
-      );
+  addToCart(product: CartProduct) {
+    if (this.cart.some((item) => item.ID == product.ID)) {
+      let index = this.cart.findIndex((item) => item.ID == product.ID);
 
-      this.modifiedCart[index].count += 1;
+      this.cart[index].quantity += product.quantity;
+      // this.cart[index].totalPrice =
+      //   this.cart[index].totalPrice * this.cart[index].quantity;
     } else {
-      this.modifiedCart.push({ product: product, count: 1 });
+      this.cart.push(product);
     }
 
     this.addCartToLocalStorage();
   }
 
   getCart() {
-    return this.modifiedCart;
+    return this.cart;
   }
 
   addToFavourite(product: Product) {
@@ -70,6 +70,6 @@ export class ProductServiceService {
   }
 
   addCartToLocalStorage() {
-    localStorage.setItem('cart', JSON.stringify(this.modifiedCart));
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 }

@@ -11,33 +11,27 @@ import { CartSidebarComponent } from '../cart/cart-sidebar/cart-sidebar.componen
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
-  service = inject(ProductServiceService);
+export class HeaderComponent {
+  productService = inject(ProductServiceService);
 
   cartActive: boolean = false;
 
-  ngOnInit() {
-    // this.cartFavourites = this.service.getFavourite().length;
-  }
-
   get favourites() {
-    return this.service.favourites.length;
+    return this.productService.favourites.length;
   }
 
   get cartTotal() {
     let count = 0;
-    for (let item of this.service.modifiedCart) {
-      count += item.count;
+    for (let item of this.productService.cart) {
+      count += item.quantity;
     }
     return count;
   }
 
   get cartPrice() {
     let price = 0;
-    for (let item of this.service.modifiedCart) {
-      price += item.product.discount
-        ? item.product.discount * item.count
-        : item.product.price * item.count;
+    for (let item of this.productService.cart) {
+      price += item.totalPrice * item.quantity;
     }
     return price;
   }

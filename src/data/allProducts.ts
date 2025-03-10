@@ -10,13 +10,12 @@ export const ProductData: Product[] = [
       "Men's green jacket with a zip-up design, offering a perfect blend of comfort and casual style. Ideal for everyday wear, it combines functionality and a modern look.",
     category: {
       men: true,
-      shirt: true,
       jacket: true,
       hoodie: true,
     },
     quantity: 12,
-    color: ['BLACK', 'BLUE', 'GREEN'],
-    size: ['M', 'L', 'XL'],
+    // color: ['BLACK', 'BLUE', 'GREEN'],
+    // size: ['M', 'L', 'XL'],
     image: {
       image1: 'men1-1.jpg',
       image2: 'men1-2.jpg',
@@ -34,7 +33,6 @@ export const ProductData: Product[] = [
       "Men's hoodie designed for ultimate comfort and a modern casual style.",
     category: {
       men: true,
-      jacket: true,
       hoodie: true,
     },
     quantity: 10,

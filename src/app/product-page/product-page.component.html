@@ -14,7 +14,6 @@
         alt="product image">
       }
 
-
     </div>
     @if(product.discount){
     <p>{{calculateDiscount()}}</p>
@@ -36,7 +35,7 @@
     <div class="color">
       <p>Color:</p>
       @for(color of product.color ; track $index){
-      <div [class.selectedColor]="color == selectedColor" (click)="selectColor(color)">
+      <div class="colorBorder" [class.selectedColor]="color == selectedColor" (click)="selectColor(color)">
         <span [style.backgroundColor]="color"></span>
       </div>
       }
@@ -50,6 +49,10 @@
       }
     </div>
     }
+    @if(warning){
+    <p class="warning"> Please select option to proceed</p>
+    }
+
     <div class="quantity">
       <p><button (click)="decrease()">---</button><span>{{productQuantity}}</span><button
           (click)="increase()">+</button>

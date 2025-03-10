@@ -23,29 +23,52 @@ export class RelatedProductsComponent {
 
     // Define valid category groups
     const relatedCategories = [
-      ['skirt', 'pants'],
+      ['skirt', 'pant'],
       ['dress', 'shirt', 'sweatshirt'],
       ['hoodie', 'jacket'],
       ['bag', 'shoe'],
     ];
 
-    // Find the matching category group
-    const matchedGroup = relatedCategories.find((group) =>
-      group.some(
-        (cat) => category.women && category[cat as keyof ProductCategory]
-      )
-    );
-
-    if (!matchedGroup) return allProducts; // No specific match, return all
-
-    return allProducts.filter(
-      (product) =>
-        product !== this.product &&
-        matchedGroup.some(
-          (cat) =>
-            product.category.women &&
-            product.category[cat as keyof ProductCategory]
+    if (category.women) {
+      // Find the matching category group
+      const matchedGroup = relatedCategories.find((group) =>
+        group.some(
+          (cat) => category.women && category[cat as keyof ProductCategory]
         )
-    );
+      );
+
+      if (!matchedGroup) return allProducts; // No specific match, return all
+
+      return allProducts.filter(
+        (product) =>
+          product !== this.product &&
+          matchedGroup.some(
+            (cat) =>
+              product.category.women &&
+              product.category[cat as keyof ProductCategory]
+          )
+      );
+    } else if (category.men) {
+      // Find the matching category group
+      const matchedGroup = relatedCategories.find((group) =>
+        group.some(
+          (cat) => category.men && category[cat as keyof ProductCategory]
+        )
+      );
+
+      if (!matchedGroup) return allProducts; // No specific match, return all
+
+      return allProducts.filter(
+        (product) =>
+          product !== this.product &&
+          matchedGroup.some(
+            (cat) =>
+              product.category.men &&
+              product.category[cat as keyof ProductCategory]
+          )
+      );
+    } else {
+      return allProducts;
+    }
   }
 }
