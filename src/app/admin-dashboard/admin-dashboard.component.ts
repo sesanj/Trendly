@@ -36,6 +36,6 @@ export class AdminDashboardComponent {
   navigation: string = '';
 
   navigate() {
-    this.router.navigate(['/myAccount/overview']);
+    this.router.navigate(['/myaccount/overview']);
   }
 }

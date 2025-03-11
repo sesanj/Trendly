@@ -145,7 +145,7 @@ export const ProductData: Product[] = [
       jacket: true,
     },
     quantity: 5,
-    color: ['#C19A6B'],
+    color: ['BROWN'],
     size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'gJacket1.jpg',
@@ -336,7 +336,7 @@ export const ProductData: Product[] = [
       hoodie: true,
     },
     quantity: 30,
-    color: ['#00008B'],
+    color: ['BLACK'],
     size: ['S', 'M', 'L', 'XL'],
     image: {
       image1: 'bHoodie1.jpg',

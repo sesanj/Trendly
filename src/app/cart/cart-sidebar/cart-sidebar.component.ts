@@ -36,12 +36,7 @@ export class CartSidebarComponent {
   }
 
   deleteProduct(product: CartProduct) {
-    const index = this.productService.cart.findIndex(
-      (item) => item.ID == product.ID
-    );
-    this.productService.cart.splice(index, 1);
-
-    this.productService.addCartToLocalStorage();
+    this.productService.deleteFromCart(product);
   }
 
   productImage(id: string) {

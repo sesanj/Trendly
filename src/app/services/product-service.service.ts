@@ -38,7 +38,14 @@ export class ProductServiceService {
   }
 
   addToCart(product: CartProduct) {
-    if (this.cart.some((item) => item.ID == product.ID)) {
+    if (
+      this.cart.some(
+        (item) =>
+          item.ID == product.ID &&
+          item.color == product.color &&
+          item.size == product.size
+      )
+    ) {
       let index = this.cart.findIndex((item) => item.ID == product.ID);
 
       this.cart[index].quantity += product.quantity;
@@ -47,6 +54,19 @@ export class ProductServiceService {
     } else {
       this.cart.push(product);
     }
+
+    this.addCartToLocalStorage();
+  }
+
+  deleteFromCart(product: CartProduct) {
+    const index = this.cart.findIndex((item) => item.ID == product.ID);
+    this.cart.splice(index, 1);
+
+    this.addCartToLocalStorage();
+  }
+
+  clearCart() {
+    this.cart.length = 0;
 
     this.addCartToLocalStorage();
   }
