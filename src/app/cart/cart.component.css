@@ -6,9 +6,9 @@
 }
 
 h1 {
+  margin-bottom: 20px;
+  font-size: 35px;
   font-weight: 500;
-  font-size: 30px;
-  margin-bottom: 30px;
 }
 
 .container {
@@ -20,8 +20,6 @@ h1 {
 .cartInfo,
 .cartTotal {
   background: #fff;
-  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  padding: 25px; */
 }
 
 .cartInfo {
@@ -96,6 +94,14 @@ table {
     width: 60px;
     border-radius: 8px;
   }
+}
+
+.empty {
+  text-align: center;
+}
+
+.empty img {
+  width: 200px;
 }
 
 .name {

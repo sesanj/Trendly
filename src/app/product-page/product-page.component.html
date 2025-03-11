@@ -60,7 +60,15 @@
       <button class="addToCart" (click)="addToCart(product)">Add to Cart</button>
     </div>
     <div class="wishlist">
-      <button><img src="heart.svg" alt="love icon"><span>Add this product to your Wishlist!</span></button>
+      @if(!getFavouriteStatus(product.id)){
+      <button (click)="favoriteClicked(product)"><img src="heart.svg" alt="heart icon"><span>Add this product to your
+          Wishlist!</span></button>
+      }
+
+      @if(getFavouriteStatus(product.id)){
+      <button (click)="unFavorite(product)"><img src="love.svg" alt="love icon"><span>This product has been added to
+          your Favourites!</span></button>
+      }
     </div>
     <div class="info">
       <ul>
@@ -85,7 +93,7 @@
   <div class="viewed">
     <h3>Recently Viewed</h3>
     @for(product of viewedProducts; track $index){
-    <div class="viewedProducts">
+    <div class="viewedProducts" [routerLink]="'/product/' + product.id">
       <div>
         <img [src]="'products/' + product.image?.image1" alt="product image">
       </div>

@@ -5,11 +5,17 @@ import { RelatedProductsComponent } from '../related-products/related-products.c
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CartProduct } from '../models/product-order.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [RelatedProductsComponent, HeaderComponent, FooterComponent],
+  imports: [
+    RelatedProductsComponent,
+    HeaderComponent,
+    FooterComponent,
+    RouterLink,
+  ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
 })
@@ -18,9 +24,8 @@ export class ProductPageComponent implements OnInit {
 
   productID!: string;
 
-  // allProducts = this.productService.allProducts;
+  favouriteProducts = this.productService.getFavourite();
 
-  // Getting product id from url
   @Input()
   set productId(pId: string) {
     this.productID = pId;
@@ -40,10 +45,10 @@ export class ProductPageComponent implements OnInit {
 
   warning = false;
 
-  viewedProducts: Product[] = this.productService.getAllProducts();
+  viewedProducts: Product[] = [];
 
   ngOnInit(): void {
-    this.viewedProducts = this.viewedProducts.slice(0, 4);
+    this.viewedProducts = this.productService.getViewedProduct();
 
     // Load page info if product ID is valid
     if (this.productID) {
@@ -186,5 +191,25 @@ export class ProductPageComponent implements OnInit {
 
     this.productService.addToCart(cartProduct);
     this.warning = false;
+  }
+
+  favoriteClicked(product: Product) {
+    this.productService.addToFavourite(product);
+  }
+
+  unFavorite(product: Product) {
+    this.productService.removeFromFavourite(product);
+  }
+
+  getFavouriteStatus(productID: string) {
+    let favourite = this.favouriteProducts.some(
+      (product) => product.product.id == productID
+    );
+
+    if (favourite) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

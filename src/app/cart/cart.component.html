@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="cartWrapper">
-  <h1>Cart</h1>
+  <h1>Cart Products</h1>
   <div class="container">
 
     <div class="cartInfo">
@@ -55,7 +55,11 @@
         </tbody>
       </table>
       @if(cartItems.length == 0){
-      <p style="margin-top: 40px;">There is currently no item on your cart.</p>
+      <div class="empty">
+        <img src="emptycart.png" alt="empty cart">
+        <p>There is currently no item in your cart.</p>
+      </div>
+
       }
       @if(cartItems.length > 0){
       <div class="clearCart">

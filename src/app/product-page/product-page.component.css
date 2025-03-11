@@ -210,7 +210,6 @@ h1 {
   align-items: center;
   background-color: white;
   border: none;
-  width: 250px;
   padding: 5px 0px;
   font-size: 14px;
   font-weight: 500;
@@ -276,6 +275,11 @@ h3 {
   display: flex;
   margin-bottom: 20px;
   font-size: 14px;
+}
+
+.viewedProducts :hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .viewedProducts div:first-child {
