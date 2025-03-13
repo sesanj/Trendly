@@ -30,4 +30,10 @@ export class OrderServiceService {
       order.orderID == orderId ? (order.status = status) : ''
     );
   }
+
+  addOrder(order: Order) {
+    this.allOrders.push(order);
+
+    console.log('Order Added!');
+  }
 }

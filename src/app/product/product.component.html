@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="details">
-    <a [routerLink]="'/product/' + product.id" class="title">{{product.title}}</a>
+    <a [routerLink]="'/product/' + product.id" class="title" (click)="viewProduct(product)">{{product.title}}</a>
     @if(product.discount){
     <p class="slashedPrice" (click)="viewProduct(product)">${{product.price}} <span [class]="{
         inStock: product.quantity > 0,
