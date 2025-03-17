@@ -1,16 +1,18 @@
 import { inject, Injectable, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { users } from '../../data/users';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserServiceService {
-  allUsers: User[] = [];
+  allUsers: User[] = users;
 
   loggedInUser!: User;
 
   userAlreadyExist: boolean = false;
+  loginFailed: boolean = false;
 
   registerUser(user: User) {
     if (
@@ -30,12 +32,30 @@ export class UserServiceService {
   }
 
   logIn(emailOrUsername: string, password: string) {
+    if (
+      !this.allUsers.some(
+        (item) =>
+          (item.email.toLowerCase() == emailOrUsername.toLowerCase() &&
+            item.password == password) ||
+          (item.username.toLowerCase() == emailOrUsername.toLowerCase() &&
+            item.password == password)
+      )
+    ) {
+      // console.log('Log In Failed, username/email or password does not exist');
+      this.loginFailed = true;
+      return;
+    }
+
     this.allUsers.forEach((item) =>
-      (item.email == emailOrUsername && item.password == password) ||
-      (item.username == emailOrUsername && item.password == password)
+      (item.email.toLowerCase() == emailOrUsername.toLowerCase() &&
+        item.password == password) ||
+      (item.username.toLowerCase() == emailOrUsername.toLowerCase() &&
+        item.password == password)
         ? (this.loggedInUser = item)
         : ''
     );
+
+    this.loginFailed = false;
   }
 
   generateUserID() {
