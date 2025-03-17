@@ -2,6 +2,7 @@ import { User } from '../app/models/user.model';
 
 export const users: User[] = [
   {
+    dateRegistered: Date.now(),
     ID: 'JDBMN32IDN244',
     firstName: 'Sesan',
     lastName: 'Popoola',
@@ -10,6 +11,7 @@ export const users: User[] = [
     phoneNumber: '+2348036876569',
     role: 'ADMIN',
     registered: true,
+    username: 'sesanjoel',
     address: {
       country: 'Nigeria',
       state: 'Abuja',
@@ -19,6 +21,7 @@ export const users: User[] = [
     },
   },
   {
+    dateRegistered: Date.now(),
     ID: 'KSJH6435NF',
     firstName: 'Joel',
     lastName: 'Sylvester',
@@ -27,6 +30,7 @@ export const users: User[] = [
     phoneNumber: '+23480123876569',
     role: 'CUSTOMER',
     registered: true,
+    username: 'SylvesterJoel',
     address: {
       country: 'Nigeria',
       state: 'Lagos',

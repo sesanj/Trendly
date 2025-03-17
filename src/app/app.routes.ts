@@ -20,6 +20,6 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'wishlist', component: WishingListComponent },
-  { path: 'myAccount', component: AdminDashboardComponent },
-  { path: 'myAccount/:nav', component: AdminDashboardComponent },
+  { path: 'myaccount', component: AdminDashboardComponent },
+  { path: 'myaccount/:nav', component: AdminDashboardComponent },
 ];

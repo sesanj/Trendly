@@ -3,6 +3,7 @@ import { ProductServiceService } from '../../services/product-service.service';
 import { Product } from '../../models/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { CartProduct } from '../../models/product-order.model';
 
 @Component({
   selector: 'app-cart-sidebar',
@@ -12,14 +13,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cart-sidebar.component.css',
 })
 export class CartSidebarComponent {
-  service = inject(ProductServiceService);
+  productService = inject(ProductServiceService);
 
   @Output() cartClosed = new EventEmitter<boolean>();
 
   @Input({ required: true }) cartActive: boolean = false;
 
   get cart() {
-    return this.service.modifiedCart;
+    return this.productService.cart;
   }
 
   closeCart() {
@@ -28,26 +29,24 @@ export class CartSidebarComponent {
 
   get cartTotal() {
     let price = 0;
-    for (let item of this.service.modifiedCart) {
-      price += item.product.discount
-        ? item.product.discount * item.count
-        : item.product.price * item.count;
+    for (let item of this.productService.cart) {
+      price += item.totalPrice * item.quantity;
     }
     return price;
   }
 
-  deleteProduct(product: Product) {
-    const index = this.service.modifiedCart.findIndex(
-      (item) => item.product.id == product.id
-    );
-    this.service.modifiedCart.splice(index, 1);
-
-    this.service.addCartToLocalStorage();
+  deleteProduct(product: CartProduct) {
+    this.productService.deleteFromCart(product);
   }
 
-  getPrice(cartItem: { product: Product; count: number }) {
-    return cartItem.product.discount
-      ? cartItem.product.discount * cartItem.count
-      : cartItem.product.price * cartItem.count;
+  productImage(id: string) {
+    let product = this.productService
+      .getAllProducts()
+      .filter((product) => product.id === id);
+    return product[0].image?.image1;
+  }
+
+  getPrice(cartItem: CartProduct) {
+    return cartItem.totalPrice * cartItem.quantity;
   }
 }

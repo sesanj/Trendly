@@ -1,71 +1,52 @@
 /* Container for the form */
-form {
+.container {
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  background-color: white;
   border-radius: 8px;
+  padding: 30px;
 }
-
-
-/* Form heading */
-/*h2 {*/
-/*  text-align: center;*/
-/*  font-size: 24px;*/
-/*  margin-bottom: 20px;*/
-/*  color: #333;*/
-/*}*/
-
-/* Form group */
-/*.form-group {*/
-/*  margin-bottom: 15px;*/
-/*}*/
 
 label {
-  /*display: block;*/
-  /*font-size: 14px;*/
-  /*margin-bottom: 8px;*/
-  /*color: #333;*/
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
-/*input {*/
-/*  width: 100%;*/
-/*  padding: 10px;*/
-/*  font-size: 16px;*/
-/*  border: 1px solid #ddd;*/
-/*  border-radius: 4px;*/
-/*  box-sizing: border-box;*/
-/*}*/
-
-input:focus {
-  border-color: #007bff;
-  outline: none;
+img {
+  width: 24px;
+  height: 24px;
 }
 
-/* Submit button */
 button {
   width: 100%;
   padding: 10px;
-  background-color: transparent;
-  color:  #333;
+  background-color: #f13c3c;
+  color: white;
   font-size: 16px;
+  font-weight: 500;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  transition: darkred 0.3s ease;
 }
 
 button:hover {
-  background-color:  #ff5c59;
+  background-color: #ff5c59;
 }
-.error{
+
+.error {
   color: red;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
+
+.failed {
+  color: rgb(216, 0, 0);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
 .invalid-field {
   border: 2px solid red;
 }
@@ -74,15 +55,13 @@ button:hover {
   position: relative;
   width: 100%;
 }
-.passwordInput input {
-  padding-right: 40px; /* Make space for the toggle button */
-}
-.login input {
-  width: 100%;  /* Make the input fields take 50% of the container width */
-  padding: 8px;
-  border: 0;
-  margin-bottom: 10px;
-  background-color: rgba(211, 211, 211, 0.5);  /* Light grey with transparency */
+
+input {
+  width: 100%; /* Make the input fields take 50% of the container width */
+  padding: 10px 0px;
+  border: none;
+  margin-bottom: 30px;
+  background-color: rgba(211, 211, 211, 0.5); /* Light grey with transparency */
   font-size: 16px;
   border-radius: 5px;
   outline: none;
@@ -90,39 +69,22 @@ button:hover {
 
 .eyes {
   position: absolute;
-  top: 50%;
-  right: -10px; /* Adjust to move the icon horizontally */
-  transform: translateY(-50%);
+  top: 15%;
+  right: 10px;
   cursor: pointer;
-  z-index: 1; /* Ensure the icon stays above the input */
 }
-/*}*/
+
 h2 {
+  font-size: 25px;
   text-align: center;
   width: 100%;
-  margin-bottom: 20px;  /* Add spacing below the title */
+  margin-bottom: 40px;
+  font-weight: 500;
 }
-#show-password{
-  position: absolute;
 
-}
-.form {
+.login {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
-  align-items: center;
-  justify-content: center; /* Center the form elements vertically */
-  width: 100%;
-  max-width: 400px;  /* Ensure the form does not stretch too wide */
-  padding: 2rem;
-  background-color: white;
-  border-radius: 8px;
-
-}
-.login{
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
   justify-content: center;
-  align-items: center;  /* Center the content both vertically and horizontally */
-  min-height: 100vh;  /* Ensure full viewport height */
-  width: 100%;
+  align-items: center;
+  min-height: 100vh;
 }

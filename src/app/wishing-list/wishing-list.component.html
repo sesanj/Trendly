@@ -1,35 +1,53 @@
 <app-header></app-header>
 <div class="container">
-  <h2>Wish-List</h2>
-  <table class="table">
+  <h2>Your Favourite Products</h2>
+  <table>
     <thead>
       <tr>
         <th></th>
         <th>Product</th>
         <th>Price</th>
         <th>Stock</th>
+        <th>Date Added</th>
         <th>Add to cart</th>
         <th>Remove</th>
       </tr>
     </thead>
     <tbody>
+      @for(product of favouriteProducts; track $index){
       <tr>
-        <td><img src="/products/aJeans1.jpg" class="image"></td>
-        <td>Skirt</td>
-        <td>
-          <span class="original">$34.55</span>
-          <span class="salePrice">$25.55</span>
+        <td><img [src]="'/products/' + productImage(product.product.id)"></td>
+        <td class="name">{{product.product.title}}</td>
+        <td>@if(product.product.discount){
+          <span class="original">{{product.product.price | currency: 'USD'}}</span>
+          <span class="salePrice">{{product.product.discount | currency: 'USD'}}</span>
+          }@else {
+          <p>{{product.product.price | currency: 'USD'}}</p>
+          }
+
         </td>
-        <td>Stock</td>
+        <td>@if(product.product.quantity > 0){
+          <p class="instock">In Stock</p>}@else {
+          <p class="outofstock">Out of Stock</p>
+          }
+        </td>
+        <td>{{product.date | date}}</td>
         <td>
-          <button class="button">Add to cart
-          </button>
+          <button [routerLink]="'/product/' + product.product.id">View Product</button>
         </td>
         <td>
-          <button class="button2"><img src="remove.png" class="remove" alt="remove "></button>
+          <p class="remove" (click)="remove(product.product)">x</p>
         </td>
       </tr>
+      }
     </tbody>
   </table>
+  @if(favouriteProducts.length == 0){
+  <div class="empty">
+    <img src="emptycart.png" alt="empty cart">
+    <p>You currently have no favourite products.</p>
+  </div>
+
+  }
 </div>
 <app-footer></app-footer>

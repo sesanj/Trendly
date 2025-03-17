@@ -1,168 +1,155 @@
 <app-header></app-header>
-<div class="container">
-  <div class="box1">
-    <form [formGroup]="orderForm" class="form-container" (ngSubmit)="onSubmit()">
 
-      <h1>Billing details</h1>
-      <br>
-      <div *ngIf="isFormSubmitted && formHasEmptyFields " class="error-message">
-        ** Please fill out all the fields in the form.**
-      </div>
-      <div class="order">
-        <h2>Your order</h2>
-
-
-        <div class="form-group" id="Name">
-          <div class="firstname">
-            <label for="firstname">First Name</label>
-            <input type="text" id="firstname" class="form-control" formControlName="firstname">
-            <div *ngIf="orderForm.get('firstname')?.invalid && orderForm.get('firstname')?.touched"
-              class="error-message">
-              **Only alphabets are allowed
+<div class="wrapper">
+  <h1>Billing Details</h1>
+  <div class="container">
+    <div class="checkoutForm">
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <br>
+        <div *ngIf="isFormSubmitted && formHasEmptyFields " class="error-message">
+          ** Please fill out all the fields in the form.**
+        </div>
+        <div class="section">
+          <div class="form-group" id="Name">
+            <div class="firstname">
+              <label for="firstname">First Name*</label>
+              <input type="text" id="firstname" class="form-control" formControlName="firstname">
+              <div *ngIf="orderForm.get('firstname')?.invalid && orderForm.get('firstname')?.touched"
+                class="error-message">
+                **Only alphabets are allowed
+              </div>
+            </div>
+            <div class="lastname">
+              <label for="lastname">Last Name*</label>
+              <input type="text" id="lastname" class="form-control" formControlName="lastname">
+              <div *ngIf="orderForm.get('lastname')?.invalid && orderForm.get('lastname')?.touched"
+                class="error-message">
+                **Only alphabets are allowed
+              </div>
             </div>
           </div>
-          <br>
-          <div class="lastname">
-            <label for="lastname">Last Name</label>
-            <input type="text" id="lastname" class="form-control" formControlName="lastname">
-            <div *ngIf="orderForm.get('lastname')?.invalid && orderForm.get('lastname')?.touched" class="error-message">
-              **Only alphabets are allowed
+          <div class="email">
+            <label for="email">Email Address*</label>
+            <input type="text" id="email" class="form-control" formControlName="email">
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="country">Country*</label>
+              <input type="text" id="country" class="form-control" formControlName="country">
+            </div>
+            <div>
+              <div>
+                <label for="state">State*</label>
+                <input type="text" id="state" class="form-control" formControlName="state">
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="Company name">Company name*</label>
-          <input type="text" id="Company name">
-        </div>
+          <div class="form-group">
+            <div>
+              <label for="Street address">Street Address*</label>
+              <input type="text" id="street" class="form-control" formControlName="street">
+            </div>
+            <div>
+              <label for="town">Town or City*</label>
+              <input type="text" id="town" class="form-control" formControlName="town">
 
-        <div class="form-group">
-          <label for="dropdown">Choose an option:</label>
-          <select id="dropdown" (change)="onSelectChange($event)">
-            <option value="">-- Select an option --</option>
-            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
-          </select>
-        </div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="Street address">Street address</label>
-          <input type="text" id="Street address" class="form-control" formControlName="street">
-
-        </div>
-
-        <div class="form-group">
-          <label for="town">Town or city</label>
-          <input type="text" id="town" class="form-control" formControlName="Town">
-        </div>
-
-        <div class="form-group">
-          <label for="state">State</label>
-          <input type="text" id="state" class="form-control" formControlName="State">
-        </div>
-
-        <div class="form-group">
-          <label for="postal">Postal Code</label>
-          <input type="text" id="postal" class="form-control" formControlName="Postal">
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="text" id="phone" class="form-control" formControlName="phone">
-          <div *ngIf="orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched" class="error-message">
-            **Only numeric values are allowed
+          <div class="form-group">
+            <div>
+              <label for="postal">Postal Code*</label>
+              <input type="text" id="postal" class="form-control" formControlName="postal">
+            </div>
+            <div>
+              <label for="phone">Phone*</label>
+              <input type="text" id="phone" class="form-control" formControlName="phone">
+              <div *ngIf="orderForm.get('phone')?.invalid && orderForm.get('phone')?.touched" class="error-message">
+                **Only numeric values are allowed
+              </div>
+            </div>
+          </div>
+          <div class="checkbox-group">
+            <label for="create">Create an account?</label>
+            <input type="checkbox" id="create">
+          </div>
+          <div class="note">
+            <label for="notes">Write a note</label><br>
+            <textarea id="notes"></textarea>
           </div>
         </div>
+      </form>
+    </div>
 
-        <!-- Checkboxes with labels on the left and checkboxes on the right -->
-        <div class="form-group checkbox-group">
-          <label for="create">Create an account?</label>
-          <input type="checkbox" id="create">
-        </div>
-
-        <div class="form-group checkbox-group">
-          <label for="shipping">Ship to a different address?</label>
-          <input type="checkbox" id="shipping">
-        </div>
-
-        <div class="form-group">
-          <label for="notes">Write a note</label>
-          <textarea id="notes"></textarea>
-        </div>
+    <div class="order">
+      <h2>Your Order</h2>
+      <div class="heading">
+        <p>Product</p>
+        <p>Subtotal</p>
       </div>
-    </form>
-  </div>
 
-  <div class="box2">
-    <h2>Orders</h2>
-    <div class="orderInfo">
+      @for(product of cartProduct; track $index){
       <div class="product">
-        <h3>Product</h3>
-        <br>
-        <div>
-          Subtotal
-        </div>
-        <br>
-        <div>
-          Shipping
-        </div>
-        <br>
-        <br>
-        <div>
-          Total
-        </div>
+        <p class="name">{{product.productName}} x{{product.quantity}}</p>
+        <p class="total">{{product.totalPrice * product.quantity | currency: 'USD'}}</p>
+      </div>
+      }
+
+      <div class="subtotal">
+        <p>Subtotal</p>
+        <p>{{cartTotal() | currency: 'USD'}}</p>
       </div>
 
 
 
-      <div class="Subtotal">
-        <h3>Subtotal</h3>
-        <br>
-        <div>
-          $75
-        </div>
-        <br>
-        <div>
-          <input type="radio" name="option" value="option1"> Flat Fee ($15.50)
-          <br>
-          <input type="radio" name="option" value="option2"> Local Fees
-        </div>
-        <br>
 
-        <div>
-          $70
+
+
+      <div class="shipping">
+        <p>Shipping</p>
+        <div class="fee">
+          @if(cartTotal() > 150){
+          <label>Free Shipping: $0.00<input type="radio" name="free" [checked]="shippingMethod == 'free'"
+              (click)="shipping('free')"></label>
+          }@else {
+          <label>Flat Fee: $15.00<input type="radio" name="flat" [checked]="shippingMethod == 'flat'"
+              (click)="shipping('flat')"></label>
+          }
+          <label>Local Pick Up: $0.00<input type="radio" name="pickup" [checked]="shippingMethod == 'pickup'"
+              (click)="shipping('pickup')"></label>
         </div>
       </div>
-    </div>
-    <br>
-    <div>
 
-      <label>
-        <input type="radio" name="option" value="option1">
-        Make your payment directly into our bank account.<br> Please use your Order ID as the payment reference.<br>
-        Your order will not be shipped until the funds have <br>cleared in our account.
-      </label>
-      <br>
-      <br>
-      <label>
-        <input type="radio" name="option" value="option2">
-        Check Payment
-      </label>
-      <br>
-      <br>
-      <label>
-        <input type="radio" name="option" value="option3">
-        Cash on delivery
-      </label>
-      <br>
-      <br>
-      <input type="checkbox" id="myCheckbox">
-      <label for="myCheckbox"> I agree to the terms and conditions</label>
+      <div class="totalPrice">
+        <p>Total</p>
+        <p>{{(cartTotal() + shippingFee) | currency: 'USD'}}</p>
+      </div>
 
+
+      <div class="payment">
+        <label>
+          <input type="radio" name="option" [checked]="paymentMethod == 'transfer'">
+          <p>Direct Bank Transfer <br> <span>Make your payment directly to our bank account on the next page. Please use
+              your Order ID as
+              the payment reference.</span></p>
+        </label>
+        <label>
+          <input type="radio" name="option" [checked]="paymentMethod == 'onDelivery'">
+          <p>Cash on Delivery <br> <span>Pay with cash upon delivery</span></p>
+        </label>
+      </div>
+      @if(isFormSubmitted && !termsAccepted){
+      <p class="termsWarning">Please accept the terms and conditions to proceed</p>
+      }
+      <label class="agree"><input type="checkbox" value="true" [(ngModel)]="termsAccepted">
+        I agree to the terms and conditions
+      </label>
+      <button (click)="onSubmit()">
+        Place Your Order
+      </button>
     </div>
-    <button class="submit" (click)="onSubmit()">
-      Place your order
-    </button>
   </div>
-
 </div>
 <app-footer></app-footer>

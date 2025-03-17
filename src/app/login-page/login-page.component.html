@@ -1,42 +1,42 @@
-
+<app-header></app-header>
 <div class="login">
-<div class="form">
-  <h2>Log in</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <h2>Sign In</h2>
+    @if(userService.loginFailed){
+    <p class="failed">Log In Failed, Username/Email or Password does not exist</p>
+    }
 
-  <div class="form-group">
-    <label for="username">Username or email address</label>
-    <input type="text" id="username" formControlName="username" [ngClass]="{'invalid-field': isSubmitted && loginForm.get('username')?.invalid}" />
-    <div *ngIf="isSubmitted&&loginForm.get('username')?.invalid">
-      <span class="error">username is required</span>
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="username">Username or Email Address</label>
+        <input type="text" id="username" formControlName="username"
+          [ngClass]="{'invalid-field': isSubmitted && loginForm.get('username')?.invalid}" />
+        <div *ngIf="isSubmitted&&loginForm.get('username')?.invalid">
+          <p class="error">Username is required</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="passwordInput">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+            [ngClass]="{'invalid-field': isSubmitted && loginForm.get('password')?.invalid}" />
+          <div class="eyes">
+            <!-- Closed Eye Icon (Password Hidden) -->
+            <img src="eye-close.png" alt="" *ngIf="!showPassword" (click)="togglePasswordVisibility()">
+
+            <!-- Open Eye Icon (Password Visible) -->
+            <img src="view.svg" alt="" *ngIf="showPassword" (click)="togglePasswordVisibility()">
+          </div>
+        </div>
+
+        <div *ngIf="isSubmitted&&loginForm.get('password')?.invalid">
+          <p class="error">Password is required</p>
+        </div>
+      </div>
+      <button type="submit">Log In</button>
+    </form>
   </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <div class="passwordInput">
-    <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" [ngClass]="{'invalid-field': isSubmitted && loginForm.get('password')?.invalid}" />
-    <div class="eyes" >
-      <!-- Closed Eye Icon (Password Hidden) -->
-      <svg *ngIf="!showPassword" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" (click)="togglePasswordVisibility()">
-        <path d="M8.137 15.147c-.71-.857-1.146-1.947-1.146-3.147 0-2.76 2.241-5 5-5 1.201 0 2.291.435 3.148 1.145l1.897-1.897c-1.441-.738-3.122-1.248-5.035-1.248-6.115 0-10.025 5.355-10.842 6.584.529.834 2.379 3.527 5.113 5.428l1.865-1.865zm6.294-6.294c-.673-.53-1.515-.853-2.44-.853-2.207 0-4 1.792-4 4 0 .923.324 1.765.854 2.439l5.586-5.586z"/>
-      </svg>
-
-      <!-- Open Eye Icon (Password Visible) -->
-      <svg *ngIf="showPassword" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" (click)="togglePasswordVisibility()">
-        <path d="M12.01 20c-5.065 0-9.586-4.211-12.01-8.424 2.418-4.103 6.943-7.576 12.01-7.576 5.135 0 9.635 3.453 11.999 7.564-2.241 4.43-6.726 8.436-11.999 8.436zm-10.842-8.416c.843 1.331 5.018 7.416 10.842 7.416 6.305 0 10.112-6.103 10.851-7.405-.772-1.198-4.606-6.595-10.851-6.595-6.116 0-10.025 5.355-10.842 6.584zm10.832-4.584c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 1c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4z"/>
-      </svg>
-    </div>
-    </div>
-
-    <div *ngIf="isSubmitted&&loginForm.get('password')?.invalid">
-      <span class="error">password is required</span>
-    </div>
-
-
-    <!--    <span class="error">Password is required.</span>-->
-  </div>
-  <button type="submit">Log in</button>
-</form>
 </div>
-</div>
+<!-- <app-footer></app-footer> -->
