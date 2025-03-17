@@ -7,7 +7,9 @@ export interface User {
   phoneNumber: string;
   role: 'ADMIN' | 'CUSTOMER';
   registered: boolean;
-  address: Address;
+  address?: Address;
+  dateRegistered: number;
+  username: string;
 }
 
 export interface Address {

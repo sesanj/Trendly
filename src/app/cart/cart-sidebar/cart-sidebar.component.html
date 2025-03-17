@@ -5,15 +5,15 @@
       @if(cart.length != 0){
       @for(item of cart; track $index){
       <div class="product">
-        <img [src]="'products/' + item.product.image?.image1" alt="Product Image">
+        <img [src]="'products/' + productImage(item.ID)" alt="Product Image">
         <div class="content">
-          <a [routerLink]="'/product/' + item.product.id" class="title" (click)="closeCart()">{{item.product.title}}</a>
+          <a [routerLink]="'/product/' + item.ID" class="title" (click)="closeCart()">{{item.productName}}</a>
           <div>
             <p>{{getPrice(item) | currency: "USD"}}</p>
-            <p class="count">x{{item.count}}</p>
+            <p class="count">x{{item.quantity}}</p>
           </div>
         </div>
-        <p (click)="deleteProduct(item.product)" class="delete">x</p>
+        <p (click)="deleteProduct(item)" class="delete">x</p>
       </div>
       }
       }@else {
@@ -37,7 +37,7 @@
       </div>
       <!-- } -->
 
-      <p>Free Shipping on All Orders Above <span>$350.00</span></p>
+      <p>Free Shipping on All Orders Above <span>$150.00</span></p>
     </div>
   </div>
 </div>

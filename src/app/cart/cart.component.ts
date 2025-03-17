@@ -1,47 +1,124 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ProductServiceService } from '../services/product-service.service';
+import { CurrencyPipe } from '@angular/common';
+import { CartProduct } from '../models/product-order.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [FormsModule, HeaderComponent, FooterComponent],
+  imports: [
+    FormsModule,
+    HeaderComponent,
+    FooterComponent,
+    CurrencyPipe,
+    RouterLink,
+  ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
-  cartTotal = 70.9;
-  shippingFee = 15.0;
-  freeShippingStandard = 100;
-  coupon = '';
-  discount = 0.0;
-  theShippingMethod = 'flat';
+  productService = inject(ProductServiceService);
 
-  totalPrice() {
-    return this.cartTotal + this.shippingFee - this.discount;
+  cartItems = this.productService.getCart();
+  quantity: number = 1;
+
+  shippingFee = 0;
+  freeShippingStandard = 150;
+  theShippingMethod = 'local';
+
+  getImage(id: string) {
+    let product = this.productService
+      .getAllProducts()
+      .filter((product) => product.id === id);
+
+    return product[0].image?.image1;
   }
 
-  thePriceToFreeShipping(): string {
-    let price = this.freeShippingStandard - this.cartTotal;
-    let formatted = price.toFixed(2);
+  getCartTotal() {
+    let cartTotal = 0;
 
-    return formatted;
+    this.productService
+      .getCart()
+      .forEach((item) => (cartTotal += item.totalPrice * item.quantity));
+    return cartTotal;
   }
 
-  applyCoupon() {
-    if (this.coupon == 'theword') {
-      this.discount = 10.0;
+  getColor(color?: string) {
+    return color == '' ? 'Nill' : color;
+  }
+
+  getSize(size?: string) {
+    return size == '' ? 'Nill' : size;
+  }
+
+  getQuantity(item: CartProduct) {
+    this.quantity = item.quantity;
+
+    return this.quantity;
+  }
+
+  deleteProduct(product: CartProduct) {
+    this.productService.deleteFromCart(product);
+  }
+
+  clearCart() {
+    this.productService.clearCart();
+  }
+
+  increase(item: CartProduct) {
+    item.quantity = item.quantity + 1;
+
+    this.productService.addCartToLocalStorage();
+  }
+
+  decrease(item: CartProduct) {
+    if (item.quantity == 1) {
+      return;
+    }
+
+    item.quantity = item.quantity - 1;
+    this.productService.addCartToLocalStorage();
+  }
+
+  checkProgressBar() {
+    if (this.getCartTotal() > this.freeShippingStandard) {
+      return this.freeShippingStandard;
     } else {
-      this.discount = 0.0;
+      return this.getCartTotal();
     }
   }
+
+  freeshippingActive() {
+    if (this.getCartTotal() > this.freeShippingStandard) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  totalPrice() {
+    return this.getCartTotal() + this.shippingFee;
+  }
+
+  thePriceToFreeShipping() {
+    let price = 0;
+    if (this.getCartTotal() < this.freeShippingStandard) {
+      price = this.freeShippingStandard - this.getCartTotal();
+    }
+
+    return price;
+  }
+
   shippingMethod(way: string) {
     this.theShippingMethod = way;
-    if (this.theShippingMethod == 'flat') {
-      this.shippingFee = 15.0;
-    } else {
+    if (way == 'local' || way == 'free') {
       this.shippingFee = 0.0;
+    } else {
+      this.shippingFee = 15.0;
     }
   }
 }

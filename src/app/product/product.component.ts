@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product.model';
 import { RouterLink } from '@angular/router';
 import { ProductServiceService } from '../services/product-service.service';
+import { CartProduct } from '../models/product-order.model';
 
 @Component({
   selector: 'app-product',
@@ -12,10 +13,10 @@ import { ProductServiceService } from '../services/product-service.service';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-  service = inject(ProductServiceService);
+  productService = inject(ProductServiceService);
   @Input({ required: true }) product!: Product;
 
-  favoriteProducts: Product[] = this.service.getFavourite();
+  favoriteProducts!: { product: Product; date: number }[];
 
   calculateDiscount(price: number, discount: number): string {
     let percent: number = (discount / price) * 100;
@@ -25,18 +26,46 @@ export class ProductComponent implements OnInit {
     return off + '%';
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.favoriteProducts = this.productService.getFavourite();
+  }
 
   addToCart(product: Product) {
-    this.service.addToCart(product);
+    let cartProduct: CartProduct = {
+      ID: product.id,
+      productName: product.title,
+      quantity: 1,
+      totalPrice: product.discount ? product.discount : product.price,
+      color: '',
+      size: '',
+    };
+
+    this.productService.addToCart(cartProduct);
   }
 
   favoriteClicked(product: Product) {
-    this.service.addToFavourite(product);
+    this.productService.addToFavourite(product);
   }
 
   unFavorite(product: Product) {
-    const index = this.service.favourites.indexOf(product);
-    this.service.favourites.splice(index, 1);
+    this.productService.removeFromFavourite(product);
+  }
+
+  getFavouriteStatus(productID: string) {
+    let favourite = this.favoriteProducts.some(
+      (product) => product.product.id == productID
+    );
+
+    if (favourite) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  viewProduct(product: Product) {
+    this.productService.addToViewedProduct(product);
+
+    console.log('Added');
   }
 }

@@ -1,75 +1,108 @@
 <app-header></app-header>
-<div class="checkoutWrapper">
-  <div class="checkoutContainer">
-    <div class="freeShipping">
-      <div class="notice">
-        <span>Add <b>${{ thePriceToFreeShipping() }} to cart and get free shipping!</b></span>
+<div class="cartWrapper">
+  <h1>Cart Products</h1>
+  <div class="container">
+
+    <div class="cartInfo">
+      <div class="freeShipping" [class.active]="freeshippingActive()">
+        <div class="notice">
+          <span [class.active]="freeshippingActive()"><b>@if(freeshippingActive()){Your order is eligible for free
+              shipping} @else{Add
+              {{ thePriceToFreeShipping() | currency: "USD" }} more to cart
+              and get free shipping!}</b></span>
+        </div>
+        <div class="progress">
+          <div class="filled" [class.activeFilled]="freeshippingActive()"
+            [style.width]="(checkProgressBar() / freeShippingStandard) * 100 + '%'"></div>
+        </div>
       </div>
-      <div class="progress">
-        <div class="filled" [style.width]="(cartTotal / freeShippingStandard) * 100 + '%'"></div>
+
+      <table class="cartTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(item of cartItems; track $index){
+          <tr>
+            <td><img [src]="'products/' + getImage(item.ID)" alt="Item"></td>
+            <td class="name" [routerLink]="'/product/' + item.ID">{{item.productName}}</td>
+            <td>{{getColor(item.color)?.toUpperCase()}}</td>
+            <td>{{getSize(item.size)}}</td>
+            <td>{{item.totalPrice | currency: 'USD'}}</td>
+            <td>
+              <div class="quantityButton">
+                <button (click)="decrease(item)">---</button>
+                <span>{{getQuantity(item)}}</span>
+                <button (click)="(increase(item))">+</button>
+              </div>
+            </td>
+            <td>{{item.totalPrice * item.quantity | currency: 'USD'}}</td>
+            <td>
+              <p class="remove" (click)="deleteProduct(item)">X</p>
+            </td>
+          </tr>
+
+          }
+        </tbody>
+      </table>
+      @if(cartItems.length == 0){
+      <div class="empty">
+        <img src="emptycart.png" alt="empty cart">
+        <p>There is currently no item in your cart.</p>
       </div>
+
+      }
+      @if(cartItems.length > 0){
+      <div class="clearCart">
+        <button class="clearAll" (click)="clearCart()">Clear Cart</button>
+      </div>
+      }
+
     </div>
 
-    <table class="cartTable">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img src="products/aDresses3.jpg" alt="Item"></td>
-          <td>Hooded Sweatshirt With Kangaroo Pocket - Red, XXL</td>
-          <td>$70.90</td>
-          <td>
-            <button>-</button>
-            <span>1</span>
-            <button>+</button>
-          </td>
-          <td>$70.90</td>
-          <td class="remove">❌</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="coupon">
-      <div class="theCoupon">
-        <input type="text" placeholder="Coupon Code" [(ngModel)]="coupon">
-        <button (click)="applyCoupon()">Apply coupon</button>
+    <div class="cartTotal">
+      <div class="subTotal">
+        <span>Subtotal</span>
+        <span>{{ getCartTotal() | currency: "USD" }}</span>
       </div>
-      <button class="clearAll">Clear All</button>
-    </div>
-  </div>
+      <div class="shipping">
+        <span>Shipping</span>
+        <div class="options">
+          <label>
+            @if(freeshippingActive()){
+            <p>Free Shipping</p>
+            <input type="radio" name="shipping" (click)="shippingMethod('free')"
+              [checked]="theShippingMethod == 'free'">
+            }@else {
+            <p>Flat Rate: $15.00</p>
+            <input type="radio" name="shipping" (click)="shippingMethod('flat')"
+              [checked]="theShippingMethod == 'flat'">
+            }
 
-  <div class="cartTotal">
-    <div class="subTotal">
-      <span>Subtotal</span>
-      <span>${{ cartTotal }}</span>
-    </div>
-    <div class="shipping">
-      <span>Shipping</span>
-      <div class="options">
-        <label>
-          <input type="radio" name="shipping" (click)="shippingMethod('flat')" [checked]="theShippingMethod == 'flat'">
-          Flat rate: $15.00
-        </label>
-        <label>
-          <input type="radio" name="shipping" (click)="shippingMethod('local')"
-            [checked]="theShippingMethod == 'local'">
-          Local pickup
-        </label>
+          </label>
+          <label>
+            <p>Local Pickup</p>
+            <input type="radio" name="shipping" (click)="shippingMethod('local')"
+              [checked]="theShippingMethod == 'local'">
+
+          </label>
+        </div>
       </div>
+      <div class="total">
+        <span>Total</span>
+        <span class="price">${{ totalPrice() }}</span>
+      </div>
+      <button [routerLink]="'/checkout'" class="checkout-btn">Proceed to Checkout</button>
     </div>
-    <div class="total">
-      <span>Total</span>
-      <span class="price">${{ totalPrice() }}</span>
-    </div>
-    <button class="checkout-btn">Proceed to checkouts</button>
   </div>
 </div>
 <app-footer></app-footer>

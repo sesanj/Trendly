@@ -4,25 +4,33 @@ import { ProductServiceService } from '../services/product-service.service';
 import { RelatedProductsComponent } from '../related-products/related-products.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { CartProduct } from '../models/product-order.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-page',
   standalone: true,
-  imports: [RelatedProductsComponent, HeaderComponent, FooterComponent],
+  imports: [
+    RelatedProductsComponent,
+    HeaderComponent,
+    FooterComponent,
+    RouterLink,
+  ],
   templateUrl: './product-page.component.html',
   styleUrl: './product-page.component.css',
 })
 export class ProductPageComponent implements OnInit {
-  service = inject(ProductServiceService);
+  productService = inject(ProductServiceService);
 
   productID!: string;
 
-  allProducts = this.service.allProducts;
+  favouriteProducts = this.productService.getFavourite();
 
-  // Getting product id from url
   @Input()
   set productId(pId: string) {
     this.productID = pId;
+    this.selectedColor = '';
+    this.selectedSize = '';
     this.loadProduct();
   }
 
@@ -32,13 +40,15 @@ export class ProductPageComponent implements OnInit {
 
   imageIndex: number = 0;
   productQuantity: number = 1;
-  selectedColor!: string;
-  selectedSize!: string;
+  selectedColor: string = '';
+  selectedSize: string = '';
 
-  viewedProducts: Product[] = this.service.getAllProducts();
+  warning = false;
+
+  viewedProducts: Product[] = [];
 
   ngOnInit(): void {
-    this.viewedProducts = this.viewedProducts.slice(0, 4);
+    this.viewedProducts = this.productService.getViewedProduct();
 
     // Load page info if product ID is valid
     if (this.productID) {
@@ -48,7 +58,7 @@ export class ProductPageComponent implements OnInit {
 
   // Function to load products
   private loadProduct() {
-    this.product = this.service.selectedProduct(this.productID);
+    this.product = this.productService.selectedProduct(this.productID);
 
     if (!this.product) {
       console.error('Product not found!');
@@ -142,10 +152,10 @@ export class ProductPageComponent implements OnInit {
       'jacket',
       'hoodie',
       'shoe',
-      'jeans',
+      'jean',
       'dress',
       'sweatshirt',
-      'pants',
+      'pant',
     ];
 
     productCategory = allCategories.filter(
@@ -156,6 +166,50 @@ export class ProductPageComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    this.service.addToCart(product);
+    if (product.color && product.size) {
+      if (this.selectedColor == '' || this.selectedSize == '') {
+        this.warning = true;
+
+        return;
+      }
+    } else if (product.color || product.size) {
+      if (this.selectedColor == '' && this.selectedSize == '') {
+        this.warning = true;
+
+        return;
+      }
+    }
+
+    let cartProduct: CartProduct = {
+      ID: product.id,
+      productName: product.title,
+      quantity: this.productQuantity,
+      totalPrice: product.discount ? product.discount : product.price,
+      color: this.selectedColor,
+      size: this.selectedSize,
+    };
+
+    this.productService.addToCart(cartProduct);
+    this.warning = false;
+  }
+
+  favoriteClicked(product: Product) {
+    this.productService.addToFavourite(product);
+  }
+
+  unFavorite(product: Product) {
+    this.productService.removeFromFavourite(product);
+  }
+
+  getFavouriteStatus(productID: string) {
+    let favourite = this.favouriteProducts.some(
+      (product) => product.product.id == productID
+    );
+
+    if (favourite) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
