@@ -3,7 +3,6 @@
     <div class="logoContainer">
       <h1 class="logo">Trendly</h1>
     </div>
-
     <div class="navArea">
 
       <ul class="links">
@@ -13,7 +12,7 @@
         <li><a [routerLink]="'/shop/' + 'women'">Women</a></li>
         <li><a [routerLink]="'/shop/' + 'deals'">Deals</a></li>
         <li><a [routerLink]="'/cart'">Cart</a></li>
-        <li><a [routerLink]="'/myaccount/overview'">Dashboard</a></li>
+        <!-- <li><a [routerLink]="'/track-order'">Track Order</a></li> -->
       </ul>
       <div class="wishListAndCart">
         <div routerLink="/wishlist" class="wishList">
@@ -28,12 +27,66 @@
           <p>{{cartPrice | currency: "USD"}}</p>
         </div>
         <div class="user">
+          <!-- <img src="headerUser.svg" alt="A person icon"> -->
+          @if(!user){
           <img src="headerUser.svg" alt="A person icon">
           <ul>
-            <li><a routerLink="/login">Sign In</a></li>
-            <li><a routerLink="/signup">Create Account</a></li>
+            <div>
+              <img src="nav/login.png" alt="">
+              <li><a routerLink="/login">Sign In</a></li>
+            </div>
+            <div>
+              <img src="nav/order.png" alt="">
+              <li><a routerLink="/signup">Create Account</a></li>
+            </div>
           </ul>
+          }@else if (user.role == 'ADMIN') {
+          <p>Hello, {{user.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+          <ul>
+            <div>
+              <img src="nav/overview.png" alt="">
+              <li><a routerLink="/myaccount/overview">Dashboard</a></li>
+            </div>
+            <div>
+              <img src="nav/order.png" alt="">
+              <li><a routerLink="/myaccount/manage-orders">Orders</a></li>
+            </div>
+            <div>
+              <img src="nav/customer.png" alt="">
+              <li><a routerLink="/myaccount/customers">Customers</a></li>
+            </div>
+            <div>
+              <img src="nav/products.png" alt="">
+              <li><a routerLink="/myaccount/products">Products</a></li>
+            </div>
+            <div (click)="logout()">
+              <img src="nav/logout.png" alt="">
+              <li><a class="logout">Log Out</a></li>
+            </div>
+          </ul>
+          }@else if (user.role == 'CUSTOMER') {
+          <p>Hello, {{user.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+          <ul>
+            <div>
+              <img src="nav/overview.png" alt="">
+              <li><a routerLink="/myaccount/myorders">Dashboard</a></li>
+            </div>
+            <div>
+              <img src="nav/order.png" alt="">
+              <li><a routerLink="/myaccount/track">Track Order</a></li>
+            </div>
+            <div (click)="logout()">
+              <img src="nav/logout.png" alt="">
+              <li><a class="logout">Log Out</a></li>
+            </div>
+          </ul>
+
+          }
         </div>
+
+      </div>
+      <div class="track">
+        <button [routerLink]="'/track-order'">Track Order</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { inject, Injectable, Input } from '@angular/core';
+import { inject, Injectable, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { users } from '../../data/users';
@@ -7,12 +7,17 @@ import { users } from '../../data/users';
   providedIn: 'root',
 })
 export class UserServiceService {
+  router = inject(Router);
   allUsers: User[] = users;
 
-  loggedInUser!: User;
+  loggedInUser!: User | null;
 
   userAlreadyExist: boolean = false;
   loginFailed: boolean = false;
+
+  constructor() {
+    this.getUserFromLocalStorage();
+  }
 
   registerUser(user: User) {
     if (
@@ -54,8 +59,35 @@ export class UserServiceService {
         ? (this.loggedInUser = item)
         : ''
     );
+    this.saveUserToLocalStorage();
+    this.router.navigate(['/home']);
 
     this.loginFailed = false;
+  }
+
+  getUser() {
+    return this.loggedInUser;
+  }
+
+  getUserFromLocalStorage() {
+    let value = localStorage.getItem('trendlyUser');
+
+    if (value) {
+      this.allUsers.some((user) =>
+        user.ID == JSON.parse(value) ? (this.loggedInUser = user) : null
+      );
+    }
+  }
+
+  logOut() {
+    localStorage.removeItem('trendlyUser');
+    this.loggedInUser = null;
+  }
+
+  saveUserToLocalStorage() {
+    if (this.loggedInUser) {
+      localStorage.setItem('trendlyUser', JSON.stringify(this.loggedInUser.ID));
+    }
   }
 
   generateUserID() {

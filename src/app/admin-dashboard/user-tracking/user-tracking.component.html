@@ -1,0 +1,20 @@
+<div class="container">
+  <Label>
+    <p>Order ID</p>
+    <input type="text" [(ngModel)]="orderId" placeholder="Enter your OrderID" name="orderID">
+  </Label>
+  <Label>
+    <p>Email Address</p>
+    <input type="text" [(ngModel)]="email" placeholder="Enter your email address" name="email">
+  </Label>
+  <br>
+  <button (click)="trackOrder()">Track Order</button>
+  @if(error){
+  <p class="error">No order was found with the order ID and email entered, please enter valid credentials</p>
+  }
+</div>
+@if(order){
+<div class="order">
+  <app-order-info [order]="order"></app-order-info>
+</div>
+}

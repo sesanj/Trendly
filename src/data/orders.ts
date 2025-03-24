@@ -1,6 +1,4 @@
-import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
 import { Order } from '../app/models/product-order.model';
-import { DatePipe } from '@angular/common';
 
 export const orders: Order[] = [
   {
@@ -57,7 +55,7 @@ export const orders: Order[] = [
       lastName: 'Sylvester',
       email: 'joelSylv@gmail.com',
       phoneNumber: '+2348036876569',
-      registered: false,
+      registered: true,
     },
     products: [
       {
@@ -85,7 +83,7 @@ export const orders: Order[] = [
       address: '35T West Avenue Victoria Estate',
       postalCode: 'AW234TW',
     },
-    status: 'PENDING',
+    status: 'DELIVERED',
     date: 1741124400000,
   },
 
@@ -96,7 +94,7 @@ export const orders: Order[] = [
       lastName: 'Ogumelo',
       email: 'emekaogumelo@gmail.com',
       phoneNumber: '+23481539534',
-      registered: true,
+      registered: false,
     },
     products: [
       {
@@ -164,7 +162,7 @@ export const orders: Order[] = [
       lastName: 'Eweka',
       email: 'pauleweka@gmail.com',
       phoneNumber: '+2348093234587',
-      registered: true,
+      registered: false,
     },
     products: [
       {
@@ -201,7 +199,7 @@ export const orders: Order[] = [
       lastName: 'Gordon',
       email: 'josephgordon@gmail.com',
       phoneNumber: '+2348048542357',
-      registered: true,
+      registered: false,
     },
     products: [
       {
