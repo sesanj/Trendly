@@ -1,0 +1,92 @@
+.container {
+  padding-top: 120px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.customers {
+  width: 60%;
+}
+
+.info {
+  width: 40%;
+  /* position: relative; */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 16px;
+  border: 0px;
+  cursor: pointer;
+  background-color: rgb(235, 235, 235);
+  color: black;
+}
+
+button:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  transition: ease-in-out 0.2s;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+  margin-top: 50px;
+  border: solid 5px rgb(244, 245, 255);
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgb(244, 245, 255);
+}
+
+tbody {
+  width: 100%;
+}
+
+tbody tr {
+  border: solid 5px rgb(244, 245, 255);
+  margin: 5px;
+  background-color: white;
+}
+
+tbody tr:hover {
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
+}
+
+th {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px;
+}
+
+td {
+  padding: 15px;
+  font-weight: 350;
+}
+
+.active {
+  background-color: rgb(74, 74, 74) !important;
+  color: white;
+}
+
+.buttonActive {
+  background-color: black;
+  color: white;
+}

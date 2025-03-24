@@ -1,18 +1,28 @@
+<app-header></app-header>
 <div class="main">
-<div class="container">
-  <h2>Track you Order</h2>
-  <p class="description">
-    Please enter your Order ID and Email int the given spaces below and press the "Check Status" button.
+  <div class="container">
+    <h2>Track your Order</h2>
+    <p class="description">
+      Please enter your Order ID and Email int the given spaces below and press the "Check Status" button.
 
-  </p>
-  <form>
-    <label for="orderId">Order ID:</label>
-    <input type="text" id ="orderId" [(ngModel)]="orderId" name="orderId" placeholder="Enter you OrderID" required/>
+    </p>
+    <form>
+      <label for="orderId">Order ID:</label>
+      <input type="text" id="orderId" [(ngModel)]="orderId" name="orderId" placeholder="Enter your OrderID" required />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="email" name="email"  placeholder="Enter your Email" required />
-    <button type="button" (click)="checkStatus()">Check Status</button>
-  </form>
-  <p *ngIf="orderStatus">{{orderStatus}}</p>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Enter your Email" required />
+      <br>
+      <button type="button" (click)="trackOrder()">Track Order</button>
+    </form>
+    <p *ngIf="warning">{{warning}}</p>
+  </div>
 </div>
+@if(order){
+<div class="order">
+  <app-order-info [order]="order"></app-order-info>
 </div>
+}
+@if(error){
+<p class="error">No order was found with the order ID and email entered, please enter valid credentials</p>
+}

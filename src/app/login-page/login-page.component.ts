@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterEvent } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { UserServiceService } from '../services/user-service.service';
@@ -20,6 +20,7 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class LoginPageComponent {
   userService = inject(UserServiceService);
+  // router = inject(Router)
   loginForm: FormGroup;
   isSubmitted = false;
   error: string | null = null;
@@ -37,10 +38,13 @@ export class LoginPageComponent {
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
+
+    if (this.userService.getUser()) {
+      router.navigate(['/home']);
+    }
   }
   onSubmit() {
     const loginData = this.loginForm.value;
-    console.log('Clicked!');
     this.isSubmitted = true;
 
     if (this.loginForm.invalid) {
@@ -49,8 +53,6 @@ export class LoginPageComponent {
     }
 
     this.userService.logIn(loginData.username, loginData.password);
-
-    console.log('Log In', this.loginForm.value);
   }
 
   goToLoginPage() {

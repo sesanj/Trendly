@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="customers">
+    <div class="header">
+      <h2>{{allCustomers.length}} Total Customers</h2>
+      <div class="buttons">
+        <button [class.buttonActive]="filter == 'all'" (click)="filterCustomers('all')">All</button>
+        <button [class.buttonActive]="filter == 'yes'" (click)="filterCustomers('yes')">Registered</button>
+        <button [class.buttonActive]="filter == 'no'" (click)="filterCustomers('no')">Not Registered</button>
+        <button [class.buttonActive]="filter == 'admin'" (click)="filterCustomers('admin')">Admin</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>EMAIL</th>
+          <th>PHONE NUMBER</th>
+          <th>STATUS</th>
+          <th>ORDERS</th>
+
+        </tr>
+      </thead>
+      @if(allCustomers.length > 0){
+      <tbody>
+        @for(customer of allCustomers; track $index){
+        <tr (click)="checkCustomer(customer)" [class.active]="customer.ID == clickedCustomer.ID">
+          <td>{{customer.firstName + " " + customer.lastName}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.phoneNumber}}</td>
+          <td>{{customer.registered ? "Registered" : "Not Registeres"}}</td>
+          <td>{{customerOrders(customer).length}}</td>
+        </tr>
+        }
+      </tbody>
+      }@else{
+      <p>There's currently no customer under this category</p>
+      }
+    </table>
+  </div>
+  <div class="info">
+    <app-customer-info [customer]="clickedCustomer"></app-customer-info>
+  </div>
+</div>

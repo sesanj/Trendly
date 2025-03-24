@@ -1,41 +1,8 @@
 <div class="overview">
-  <p>Revenue:</p>
-  <h2><span>{{revenue() | currency: "USD"}}</span></h2>
-
-  <section class="metrics">
-    <div class="item">
-      <img src="dashboard/sales.jpg" alt="order icon">
-      <div class="content">
-        <h4>Total Sales</h4>
-        <p>{{totalSales()}}+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/customer.png" alt="order icon">
-      <div class="content">
-        <h4>Customer Count</h4>
-        <p>{{userCount()}}+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/product.png" alt="order icon">
-      <div class="content">
-        <h4>Total Products</h4>
-        <p>{{productInventory()}}+</p>
-      </div>
-    </div>
-    <div class="item">
-      <img src="dashboard/orders.png" alt="order icon">
-      <div class="content">
-        <h4>Pending Orders</h4>
-        <p>{{pendingOrders()}}+</p>
-      </div>
-    </div>
-  </section>
   <section class="orders">
     <div>
       <h3>Recent Orders</h3>
-      <button [routerLink]=" '/myaccount/'+ 'manage-orders'">Manage Orders</button>
+      <button [routerLink]=" '/myaccount/'+ 'track'">Track Order</button>
     </div>
     <table>
       <thead>

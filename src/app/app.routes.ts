@@ -8,6 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CartComponent } from './cart/cart.component';
 import { WishingListComponent } from './wishing-list/wishing-list.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,4 +23,5 @@ export const routes: Routes = [
   { path: 'wishlist', component: WishingListComponent },
   { path: 'myaccount', component: AdminDashboardComponent },
   { path: 'myaccount/:nav', component: AdminDashboardComponent },
+  { path: 'track-order', component: TrackingComponent },
 ];
