@@ -2,6 +2,7 @@
   <div class="nav">
     <h1>Trendly</h1>
     <div class="nav-items">
+      @if(user?.role == 'ADMIN'){
       <ul>
         <li><a [routerLink]=" '/myaccount/'+ 'overview'" [class.selected]="navigation == 'overview'"><img
               src="dashboard/overview.png" alt="overview icon">Overview</a></li>
@@ -11,18 +12,26 @@
         <li><a [routerLink]=" '/myaccount/'+ 'customers'" [class.selected]="navigation == 'customers'"><img
               src="dashboard/users.png" alt="customer icon">Customers</a>
         </li>
-        <!-- <li><a [routerLink]=" '/myAccount/'+ 'settings'" [class.selected]="navigation == 'settings'">Settings</a></li> -->
       </ul>
+      }@else if (user?.role == 'CUSTOMER') {
+      <ul>
+        <li><a [routerLink]=" '/myaccount/'+ 'myorders'" [class.selected]="navigation == 'myorders'"><img
+              src="dashboard/overview.png" alt="overview icon">Orders</a></li>
+        <li><a [routerLink]=" '/myaccount/'+ 'track'" [class.selected]="navigation == 'track'"><img
+              src="dashboard/order.png" alt="orders icon">Track Order</a></li>
+      </ul>
+
+      }
     </div>
   </div>
   <div class="content">
     <div class="header">
       <h2>{{heading}}</h2>
       <div class="icons">
-        <p>Sesan Popoola</p>
+        <p>Welcome Back, {{userName()}}!</p>
         <img src="dashboard/homeIcon.png" alt="nav icon" routerLink="/home">
         <img src="headerUser.svg" alt="A person icon">
-        <img src="dashboard/logout.png" alt="nav icon">
+        <img src="dashboard/logout.png" alt="nav icon" (click)="logout()">
       </div>
     </div>
     <div class="view">
@@ -30,6 +39,12 @@
       <app-overview></app-overview>
       }@else if (navigation == "manage-orders") {
       <app-manage-orders></app-manage-orders>
+      }@else if (navigation == "customers") {
+      <app-customers></app-customers>
+      }@else if (navigation == 'myorders') {
+      <app-user-orders></app-user-orders>
+      }@else if (navigation == 'track') {
+      <app-user-tracking></app-user-tracking>
       }
 
     </div>

@@ -17,7 +17,7 @@
   position: relative;
   left: 15%;
   height: fit-content;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .view {
@@ -54,7 +54,6 @@
 .nav li {
   list-style-type: none;
   margin-bottom: 10px;
-  /* background-color: red; */
 }
 
 .selected {

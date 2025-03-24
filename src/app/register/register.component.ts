@@ -54,6 +54,10 @@ export class RegisterComponent {
       address: [''],
       postal: [''],
     });
+
+    if (this.userService.getUser()) {
+      this.router.navigate(['/home']);
+    }
   }
 
   onSubmit(): void {

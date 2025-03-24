@@ -6,7 +6,7 @@ import { Order, OrderStatus } from '../models/product-order.model';
   providedIn: 'root',
 })
 export class OrderServiceService {
-  allOrders: Order[] = orders;
+  allOrders: Order[] = orders.reverse();
 
   constructor() {}
 

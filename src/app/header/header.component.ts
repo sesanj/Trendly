@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { ProductServiceService } from '../services/product-service.service';
 import { CurrencyPipe } from '@angular/common';
 import { CartSidebarComponent } from '../cart/cart-sidebar/cart-sidebar.component';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ import { CartSidebarComponent } from '../cart/cart-sidebar/cart-sidebar.componen
 })
 export class HeaderComponent {
   productService = inject(ProductServiceService);
+  userService = inject(UserServiceService);
 
   cartActive: boolean = false;
 
@@ -42,5 +44,13 @@ export class HeaderComponent {
 
   closeCart(event: boolean) {
     this.cartActive = event;
+  }
+
+  get user() {
+    return this.userService.getUser();
+  }
+
+  logout() {
+    this.userService.logOut();
   }
 }

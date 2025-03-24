@@ -39,4 +39,23 @@ export const users: User[] = [
       postalCode: 'AW234TW',
     },
   },
+  {
+    dateRegistered: Date.now(),
+    ID: 'DJHFH8484H4F',
+    firstName: 'David',
+    lastName: 'Usuanlele',
+    password: 'police10!',
+    email: 'davidUsuanlele@gmail.com',
+    phoneNumber: '+2348123876532',
+    role: 'CUSTOMER',
+    registered: true,
+    username: 'davidUsuanlele',
+    address: {
+      country: 'Nigeria',
+      state: 'Lagos',
+      townCity: 'Ikeja',
+      address: '12T Ikeja Lagos express way',
+      postalCode: 'IK214',
+    },
+  },
 ];

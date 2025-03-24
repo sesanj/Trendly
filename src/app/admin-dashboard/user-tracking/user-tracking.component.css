@@ -1,0 +1,47 @@
+.container {
+  padding-top: 100px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+input {
+  font-size: 16px;
+  padding: 8px 100px;
+  margin: 5px 0 15px;
+  background-color: #f1f3f5;
+  border-radius: 5px;
+  border-color: transparent;
+  text-align: center;
+  outline: none;
+}
+
+button {
+  padding: 10px 50px;
+  border: none;
+  background-color: rgb(222, 19, 0);
+  color: white;
+  transition: ease-in 0.2s;
+  font-weight: 450;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(0.9);
+  transition: ease-in 0.2s;
+}
+
+.order {
+  width: 80%;
+  margin: auto;
+}
+
+.error {
+  margin-top: 100px;
+}
