@@ -1,6 +1,6 @@
 <div class="overview">
   <div class="heading">
-    <h1>{{orders.length}} Total Orders</h1>
+    <h1>{{totalOrders}} Total Orders</h1>
     <div>
       <button [class.active]="nav == 'ALL'" (click)="filterOrders('ALL')">View All</button>
       <button [class.active]="nav == 'PENDING'" (click)="filterOrders('PENDING')">Pending Orders</button>

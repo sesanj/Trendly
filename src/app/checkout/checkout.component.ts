@@ -14,6 +14,7 @@ import { CartProduct, Order } from '../models/product-order.model';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { OrderServiceService } from '../services/order-service.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -32,6 +33,7 @@ import { OrderServiceService } from '../services/order-service.service';
 export class CheckoutComponent implements OnInit {
   productService = inject(ProductServiceService);
   orderService = inject(OrderServiceService);
+  userService = inject(UserServiceService);
   router = inject(Router);
   cartProduct: CartProduct[] = this.productService.getCart();
 
@@ -73,11 +75,8 @@ export class CheckoutComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     // Initialize the form group with validators
     this.orderForm = this.fb.group({
-      firstname: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z ]*$')],
-      ],
-      lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      firstname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
       street: ['', [Validators.required]],
       country: ['', [Validators.required]],
       town: ['', [Validators.required]],
@@ -86,6 +85,19 @@ export class CheckoutComponent implements OnInit {
       email: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
+
+    setTimeout(() => {
+      const user = this.userService.getUser();
+
+      if (user) {
+        console.log('User Is Logged In');
+        this.orderForm.patchValue({
+          firstname: user.firstName,
+          lastname: user.lastName,
+          email: user.email,
+        });
+      }
+    }, 500);
   }
 
   // Submit form logic
@@ -182,7 +194,7 @@ export class CheckoutComponent implements OnInit {
         lastName: userData.lastname,
         email: userData.email,
         phoneNumber: userData.phone,
-        registered: false,
+        registered: this.userService.getUser()?.registered || false,
       },
       orderTotal: this.cartTotal(),
       products: this.cartProduct,

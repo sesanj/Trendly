@@ -27,8 +27,8 @@
           <td>{{customer.firstName + " " + customer.lastName}}</td>
           <td>{{customer.email}}</td>
           <td>{{customer.phoneNumber}}</td>
-          <td>{{customer.registered ? "Registered" : "Not Registeres"}}</td>
-          <td>{{customerOrders(customer).length}}</td>
+          <td>{{customer.registered ? "Registered" : "Not Registered"}}</td>
+          <td>{{totalOrders(customer.email)}}</td>
         </tr>
         }
       </tbody>

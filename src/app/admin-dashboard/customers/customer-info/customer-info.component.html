@@ -1,4 +1,5 @@
 <div class="container">
+  @if(customer){
   <div>
     <div class="customerSection">
       <h2>{{customer.firstName + " " +customer.lastName}}'s Information </h2>
@@ -68,7 +69,10 @@
   </div>
   <div class="orderedProducts">
     <h2>All Orders</h2>
-    @if(customerOrders().length > 0){ @for(order of customerOrders(); track $index){ <h4>Order #{{order.orderID}}</h4>
+    @if(getCustomerOrder(customer.email).length > 0){ @for(order of getCustomerOrder(customer.email); track $index){
+    <h4>Order
+      #{{order.orderID}}
+    </h4>
 
     @for(product of order.products; track $index){
     <div class="product" [routerLink]="'/product/' + product.ID">
@@ -94,4 +98,5 @@
     <h5>There are no orders associated with this customer</h5>
     }
   </div>
+  }
 </div>

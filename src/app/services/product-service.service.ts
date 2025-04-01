@@ -18,6 +18,8 @@ export class ProductServiceService {
   viewedProduct: Product[] = [];
 
   constructor() {
+    // console.log('Product Service');
+
     if (this.getCartFromLocalStorage()) {
       for (let item of this.getCartFromLocalStorage()) {
         this.cart.push(item);

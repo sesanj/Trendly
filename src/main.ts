@@ -11,6 +11,7 @@ import { ShopComponent } from './app/shop/shop.component';
 import { Component } from '@angular/core';
 import { HomeComponent } from './app/home/home.component';
 import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 const appConfig = {
   providers: [
@@ -22,6 +23,7 @@ const appConfig = {
       },
     },
     provideRouter(routes, withComponentInputBinding()),
+    provideHttpClient(),
   ],
 };
 

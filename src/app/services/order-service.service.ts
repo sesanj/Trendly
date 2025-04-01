@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
-import { orders } from '../../data/orders';
+import { inject, Injectable } from '@angular/core';
 import { Order, OrderStatus } from '../models/product-order.model';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { ProductServiceService } from './product-service.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderServiceService {
-  allOrders: Order[] = orders.reverse();
+  httpClient = inject(HttpClient);
+  productService = inject(ProductServiceService);
+  router = inject(Router);
 
   constructor() {}
-
-  getOrders() {
-    return this.allOrders;
-  }
 
   updateOrderStatus(status: OrderStatus, orderId: string) {
     if (
@@ -26,14 +26,30 @@ export class OrderServiceService {
       return;
     }
 
-    this.allOrders.some((order) =>
-      order.orderID == orderId ? (order.status = status) : ''
-    );
+    this.updateOrderInDatabase(orderId, status);
   }
 
   addOrder(order: Order) {
-    this.allOrders.push(order);
+    this.addOrderToDatabase(order);
+    this.productService.cart = [];
+    localStorage.removeItem('TrendlyCart');
+    this.router.navigate(['/cart']);
+  }
 
-    console.log('Order Added!');
+  addOrderToDatabase(customerOrder: Order) {
+    this.httpClient
+      .put('http://localhost:3000/add-order', { order: customerOrder })
+      .subscribe({
+        next: (data) => console.log(data),
+      });
+  }
+
+  updateOrderInDatabase(orderID: string, status: string) {
+    this.httpClient
+      .put('http://localhost:3000/update-order', {
+        orderID: orderID,
+        orderStatus: status,
+      })
+      .subscribe({});
   }
 }

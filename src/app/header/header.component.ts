@@ -46,8 +46,12 @@ export class HeaderComponent {
     this.cartActive = event;
   }
 
+  get userStatus() {
+    return this.userService.loggedInUserRole;
+  }
+
   get user() {
-    return this.userService.getUser();
+    return this.userService.loggedInUser;
   }
 
   logout() {

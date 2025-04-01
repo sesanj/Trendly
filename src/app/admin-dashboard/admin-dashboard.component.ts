@@ -26,7 +26,7 @@ export class AdminDashboardComponent {
   heading!: string;
   userService = inject(UserServiceService);
 
-  user = this.userService.getUser();
+  // user = this.userService.getUser();
 
   @Input() set nav(nav: String) {
     switch (nav) {
@@ -56,9 +56,11 @@ export class AdminDashboardComponent {
   }
 
   constructor() {
-    if (!this.userService.getUser()) {
-      this.router.navigate(['/home']);
-    }
+    setTimeout(() => {
+      if (!this.userService.getUser()) {
+        this.router.navigate(['/home']);
+      }
+    }, 4000);
   }
 
   navigation: string = '';
@@ -74,5 +76,9 @@ export class AdminDashboardComponent {
 
   userName() {
     return this.userService.getUser()?.firstName;
+  }
+
+  get user() {
+    return this.userService.getUser();
   }
 }
