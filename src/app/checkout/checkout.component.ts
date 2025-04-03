@@ -10,7 +10,12 @@ import { NgIf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ProductServiceService } from '../services/product-service.service';
-import { CartProduct, Order } from '../models/product-order.model';
+import {
+  CartProduct,
+  DeliveryType,
+  Order,
+  PaymentMethod,
+} from '../models/product-order.model';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { OrderServiceService } from '../services/order-service.service';
@@ -39,9 +44,10 @@ export class CheckoutComponent implements OnInit {
 
   orderId: string = '';
 
-  shippingMethod!: string;
+  shippingMethod!: DeliveryType;
   shippingFee: number = 0;
-  paymentMethod: string = 'transfer';
+  paymentMethod: PaymentMethod = 'BANK TRANSFER';
+  note: string = '';
   termsAccepted: boolean = false;
 
   selectedOption: string = '';
@@ -58,10 +64,10 @@ export class CheckoutComponent implements OnInit {
       this.navigate();
     }
     if (this.cartTotal() >= 150) {
-      this.shippingMethod = 'free';
+      this.shippingMethod = 'FREE SHIPPING';
       this.shippingFee = 0;
     } else {
-      this.shippingMethod = 'flat';
+      this.shippingMethod = 'FLAT RATE';
       this.shippingFee = 15;
     }
 
@@ -120,6 +126,12 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  payment(method: PaymentMethod) {
+    this.paymentMethod = method;
+
+    console.log(this.paymentMethod);
+  }
+
   cartTotal() {
     let price = 0;
     for (let item of this.productService.cart) {
@@ -128,10 +140,10 @@ export class CheckoutComponent implements OnInit {
     return price;
   }
 
-  shipping(method: string) {
+  shipping(method: DeliveryType) {
     this.shippingMethod = method;
 
-    if (method == 'pickup' || method == 'free') {
+    if (method == 'PICK UP' || method == 'FREE SHIPPING') {
       this.shippingFee = 0.0;
     } else {
       this.shippingFee = 15.0;
@@ -207,6 +219,9 @@ export class CheckoutComponent implements OnInit {
         townCity: userData.town,
         postalCode: userData.postal,
       },
+      paymentMethod: this.paymentMethod,
+      note: this.note,
+      deliveryType: this.shippingMethod,
     };
 
     this.orderService.addOrder(order);

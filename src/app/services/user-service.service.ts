@@ -76,7 +76,6 @@ export class UserServiceService {
             item.password == password)
       )
     ) {
-      // console.log('Log In Failed, username/email or password does not exist');
       this.loginFailed = true;
       return;
     }
