@@ -6,6 +6,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CartProduct } from '../models/product-order.model';
 import { RouterLink } from '@angular/router';
+import { NotificationService } from '../services/notification-service.service';
 
 @Component({
   selector: 'app-product-page',
@@ -21,6 +22,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductPageComponent implements OnInit {
   productService = inject(ProductServiceService);
+  notification = inject(NotificationService);
 
   productID!: string;
 
@@ -191,14 +193,28 @@ export class ProductPageComponent implements OnInit {
 
     this.productService.addToCart(cartProduct);
     this.warning = false;
+
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Added To your Cart'
+    );
   }
 
   favoriteClicked(product: Product) {
     this.productService.addToFavourite(product);
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Added to your Favourite Products'
+    );
   }
 
   unFavorite(product: Product) {
     this.productService.removeFromFavourite(product);
+
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Removed from your Favourite Products'
+    );
   }
 
   getFavouriteStatus(productID: string) {
