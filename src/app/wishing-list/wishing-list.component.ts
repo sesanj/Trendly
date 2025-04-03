@@ -5,6 +5,7 @@ import { ProductServiceService } from '../services/product-service.service';
 import { Product } from '../models/product.model';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NotificationService } from '../services/notification-service.service';
 
 @Component({
   selector: 'app-wishing-list',
@@ -21,6 +22,7 @@ import { RouterLink } from '@angular/router';
 })
 export class WishingListComponent {
   productService = inject(ProductServiceService);
+  notification = inject(NotificationService);
 
   favouriteProducts = this.productService.getFavourite();
 
@@ -38,5 +40,10 @@ export class WishingListComponent {
 
   remove(product: Product) {
     this.productService.removeFromFavourite(product);
+
+    this.notification.notify(
+      'products/' + this.productImage(product.id) || '',
+      'This item was Removed from your Cart'
+    );
   }
 }
