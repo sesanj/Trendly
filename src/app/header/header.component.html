@@ -28,7 +28,7 @@
         </div>
         <div class="user">
           <!-- <img src="headerUser.svg" alt="A person icon"> -->
-          @if(!user){
+          @if(!userStatus){
           <img src="headerUser.svg" alt="A person icon">
           <ul>
             <div>
@@ -40,8 +40,8 @@
               <li><a routerLink="/signup">Create Account</a></li>
             </div>
           </ul>
-          }@else if (user.role == 'ADMIN') {
-          <p>Hello, {{user.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+          }@else if (userStatus == 'ADMIN' && user) {
+          <p>Hello, {{user!.firstName}} </p><img src="headerUser.svg" alt="A person icon">
           <ul>
             <div>
               <img src="nav/overview.png" alt="">
@@ -64,8 +64,8 @@
               <li><a class="logout">Log Out</a></li>
             </div>
           </ul>
-          }@else if (user.role == 'CUSTOMER') {
-          <p>Hello, {{user.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+          }@else if (userStatus == 'CUSTOMER' && user) {
+          <p>Hello, {{user!.firstName}} </p><img src="headerUser.svg" alt="A person icon">
           <ul>
             <div>
               <img src="nav/overview.png" alt="">

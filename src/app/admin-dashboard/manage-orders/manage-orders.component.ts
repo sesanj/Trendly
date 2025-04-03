@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { UserServiceService } from '../../services/user-service.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-manage-orders',
@@ -20,34 +21,70 @@ export class ManageOrdersComponent {
   userService = inject(UserServiceService);
   user = this.userService.getUser();
   router = inject(Router);
+  httpClient = inject(HttpClient);
 
-  orders = this.orderService.getOrders();
+  orders: Order[] = [];
 
   selectedOrderID = '';
   orderStatus!: OrderStatus;
   nav = 'ALL';
 
   constructor() {
-    if (this.user != null && this.user.role != 'ADMIN') {
-      this.router.navigate(['/home']);
+    if (
+      !this.userService.loggedInUserID ||
+      this.userService.loggedInUserRole != 'ADMIN'
+    ) {
+      this.router.navigate(['/']);
     }
+
+    this.getOrders();
+  }
+
+  getOrders() {
+    let savedOrders: Order[] = [];
+
+    this.httpClient
+      .get<{ orders: Order[] }>('http://localhost:3000/orders')
+      .subscribe({
+        next: (data) => {
+          savedOrders = data.orders.reverse();
+        },
+        complete: () => {
+          this.orders = savedOrders;
+        },
+      });
+  }
+
+  get totalOrders() {
+    return this.orders.length;
   }
 
   filterOrders(filter: string) {
     this.nav = filter;
     if (filter == 'ALL') {
-      this.orders = this.orderService.getOrders();
+      this.getOrders();
       return;
     }
 
-    this.orders = this.orderService
-      .getOrders()
-      .filter((order) => order.status == filter);
+    let savedOrders: Order[] = [];
+    this.httpClient
+      .get<{ filtered: Order[] }>(
+        `http://localhost:3000/filter-orders?filter=${filter}`
+      )
+      .subscribe({
+        next: (data) => {
+          savedOrders = data.filtered.reverse();
+        },
+        complete: () => {
+          this.orders = savedOrders;
+        },
+      });
   }
 
   isDialogClosed(event: boolean) {
     if (event == true) {
       this.selectedOrderID = ' ';
+      this.filterOrders(this.nav);
     }
   }
 

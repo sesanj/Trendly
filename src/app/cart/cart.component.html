@@ -99,7 +99,7 @@
       </div>
       <div class="total">
         <span>Total</span>
-        <span class="price">${{ totalPrice() }}</span>
+        <span class="price">{{ totalPrice() | currency: "USD"}}</span>
       </div>
       <button [routerLink]="'/checkout'" class="checkout-btn">Proceed to Checkout</button>
     </div>

@@ -4,6 +4,7 @@ import { Product } from '../models/product.model';
 import { RouterLink } from '@angular/router';
 import { ProductServiceService } from '../services/product-service.service';
 import { CartProduct } from '../models/product-order.model';
+import { NotificationService } from '../services/notification-service.service';
 
 @Component({
   selector: 'app-product',
@@ -14,6 +15,7 @@ import { CartProduct } from '../models/product-order.model';
 })
 export class ProductComponent implements OnInit {
   productService = inject(ProductServiceService);
+  notification = inject(NotificationService);
   @Input({ required: true }) product!: Product;
 
   favoriteProducts!: { product: Product; date: number }[];
@@ -41,14 +43,26 @@ export class ProductComponent implements OnInit {
     };
 
     this.productService.addToCart(cartProduct);
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Added to your Cart'
+    );
   }
 
   favoriteClicked(product: Product) {
     this.productService.addToFavourite(product);
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Added to your Favourite Products'
+    );
   }
 
   unFavorite(product: Product) {
     this.productService.removeFromFavourite(product);
+    this.notification.notify(
+      'products/' + product.image?.image1 || '',
+      'This item was Removed from your Favourite Products'
+    );
   }
 
   getFavouriteStatus(productID: string) {

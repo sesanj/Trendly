@@ -186,3 +186,9 @@ dialog h3 {
 .canceled {
   background-color: rgb(226, 0, 0);
 }
+
+.payment,
+.delivery,
+.note {
+  margin-top: 20px;
+}
