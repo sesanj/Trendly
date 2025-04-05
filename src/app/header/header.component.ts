@@ -17,6 +17,19 @@ export class HeaderComponent {
   userService = inject(UserServiceService);
 
   cartActive: boolean = false;
+  menuIsActive: boolean = false;
+
+  openSidebar() {
+    this.menuIsActive = true;
+  }
+
+  closeSidebar() {
+    this.menuIsActive = false;
+  }
+
+  stopPropagating(event: MouseEvent) {
+    event.stopPropagation();
+  }
 
   get favourites() {
     return this.productService.favourites.length;

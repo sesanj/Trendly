@@ -12,7 +12,7 @@ nav {
   width: 1300px;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 0px;
+  padding: 6px 20px;
 }
 
 .logo {
@@ -43,6 +43,8 @@ nav {
 
 .wishListAndCart {
   width: 35%;
+  display: flex;
+  align-items: center;
 }
 
 .cart,
@@ -50,8 +52,7 @@ nav {
   position: relative;
   display: flex;
   align-content: center;
-  margin-left: 15px;
-  padding: 5px;
+  padding: 10px 0px;
   cursor: pointer;
 }
 
@@ -70,11 +71,12 @@ nav {
 }
 
 .total {
-  width: 50px;
+  width: 70px;
   font-size: 15px;
   color: black;
-  padding: 10px;
+  padding: 10px 5px;
   cursor: pointer;
+  text-align: right;
 }
 
 .links li {
@@ -89,6 +91,7 @@ nav {
   padding: 15px 0px;
   position: relative;
 }
+
 .user ul {
   display: none;
   position: absolute;
@@ -165,4 +168,224 @@ ul img {
   background-color: rgb(225, 0, 0);
   transform: scale(0.95);
   transition: ease-in 0.2s;
+}
+
+.menu {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+.mobileMenuIcon {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .mobileMenuIcon {
+    display: none;
+  }
+  .links {
+    display: none;
+  }
+
+  .navArea {
+    justify-content: flex-end;
+  }
+
+  .wishListAndCart {
+    width: 50%;
+  }
+
+  .track {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-left: 20px;
+    }
+  }
+
+  .user img {
+    display: none;
+  }
+
+  .user:hover ul {
+    display: none;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    z-index: 10000000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.416);
+    transform: translateX(100%);
+    transition: ease-in-out 0.2s;
+    margin: 0;
+  }
+
+  .menu-sidebar {
+    position: fixed;
+    width: 180px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.151);
+    transform: translateX(100%);
+    transition: ease-in-out 0.2s;
+
+    p {
+      display: none;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      font-size: 16px;
+    }
+
+    img {
+      margin-right: 10px;
+    }
+
+    .track {
+      display: contents;
+    }
+
+    .track button {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: 10px;
+      right: 10px;
+    }
+  }
+  .sidebar-item h3 + div > img {
+    display: none;
+  }
+
+  .menu-sidebar .links {
+    display: block;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  .sidebar-item {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: dotted 1px rgb(170, 170, 170);
+  }
+
+  .activeMenu {
+    transform: translateX(0px);
+    transition: ease-in-out 0.2s;
+  }
+}
+
+@media (max-width: 500px) {
+  .user {
+    display: none;
+  }
+
+  .navArea {
+    width: 25%;
+  }
+
+  .total {
+    font-size: 18px;
+  }
+
+  .cart img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .cart > p {
+    top: 5px;
+  }
+
+  .logoContainer {
+    width: 50%;
+    text-align: center;
+
+    .logo {
+      font-size: 30px;
+    }
+  }
+
+  .wishList {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .mobileMenuIcon {
+    display: flex;
+    align-items: center;
+    width: 25%;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .menu-sidebar {
+    left: 0;
+    transform: translateX(-100%);
+
+    /* p,
+    p + img {
+      display: contents;
+      margin-bottom: 10px;
+      font-size: 18px;
+    } */
+
+    p {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+
+  .sidebar-overlay {
+    transform: translateX(-100%);
+  }
+
+  .activeMenu {
+    transform: translateX(0px);
+    /* transition: ease-in-out 0.2s; */
+  }
 }
