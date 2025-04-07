@@ -312,6 +312,10 @@ ul img {
 }
 
 @media (max-width: 500px) {
+  .headerContainer {
+    padding: 2px 16px;
+  }
+
   .user {
     display: none;
   }
@@ -325,12 +329,12 @@ ul img {
   }
 
   .cart img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 
   .cart > p {
-    top: 5px;
+    top: 2px;
   }
 
   .logoContainer {
@@ -356,21 +360,14 @@ ul img {
     width: 25%;
 
     img {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
     }
   }
 
   .menu-sidebar {
     left: 0;
     transform: translateX(-100%);
-
-    /* p,
-    p + img {
-      display: contents;
-      margin-bottom: 10px;
-      font-size: 18px;
-    } */
 
     p {
       display: block;

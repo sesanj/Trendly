@@ -9,7 +9,6 @@
 
 .nav {
   width: 50%;
-  /* float: right; */
 }
 .buttons {
   float: right;
@@ -30,7 +29,7 @@ button {
 .products {
   margin-top: 50px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .overlay {
@@ -50,4 +49,42 @@ h1 {
 
 p {
   margin-top: 5px;
+}
+
+/* @media (max-width: 1050px) {
+} */
+
+@media (max-width: 500px) {
+  .wrap {
+    display: block;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .nav {
+    width: 100%;
+  }
+  .buttons {
+    float: none;
+    margin-top: 30px;
+  }
+
+  button {
+    margin-left: 0px;
+    margin-right: 20px;
+  }
+
+  .products {
+    margin-top: 30px;
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  p {
+    margin-top: 10px;
+  }
 }

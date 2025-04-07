@@ -1,5 +1,6 @@
 <div class="carousel">
-  <div class="carousel-images" [style.transform]="getTransform">
+  <div class="carousel-images" [style.transform]="getTransform" [style.transform]="getTabTransform"
+    [style.transform]="getMobileTransform">
     @for(product of products; track product.id){
     <div>
       <app-product [product]="product"></app-product>
@@ -8,10 +9,14 @@
   </div>
   <div class="buttonContainer">
     <div class="prev">
-      <button (click)="prevSlide()">&#10094;</button>
+      <button (click)="prevSlide('laptop')" class="laptopButton">&#10094;</button>
+      <button (click)="prevSlide('tab')" class="tabButton">&#10094;</button>
+      <button (click)="prevSlide('mobile')" class="mobileButton">&#10094;</button>
     </div>
     <div class="next">
-      <button (click)="nextSlide()">&#10095;</button>
+      <button (click)="nextSlide('laptop')" class="laptopButton">&#10095;</button>
+      <button (click)="nextSlide('tab')" class="tabButton">&#10095;</button>
+      <button (click)="nextSlide('mobile')" class="mobileButton">&#10095;</button>
     </div>
   </div>
 </div>

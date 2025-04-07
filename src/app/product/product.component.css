@@ -121,8 +121,7 @@ span {
   margin-bottom: -5px;
 }
 
-.view,
-.wishlist {
+.view {
   display: flex;
   align-content: center;
   position: absolute;
@@ -136,13 +135,7 @@ span {
   transition: opacity 0.2s ease, transform 0.3s ease;
 }
 
-.wishlist {
-  top: 88px;
-  transition: opacity 0.4s ease, transform 0.7s ease;
-}
-
-.product:hover .view,
-.product:hover .wishlist {
+.product:hover .view {
   opacity: 1;
   transform: translateX(0);
 }
@@ -180,8 +173,44 @@ span {
 .discountPrice {
   display: inline;
   font-size: 16px;
-  /* color: red; */
   font-weight: 500;
   margin-left: 10px;
   text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .buttonContainer {
+    display: none;
+    bottom: 0px;
+  }
+
+  .view {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 800px) {
+  .view {
+    display: none;
+  }
+
+  .tag {
+    font-weight: 500;
+    font-size: 12px;
+    padding: 4px;
+  }
+  .slashedPrice,
+  .discountPrice,
+  .price {
+    font-size: 14px;
+  }
 }
