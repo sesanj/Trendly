@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="change ts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/footer/footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register/register.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="men-products" />
+        <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +54,7 @@
     &quot;JavaScript Debug.login-page.component.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.login.component.html.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Checkout&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;FlexibleLayoutCheckout&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -91,6 +94,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.login.component.html" />
+        <item itemvalue="JavaScript Debug.login-page.component.html" />
+        <item itemvalue="JavaScript Debug.login.component.html" />
         <item itemvalue="JavaScript Debug.login-page.component.html" />
         <item itemvalue="JavaScript Debug.login.component.html" />
       </list>
@@ -123,6 +129,16 @@
       <workItem from="1741380861240" duration="1907000" />
       <workItem from="1741409228972" duration="4075000" />
       <workItem from="1741475175033" duration="765000" />
+      <workItem from="1742788221027" duration="2621000" />
+      <workItem from="1742794749388" duration="623000" />
+      <workItem from="1742913087272" duration="2641000" />
+      <workItem from="1742933242958" duration="1492000" />
+      <workItem from="1742961279812" duration="9000" />
+      <workItem from="1743543524994" duration="1356000" />
+      <workItem from="1743620684374" duration="1693000" />
+      <workItem from="1743993779244" duration="3278000" />
+      <workItem from="1744084337636" duration="920000" />
+      <workItem from="1744140700270" duration="1815000" />
     </task>
     <task id="LOCAL-00001" summary="add new imgs and details">
       <option name="closed" value="true" />
@@ -213,16 +229,5 @@
     <MESSAGE value="change eye icon" />
     <MESSAGE value="change ts" />
     <option name="LAST_COMMIT_MESSAGE" value="change ts" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/login/login.component.ts</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

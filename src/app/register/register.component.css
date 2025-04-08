@@ -99,5 +99,41 @@ button {
 a {
   text-decoration: none;
   color: #ee403d;
-  font-size: 600;
+  font-size: 600px;
+}
+
+@media (max-width: 989px) {
+  .register{
+    width: 95%;
+  }
+
+}
+
+@media (max-width: 670px) {
+  .register .content {
+    display: flex; /* Change to flex to stack the form fields */
+    flex-direction: column; /* Stack all items vertically */
+    padding: 5px;
+  }
+
+  .register{
+    margin: 10px;
+    width: 95%;
+
+  }
+
+  .register .info, .register .address {
+    width: 95%; /* Ensure each section takes up full width */
+  }
+
+  .register form input {
+    width: 100%; /* Ensure inputs take up full width */
+  }
+
+  .register .button {
+    margin-top: 20px; /* Add some spacing above the submit button */
+
+  }
+
+
 }
