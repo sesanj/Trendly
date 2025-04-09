@@ -4,35 +4,32 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  display: flex;
   background-color: rgba(0, 0, 0, 0.485);
-  opacity: 0;
-
-  transform: translateX(4000px);
-  transition: opacity 0.5s ease, transform 0.5s ease-in-out;
-}
-
-.empty {
-  width: 80%;
+  transform: translateX(100%);
+  transition: opacity 0.5s ease, transform 0.3s ease-in-out;
 }
 
 .cart {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 20%;
-  min-width: 350px;
   background-color: white;
-  transform: translateX(400px);
-  transition: transform 0.5s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
 .allProducts {
   margin-top: 30px;
-  max-height: 750px;
   padding: 25px;
   overflow: scroll;
 }
 
 .cartActive {
-  opacity: 1;
   transform: translateX(0);
 }
 
@@ -90,10 +87,7 @@ a:hover {
 }
 
 .totals {
-  position: absolute;
-  bottom: 30px;
-  right: 25px;
-  left: 25px;
+  padding: 10px 25px 30px 25px;
   background-color: white;
 }
 

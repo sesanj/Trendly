@@ -113,3 +113,7 @@ h2 {
 .canceled {
   background-color: rgb(226, 0, 0);
 }
+
+.orderedProducts span {
+  float: right;
+}
