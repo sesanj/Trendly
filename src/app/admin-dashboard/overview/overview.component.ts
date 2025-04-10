@@ -105,9 +105,9 @@ export class OverviewComponent implements OnInit {
     return order.customer.firstName + ' ' + order.customer.lastName;
   }
 
-  delivery(order: Order) {
-    return order.deliveryInfo.country + ', ' + order.deliveryInfo.state;
-  }
+  // delivery(order: Order) {
+  //   return order.deliveryInfo.country + ', ' + order.deliveryInfo.state;
+  // }
 
   displayOrderInfo(id: string, status: OrderStatus) {
     this.selectedOrderID = id;
