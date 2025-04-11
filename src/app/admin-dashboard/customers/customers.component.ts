@@ -7,11 +7,12 @@ import { users } from '../../../data/users';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CustomerInfoComponent],
+  imports: [CustomerInfoComponent, FormsModule],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
 })
@@ -27,6 +28,8 @@ export class CustomersComponent {
   clickedCustomer!: User;
   allOrders: Order[] = [];
 
+  isCustomerInfoOpen: boolean = false;
+
   filter: string = 'all';
 
   constructor() {
@@ -39,6 +42,18 @@ export class CustomersComponent {
 
     this.getUsers();
     this.getOrders();
+  }
+
+  openCustomerInfo() {
+    this.isCustomerInfoOpen = true;
+  }
+
+  closeCustomerInfo() {
+    this.isCustomerInfoOpen = false;
+  }
+
+  stopClickEffect(event: MouseEvent) {
+    event.stopPropagation();
   }
 
   getUsers() {
@@ -57,6 +72,7 @@ export class CustomersComponent {
 
   checkCustomer(customer: User) {
     this.clickedCustomer = customer;
+    this.openCustomerInfo();
   }
 
   getOrders() {
@@ -94,6 +110,24 @@ export class CustomersComponent {
       this.allCustomers = users.filter((user) => !user.registered);
       this.filter = 'no';
     } else if ((filter = 'admin')) {
+      this.allCustomers = users.filter((user) => user.role == 'ADMIN');
+      this.filter = 'admin';
+    }
+  }
+
+  mobileFilterCustomers() {
+    const users = this.allUsersContainer;
+
+    if (this.filter == 'all') {
+      this.getUsers();
+      this.filter = 'all';
+    } else if (this.filter == 'yes') {
+      this.allCustomers = users.filter((user) => user.registered);
+      this.filter = 'yes';
+    } else if (this.filter == 'no') {
+      this.allCustomers = users.filter((user) => !user.registered);
+      this.filter = 'no';
+    } else if ((this.filter = 'admin')) {
       this.allCustomers = users.filter((user) => user.role == 'ADMIN');
       this.filter = 'admin';
     }
