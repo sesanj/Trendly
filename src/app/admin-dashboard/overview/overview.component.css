@@ -199,10 +199,12 @@ td a:hover {
   }
 
   th:nth-child(3),
-  td:nth-child(3),
-  td:first-child,
-  th:first-child {
+  td:nth-child(3) {
     display: none;
+  }
+
+  td {
+    font-size: 14px;
   }
 }
 
@@ -211,8 +213,8 @@ td a:hover {
     grid-template-columns: 1fr;
   }
 
-  th:nth-child(3),
-  td:nth-child(3),
+  th:nth-child(1),
+  td:nth-child(1),
   th:nth-child(4),
   td:nth-child(4),
   th:nth-child(5),

@@ -19,6 +19,9 @@
         </ul>
         }@else if (user?.role == 'CUSTOMER') {
         <ul>
+          <li class="userName">
+            <p>Welcome Back, {{userName()}}!</p>
+          </li>
           <li><a [routerLink]=" '/myaccount/'+ 'myorders'" [class.selected]="navigation == 'myorders'"><img
                 src="dashboard/overview.png" alt="overview icon">Orders</a></li>
           <li><a [routerLink]=" '/myaccount/'+ 'track'" [class.selected]="navigation == 'track'"><img

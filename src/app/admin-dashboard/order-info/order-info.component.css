@@ -115,7 +115,10 @@ h2 {
 }
 
 .orderedProducts span {
+  display: flex;
+  gap: 12px;
   float: right;
+  align-items: center;
 }
 
 @media (max-width: 500px) {
@@ -169,5 +172,9 @@ h2 {
 
   .productDetails div:first-child {
     width: 100%;
+  }
+
+  .orderedProducts span p {
+    font-size: 14px;
   }
 }
