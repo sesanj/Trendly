@@ -28,7 +28,7 @@ label {
 
 input {
   width: 100%;
-  padding: 8px 0px;
+  padding: 8px ;
   border: none;
   margin-bottom: 20px;
   background-color: rgba(211, 211, 211, 0.5);
@@ -99,5 +99,81 @@ button {
 a {
   text-decoration: none;
   color: #ee403d;
-  font-size: 600;
+  font-size: 600px;
 }
+
+@media (max-width: 768px) {
+  .register {
+    padding: 40px 20px;
+  }
+
+  h1 {
+    padding-top: 45px;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .info,
+  .address {
+    width: 75%;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .passwordInput input {
+    padding-right: 40px;
+  }
+
+  .eyes {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .button p {
+    width: 100%;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  a {
+    font-size: 14px;
+  }
+
+  .warning {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .error {
+    font-size: 13px;
+  }
+}
+
