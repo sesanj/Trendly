@@ -98,7 +98,9 @@
       </div>
     </div>
     <div class="orderedProducts">
-      <h2>{{totalProducts(order)}} Ordered Products</h2>
+      <h2>{{totalProducts(order)}} Ordered Products <span>
+          <p>Total: </p>{{order.orderTotal | currency: 'USD' }}
+        </span></h2>
       @for(product of order.products; track $index){
       <div class="product" [routerLink]="'/product/' + product.ID">
         <img [src]="'products/' + productImage(product.ID)" alt="product image">
@@ -113,15 +115,15 @@
           </div>
           <div>
             <h3>Size</h3>
-            <p>{{product.size}}</p>
+            <p>{{product.size || 'Nill'}}</p>
           </div>
           <div>
             <h3>Color</h3>
-            <p>{{product.color}}</p>
+            <p>{{product.color || 'Nill'}}</p>
           </div>
           <div>
             <h3>Total Price</h3>
-            <p>{{product.totalPrice | currency: "USD" }}</p>
+            <p>{{product.totalPrice * product.quantity | currency: "USD" }}</p>
           </div>
         </div>
       </div>

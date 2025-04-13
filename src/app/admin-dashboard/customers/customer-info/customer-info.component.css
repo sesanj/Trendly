@@ -1,5 +1,5 @@
 .container {
-  padding: 40px;
+  padding: 60px 40px;
   margin: auto;
   overflow: scroll;
   height: 100vh;
@@ -85,4 +85,11 @@ h5 {
   border-radius: 20px;
   color: white;
   font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }

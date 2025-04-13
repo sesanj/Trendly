@@ -3,6 +3,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding-top: 50px;
 }
 
 .carousel:hover .prev,
@@ -81,15 +82,15 @@
 
 .content {
   display: flex;
-  align-items: center;
-  top: 0;
+  height: 100%;
   position: absolute;
-  bottom: 0;
+  top: -10%;
 }
 
 .content div {
   width: 100%;
   max-width: 1300px;
+  padding: 0px 20px;
   margin: auto;
 }
 
@@ -169,4 +170,89 @@ p {
   width: 100%;
   position: absolute;
   bottom: 20px;
+}
+
+@media (max-width: 1050px) {
+  h1 {
+    font-size: 45px;
+  }
+  .label {
+    font-size: 20px;
+  }
+
+  .content div {
+    padding: 0px 50px;
+  }
+
+  .content button {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+  p {
+    font-size: 18px;
+  }
+
+  .features {
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .features {
+    position: relative;
+    width: fit-content;
+    margin-top: 30px;
+  }
+
+  .content {
+    top: 0;
+  }
+
+  .prev,
+  .next {
+    top: 25%;
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  .prev button,
+  .next button {
+    width: 30px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .prev,
+  .next {
+    top: 15%;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin-top: 0px;
+  }
+  .label {
+    display: block;
+    font-size: 16px;
+  }
+
+  .content div {
+    padding: 0px 40px;
+  }
+
+  .content button {
+    font-size: 12px;
+    padding: 3px 10px;
+    margin-top: 10px;
+  }
+  p {
+    display: none;
+  }
+
+  .prev button,
+  .next button {
+    width: 25px;
+    font-size: 16px;
+  }
 }

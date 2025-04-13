@@ -37,8 +37,9 @@ export class CartSidebarComponent {
     return price;
   }
 
-  deleteProduct(product: CartProduct) {
-    this.productService.deleteFromCart(product);
+  deleteProduct(product: CartProduct, productIndex: number) {
+    this.productService.deleteFromCart(productIndex);
+
     this.notification.notify(
       'products/' + this.productImage(product.ID) || '',
       'This item was Removed from your Cart'
