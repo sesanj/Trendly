@@ -95,6 +95,10 @@ h3 {
   border: 0px;
 }
 
+.tabProduct {
+  display: none;
+}
+
 @media (max-width: 1050px) {
   h2 {
     font-size: 30px;
@@ -107,12 +111,12 @@ h3 {
 
 @media (max-width: 800px) {
   h2 {
-    font-size: 24px;
+    font-size: 35px;
     margin-bottom: 20px;
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .details {
@@ -121,18 +125,40 @@ h3 {
 
   .section {
     gap: 10px;
+    flex-direction: column;
   }
 
   .details div {
-    padding: 25px 10px;
+    padding: 60px 10px;
   }
 
   span {
     display: none;
   }
+  .image {
+    width: 100%;
+  }
 
   .image button {
     margin-top: 20px;
+  }
+
+  .tabProduct {
+    display: block;
+  }
+
+  .product {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+  }
+
+  .product div {
+    width: 50%;
+  }
+
+  .tabProduct2 {
+    display: none;
   }
 }
 
@@ -144,6 +170,19 @@ h3 {
 
   h1 + p {
     margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .details div {
+    padding: 40px 10px;
   }
 
   .wrap {

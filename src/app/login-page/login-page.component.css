@@ -88,3 +88,9 @@ h2 {
   align-items: center;
   min-height: 100vh;
 }
+
+@media (max-width: 500px) {
+  .container {
+    box-shadow: none;
+  }
+}

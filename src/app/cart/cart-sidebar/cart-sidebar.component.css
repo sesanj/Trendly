@@ -25,7 +25,7 @@
 
 .allProducts {
   margin-top: 30px;
-  padding: 25px;
+  padding: 0px 25px;
   overflow: scroll;
 }
 
@@ -87,7 +87,7 @@ a:hover {
 }
 
 .totals {
-  padding: 10px 25px 30px 25px;
+  padding: 0px 25px 30px 25px;
   background-color: white;
 }
 
@@ -164,4 +164,22 @@ h3 {
 .emptyCart img {
   margin-bottom: 20px;
   width: 80%;
+}
+
+@media (max-width: 1300px) {
+  .cart {
+    width: 30%;
+  }
+}
+
+@media (max-width: 800px) {
+  .cart {
+    width: 45%;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart {
+    width: 80%;
+  }
 }
