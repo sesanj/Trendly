@@ -50,7 +50,14 @@ export class ReviewComponent {
   }
 
   // Navigate to the previous slide
-  prevSlide() {
+  prevSlide(view: string) {
+    if (view == 'mobile') {
+      console.log('Mobile');
+      this.visibleImages = 1;
+    } else {
+      this.visibleImages = 3;
+    }
+
     if (this.currentIndex > 0) {
       this.currentIndex--;
     } else {
@@ -59,7 +66,13 @@ export class ReviewComponent {
   }
 
   // Navigate to the next slide
-  nextSlide() {
+  nextSlide(view: string) {
+    if (view == 'mobile') {
+      console.log('Mobile');
+      this.visibleImages = 1;
+    } else {
+      this.visibleImages = 3;
+    }
     if (this.currentIndex < this.reviews.length - this.visibleImages) {
       this.currentIndex++;
     } else {

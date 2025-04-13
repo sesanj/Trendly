@@ -1,6 +1,5 @@
-<div class="container" [class.cartActive]="cartActive">
-  <div (click)="closeCart()" class="empty"></div>
-  <div class="cart" [class.cartActive]="cartActive">
+<div class="container" [class.cartActive]="cartActive" (click)="closeCart()">
+  <div class="cart" [class.cartActive]="cartActive" (click)="stopClickEffect($event)">
     <div class="allProducts">
       @if(cart.length != 0){
       @for(item of cart; track $index){
@@ -13,7 +12,7 @@
             <p class="count">x{{item.quantity}}</p>
           </div>
         </div>
-        <p (click)="deleteProduct(item)" class="delete">x</p>
+        <p (click)="deleteProduct(item, $index)" class="delete">x</p>
       </div>
       }
       }@else {
@@ -23,8 +22,6 @@
           <h3>Your Cart is <span>Empty!</span></h3>
           <p>Looks like you have not added anything to your cart. Go ahead and explore our top categories</p>
         </div>
-
-
       </div>
       }
     </div>

@@ -30,6 +30,7 @@ export class OrderDialogComponent {
 
   updateOrder(orderid: string) {
     this.orderService.updateOrderStatus(this.orderStatus, orderid);
+    this.order.status = this.orderStatus;
   }
 
   productImage(id: string) {

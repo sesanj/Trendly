@@ -6,10 +6,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router, RouterEvent } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { UserServiceService } from '../services/user-service.service';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
@@ -20,7 +21,6 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class LoginPageComponent {
   userService = inject(UserServiceService);
-  // router = inject(Router)
   loginForm: FormGroup;
   isSubmitted = false;
   error: string | null = null;
@@ -29,19 +29,20 @@ export class LoginPageComponent {
   password!: string;
 
   showPassword: boolean = false;
+
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
   constructor(private fb: FormBuilder, private router: Router) {
+    if (this.userService.loggedInUserID) {
+      router.navigate(['/home']);
+    }
+
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-
-    if (this.userService.getUser()) {
-      router.navigate(['/home']);
-    }
   }
   onSubmit() {
     const loginData = this.loginForm.value;
@@ -53,9 +54,5 @@ export class LoginPageComponent {
     }
 
     this.userService.logIn(loginData.username, loginData.password);
-  }
-
-  goToLoginPage() {
-    this.router.navigate(['']);
   }
 }

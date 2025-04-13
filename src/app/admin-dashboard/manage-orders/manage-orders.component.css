@@ -41,7 +41,6 @@ button:hover {
 table {
   width: 100%;
   text-align: left;
-  margin-top: 30px;
   border: solid 5px rgb(244, 245, 255);
   border-collapse: collapse;
 }
@@ -124,4 +123,83 @@ td a:hover {
 
 .canceled {
   background-color: rgb(226, 0, 0);
+}
+
+.mobileFilter {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .heading {
+    display: block;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    margin-left: 0px;
+    margin-right: 12px;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .buttons {
+    display: none;
+  }
+
+  .mobileFilter {
+    display: flex;
+  }
+
+  .orders {
+    margin-top: 20px;
+  }
+
+  h1 {
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+
+  table {
+    margin-top: 0px;
+  }
+
+  .mobileFilter p {
+    font-weight: 500;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  select {
+    outline: none;
+    border: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px 0px;
+  }
+
+  td:first-child,
+  th:first-child,
+  th:nth-child(3),
+  td:nth-child(3),
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(5),
+  td:nth-child(5) {
+    display: none;
+  }
+
+  th:last-child,
+  td:last-child {
+    text-align: right;
+  }
 }

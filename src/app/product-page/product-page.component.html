@@ -58,12 +58,16 @@
       <p><button (click)="decrease()">---</button><span>{{productQuantity}}</span><button
           (click)="increase()">+</button>
       </p>
+      @if(product.quantity > 0){
       <button class="addToCart" (click)="addToCart(product)">Add to Cart</button>
+      }@else {
+      <button class="disabledButton">Out of Stock</button>
+      }
     </div>
     <div class="wishlist">
       @if(!getFavouriteStatus(product.id)){
       <button (click)="favoriteClicked(product)"><img src="heart.svg" alt="heart icon"><span>Add this product to your
-          Wishlist!</span></button>
+          Favoutites!</span></button>
       }
 
       @if(getFavouriteStatus(product.id)){

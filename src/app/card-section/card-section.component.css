@@ -6,3 +6,26 @@
 .item {
   width: 32%;
 }
+
+@media (max-width: 1050px) {
+  .item {
+    width: 49%;
+  }
+  .item:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .item {
+    width: 100%;
+  }
+  .item:last-child {
+    display: block;
+  }
+}

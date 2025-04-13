@@ -1,5 +1,5 @@
 .main {
-  padding-top: 200px;
+  padding: 200px 20px 50px 20px;
 }
 
 .container {
@@ -40,6 +40,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 30px;
 }
 
 p {
@@ -51,11 +52,36 @@ p {
 
 .order {
   width: 70%;
+  box-sizing: border-box;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
+  padding-bottom: 100px;
 }
 
 .error {
   text-align: center;
   margin-top: 50px;
+}
+
+@media (max-width: 1500px) {
+  .order {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-weight: 500;
+    font-size: 25px;
+  }
+  .order {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .main {
+    padding-top: 120px;
+  }
 }

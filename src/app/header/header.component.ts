@@ -17,6 +17,19 @@ export class HeaderComponent {
   userService = inject(UserServiceService);
 
   cartActive: boolean = false;
+  menuIsActive: boolean = false;
+
+  openSidebar() {
+    this.menuIsActive = true;
+  }
+
+  closeSidebar() {
+    this.menuIsActive = false;
+  }
+
+  stopPropagating(event: MouseEvent) {
+    event.stopPropagation();
+  }
 
   get favourites() {
     return this.productService.favourites.length;
@@ -46,8 +59,12 @@ export class HeaderComponent {
     this.cartActive = event;
   }
 
+  get userStatus() {
+    return this.userService.loggedInUserRole;
+  }
+
   get user() {
-    return this.userService.getUser();
+    return this.userService.loggedInUser;
   }
 
   logout() {

@@ -7,6 +7,8 @@ export type OrderStatus =
   | 'DELIVERED'
   | 'CANCELED';
 
+export type PaymentMethod = 'BANK TRANSFER' | 'CASH ON DELIVERY';
+export type DeliveryType = 'FREE SHIPPING' | 'FLAT RATE' | 'PICK UP';
 export interface Order {
   orderID: string;
   customer: Customer;
@@ -15,6 +17,9 @@ export interface Order {
   deliveryInfo: Address;
   status: OrderStatus;
   date: number;
+  note?: string;
+  paymentMethod?: PaymentMethod;
+  deliveryType?: DeliveryType;
 }
 
 export interface CartProduct {

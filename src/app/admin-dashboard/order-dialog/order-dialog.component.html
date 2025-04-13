@@ -15,7 +15,7 @@
       </div>
       <div>
         <p>Update Order: </p>
-        <select type="" [(ngModel)]="orderStatus">
+        <select type="" [(ngModel)]="orderStatus" name="orderUpdate">
           <option value="PENDING">Pending</option>
           <option value="PROCESSING">Processing</option>
           <option value="OUT FOR DELIVERY">Out For Delivery</option>
@@ -51,6 +51,13 @@
         </div>
         <h3>Status</h3>
         <p>{{order.customer.registered ? "Registered" : "Not Registered"}}</p>
+        @if(order.note){
+        <div class="note">
+          <h3>Customer Note</h3>
+          <p>{{order.note}}</p>
+        </div>
+
+        }
       </div>
       <div class="deliveryInfo">
         <h2>Delivery Information </h2>
@@ -74,12 +81,26 @@
             <p>{{order.deliveryInfo.postalCode}}</p>
           </div>
         </div>
+        @if(order.paymentMethod && order.deliveryType){
+        <div class="info">
+          <div>
+            <h3>Payment Method</h3>
+            <p>{{order.paymentMethod}}</p>
+          </div>
+          <div>
+            <h3>Delivery Method</h3>
+            <p>{{order.deliveryType}}</p>
+          </div>
+        </div>
+        }
         <h3>Street Address</h3>
         <p>{{order.deliveryInfo.address}}</p>
       </div>
     </div>
     <div class="orderedProducts">
-      <h2>{{totalProducts(order)}} Ordered Products</h2>
+      <h2>{{totalProducts(order)}} Ordered Products <span>
+          <p>Total: </p>{{order.orderTotal | currency: 'USD' }}
+        </span></h2>
       @for(product of order.products; track $index){
       <div class="product" [routerLink]="'/product/' + product.ID">
         <img [src]="'products/' + productImage(product.ID)" alt="product image">
@@ -94,15 +115,15 @@
           </div>
           <div>
             <h3>Size</h3>
-            <p>{{product.size}}</p>
+            <p>{{product.size || 'Nill'}}</p>
           </div>
           <div>
             <h3>Color</h3>
-            <p>{{product.color}}</p>
+            <p>{{product.color || 'Nill'}}</p>
           </div>
           <div>
             <h3>Total Price</h3>
-            <p>{{product.totalPrice | currency: "USD" }}</p>
+            <p>{{product.totalPrice * product.quantity | currency: "USD" }}</p>
           </div>
         </div>
       </div>

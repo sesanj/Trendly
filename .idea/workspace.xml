@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="added responsive design for product page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register/register.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cart/cart.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/category-section/category-section.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/category-section/category-section.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/category-section/category-section.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/category-section/category-section.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="men-products" />
+        <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,12 +34,12 @@
     &quot;assignee&quot;: &quot;jiazijia2003&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/sesanj/Trendly.git&quot;,
-    &quot;accountId&quot;: &quot;92a1c30d-cedb-4b58-81ea-38cd58f9eae6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sesanj/Trendly",
+    "accountId": "87b9268c-7717-4073-82df-260d4c7f7a71"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -49,7 +53,7 @@
     &quot;JavaScript Debug.login-page.component.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.login.component.html.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;optimisation-product-page&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cartMobile&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,7 +61,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\emili\\Desktop\\Trendly\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/apple/PhpstormProjects/Trendly/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -121,9 +125,7 @@
       <workItem from="1741380861240" duration="1907000" />
       <workItem from="1741409228972" duration="4075000" />
       <workItem from="1741475175033" duration="765000" />
-      <workItem from="1742948744612" duration="476000" />
-      <workItem from="1743972750485" duration="1185000" />
-      <workItem from="1744000250926" duration="98000" />
+      <workItem from="1744087723784" duration="3637000" />
     </task>
     <task id="LOCAL-00001" summary="add new imgs and details">
       <option name="closed" value="true" />
@@ -219,6 +221,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add new imgs and details" />
     <MESSAGE value="add new imgs" />
@@ -229,9 +242,8 @@
     <MESSAGE value="change css" />
     <MESSAGE value="change eye icon" />
     <MESSAGE value="change ts" />
-    <MESSAGE value="added responsive design" />
-    <MESSAGE value="added responsive design for product page" />
-    <option name="LAST_COMMIT_MESSAGE" value="added responsive design for product page" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

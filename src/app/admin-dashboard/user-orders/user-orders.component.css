@@ -118,3 +118,39 @@ td a:hover {
 .canceled {
   background-color: rgb(226, 0, 0);
 }
+
+@media (max-width: 800px) {
+  td {
+    font-size: 14px;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .overview {
+    padding-top: 40px;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1),
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(2),
+  td:nth-child(2) {
+    display: none;
+  }
+
+  th:last-child,
+  td:last-child {
+    text-align: right;
+  }
+}

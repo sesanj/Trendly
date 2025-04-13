@@ -3,6 +3,11 @@
 <div class="shop">
   <h1>Shop</h1>
   <div class="filterHeader">
+    <div class="filterIcon">
+      <img src="nav/filter.png" alt="filter icon" (click)="openFilter()">
+      <p (click)="openFilter()">Filter</p>
+
+    </div>
     <p>Showing {{filteredProducts.length}} filtered products</p>
     <div class="sortContainer">
       <div class="sort">
@@ -22,77 +27,82 @@
           <option value="highLow">All Products</option>
         </select>
       </div>
-
     </div>
   </div>
+  <p class="totalResult">Showing {{filteredProducts.length}} filtered products</p>
   <div class="mainSection">
-    <div class="filter">
-      <div class="categories">
-        <h3>Product Categories</h3>
-        <div class="control">
-          @for(select of radio; track $index){
-          <label [routerLink]="'/shop/' + select.toLowerCase()">
-            <span>{{select}}</span>
-            <input type="radio" name="category" [value]="select" [(ngModel)]="radioSelection"
-              (ngModelChange)="filterProducts()">
+    <div class="mobileFilterWrapper" [class.activeFilter]="isFilterActive" (click)="closeFilter()">
+      <div class="mobileFilter" [class.activeFilter]="isFilterActive" (click)="preventClosing($event)">
+        <img src="nav/close.png" alt="close icon" class="close" (click)="closeFilter()">
+        <div class="filter">
+          <div class="categories">
+            <h3>Product Categories</h3>
+            <div class="control">
+              @for(select of radio; track $index){
+              <label [routerLink]="'/shop/' + select.toLowerCase()">
+                <span>{{select}}</span>
+                <input type="radio" name="category" [value]="select" [(ngModel)]="radioSelection"
+                  (ngModelChange)="filterProducts()">
 
-          </label>
-          }
-        </div>
+              </label>
+              }
+            </div>
 
-        @for(cat of categoriesList; track $index){
-        <label class="cat">
-          <input type="checkbox" [(ngModel)]="cat.selected" (ngModelChange)="filterProducts()">
-          <span>
-            {{cat.cat + formatCat(cat.cat)}}
-          </span>
-          <p>({{quantity(cat.cat)}})</p>
-        </label>
-        }
-      </div>
-      <div class="price-filter">
-        <h3>Filter by Price</h3>
-        <div class="price-inputs">
-          <div>
-            <label>Min Price</label>
-            <input type="number" [(ngModel)]="minPrice" (input)="filterProducts()" placeholder="Min Price">
+            @for(cat of categoriesList; track $index){
+            <label class="cat">
+              <input type="checkbox" [(ngModel)]="cat.selected" (ngModelChange)="filterProducts()">
+              <span>
+                {{cat.cat + formatCat(cat.cat)}}
+              </span>
+              <p>({{quantity(cat.cat)}})</p>
+            </label>
+            }
           </div>
-          <div>
-            <label>Max Price</label>
-            <input type="number" [(ngModel)]="maxPrice" (input)="filterProducts()" placeholder="Max Price">
+          <div class="price-filter">
+            <h3>Filter by Price</h3>
+            <div class="price-inputs">
+              <div>
+                <label>Min Price</label>
+                <input type="number" [(ngModel)]="minPrice" (input)="filterProducts()" placeholder="Min Price">
+              </div>
+              <div>
+                <label>Max Price</label>
+                <input type="number" [(ngModel)]="maxPrice" (input)="filterProducts()" placeholder="Max Price">
+              </div>
+            </div>
+            <div class="priceSlider">
+              <ngx-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"
+                (valueChange)="filterProducts()" (highValueChange)="filterProducts()">
+              </ngx-slider>
+            </div>
+
+            <p>Price: <span>${{ minPrice }} -- ${{ maxPrice }}</span></p>
           </div>
+          <div class="sizeFilter">
+            <h3>Filter by Size</h3>
+
+            @for(size of sizeList; track $index){
+            <label class="cat">
+              <input type="checkbox" [(ngModel)]="size.selected"
+                (ngModelChange)="filterProducts()"><span>{{size.size}}</span>
+            </label>
+            }
+
+          </div>
+          <div class="status">
+            <h3>Product Status</h3>
+
+            @for(status of productStatus; track $index){
+            <label class="cat">
+              <input type="checkbox" [(ngModel)]="status.selected"
+                (ngModelChange)="filterProducts()"><span>{{status.status}}</span>
+            </label>
+            }
+
+          </div>
+
         </div>
-        <div class="priceSlider">
-          <ngx-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options" (valueChange)="filterProducts()"
-            (highValueChange)="filterProducts()">
-          </ngx-slider>
-        </div>
-
-        <p>Price: <span>${{ minPrice }} -- ${{ maxPrice }}</span></p>
       </div>
-      <div class="sizeFilter">
-        <h3>Filter by Size</h3>
-
-        @for(size of sizeList; track $index){
-        <label class="cat">
-          <input type="checkbox" [(ngModel)]="size.selected"
-            (ngModelChange)="filterProducts()"><span>{{size.size}}</span>
-        </label>
-        }
-
-      </div>
-      <div class="status">
-        <h3>Product Status</h3>
-
-        @for(status of productStatus; track $index){
-        <label class="cat">
-          <input type="checkbox" [(ngModel)]="status.selected"
-            (ngModelChange)="filterProducts()"><span>{{status.status}}</span>
-        </label>
-        }
-
-      </div>
-
     </div>
     <div class="allProducts">
       @for (product of filteredProducts; track $index) {
@@ -101,7 +111,8 @@
       </div>
       }
     </div>
-
   </div>
 </div>
-<app-footer></app-footer>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

@@ -1,10 +1,12 @@
 import { Component, inject, Input } from '@angular/core';
-import { Customer, Order } from '../../../models/product-order.model';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { User } from '../../../models/user.model';
 import { OrderServiceService } from '../../../services/order-service.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ProductServiceService } from '../../../services/product-service.service';
+import { UserServiceService } from '../../../services/user-service.service';
+import { Order } from '../../../models/product-order.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-customer-info',
@@ -16,16 +18,32 @@ import { ProductServiceService } from '../../../services/product-service.service
 export class CustomerInfoComponent {
   orderService = inject(OrderServiceService);
   productService = inject(ProductServiceService);
+  userService = inject(UserServiceService);
+  httpClient = inject(HttpClient);
   @Input({ required: true }) customer!: User;
 
-  customerOrders() {
-    return this.orderService
-      .getOrders()
-      .filter(
-        (order) =>
-          order.customer.email.toLowerCase() ==
-          this.customer.email.toLowerCase()
-      );
+  allOrders: Order[] = [];
+  customerOrders: Order[] = [];
+
+  constructor() {
+    let orderData: Order[] = [];
+
+    this.httpClient
+      .get<{ orders: Order[] }>(`http://localhost:3000/orders`)
+      .subscribe({
+        next: (data) => {
+          orderData = data.orders;
+        },
+        complete: () => {
+          this.allOrders = orderData;
+        },
+      });
+  }
+
+  getCustomerOrder(email: string) {
+    return this.allOrders.filter(
+      (order) => order.customer.email.toLowerCase() == email.toLowerCase()
+    );
   }
 
   productImage(id: string) {
