@@ -12,7 +12,13 @@
 </div>
 <div class="section">
   <div class="product">
-    <app-product [product]="product[0]"></app-product>
+    <div>
+      <app-product [product]="product[0]"></app-product>
+    </div>
+
+    <div class="tabProduct">
+      <app-product [product]="product[1]"></app-product>
+    </div>
   </div>
   <div class="image">
     <img src="womenFashion.png" alt="An advert">
@@ -26,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="product">
+  <div class="product tabProduct2">
     <app-product [product]="product[1]"></app-product>
   </div>
 </div>
