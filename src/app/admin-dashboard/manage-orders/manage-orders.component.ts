@@ -81,6 +81,28 @@ export class ManageOrdersComponent {
       });
   }
 
+  mobileFilter() {
+    // this.nav = filter;
+    if (this.nav == 'ALL') {
+      this.getOrders();
+      return;
+    }
+
+    let savedOrders: Order[] = [];
+    this.httpClient
+      .get<{ filtered: Order[] }>(
+        `http://localhost:3000/filter-orders?filter=${this.nav}`
+      )
+      .subscribe({
+        next: (data) => {
+          savedOrders = data.filtered.reverse();
+        },
+        complete: () => {
+          this.orders = savedOrders;
+        },
+      });
+  }
+
   isDialogClosed(event: boolean) {
     if (event == true) {
       this.selectedOrderID = ' ';

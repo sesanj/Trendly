@@ -47,7 +47,7 @@
             </td>
             <td>{{item.totalPrice * item.quantity | currency: 'USD'}}</td>
             <td>
-              <p class="remove" (click)="deleteProduct(item)">X</p>
+              <p class="remove" (click)="deleteProduct(item, $index)">X</p>
             </td>
           </tr>
 

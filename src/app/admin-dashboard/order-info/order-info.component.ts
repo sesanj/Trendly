@@ -34,4 +34,12 @@ export class OrderInfoComponent {
 
     return productsTotal;
   }
+
+  totalPrice(order: Order) {
+    let totalPrice = 0;
+
+    order.products.forEach((product) => (totalPrice += product.totalPrice));
+
+    return totalPrice;
+  }
 }

@@ -1,5 +1,8 @@
 <nav>
   <div class="headerContainer">
+    <div class="mobileMenuIcon">
+      <img src="nav/menu.png" (click)="openSidebar()">
+    </div>
     <div class="logoContainer">
       <h1 class="logo">Trendly</h1>
     </div>
@@ -12,19 +15,18 @@
         <li><a [routerLink]="'/shop/' + 'women'">Women</a></li>
         <li><a [routerLink]="'/shop/' + 'deals'">Deals</a></li>
         <li><a [routerLink]="'/cart'">Cart</a></li>
-        <!-- <li><a [routerLink]="'/track-order'">Track Order</a></li> -->
       </ul>
       <div class="wishListAndCart">
         <div routerLink="/wishlist" class="wishList">
           <img src="headerHeader.svg" alt="A heart icon">
           <p class="wishListCounter">{{favourites}}</p>
         </div>
-        <div class="cart" (click)="viewCart()">
-          <img src="headerBag.svg" alt="A cart icon">
-          <p class="cartCounter">{{cartTotal}}</p>
-        </div>
         <div class="total" (click)="viewCart()">
           <p>{{cartPrice | currency: "USD"}}</p>
+        </div>
+        <div class="cart" (click)="viewCart()">
+          <p class="cartCounter">{{cartTotal}}</p>
+          <img src="headerBag.svg" alt="A cart icon">
         </div>
         <div class="user">
           <!-- <img src="headerUser.svg" alt="A person icon"> -->
@@ -55,10 +57,10 @@
               <img src="nav/customer.png" alt="">
               <li><a routerLink="/myaccount/customers">Customers</a></li>
             </div>
-            <div>
+            <!-- <div>
               <img src="nav/products.png" alt="">
               <li><a routerLink="/myaccount/products">Products</a></li>
-            </div>
+            </div> -->
             <div (click)="logout()">
               <img src="nav/logout.png" alt="">
               <li><a class="logout">Log Out</a></li>
@@ -88,9 +90,92 @@
       <div class="track">
         <button [routerLink]="'/track-order'">Track Order</button>
       </div>
+      <div class="menu">
+        <img src="nav/menu.png" (click)="openSidebar()">
+      </div>
     </div>
   </div>
 </nav>
+<div class="sidebar-overlay" [class.activeMenu]="menuIsActive" (click)="closeSidebar()">
+  <div class="menu-sidebar" [class.activeMenu]="menuIsActive" (click)="stopPropagating($event)">
+    <img src="nav/close.png" alt="" class="close" (click)="closeSidebar()">
+    <div class="sidebar-item">
+      <h3>Account</h3>
+      <div>
+        @if(!userStatus){
+        <img src="headerUser.svg" alt="A person icon">
+        <ul>
+          <div>
+            <img src="nav/login.png" alt="">
+            <li><a routerLink="/login">Sign In</a></li>
+          </div>
+          <div>
+            <img src="nav/order.png" alt="">
+            <li><a routerLink="/signup">Create Account</a></li>
+          </div>
+        </ul>
+        }@else if (userStatus == 'ADMIN' && user) {
+        <p>Hello, {{user!.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+        <ul>
+          <div>
+            <img src="nav/overview.png" alt="">
+            <li><a routerLink="/myaccount/overview">Dashboard</a></li>
+          </div>
+          <div>
+            <img src="nav/order.png" alt="">
+            <li><a routerLink="/myaccount/manage-orders">Orders</a></li>
+          </div>
+          <div>
+            <img src="nav/customer.png" alt="">
+            <li><a routerLink="/myaccount/customers">Customers</a></li>
+          </div>
+          <div>
+            <img src="nav/products.png" alt="">
+            <li><a routerLink="/myaccount/products">Products</a></li>
+          </div>
+          <div (click)="logout()">
+            <img src="nav/logout.png" alt="">
+            <li><a class="logout">Log Out</a></li>
+          </div>
+        </ul>
+        }@else if (userStatus == 'CUSTOMER' && user) {
+        <p>Hello, {{user!.firstName}} </p><img src="headerUser.svg" alt="A person icon">
+        <ul>
+          <div>
+            <img src="nav/overview.png" alt="">
+            <li><a routerLink="/myaccount/myorders">Dashboard</a></li>
+          </div>
+          <div>
+            <img src="nav/order.png" alt="">
+            <li><a routerLink="/myaccount/track">Track Order</a></li>
+          </div>
+          <div (click)="logout()">
+            <img src="nav/logout.png" alt="">
+            <li><a class="logout">Log Out</a></li>
+          </div>
+        </ul>
+
+        }
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <h3>Menu</h3>
+      <ul class="links">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/shop">Shop</a></li>
+        <li><a [routerLink]="'/shop/' + 'men'">Men</a></li>
+        <li><a [routerLink]="'/shop/' + 'women'">Women</a></li>
+        <li><a [routerLink]="'/shop/' + 'deals'">Deals</a></li>
+        <li><a [routerLink]="'/cart'">Cart</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-item">
+      <div class="track">
+        <button [routerLink]="'/track-order'">Track Order</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div [class.cartActive]="cartActive" class="cartSidebar">
   <app-cart-sidebar (cartClosed)="closeCart($event)" [cartActive]="cartActive"></app-cart-sidebar>
 </div>

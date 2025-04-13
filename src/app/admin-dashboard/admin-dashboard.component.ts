@@ -26,6 +26,8 @@ export class AdminDashboardComponent {
   heading!: string;
   userService = inject(UserServiceService);
 
+  isNavOpen: boolean = false;
+
   // user = this.userService.getUser();
 
   @Input() set nav(nav: String) {
@@ -64,6 +66,18 @@ export class AdminDashboardComponent {
   }
 
   navigation: string = '';
+
+  openNav() {
+    this.isNavOpen = true;
+  }
+
+  closeNav() {
+    this.isNavOpen = false;
+  }
+
+  stopClickEffect(event: MouseEvent) {
+    event.stopPropagation();
+  }
 
   navigate() {
     this.router.navigate(['/myaccount/overview']);

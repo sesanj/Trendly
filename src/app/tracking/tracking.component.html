@@ -3,7 +3,7 @@
   <div class="container">
     <h2>Track your Order</h2>
     <p class="description">
-      Please enter your Order ID and Email int the given spaces below and press the "Check Status" button.
+      Please enter your Order ID and Email in the given spaces below and press the "Track Order" button.
 
     </p>
     <form>
@@ -13,7 +13,7 @@
       <label for="email">Email:</label>
       <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Enter your Email" required />
       <br>
-      <button type="button" (click)="trackOrder()">Track Order</button>
+      <button type="submit" (click)="trackOrder()">Track Order</button>
     </form>
     <p *ngIf="warning">{{warning}}</p>
   </div>

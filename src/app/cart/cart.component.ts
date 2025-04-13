@@ -63,8 +63,8 @@ export class CartComponent {
     return this.quantity;
   }
 
-  deleteProduct(product: CartProduct) {
-    this.productService.deleteFromCart(product);
+  deleteProduct(product: CartProduct, productIndex: number) {
+    this.productService.deleteFromCart(productIndex);
 
     this.notification.notify(
       'products/' + this.getImage(product.ID) || '',

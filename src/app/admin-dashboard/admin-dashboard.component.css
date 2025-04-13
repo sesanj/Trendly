@@ -18,11 +18,13 @@
   left: 15%;
   height: fit-content;
   padding-bottom: 50px;
+  /* box-sizing: border-box; */
 }
 
 .view {
   width: 90%;
   margin: auto;
+  box-sizing: border-box;
 }
 
 .nav-items {
@@ -75,14 +77,12 @@ h2 {
 .header {
   padding: 0px 50px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.142);
-  /* margin-bottom: 40px; */
   display: flex;
   align-items: center;
   position: fixed;
   right: 0;
   left: 15%;
   background-color: white;
-  /* width: 100%; */
 }
 
 .icons {
@@ -92,7 +92,7 @@ h2 {
   margin-left: auto;
 }
 
-.header img {
+.icons img {
   width: 32px;
   height: 32px;
   margin-left: 5px;
@@ -105,4 +105,122 @@ h2 {
 }
 .header p {
   margin-right: 20px;
+}
+
+.menu {
+  display: none;
+}
+
+.userName {
+  display: none;
+}
+
+@media (max-width: 1500px) {
+  .nav {
+    width: 18%;
+  }
+
+  .content {
+    width: 82%;
+    left: 18%;
+  }
+
+  .header {
+    left: 18%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .menu {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  .navWrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 10000000;
+    transition: ease-in-out 0.3s;
+    background-color: rgba(0, 0, 0, 0.257);
+  }
+  .nav {
+    width: 30%;
+  }
+  .view {
+    width: 100%;
+    padding: 0px 40px;
+  }
+
+  .content {
+    width: 100%;
+    left: 0%;
+  }
+
+  .header {
+    left: 0%;
+    padding: 0px 30px;
+  }
+
+  .navOpen {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .view {
+    padding: 0px 30px;
+  }
+
+  .nav {
+    width: 35%;
+  }
+}
+
+@media (max-width: 500px) {
+  .icons p {
+    display: none;
+  }
+
+  .nav {
+    width: 70%;
+  }
+
+  .userName {
+    display: block;
+    padding-left: 25px;
+  }
+
+  .userName p {
+    color: white;
+
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .view {
+    padding: 0px 15px;
+  }
+
+  .header {
+    padding: 0px 20px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .nav h1 {
+    font-size: 35px;
+  }
+
+  .menu {
+    width: 35px;
+    height: 35px;
+  }
 }
