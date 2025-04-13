@@ -10,10 +10,16 @@ import { NgIf } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ProductServiceService } from '../services/product-service.service';
-import { CartProduct, Order } from '../models/product-order.model';
+import {
+  CartProduct,
+  DeliveryType,
+  Order,
+  PaymentMethod,
+} from '../models/product-order.model';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { OrderServiceService } from '../services/order-service.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -32,14 +38,16 @@ import { OrderServiceService } from '../services/order-service.service';
 export class CheckoutComponent implements OnInit {
   productService = inject(ProductServiceService);
   orderService = inject(OrderServiceService);
+  userService = inject(UserServiceService);
   router = inject(Router);
   cartProduct: CartProduct[] = this.productService.getCart();
 
   orderId: string = '';
 
-  shippingMethod!: string;
+  shippingMethod!: DeliveryType;
   shippingFee: number = 0;
-  paymentMethod: string = 'transfer';
+  paymentMethod: PaymentMethod = 'BANK TRANSFER';
+  note: string = '';
   termsAccepted: boolean = false;
 
   selectedOption: string = '';
@@ -56,10 +64,10 @@ export class CheckoutComponent implements OnInit {
       this.navigate();
     }
     if (this.cartTotal() >= 150) {
-      this.shippingMethod = 'free';
+      this.shippingMethod = 'FREE SHIPPING';
       this.shippingFee = 0;
     } else {
-      this.shippingMethod = 'flat';
+      this.shippingMethod = 'FLAT RATE';
       this.shippingFee = 15;
     }
 
@@ -73,11 +81,8 @@ export class CheckoutComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     // Initialize the form group with validators
     this.orderForm = this.fb.group({
-      firstname: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z ]*$')],
-      ],
-      lastname: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      firstname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
       street: ['', [Validators.required]],
       country: ['', [Validators.required]],
       town: ['', [Validators.required]],
@@ -86,6 +91,19 @@ export class CheckoutComponent implements OnInit {
       email: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     });
+
+    setTimeout(() => {
+      const user = this.userService.getUser();
+
+      if (user) {
+        console.log('User Is Logged In');
+        this.orderForm.patchValue({
+          firstname: user.firstName,
+          lastname: user.lastName,
+          email: user.email,
+        });
+      }
+    }, 500);
   }
 
   // Submit form logic
@@ -108,6 +126,12 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  payment(method: PaymentMethod) {
+    this.paymentMethod = method;
+
+    console.log(this.paymentMethod);
+  }
+
   cartTotal() {
     let price = 0;
     for (let item of this.productService.cart) {
@@ -116,10 +140,10 @@ export class CheckoutComponent implements OnInit {
     return price;
   }
 
-  shipping(method: string) {
+  shipping(method: DeliveryType) {
     this.shippingMethod = method;
 
-    if (method == 'pickup' || method == 'free') {
+    if (method == 'PICK UP' || method == 'FREE SHIPPING') {
       this.shippingFee = 0.0;
     } else {
       this.shippingFee = 15.0;
@@ -182,7 +206,7 @@ export class CheckoutComponent implements OnInit {
         lastName: userData.lastname,
         email: userData.email,
         phoneNumber: userData.phone,
-        registered: false,
+        registered: this.userService.getUser()?.registered || false,
       },
       orderTotal: this.cartTotal(),
       products: this.cartProduct,
@@ -195,6 +219,9 @@ export class CheckoutComponent implements OnInit {
         townCity: userData.town,
         postalCode: userData.postal,
       },
+      paymentMethod: this.paymentMethod,
+      note: this.note,
+      deliveryType: this.shippingMethod,
     };
 
     this.orderService.addOrder(order);

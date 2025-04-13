@@ -14,6 +14,13 @@ h2 {
   font-size: 20px;
 }
 
+h2 span {
+  display: flex;
+  gap: 12px;
+  float: right;
+  align-items: center;
+}
+
 .dialogcontainer {
   position: relative;
   background-color: white;
@@ -34,7 +41,7 @@ h2 {
 }
 
 .dialogHead p:hover {
-  background-color: rgb(199, 0, 0);
+  background-color: rgb(121, 121, 121);
   color: white;
 }
 
@@ -185,4 +192,98 @@ dialog h3 {
 
 .canceled {
   background-color: rgb(226, 0, 0);
+}
+
+.payment,
+.delivery,
+.note {
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  .dialogcontainer {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .dialogHead {
+    padding: 12px 20px;
+    margin-bottom: 20px;
+  }
+
+  .dialogHead h1 {
+    font-size: 16px;
+    font-weight: 550;
+  }
+
+  h2 {
+    /* font-weight: 500; */
+    font-size: 18px;
+  }
+
+  .orderUpdate {
+    padding: 0px 20px;
+    display: block;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  .orderUpdate div:first-child {
+    margin-bottom: 20px;
+  }
+
+  .orderUpdate button {
+    float: right;
+  }
+
+  .orderUpdate p {
+    font-size: 14px;
+    font-weight: 450;
+  }
+
+  select {
+    padding: 0;
+    border: none;
+  }
+
+  .dialogContent {
+    display: block;
+    padding: 0px 20px;
+  }
+
+  .customerSection {
+    margin-bottom: 50px;
+  }
+
+  .customerSection,
+  .deliveryInfo {
+    width: 100%;
+  }
+
+  .orderedProducts {
+    padding: 0px 20px;
+  }
+
+  .product img {
+    width: 40px;
+    height: 50px;
+  }
+
+  .orderedProducts p {
+    font-size: 13px;
+  }
+
+  .productDetails {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .productDetails div:first-child {
+    width: 100%;
+  }
 }

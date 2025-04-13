@@ -6,6 +6,7 @@ import { ProductServiceService } from '../services/product-service.service';
 import { CurrencyPipe } from '@angular/common';
 import { CartProduct } from '../models/product-order.model';
 import { RouterLink } from '@angular/router';
+import { NotificationService } from '../services/notification-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -22,6 +23,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CartComponent {
   productService = inject(ProductServiceService);
+  notification = inject(NotificationService);
 
   cartItems = this.productService.getCart();
   quantity: number = 1;
@@ -61,8 +63,13 @@ export class CartComponent {
     return this.quantity;
   }
 
-  deleteProduct(product: CartProduct) {
-    this.productService.deleteFromCart(product);
+  deleteProduct(product: CartProduct, productIndex: number) {
+    this.productService.deleteFromCart(productIndex);
+
+    this.notification.notify(
+      'products/' + this.getImage(product.ID) || '',
+      'This item was Removed from your Cart'
+    );
   }
 
   clearCart() {

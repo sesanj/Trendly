@@ -6,49 +6,102 @@ import { UserServiceService } from '../../services/user-service.service';
 import { users } from '../../../data/users';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CustomerInfoComponent],
+  imports: [CustomerInfoComponent, FormsModule],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
 })
 export class CustomersComponent {
   orderService = inject(OrderServiceService);
   userService = inject(UserServiceService);
-  user = this.userService.getUser();
+  httpClient = inject(HttpClient);
   router = inject(Router);
 
-  allCustomers: User[] = this.userService.allUsers;
-  clickedCustomer: User = this.allCustomers[0];
+  user = this.userService.getUser();
+  allUsersContainer: User[] = [];
+  allCustomers: User[] = [];
+  clickedCustomer!: User;
+  allOrders: Order[] = [];
+
+  isCustomerInfoOpen: boolean = false;
 
   filter: string = 'all';
 
   constructor() {
-    if (this.user != null && this.user.role != 'ADMIN') {
-      this.router.navigate(['/home']);
+    if (
+      !this.userService.loggedInUserID ||
+      this.userService.loggedInUserRole != 'ADMIN'
+    ) {
+      this.router.navigate(['/']);
     }
+
+    this.getUsers();
+    this.getOrders();
+  }
+
+  openCustomerInfo() {
+    this.isCustomerInfoOpen = true;
+  }
+
+  closeCustomerInfo() {
+    this.isCustomerInfoOpen = false;
+  }
+
+  stopClickEffect(event: MouseEvent) {
+    event.stopPropagation();
+  }
+
+  getUsers() {
+    this.httpClient
+      .get<{ users: User[] }>(`http://localhost:3000/users`)
+      .subscribe({
+        next: (data) => {
+          this.allCustomers = data.users;
+        },
+        complete: () => {
+          this.clickedCustomer = this.allCustomers[0];
+          this.allUsersContainer = this.allCustomers;
+        },
+      });
   }
 
   checkCustomer(customer: User) {
     this.clickedCustomer = customer;
+    this.openCustomerInfo();
   }
 
-  customerOrders(customer: User) {
-    return this.orderService
-      .getOrders()
-      .filter(
-        (order) =>
-          order.customer.email.toLowerCase() == customer.email.toLowerCase()
-      );
+  getOrders() {
+    let orderData: Order[] = [];
+
+    this.httpClient
+      .get<{ orders: Order[] }>(`http://localhost:3000/orders`)
+      .subscribe({
+        next: (data) => {
+          orderData = data.orders;
+        },
+        complete: () => {
+          this.allOrders = orderData;
+        },
+      });
+  }
+
+  totalOrders(email: string) {
+    return this.allOrders.filter(
+      (order) => order.customer.email.toLowerCase() == email.toLowerCase()
+    ).length;
   }
 
   filterCustomers(filter: string) {
-    const users = this.userService.allUsers;
+    const users = this.allUsersContainer;
 
     if (filter == 'all') {
-      this.allCustomers = users;
+      // this.allCustomers = users;
+      this.getUsers();
       this.filter = 'all';
     } else if (filter == 'yes') {
       this.allCustomers = users.filter((user) => user.registered);
@@ -57,6 +110,24 @@ export class CustomersComponent {
       this.allCustomers = users.filter((user) => !user.registered);
       this.filter = 'no';
     } else if ((filter = 'admin')) {
+      this.allCustomers = users.filter((user) => user.role == 'ADMIN');
+      this.filter = 'admin';
+    }
+  }
+
+  mobileFilterCustomers() {
+    const users = this.allUsersContainer;
+
+    if (this.filter == 'all') {
+      this.getUsers();
+      this.filter = 'all';
+    } else if (this.filter == 'yes') {
+      this.allCustomers = users.filter((user) => user.registered);
+      this.filter = 'yes';
+    } else if (this.filter == 'no') {
+      this.allCustomers = users.filter((user) => !user.registered);
+      this.filter = 'no';
+    } else if ((this.filter = 'admin')) {
       this.allCustomers = users.filter((user) => user.role == 'ADMIN');
       this.filter = 'admin';
     }

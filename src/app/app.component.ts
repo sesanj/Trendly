@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import {CartComponent} from "./cart/cart.component";
-import {CardSectionComponent} from "./card-section/card-section.component";
-import {CategorySectionComponent} from "./category-section/category-section.component";
+import { NotificationComponent } from './notification/notification.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CartComponent, CardSectionComponent, CategorySectionComponent],
+  imports: [RouterOutlet, NotificationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

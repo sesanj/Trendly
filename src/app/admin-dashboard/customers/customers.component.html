@@ -2,6 +2,15 @@
   <div class="customers">
     <div class="header">
       <h2>{{allCustomers.length}} Total Customers</h2>
+      <div class="mobileFilter">
+        <p>Filter Customers: </p>
+        <select name="" id="" [(ngModel)]="filter" (ngModelChange)="mobileFilterCustomers()">
+          <option value="all">All</option>
+          <option value="yes">Registered</option>
+          <option value="no">Not Registered</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
       <div class="buttons">
         <button [class.buttonActive]="filter == 'all'" (click)="filterCustomers('all')">All</button>
         <button [class.buttonActive]="filter == 'yes'" (click)="filterCustomers('yes')">Registered</button>
@@ -23,12 +32,12 @@
       @if(allCustomers.length > 0){
       <tbody>
         @for(customer of allCustomers; track $index){
-        <tr (click)="checkCustomer(customer)" [class.active]="customer.ID == clickedCustomer.ID">
+        <tr (click)="checkCustomer(customer)" [class.active]="customer.ID == clickedCustomer.ID && isCustomerInfoOpen">
           <td>{{customer.firstName + " " + customer.lastName}}</td>
           <td>{{customer.email}}</td>
           <td>{{customer.phoneNumber}}</td>
-          <td>{{customer.registered ? "Registered" : "Not Registeres"}}</td>
-          <td>{{customerOrders(customer).length}}</td>
+          <td>{{customer.registered ? "Registered" : "Not Registered"}}</td>
+          <td>{{totalOrders(customer.email)}}</td>
         </tr>
         }
       </tbody>
@@ -37,7 +46,12 @@
       }
     </table>
   </div>
-  <div class="info">
-    <app-customer-info [customer]="clickedCustomer"></app-customer-info>
+  <div class="info" [class.checkCustomer]="isCustomerInfoOpen" (click)="closeCustomerInfo()">
+    <div (click)="stopClickEffect($event)">
+      <div class="close">
+        <img src="nav/close.png" alt="close icon" (click)="closeCustomerInfo()">
+      </div>
+      <app-customer-info [customer]="clickedCustomer"></app-customer-info>
+    </div>
   </div>
 </div>

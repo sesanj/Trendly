@@ -200,6 +200,15 @@ h1 {
   border: none;
 }
 
+.quantity .disabledButton {
+  background-color: rgb(209, 209, 209);
+  font-size: 16px;
+  color: rgb(254, 254, 254);
+  padding: 12px 50px;
+  margin-left: 10px;
+  border: none;
+}
+
 .wishlist img {
   width: 25px;
   margin-right: 10px;

@@ -14,8 +14,8 @@ export const ProductData: Product[] = [
       hoodie: true,
     },
     quantity: 12,
-    // color: ['BLACK', 'BLUE', 'GREEN'],
-    // size: ['M', 'L', 'XL'],
+    color: ['GREEN'],
+    size: ['M', 'L', 'XL'],
     image: {
       image1: 'men1-1.jpg',
       image2: 'men1-2.jpg',

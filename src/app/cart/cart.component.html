@@ -47,7 +47,7 @@
             </td>
             <td>{{item.totalPrice * item.quantity | currency: 'USD'}}</td>
             <td>
-              <p class="remove" (click)="deleteProduct(item)">X</p>
+              <p class="remove" (click)="deleteProduct(item, $index)">X</p>
             </td>
           </tr>
 
@@ -99,7 +99,7 @@
       </div>
       <div class="total">
         <span>Total</span>
-        <span class="price">${{ totalPrice() }}</span>
+        <span class="price">{{ totalPrice() | currency: "USD"}}</span>
       </div>
       <button [routerLink]="'/checkout'" class="checkout-btn">Proceed to Checkout</button>
     </div>

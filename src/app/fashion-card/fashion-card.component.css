@@ -50,3 +50,18 @@ button:hover {
   color: rgb(0, 103, 0);
   /* color: rgb(157, 0, 0); */
 }
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  .label {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  button {
+    margin-top: 16px;
+  }
+}
