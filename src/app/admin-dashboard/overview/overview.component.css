@@ -1,6 +1,7 @@
 .overview {
   color: rgb(72, 72, 72);
   padding-top: 100px;
+  /* background-color: red; */
 }
 
 h1 {
@@ -164,4 +165,73 @@ td a:hover {
 
 .canceled {
   background-color: rgb(226, 0, 0);
+}
+
+@media (max-width: 1200px) {
+  .metrics {
+    gap: 20px;
+  }
+
+  .metrics img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .item {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metrics img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
+
+  td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1),
+  th:nth-child(4),
+  td:nth-child(4),
+  th:nth-child(5),
+  td:nth-child(5) {
+    display: none;
+  }
+
+  th:last-child,
+  td:last-child {
+    text-align: right;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h3 + button {
+    padding: 6px 12px;
+  }
 }

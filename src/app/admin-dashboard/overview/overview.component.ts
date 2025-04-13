@@ -79,7 +79,11 @@ export class OverviewComponent implements OnInit {
 
   revenue() {
     let revenue = 0;
-    this.allOrders.filter((order) => (revenue += order.orderTotal));
+    this.allOrders.forEach((order) =>
+      order.status == 'DELIVERED'
+        ? (revenue += order.orderTotal)
+        : (revenue += 0)
+    );
 
     return revenue;
   }
@@ -99,10 +103,6 @@ export class OverviewComponent implements OnInit {
 
   customer(order: Order) {
     return order.customer.firstName + ' ' + order.customer.lastName;
-  }
-
-  delivery(order: Order) {
-    return order.deliveryInfo.country + ', ' + order.deliveryInfo.state;
   }
 
   displayOrderInfo(id: string, status: OrderStatus) {

@@ -45,3 +45,15 @@ button:hover {
 .error {
   margin-top: 100px;
 }
+
+@media (max-width: 800px) {
+  .order {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  /* .order {
+    width: 100%;
+  } */
+}

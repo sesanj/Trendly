@@ -26,6 +26,11 @@ export class TrackingComponent {
   warning: string = '';
 
   trackOrder() {
+    if (this.orderId == '') {
+      this.warning = 'Please enter a valid order Id';
+      return;
+    }
+
     if (!this.email.includes('@') || !this.email.includes('.')) {
       this.warning = 'Please enter a valid email address.';
       this.order = null;

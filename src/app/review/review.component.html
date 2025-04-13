@@ -2,7 +2,6 @@
   <div class="heading">
     <h1>Top Reviews From Shoppers</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      <br>
       magna aliqua. Quis ipsum suspendisse ultrices gravida
 
     </p>
@@ -23,10 +22,12 @@
   </div>
   <div class="buttonContainer">
     <div class="prev">
-      <button (click)="prevSlide()">&#10094;</button>
+      <button (click)="prevSlide('large')" class="laptopButton">&#10094;</button>
+      <button (click)="prevSlide('mobile')" class="mobileButton">&#10094;</button>
     </div>
     <div class="next">
-      <button (click)="nextSlide()">&#10095;</button>
+      <button (click)="nextSlide('large')" class="laptopButton">&#10095;</button>
+      <button (click)="nextSlide('mobile')" class="mobileButton">&#10095;</button>
     </div>
   </div>
 </div>
