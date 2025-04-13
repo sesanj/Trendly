@@ -12,7 +12,6 @@ import { FooterComponent } from '../footer/footer.component';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
-// import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-register',

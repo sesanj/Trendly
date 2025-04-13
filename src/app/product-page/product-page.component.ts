@@ -168,9 +168,6 @@ export class ProductPageComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    // if(product.quantity == 0){
-    //   return
-    // }
     if (product.color && product.size) {
       if (this.selectedColor == '' || this.selectedSize == '') {
         this.warning = true;

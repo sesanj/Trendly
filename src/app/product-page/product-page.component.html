@@ -1,5 +1,4 @@
 <app-header></app-header>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <nav><a href="">Home &#8250; </a><a href="">Shop &#8250; </a>{{product.title}}</nav>
 <div class="container">
   <div class="images">
@@ -97,17 +96,20 @@
   </div>
   <div class="viewed">
     <h3>Recently Viewed</h3>
-    @for(product of viewedProducts; track $index){
-    <div class="viewedProducts" [routerLink]="'/product/' + product.id">
-      <div>
-        <img [src]="'products/' + product.image?.image1" alt="product image">
+    <div class="viewContainer">
+      @for(product of viewedProducts; track $index){
+      <div class="viewedProducts" [routerLink]="'/product/' + product.id">
+        <div>
+          <img [src]="'products/' + product.image?.image1" alt="product image">
+        </div>
+        <div>
+          <p>{{product.title}}</p>
+          <p>${{product.price}}</p>
+        </div>
       </div>
-      <div>
-        <p>{{product.title}}</p>
-        <p>${{product.price}}</p>
-      </div>
+      }
+
     </div>
-    }
 
   </div>
 </div>
