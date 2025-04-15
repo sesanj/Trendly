@@ -54,6 +54,7 @@ li {
   margin-bottom: 14px;
   font-size: 14px;
   font-weight: 500;
+  padding: 0;
 }
 
 img {
@@ -64,11 +65,130 @@ img {
 ul {
   margin-top: 10px;
 }
+
 span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
   margin-right: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 100px;
 }
 
 h1 + p {
   line-height: 28px;
   margin: 20px 0px 40px 0px;
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    gap: 15px;
+  }
+
+  .sectionThree {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .womenContent,
+  .menContent,
+  .shoeContent,
+  .bagContent {
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  h1 + p {
+    line-height: 25px;
+    margin: 10px 0px 25px 0px;
+  }
+
+  ul {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .women,
+  .sectionTwo {
+    width: 100%;
+  }
+
+  .sectionThree {
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .womenContent,
+  .menContent,
+  .shoeContent,
+  .bagContent {
+    padding: 60px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+  h1 + p {
+    line-height: 30px;
+    margin: 20px 0px 30px 0px;
+  }
+
+  ul {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .womenContent,
+  .menContent,
+  .shoeContent,
+  .bagContent {
+    padding: 45px;
+  }
+
+  .container {
+    gap: 12px;
+  }
+
+  .sectionThree {
+    flex-direction: column;
+    margin-top: 12px;
+    gap: 12px;
+  }
+
+  .shoes,
+  .bags {
+    width: 100%;
+  }
+
+  ul {
+    display: none;
+  }
+
+  h1 + p {
+    line-height: 30px;
+    margin: 10px 0px 20px 0px;
+  }
 }

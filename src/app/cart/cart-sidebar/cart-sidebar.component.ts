@@ -29,6 +29,10 @@ export class CartSidebarComponent {
     this.cartClosed.emit(false);
   }
 
+  stopClickEffect(event: MouseEvent) {
+    event.stopPropagation();
+  }
+
   get cartTotal() {
     let price = 0;
     for (let item of this.productService.cart) {
