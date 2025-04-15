@@ -1,5 +1,5 @@
 <div class="container" [class.cartActive]="cartActive" (click)="closeCart()">
-  <div class="cart" [class.cartActive]="cartActive">
+  <div class="cart" [class.cartActive]="cartActive" (click)="stopClickEffect($event)">
     <div class="allProducts">
       @if(cart.length != 0){
       @for(item of cart; track $index){
