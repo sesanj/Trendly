@@ -3,6 +3,7 @@
   width: 100%;
   max-width: 1100px;
   margin: auto;
+  box-sizing: border-box;
 }
 
 .content {
@@ -10,6 +11,7 @@
   justify-content: space-between;
   gap: 40px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 form {
@@ -28,12 +30,13 @@ label {
 
 input {
   width: 100%;
-  padding: 8px 0px;
+  padding: 8px;
   border: none;
   margin-bottom: 20px;
   background-color: rgba(211, 211, 211, 0.5);
   font-size: 16px;
   outline: none;
+  box-sizing: border-box;
 }
 
 .error {
@@ -99,41 +102,91 @@ button {
 a {
   text-decoration: none;
   color: #ee403d;
-  font-size: 600px;
 }
 
-@media (max-width: 989px) {
-  .register{
-    width: 95%;
+@media (max-width: 1100px) {
+  .register {
+    padding: 120px 20px 0px 20px;
   }
 
+  h1 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 28px;
+  }
+
+  .button p {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
 }
 
-@media (max-width: 670px) {
-  .register .content {
-    display: flex; /* Change to flex to stack the form fields */
-    flex-direction: column; /* Stack all items vertically */
-    padding: 5px;
+@media (max-width: 800px) {
+  h1 {
+    font-size: 25px;
   }
 
-  .register{
-    margin: 10px;
-    width: 95%;
-
+  .content {
+    gap: 20px;
   }
 
-  .register .info, .register .address {
-    width: 95%; /* Ensure each section takes up full width */
+  label {
+    font-size: 14px;
   }
 
-  .register form input {
-    width: 100%; /* Ensure inputs take up full width */
+  input {
+    font-size: 15px;
+    margin-bottom: 15px;
   }
 
-  .register .button {
-    margin-top: 20px; /* Add some spacing above the submit button */
-
+  .passwordInput input {
+    padding-right: 40px;
   }
 
+  a {
+    font-size: 14px;
+  }
 
+  .warning {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .error {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 500px) {
+  .register {
+    padding: 90px 20px 0px 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .info,
+  .address {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .button p {
+    font-size: 14px;
+  }
 }

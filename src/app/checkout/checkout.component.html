@@ -71,13 +71,9 @@
               </div>
             </div>
           </div>
-          <div class="checkbox-group">
-            <label for="create">Create an account?</label>
-            <input type="checkbox" id="create">
-          </div>
           <div class="note">
             <label for="notes">Write a note</label><br>
-            <textarea id="notes"></textarea>
+            <textarea id="notes" [(ngModel)]="note" [ngModelOptions]="{standalone: true}"></textarea>
           </div>
         </div>
       </form>
@@ -111,14 +107,14 @@
         <p>Shipping</p>
         <div class="fee">
           @if(cartTotal() > 150){
-          <label>Free Shipping: $0.00<input type="radio" name="free" [checked]="shippingMethod == 'free'"
-              (click)="shipping('free')"></label>
+          <label>Free Shipping: $0.00<input type="radio" name="free" [checked]="shippingMethod == 'FREE SHIPPING'"
+              (click)="shipping('FREE SHIPPING')"></label>
           }@else {
-          <label>Flat Fee: $15.00<input type="radio" name="flat" [checked]="shippingMethod == 'flat'"
-              (click)="shipping('flat')"></label>
+          <label>Flat Fee: $15.00<input type="radio" name="flat" [checked]="shippingMethod == 'FLAT RATE'"
+              (click)="shipping('FLAT RATE')"></label>
           }
-          <label>Local Pick Up: $0.00<input type="radio" name="pickup" [checked]="shippingMethod == 'pickup'"
-              (click)="shipping('pickup')"></label>
+          <label>Local Pick Up: $0.00<input type="radio" name="pickup" [checked]="shippingMethod == 'PICK UP'"
+              (click)="shipping('PICK UP')"></label>
         </div>
       </div>
 
@@ -130,20 +126,22 @@
 
       <div class="payment">
         <label>
-          <input type="radio" name="option" [checked]="paymentMethod == 'transfer'">
+          <input type="radio" [checked]="paymentMethod == 'BANK TRANSFER'" (click)="payment('BANK TRANSFER')"
+            name="transfer">
           <p>Direct Bank Transfer <br> <span>Make your payment directly to our bank account on the next page. Please use
               your Order ID as
               the payment reference.</span></p>
         </label>
         <label>
-          <input type="radio" name="option" [checked]="paymentMethod == 'onDelivery'">
+          <input type="radio" name="cash" [checked]="paymentMethod == 'CASH ON DELIVERY'"
+            (click)="payment('CASH ON DELIVERY')">
           <p>Cash on Delivery <br> <span>Pay with cash upon delivery</span></p>
         </label>
       </div>
       @if(isFormSubmitted && !termsAccepted){
       <p class="termsWarning">Please accept the terms and conditions to proceed</p>
       }
-      <label class="agree"><input type="checkbox" value="true" [(ngModel)]="termsAccepted">
+      <label class="agree"><input type="checkbox" value="true" [(ngModel)]="termsAccepted" name="terms">
         I agree to the terms and conditions
       </label>
       <button (click)="onSubmit()">

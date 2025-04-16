@@ -16,9 +16,6 @@
     <div class="view">
       <img src="view.svg" alt="A quick view icon">
     </div>
-    <div class="wishlist">
-      <img src="cart1.svg" alt="a cart basket">
-    </div>
 
     @if(product.tag || product.discount){
     <p [class]="{tag: true,  hot: product.tag == 'HOT', discount: product.discount}">{{product.discount ?

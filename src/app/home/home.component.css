@@ -27,3 +27,28 @@ main {
 .review {
   margin-top: 100px;
 }
+
+@media (max-width: 1300px) {
+  .container {
+    margin: 0px 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    margin: 0px 12px;
+  }
+
+  .review {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    margin-bottom: 40px;
+  }
+  .featuredProducts {
+    margin-bottom: 20px;
+  }
+}

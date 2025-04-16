@@ -2,28 +2,53 @@ import { inject, Injectable, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { users } from '../../data/users';
+import { HttpClient } from '@angular/common/http';
+import { Order } from '../models/product-order.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserServiceService {
+  httpClient = inject(HttpClient);
   router = inject(Router);
-  allUsers: User[] = users;
+  allUsers: User[] = [];
 
   loggedInUser!: User | null;
+
+  loggedInUserID!: string;
+  loggedInUserRole!: string;
 
   userAlreadyExist: boolean = false;
   loginFailed: boolean = false;
 
   constructor() {
     this.getUserFromLocalStorage();
+
+    this.httpClient
+      .get<{ user: User }>(
+        `http://localhost:3000/logged-user?userId=${this.loggedInUserID}`
+      )
+      .subscribe({
+        next: (data) => {
+          this.loggedInUser = data.user;
+        },
+      });
+
+    this.httpClient
+      .get<{ users: User[] }>(`http://localhost:3000/users`)
+      .subscribe({
+        next: (data) => {
+          this.allUsers = data.users;
+        },
+      });
   }
 
   registerUser(user: User) {
     if (
       this.allUsers.some(
         (item) =>
-          item.email == user.email || item.phoneNumber == user.phoneNumber
+          (item.email == user.email && item.registered) ||
+          (item.phoneNumber == user.phoneNumber && item.registered)
       )
     ) {
       this.userAlreadyExist = true;
@@ -31,9 +56,14 @@ export class UserServiceService {
     }
 
     this.allUsers.push(user);
+    this.addUserToDatabase(user);
     this.userAlreadyExist = false;
+  }
 
-    console.log(this.allUsers);
+  addUserToDatabase(newUser: User) {
+    this.httpClient
+      .put('http://localhost:3000/add-user', { user: newUser })
+      .subscribe();
   }
 
   logIn(emailOrUsername: string, password: string) {
@@ -46,7 +76,6 @@ export class UserServiceService {
             item.password == password)
       )
     ) {
-      // console.log('Log In Failed, username/email or password does not exist');
       this.loginFailed = true;
       return;
     }
@@ -60,7 +89,9 @@ export class UserServiceService {
         : ''
     );
     this.saveUserToLocalStorage();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
 
     this.loginFailed = false;
   }
@@ -70,23 +101,35 @@ export class UserServiceService {
   }
 
   getUserFromLocalStorage() {
-    let value = localStorage.getItem('trendlyUser');
+    let valueID = localStorage.getItem('trendlyUserID');
+    let valueRole = localStorage.getItem('trendlyUserRole');
 
-    if (value) {
-      this.allUsers.some((user) =>
-        user.ID == JSON.parse(value) ? (this.loggedInUser = user) : null
-      );
+    if (valueID && valueRole) {
+      this.loggedInUserID = JSON.parse(valueID);
+      this.loggedInUserRole = JSON.parse(valueRole);
     }
   }
 
   logOut() {
-    localStorage.removeItem('trendlyUser');
+    localStorage.removeItem('trendlyUserID');
+    localStorage.removeItem('trendlyUserRole');
     this.loggedInUser = null;
+
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 
   saveUserToLocalStorage() {
     if (this.loggedInUser) {
-      localStorage.setItem('trendlyUser', JSON.stringify(this.loggedInUser.ID));
+      localStorage.setItem(
+        'trendlyUserID',
+        JSON.stringify(this.loggedInUser.ID)
+      );
+      localStorage.setItem(
+        'trendlyUserRole',
+        JSON.stringify(this.loggedInUser.role)
+      );
     }
   }
 

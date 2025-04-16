@@ -2,27 +2,26 @@
   <section class="orders">
     <div>
       <h3>Recent Orders</h3>
-      <button [routerLink]=" '/myaccount/'+ 'track'">Track Order</button>
+      <button routerLink="/myaccount/track">Track Order</button>
     </div>
     <table>
       <thead>
         <tr>
           <th>ORDER ID</th>
           <th>CUSTOMER</th>
-          <th>PRODUCTS ORDERED</th>
-          <th>DELIVERY INFO</th>
+          <th>PRODUCTS</th>
           <th>PRICE</th>
           <th>DATE</th>
           <th>ORDER STATUS</th>
         </tr>
       </thead>
-      @for(order of recentOrders(); track $index){
+      @if(myOrders){
+      @for(order of myOrders; track $index){
       <tbody>
         <tr (click)="displayOrderInfo(order.orderID, order.status)">
           <td>{{ order.orderID }}</td>
           <td><a>{{customer(order)}}</a></td>
           <td><a>{{totalProducts(order)}} Products</a></td>
-          <td><a>{{ delivery(order)}}</a></td>
           <td> <span class="price">{{ order.orderTotal | currency: "USD"}}</span></td>
           <td>{{order.date | date}}</td>
           <td>
@@ -37,10 +36,11 @@
           (closeDialog)="isDialogClosed($event)"></app-order-dialog>
       </div>
       }
+      }
     </table>
 
-    @if(recentOrders().length < 1){ <p>You currently have no recent orders</p>
-      }
+    @if(myOrders.length == 0){ <p>You currently have no recent orders</p>
+    }
 
   </section>
 </div>

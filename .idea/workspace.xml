@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="change ts">
+    <list default="true" id="441956e5-498b-4770-a57c-d80bb18ee93c" name="Changes" comment="added responsive design for product page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/checkout/checkout.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/footer/footer.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register/register.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/cart/cart.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cart/cart.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/category-section/category-section.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/category-section/category-section.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/category-section/category-section.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/category-section/category-section.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +34,12 @@
     &quot;assignee&quot;: &quot;jiazijia2003&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/sesanj/Trendly.git&quot;,
-    &quot;accountId&quot;: &quot;09c579e4-b463-477b-8d0c-d5900f823514&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sesanj/Trendly",
+    "accountId": "87b9268c-7717-4073-82df-260d4c7f7a71"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -54,7 +53,7 @@
     &quot;JavaScript Debug.login-page.component.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.login.component.html.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;FlexibleLayoutCheckout&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cartMobile&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,7 +61,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ASUS\\PhpstormProjects\\Trendly\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/apple/PhpstormProjects/Trendly/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -129,16 +128,7 @@
       <workItem from="1741380861240" duration="1907000" />
       <workItem from="1741409228972" duration="4075000" />
       <workItem from="1741475175033" duration="765000" />
-      <workItem from="1742788221027" duration="2621000" />
-      <workItem from="1742794749388" duration="623000" />
-      <workItem from="1742913087272" duration="2641000" />
-      <workItem from="1742933242958" duration="1492000" />
-      <workItem from="1742961279812" duration="9000" />
-      <workItem from="1743543524994" duration="1356000" />
-      <workItem from="1743620684374" duration="1693000" />
-      <workItem from="1743993779244" duration="3278000" />
-      <workItem from="1744084337636" duration="920000" />
-      <workItem from="1744140700270" duration="1815000" />
+      <workItem from="1744087723784" duration="3637000" />
     </task>
     <task id="LOCAL-00001" summary="add new imgs and details">
       <option name="closed" value="true" />
@@ -212,11 +202,38 @@
       <option name="project" value="LOCAL" />
       <updated>1740415037717</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added responsive design">
+      <option name="closed" value="true" />
+      <created>1742928518561</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742928518561</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added responsive design for product page">
+      <option name="closed" value="true" />
+      <created>1742928584608</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742928584608</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add new imgs and details" />
@@ -228,6 +245,18 @@
     <MESSAGE value="change css" />
     <MESSAGE value="change eye icon" />
     <MESSAGE value="change ts" />
-    <option name="LAST_COMMIT_MESSAGE" value="change ts" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/login/login.component.ts</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

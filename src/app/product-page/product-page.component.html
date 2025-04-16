@@ -57,12 +57,16 @@
       <p><button (click)="decrease()">---</button><span>{{productQuantity}}</span><button
           (click)="increase()">+</button>
       </p>
+      @if(product.quantity > 0){
       <button class="addToCart" (click)="addToCart(product)">Add to Cart</button>
+      }@else {
+      <button class="disabledButton">Out of Stock</button>
+      }
     </div>
     <div class="wishlist">
       @if(!getFavouriteStatus(product.id)){
       <button (click)="favoriteClicked(product)"><img src="heart.svg" alt="heart icon"><span>Add this product to your
-          Wishlist!</span></button>
+          Favoutites!</span></button>
       }
 
       @if(getFavouriteStatus(product.id)){
@@ -92,17 +96,20 @@
   </div>
   <div class="viewed">
     <h3>Recently Viewed</h3>
-    @for(product of viewedProducts; track $index){
-    <div class="viewedProducts" [routerLink]="'/product/' + product.id">
-      <div>
-        <img [src]="'products/' + product.image?.image1" alt="product image">
+    <div class="viewContainer">
+      @for(product of viewedProducts; track $index){
+      <div class="viewedProducts" [routerLink]="'/product/' + product.id">
+        <div>
+          <img [src]="'products/' + product.image?.image1" alt="product image">
+        </div>
+        <div>
+          <p>{{product.title}}</p>
+          <p>${{product.price}}</p>
+        </div>
       </div>
-      <div>
-        <p>{{product.title}}</p>
-        <p>${{product.price}}</p>
-      </div>
+      }
+
     </div>
-    }
 
   </div>
 </div>

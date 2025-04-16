@@ -18,6 +18,8 @@ export class ProductServiceService {
   viewedProduct: Product[] = [];
 
   constructor() {
+    // console.log('Product Service');
+
     if (this.getCartFromLocalStorage()) {
       for (let item of this.getCartFromLocalStorage()) {
         this.cart.push(item);
@@ -70,9 +72,10 @@ export class ProductServiceService {
     this.addCartToLocalStorage();
   }
 
-  deleteFromCart(product: CartProduct) {
-    const index = this.cart.findIndex((item) => item.ID == product.ID);
-    this.cart.splice(index, 1);
+  deleteFromCart(productIndex: number) {
+    // const index = this.cart.findIndex((item) => item.ID == product.ID);
+
+    this.cart.splice(productIndex, 1);
 
     this.addCartToLocalStorage();
   }

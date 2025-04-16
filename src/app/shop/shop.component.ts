@@ -43,6 +43,8 @@ export class ShopComponent implements OnInit {
     this.filterProducts();
   }
 
+  isFilterActive: boolean = false;
+
   service = inject(ProductServiceService);
   allProducts: Product[] = this.service.allProducts;
   filteredProducts: Product[] = this.allProducts;
@@ -52,10 +54,6 @@ export class ShopComponent implements OnInit {
   radioSelection: string = 'All';
 
   sortSelection: string = 'default';
-
-  print() {
-    console.log('Radio ' + this.radioSelection);
-  }
 
   ngOnInit(): void {}
 
@@ -99,6 +97,18 @@ export class ShopComponent implements OnInit {
     hidePointerLabels: true,
     hideLimitLabels: true,
   };
+
+  openFilter() {
+    this.isFilterActive = true;
+  }
+
+  closeFilter() {
+    this.isFilterActive = false;
+  }
+
+  preventClosing(event: MouseEvent) {
+    event.stopPropagation();
+  }
 
   filterProducts() {
     // Switch block to handle radio buttons for product selection

@@ -113,3 +113,68 @@ h2 {
 .canceled {
   background-color: rgb(226, 0, 0);
 }
+
+.orderedProducts span {
+  display: flex;
+  gap: 12px;
+  float: right;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .dialogHead {
+    padding: 20px 20px;
+    margin-bottom: 50px;
+  }
+
+  .dialogHead h1 {
+    font-size: 16px;
+    font-weight: 550;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .dialogContent {
+    display: block;
+    padding: 0px 20px;
+  }
+
+  .customerSection {
+    margin-bottom: 50px;
+  }
+
+  .customerSection,
+  .deliveryInfo {
+    width: 100%;
+  }
+
+  .orderedProducts {
+    padding: 0px 20px;
+  }
+
+  .product img {
+    width: 40px;
+    height: 50px;
+  }
+
+  .orderedProducts p {
+    font-size: 13px;
+  }
+
+  .productDetails {
+    display: grid;
+    grid-template-columns: 2.5fr 1.5fr 1fr;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .productDetails div:first-child {
+    width: 100%;
+  }
+
+  .orderedProducts span p {
+    font-size: 14px;
+  }
+}

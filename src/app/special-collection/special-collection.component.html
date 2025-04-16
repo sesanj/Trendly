@@ -5,14 +5,20 @@
   </div>
   <div class="nav">
     <div class="buttons">
-      <button class="navButton" [class.clicked]="navStyle == 'New'" (click)="getNew()" href="">New</button>
-      <button class="navButton" [class.clicked]="navStyle == 'Hot'" (click)="getHot()" href="">Hot</button>
+      <button class="navButton" [class.clicked]="navStyle == 'NEW'" (click)="getNew()">New</button>
+      <button class="navButton" [class.clicked]="navStyle == 'HOT'" (click)="getHot()">Hot</button>
     </div>
   </div>
 </div>
 <div class="section">
   <div class="product">
-    <app-product [product]="product[0]"></app-product>
+    <div>
+      <app-product [product]="product[0]"></app-product>
+    </div>
+
+    <div class="tabProduct">
+      <app-product [product]="product[1]"></app-product>
+    </div>
   </div>
   <div class="image">
     <img src="womenFashion.png" alt="An advert">
@@ -20,13 +26,13 @@
       <div>
         <h3>New Arrivals | Hot Collections</h3>
         <h2>You Are What You Wear</h2>
-        <p>Shop for all seasons, top quality designs with best prices. <br>We've got you covered all year long.</p>
+        <p>Shop for all seasons, top quality designs with best prices. <br><span>We've got you covered all year
+            long.</span></p>
         <button>Shop Now ---></button>
       </div>
-
     </div>
   </div>
-  <div class="product">
+  <div class="product tabProduct2">
     <app-product [product]="product[1]"></app-product>
   </div>
 </div>

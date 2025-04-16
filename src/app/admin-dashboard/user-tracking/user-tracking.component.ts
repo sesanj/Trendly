@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrderInfoComponent } from '../order-info/order-info.component';
 import { Order } from '../../models/product-order.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-tracking',
@@ -17,6 +18,7 @@ export class UserTrackingComponent {
   orderService = inject(OrderServiceService);
   userService = inject(UserServiceService);
   router = inject(Router);
+  httpClient = inject(HttpClient);
 
   user = this.userService.getUser();
   order!: Order;
@@ -33,18 +35,21 @@ export class UserTrackingComponent {
   }
 
   trackOrder() {
-    this.order = this.orderService
-      .getOrders()
-      .filter(
-        (order) =>
-          order.orderID == this.orderId &&
-          order.customer.email.toLowerCase() == this.email.toLowerCase()
-      )[0];
-
-    if (!this.order) {
-      this.error = true;
-    } else {
-      this.error = false;
-    }
+    this.httpClient
+      .get<{ track: Order }>(
+        `http://localhost:3000/track-order?email=${this.email}&orderId=${this.orderId}`
+      )
+      .subscribe({
+        next: (data) => {
+          this.order = data.track;
+        },
+        complete: () => {
+          if (!this.order) {
+            this.error = true;
+          } else {
+            this.error = false;
+          }
+        },
+      });
   }
 }

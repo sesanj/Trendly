@@ -12,7 +12,6 @@ import { FooterComponent } from '../footer/footer.component';
 import { UserServiceService } from '../services/user-service.service';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
-// import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,6 +37,10 @@ export class RegisterComponent {
   warning: boolean = false;
 
   constructor(private fb: FormBuilder) {
+    if (this.userService.loggedInUserID) {
+      this.router.navigate(['/']);
+    }
+
     this.myForm = this.fb.group({
       username: [
         '',
@@ -54,10 +57,6 @@ export class RegisterComponent {
       address: [''],
       postal: [''],
     });
-
-    if (this.userService.getUser()) {
-      this.router.navigate(['/home']);
-    }
   }
 
   onSubmit(): void {

@@ -4,6 +4,7 @@ import { Product } from '../../models/product.model';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CartProduct } from '../../models/product-order.model';
+import { NotificationService } from '../../services/notification-service.service';
 
 @Component({
   selector: 'app-cart-sidebar',
@@ -14,6 +15,7 @@ import { CartProduct } from '../../models/product-order.model';
 })
 export class CartSidebarComponent {
   productService = inject(ProductServiceService);
+  notification = inject(NotificationService);
 
   @Output() cartClosed = new EventEmitter<boolean>();
 
@@ -27,6 +29,10 @@ export class CartSidebarComponent {
     this.cartClosed.emit(false);
   }
 
+  stopClickEffect(event: MouseEvent) {
+    event.stopPropagation();
+  }
+
   get cartTotal() {
     let price = 0;
     for (let item of this.productService.cart) {
@@ -35,8 +41,13 @@ export class CartSidebarComponent {
     return price;
   }
 
-  deleteProduct(product: CartProduct) {
-    this.productService.deleteFromCart(product);
+  deleteProduct(product: CartProduct, productIndex: number) {
+    this.productService.deleteFromCart(productIndex);
+
+    this.notification.notify(
+      'products/' + this.productImage(product.ID) || '',
+      'This item was Removed from your Cart'
+    );
   }
 
   productImage(id: string) {

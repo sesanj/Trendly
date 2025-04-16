@@ -3,23 +3,27 @@
   max-width: 1300px;
   margin: auto;
   padding-top: 150px;
+  box-sizing: border-box;
 }
 
 h1 {
   margin-bottom: 20px;
   font-size: 35px;
   font-weight: 500;
+  text-align: left;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .cartInfo,
 .cartTotal {
   background: #fff;
+  box-sizing: border-box;
 }
 
 .cartInfo {
@@ -69,7 +73,6 @@ table {
   border-collapse: collapse;
   margin-top: 50px;
   text-align: left;
-
   td {
     padding: 16px 10px;
     border-bottom: 1px solid #ddd;
@@ -150,7 +153,6 @@ tbody span {
   width: 20%;
   height: fit-content;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-
   padding: 25px;
 
   .subTotal,
@@ -198,5 +200,111 @@ tbody span {
     &:hover {
       background: #d62828;
     }
+  }
+}
+
+@media (max-width: 1100px) {
+  .cartWrapper {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 120px;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cartInfo,
+  .cartTotal {
+    width: 100%;
+  }
+
+  .cartTotal {
+    padding: 20px;
+    margin-top: 50px;
+  }
+
+  .clearCart {
+    justify-content: center;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .options label {
+    margin-left: 20px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cartTable,
+  .cartTable thead,
+  .cartTable tbody,
+  .cartTable th,
+  .cartTable td {
+    font-size: 14px;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    display: none;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 200px;
+  }
+
+  .cartTotal {
+    padding: 15px;
+  }
+
+  .checkout-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cartWrapper {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 100px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  table {
+    img {
+      width: 40px;
+    }
+
+    .remove {
+      font-size: 16px;
+    }
+  }
+
+  th:nth-child(6),
+  td:nth-child(6),
+  th:nth-child(7),
+  td:nth-child(7) {
+    display: none;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3),
+  th:nth-child(4),
+  td:nth-child(4) {
+    font-size: 12px;
   }
 }

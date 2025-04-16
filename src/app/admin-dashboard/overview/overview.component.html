@@ -7,7 +7,7 @@
       <img src="dashboard/sales.jpg" alt="order icon">
       <div class="content">
         <h4>Total Sales</h4>
-        <p>{{totalSales()}}+</p>
+        <p>{{totalSales}}+</p>
       </div>
     </div>
     <div class="item">
@@ -42,8 +42,7 @@
         <tr>
           <th>ORDER ID</th>
           <th>CUSTOMER</th>
-          <th>PRODUCTS ORDERED</th>
-          <th>DELIVERY INFO</th>
+          <th>PRODUCTS</th>
           <th>PRICE</th>
           <th>DATE</th>
           <th>ORDER STATUS</th>
@@ -55,7 +54,6 @@
           <td>{{ order.orderID }}</td>
           <td><a>{{customer(order)}}</a></td>
           <td><a>{{totalProducts(order)}} Products</a></td>
-          <td><a>{{ delivery(order)}}</a></td>
           <td> <span class="price">{{ order.orderTotal | currency: "USD"}}</span></td>
           <td>{{order.date | date}}</td>
           <td>
