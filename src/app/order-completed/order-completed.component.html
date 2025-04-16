@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="container">
+  <div class="image">
+    <img src="completed.jpg" alt="thank you image">
+
+    @if(order){
+
+    @if(order.paymentMethod == 'BANK TRANSFER'){
+    <div class="bank">
+      <h1>Bank Details</h1>
+      <p>Please make your transfer to the bank information below. Use your Order ID "{{id}}" as reference for the
+        Payment</p>
+      <h3>Bank Name: <span>Zenith Bank PLC</span></h3>
+      <h3>Account Number: <span>2111662205</span></h3>
+      <h3>Reference: <span>{{id}}</span></h3>
+
+    </div>
+
+    }
+
+    }
+  </div>
+  <div>
+    @if(order){
+    <app-order-info [order]="order"></app-order-info>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>
