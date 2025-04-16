@@ -1,0 +1,62 @@
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.image {
+  text-align: center;
+}
+
+.bank {
+  margin-bottom: 80px;
+}
+
+img {
+  width: 400px;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .bank {
+    box-sizing: border-box;
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+  img {
+    width: 300px;
+  }
+}
