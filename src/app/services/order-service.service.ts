@@ -33,7 +33,6 @@ export class OrderServiceService {
     this.addOrderToDatabase(order);
     this.productService.cart = [];
     localStorage.removeItem('TrendlyCart');
-    this.router.navigate(['/cart']);
   }
 
   addOrderToDatabase(customerOrder: Order) {
@@ -41,6 +40,9 @@ export class OrderServiceService {
       .put('http://localhost:3000/add-order', { order: customerOrder })
       .subscribe({
         next: (data) => console.log(data),
+        complete: () => {
+          this.router.navigate(['order-comleted/' + customerOrder.orderID]);
+        },
       });
   }
 
