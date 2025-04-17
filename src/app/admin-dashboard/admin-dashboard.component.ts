@@ -58,11 +58,19 @@ export class AdminDashboardComponent {
   }
 
   constructor() {
-    setTimeout(() => {
-      if (!this.userService.getUser()) {
-        this.router.navigate(['/home']);
-      }
-    }, 4000);
+    console.log('UserRole: ', this.userService.loggedInUserRole);
+
+    if (!this.userService.loggedInUserID) {
+      this.router.navigate(['/home']);
+      console.log('No User');
+    } else {
+      console.log('User Active');
+    }
+    // setTimeout(() => {
+    //   if (!this.userService.getUser()) {
+    //     this.router.navigate(['/home']);
+    //   }
+    // }, 4000);
   }
 
   navigation: string = '';

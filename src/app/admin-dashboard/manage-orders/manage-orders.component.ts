@@ -8,6 +8,7 @@ import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { UserServiceService } from '../../services/user-service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-manage-orders',
@@ -30,14 +31,37 @@ export class ManageOrdersComponent {
   nav = 'ALL';
 
   constructor() {
-    if (
-      !this.userService.loggedInUserID ||
-      this.userService.loggedInUserRole != 'ADMIN'
-    ) {
+    if (!this.userService.loggedInUserID) {
       this.router.navigate(['/']);
     }
 
+    this.loggedUser();
+
     this.getOrders();
+  }
+
+  loggedUser() {
+    let user: User;
+    this.httpClient
+      .get<{ user: User }>(
+        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+      )
+      .subscribe({
+        next: (data) => {
+          user = data.user;
+        },
+        complete: () => {
+          if (user.role !== 'ADMIN') {
+            if (user.role === 'CUSTOMER') {
+              this.router.navigate(['/myaccount/myorders']);
+            } else {
+              this.router.navigate(['/']);
+            }
+          }
+
+          // this.isLoading = false;
+        },
+      });
   }
 
   getOrders() {

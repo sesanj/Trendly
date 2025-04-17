@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductData } from '../../data/allProducts';
-import { CartProduct } from '../models/product-order.model';
+import {
+  CartProduct,
+  LocalStorageCartProduct,
+} from '../models/product-order.model';
 
 @Injectable({
   providedIn: 'root',
@@ -151,12 +154,54 @@ export class ProductServiceService {
   }
 
   getCartFromLocalStorage() {
+    let localCart: LocalStorageCartProduct[] = [];
+    let newCart: CartProduct[] = [];
     let value = localStorage.getItem('TrendlyCart');
 
-    return value ? JSON.parse(value) : null;
+    if (!value) {
+      return [];
+    } else {
+      try {
+        localCart = JSON.parse(value);
+
+        this.allProducts.forEach((product) =>
+          localCart.forEach((item) => {
+            if (item.ID == product.id) {
+              newCart.push({
+                ID: item.ID,
+                productName: product.title,
+                quantity: item.quantity,
+                totalPrice:
+                  item.quantity *
+                  (product.discount ? product.discount : product.price),
+                color: item.color,
+                size: item.size,
+              });
+            }
+          })
+        );
+
+        // return value ? JSON.parse(value) : null;
+        return newCart;
+      } catch (error) {
+        console.error('Error TrendlyCart:', error);
+        return [];
+      }
+    }
   }
 
   addCartToLocalStorage() {
-    localStorage.setItem('TrendlyCart', JSON.stringify(this.cart));
+    let localCart: LocalStorageCartProduct[] = [];
+
+    this.cart.forEach((product) =>
+      localCart.push({
+        ID: product.ID,
+        quantity: product.quantity,
+        size: product.size,
+        color: product.color,
+      })
+    );
+
+    localStorage.setItem('TrendlyCart', JSON.stringify(localCart));
   }
 }

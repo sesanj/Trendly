@@ -16,6 +16,8 @@
           <li><a [routerLink]=" '/myaccount/'+ 'customers'" [class.selected]="navigation == 'customers'"><img
                 src="dashboard/users.png" alt="customer icon">Customers</a>
           </li>
+          <li><a [routerLink]=" '/myaccount/'+ 'track'" [class.selected]="navigation == 'track'"><img
+                src="dashboard/order.png" alt="orders icon">Track Order</a></li>
         </ul>
         }@else if (user?.role == 'CUSTOMER') {
         <ul>
