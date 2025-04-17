@@ -4,6 +4,7 @@
   width: 100%;
   overflow: hidden;
   padding-top: 50px;
+  box-sizing: border-box;
 }
 
 .carousel:hover .prev,
@@ -170,6 +171,7 @@ p {
   width: 100%;
   position: absolute;
   bottom: 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1050px) {
@@ -200,7 +202,7 @@ p {
 @media (max-width: 800px) {
   .features {
     position: relative;
-    width: fit-content;
+    width: 100%;
     margin-top: 30px;
   }
 

@@ -147,6 +147,10 @@ td a:hover {
   td:nth-child(3) {
     display: none;
   }
+
+  td {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 500px) {
