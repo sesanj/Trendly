@@ -33,15 +33,36 @@ export class CustomersComponent {
   filter: string = 'all';
 
   constructor() {
-    if (
-      !this.userService.loggedInUserID ||
-      this.userService.loggedInUserRole != 'ADMIN'
-    ) {
+    if (!this.userService.loggedInUserID) {
       this.router.navigate(['/']);
+      return;
     }
 
+    this.loggedUser();
     this.getUsers();
     this.getOrders();
+  }
+
+  loggedUser() {
+    let user: User;
+    this.httpClient
+      .get<{ user: User }>(
+        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+      )
+      .subscribe({
+        next: (data) => {
+          user = data.user;
+        },
+        complete: () => {
+          if (user.role !== 'ADMIN') {
+            if (user.role === 'CUSTOMER') {
+              this.router.navigate(['/myaccount/myorders']);
+            }
+          }
+
+          // this.isLoading = false;
+        },
+      });
   }
 
   openCustomerInfo() {

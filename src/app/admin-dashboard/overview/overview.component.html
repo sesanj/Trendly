@@ -1,3 +1,6 @@
+@if(isLoading){
+<app-site-loader></app-site-loader>
+}@else{
 <div class="overview">
   <p>Revenue:</p>
   <h2><span>{{revenue() | currency: "USD"}}</span></h2>
@@ -75,3 +78,4 @@
 
   </section>
 </div>
+}

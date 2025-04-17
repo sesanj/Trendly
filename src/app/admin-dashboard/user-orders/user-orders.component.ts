@@ -45,7 +45,7 @@ export class UserOrdersComponent implements OnInit {
     this.userId = this.userService.loggedInUserID;
     this.userRole = this.userService.loggedInUserRole;
 
-    if (!this.userId || this.userRole != 'CUSTOMER') {
+    if (!this.userId) {
       this.router.navigate(['/home']);
     }
   }
