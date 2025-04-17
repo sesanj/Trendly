@@ -10,6 +10,7 @@ import { ProductServiceService } from '../../services/product-service.service';
 import { UserServiceService } from '../../services/user-service.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { SiteLoaderComponent } from '../../site-loader/site-loader.component';
 
 @Component({
   selector: 'app-overview',
@@ -21,6 +22,7 @@ import { User } from '../../models/user.model';
     DatePipe,
     FormsModule,
     OrderDialogComponent,
+    SiteLoaderComponent,
   ],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.css',
@@ -39,13 +41,42 @@ export class OverviewComponent implements OnInit {
 
   allOrders: Order[] = [];
 
+  isLoading = true;
+
   constructor() {
     if (
-      !this.userService.loggedInUserID ||
-      this.userService.loggedInUserRole != 'ADMIN'
+      !this.userService.loggedInUserID
+      // ||
+      // this.userService.loggedInUserRole != 'ADMIN'
     ) {
       this.router.navigate(['/']);
     }
+
+    this.loggedUser();
+  }
+
+  loggedUser() {
+    let user: User;
+    this.httpClient
+      .get<{ user: User }>(
+        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+      )
+      .subscribe({
+        next: (data) => {
+          user = data.user;
+        },
+        complete: () => {
+          if (user.role != 'ADMIN') {
+            if (user.role === 'CUSTOMER') {
+              this.router.navigate(['/myaccount/myorders']);
+            } else {
+              this.router.navigate(['/']);
+            }
+          }
+
+          this.isLoading = false;
+        },
+      });
   }
 
   ngOnInit() {

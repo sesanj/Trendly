@@ -31,6 +31,13 @@ export interface CartProduct {
   size?: string;
 }
 
+export interface LocalStorageCartProduct {
+  ID: string;
+  quantity: number;
+  color?: string;
+  size?: string;
+}
+
 export interface Customer {
   firstName: string;
   lastName: string;

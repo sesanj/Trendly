@@ -32,6 +32,9 @@ export class UserServiceService {
         next: (data) => {
           this.loggedInUser = data.user;
         },
+        complete: () => {
+          this.loggedInUserRole = this.loggedInUser?.role!;
+        },
       });
 
     this.httpClient
@@ -102,17 +105,16 @@ export class UserServiceService {
 
   getUserFromLocalStorage() {
     let valueID = localStorage.getItem('trendlyUserID');
-    let valueRole = localStorage.getItem('trendlyUserRole');
 
-    if (valueID && valueRole) {
+    if (valueID) {
       this.loggedInUserID = JSON.parse(valueID);
-      this.loggedInUserRole = JSON.parse(valueRole);
+
+      return JSON.parse(valueID);
     }
   }
 
   logOut() {
     localStorage.removeItem('trendlyUserID');
-    localStorage.removeItem('trendlyUserRole');
     this.loggedInUser = null;
 
     this.router.navigate(['/']).then(() => {
@@ -125,10 +127,6 @@ export class UserServiceService {
       localStorage.setItem(
         'trendlyUserID',
         JSON.stringify(this.loggedInUser.ID)
-      );
-      localStorage.setItem(
-        'trendlyUserRole',
-        JSON.stringify(this.loggedInUser.role)
       );
     }
   }

@@ -29,7 +29,7 @@ export class UserTrackingComponent {
   email: string = '';
 
   constructor() {
-    if (this.user != null && this.user.role != 'CUSTOMER') {
+    if (!this.userService.loggedInUserID) {
       this.router.navigate(['/home']);
     }
   }
