@@ -37,7 +37,9 @@ export class OrderServiceService {
 
   addOrderToDatabase(customerOrder: Order) {
     this.httpClient
-      .put('http://localhost:3000/add-order', { order: customerOrder })
+      .put('https://trendly-backend-cme7.onrender.com/add-order', {
+        order: customerOrder,
+      })
       .subscribe({
         next: (data) => console.log(data),
         complete: () => {
@@ -48,7 +50,7 @@ export class OrderServiceService {
 
   updateOrderInDatabase(orderID: string, status: string) {
     this.httpClient
-      .put('http://localhost:3000/update-order', {
+      .put('https://trendly-backend-cme7.onrender.com/update-order', {
         orderID: orderID,
         orderStatus: status,
       })

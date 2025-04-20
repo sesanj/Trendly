@@ -20,6 +20,8 @@ export class OrderInfoComponent {
   orderService = inject(OrderServiceService);
   productService = inject(ProductServiceService);
 
+  isLoading: boolean = true;
+
   productImage(id: string) {
     let product = this.productService
       .getAllProducts()
