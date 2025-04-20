@@ -10,6 +10,7 @@ import { OrderDialogComponent } from '../order-dialog/order-dialog.component';
 import { UserServiceService } from '../../services/user-service.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { SiteLoaderComponent } from '../../site-loader/site-loader.component';
 
 @Component({
   selector: 'app-user-orders',
@@ -21,6 +22,7 @@ import { User } from '../../models/user.model';
     DatePipe,
     FormsModule,
     OrderDialogComponent,
+    SiteLoaderComponent,
   ],
   templateUrl: './user-orders.component.html',
   styleUrl: './user-orders.component.css',
@@ -32,6 +34,8 @@ export class UserOrdersComponent implements OnInit {
 
   user = this.userService.getUser();
   httpClient = inject(HttpClient);
+
+  isLoading: boolean = true;
 
   myOrders: Order[] = [];
   loggedUser!: User;
@@ -54,7 +58,7 @@ export class UserOrdersComponent implements OnInit {
     this.userId = this.userService.loggedInUserID;
     this.httpClient
       .get<{ user: User }>(
-        `http://localhost:3000/logged-user?userId=${this.userId}`
+        `https://trendly-backend-cme7.onrender.com/logged-user?userId=${this.userId}`
       )
       .subscribe({
         next: (data) => {
@@ -69,11 +73,14 @@ export class UserOrdersComponent implements OnInit {
   getAllOrders() {
     this.httpClient
       .get<{ order: Order[] }>(
-        `http://localhost:3000/user-orders?email=${this.loggedUser.email}`
+        `https://trendly-backend-cme7.onrender.com/user-orders?email=${this.loggedUser.email}`
       )
       .subscribe({
         next: (data) => {
           this.myOrders = data.order.reverse();
+        },
+        complete: () => {
+          this.isLoading = false;
         },
       });
   }

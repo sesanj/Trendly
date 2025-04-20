@@ -1,3 +1,6 @@
+@if(isLoading){
+<app-site-loader></app-site-loader>
+}@else {
 <app-header></app-header>
 <div class="container">
   <div class="image">
@@ -8,7 +11,8 @@
     @if(order.paymentMethod == 'BANK TRANSFER'){
     <div class="bank">
       <h1>Bank Details</h1>
-      <p>Please make your transfer to the bank information below. Use your Order ID "{{id}}" as reference for the
+      <p>Thank you for your order. Please make your transfer to the bank information below. Use your Order ID "{{id}}"
+        as reference for the
         Payment</p>
       <h3>Bank Name: <span>Zenith Bank PLC</span></h3>
       <h3>Account Number: <span>2111662205</span></h3>
@@ -26,5 +30,5 @@
     }
   </div>
 </div>
-
+}
 <app-footer></app-footer>

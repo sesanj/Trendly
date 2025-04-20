@@ -9,11 +9,19 @@ import { UserServiceService } from '../../services/user-service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { SiteLoaderComponent } from '../../site-loader/site-loader.component';
 
 @Component({
   selector: 'app-manage-orders',
   standalone: true,
-  imports: [CurrencyPipe, NgClass, DatePipe, FormsModule, OrderDialogComponent],
+  imports: [
+    CurrencyPipe,
+    NgClass,
+    DatePipe,
+    FormsModule,
+    OrderDialogComponent,
+    SiteLoaderComponent,
+  ],
   templateUrl: './manage-orders.component.html',
   styleUrl: './manage-orders.component.css',
 })
@@ -23,6 +31,8 @@ export class ManageOrdersComponent {
   user = this.userService.getUser();
   router = inject(Router);
   httpClient = inject(HttpClient);
+
+  isLoading: boolean = true;
 
   orders: Order[] = [];
 
@@ -44,7 +54,7 @@ export class ManageOrdersComponent {
     let user: User;
     this.httpClient
       .get<{ user: User }>(
-        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+        `https://trendly-backend-cme7.onrender.com/logged-user?userId=${this.userService.loggedInUserID}`
       )
       .subscribe({
         next: (data) => {
@@ -58,8 +68,6 @@ export class ManageOrdersComponent {
               this.router.navigate(['/']);
             }
           }
-
-          // this.isLoading = false;
         },
       });
   }
@@ -68,13 +76,17 @@ export class ManageOrdersComponent {
     let savedOrders: Order[] = [];
 
     this.httpClient
-      .get<{ orders: Order[] }>('http://localhost:3000/orders')
+      .get<{ orders: Order[] }>(
+        'https://trendly-backend-cme7.onrender.com/orders'
+      )
       .subscribe({
         next: (data) => {
           savedOrders = data.orders.reverse();
         },
         complete: () => {
           this.orders = savedOrders;
+
+          this.isLoading = false;
         },
       });
   }
@@ -93,7 +105,7 @@ export class ManageOrdersComponent {
     let savedOrders: Order[] = [];
     this.httpClient
       .get<{ filtered: Order[] }>(
-        `http://localhost:3000/filter-orders?filter=${filter}`
+        `https://trendly-backend-cme7.onrender.com/filter-orders?filter=${filter}`
       )
       .subscribe({
         next: (data) => {
@@ -115,7 +127,7 @@ export class ManageOrdersComponent {
     let savedOrders: Order[] = [];
     this.httpClient
       .get<{ filtered: Order[] }>(
-        `http://localhost:3000/filter-orders?filter=${this.nav}`
+        `https://trendly-backend-cme7.onrender.com/filter-orders?filter=${this.nav}`
       )
       .subscribe({
         next: (data) => {
