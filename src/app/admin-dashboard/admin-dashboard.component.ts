@@ -6,6 +6,7 @@ import { UserServiceService } from '../services/user-service.service';
 import { CustomersComponent } from './customers/customers.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { UserTrackingComponent } from './user-tracking/user-tracking.component';
+import { SiteLoaderComponent } from '../site-loader/site-loader.component';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -17,6 +18,7 @@ import { UserTrackingComponent } from './user-tracking/user-tracking.component';
     CustomersComponent,
     UserOrdersComponent,
     UserTrackingComponent,
+    SiteLoaderComponent,
   ],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.css',
@@ -66,11 +68,6 @@ export class AdminDashboardComponent {
     } else {
       console.log('User Active');
     }
-    // setTimeout(() => {
-    //   if (!this.userService.getUser()) {
-    //     this.router.navigate(['/home']);
-    //   }
-    // }, 4000);
   }
 
   navigation: string = '';

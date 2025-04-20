@@ -8,11 +8,12 @@ import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SiteLoaderComponent } from '../../site-loader/site-loader.component';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CustomerInfoComponent, FormsModule],
+  imports: [CustomerInfoComponent, FormsModule, SiteLoaderComponent],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css',
 })
@@ -29,6 +30,8 @@ export class CustomersComponent {
   allOrders: Order[] = [];
 
   isCustomerInfoOpen: boolean = false;
+
+  isLoading: boolean = true;
 
   filter: string = 'all';
 
@@ -47,7 +50,7 @@ export class CustomersComponent {
     let user: User;
     this.httpClient
       .get<{ user: User }>(
-        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+        `https://trendly-backend-cme7.onrender.com/logged-user?userId=${this.userService.loggedInUserID}`
       )
       .subscribe({
         next: (data) => {
@@ -59,8 +62,6 @@ export class CustomersComponent {
               this.router.navigate(['/myaccount/myorders']);
             }
           }
-
-          // this.isLoading = false;
         },
       });
   }
@@ -79,7 +80,7 @@ export class CustomersComponent {
 
   getUsers() {
     this.httpClient
-      .get<{ users: User[] }>(`http://localhost:3000/users`)
+      .get<{ users: User[] }>(`https://trendly-backend-cme7.onrender.com/users`)
       .subscribe({
         next: (data) => {
           this.allCustomers = data.users;
@@ -87,6 +88,8 @@ export class CustomersComponent {
         complete: () => {
           this.clickedCustomer = this.allCustomers[0];
           this.allUsersContainer = this.allCustomers;
+
+          this.isLoading = false;
         },
       });
   }
@@ -100,7 +103,9 @@ export class CustomersComponent {
     let orderData: Order[] = [];
 
     this.httpClient
-      .get<{ orders: Order[] }>(`http://localhost:3000/orders`)
+      .get<{ orders: Order[] }>(
+        `https://trendly-backend-cme7.onrender.com/orders`
+      )
       .subscribe({
         next: (data) => {
           orderData = data.orders;

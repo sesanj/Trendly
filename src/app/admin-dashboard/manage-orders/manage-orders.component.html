@@ -1,3 +1,6 @@
+@if(isLoading){
+<app-site-loader></app-site-loader>
+}@else{
 <div class="overview">
   <div class="heading">
     <h1>{{totalOrders}} Total Orders</h1>
@@ -61,3 +64,4 @@
 
   </section>
 </div>
+}

@@ -29,7 +29,9 @@ export class CustomerInfoComponent {
     let orderData: Order[] = [];
 
     this.httpClient
-      .get<{ orders: Order[] }>(`http://localhost:3000/orders`)
+      .get<{ orders: Order[] }>(
+        `https://trendly-backend-cme7.onrender.com/orders`
+      )
       .subscribe({
         next: (data) => {
           orderData = data.orders;

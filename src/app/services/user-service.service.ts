@@ -15,6 +15,8 @@ export class UserServiceService {
 
   loggedInUser!: User | null;
 
+  isLoading: boolean = true;
+
   loggedInUserID!: string;
   loggedInUserRole!: string;
 
@@ -26,7 +28,7 @@ export class UserServiceService {
 
     this.httpClient
       .get<{ user: User }>(
-        `http://localhost:3000/logged-user?userId=${this.loggedInUserID}`
+        `https://trendly-backend-cme7.onrender.com/logged-user?userId=${this.loggedInUserID}`
       )
       .subscribe({
         next: (data) => {
@@ -34,14 +36,17 @@ export class UserServiceService {
         },
         complete: () => {
           this.loggedInUserRole = this.loggedInUser?.role!;
+          this.isLoading = false;
         },
       });
 
     this.httpClient
-      .get<{ users: User[] }>(`http://localhost:3000/users`)
+      .get<{ users: User[] }>(`https://trendly-backend-cme7.onrender.com/users`)
       .subscribe({
         next: (data) => {
           this.allUsers = data.users;
+
+          this.isLoading = false;
         },
       });
   }
@@ -65,7 +70,9 @@ export class UserServiceService {
 
   addUserToDatabase(newUser: User) {
     this.httpClient
-      .put('http://localhost:3000/add-user', { user: newUser })
+      .put('https://trendly-backend-cme7.onrender.com/add-user', {
+        user: newUser,
+      })
       .subscribe();
   }
 
