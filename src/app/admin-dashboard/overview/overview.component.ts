@@ -59,7 +59,7 @@ export class OverviewComponent implements OnInit {
     let user: User;
     this.httpClient
       .get<{ user: User }>(
-        `http://localhost:3000/logged-user?userId=${this.userService.loggedInUserID}`
+        `https://trendly-backend-cme7.onrender.com/logged-user?userId=${this.userService.loggedInUserID}`
       )
       .subscribe({
         next: (data) => {
@@ -73,8 +73,6 @@ export class OverviewComponent implements OnInit {
               this.router.navigate(['/']);
             }
           }
-
-          this.isLoading = false;
         },
       });
   }
@@ -91,13 +89,16 @@ export class OverviewComponent implements OnInit {
     let orders: Order[] = [];
 
     this.httpClient
-      .get<{ orders: Order[] }>('http://localhost:3000/orders')
+      .get<{ orders: Order[] }>(
+        'https://trendly-backend-cme7.onrender.com/orders'
+      )
       .subscribe({
         next: (data) => {
           orders = data.orders.reverse();
         },
         complete: () => {
           this.allOrders = orders;
+          this.isLoading = false;
         },
       });
   }

@@ -23,6 +23,8 @@ export class UserTrackingComponent {
   user = this.userService.getUser();
   order!: Order;
 
+  isLoading: boolean = true;
+
   error: boolean = false;
 
   orderId: string = '';
@@ -37,7 +39,7 @@ export class UserTrackingComponent {
   trackOrder() {
     this.httpClient
       .get<{ track: Order }>(
-        `http://localhost:3000/track-order?email=${this.email}&orderId=${this.orderId}`
+        `https://trendly-backend-cme7.onrender.com/track-order?email=${this.email}&orderId=${this.orderId}`
       )
       .subscribe({
         next: (data) => {
@@ -49,6 +51,8 @@ export class UserTrackingComponent {
           } else {
             this.error = false;
           }
+
+          this.isLoading = false;
         },
       });
   }

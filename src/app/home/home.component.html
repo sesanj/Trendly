@@ -1,3 +1,7 @@
+@if(userService.isLoading){
+<app-site-loader></app-site-loader>
+}@else {
+
 <app-header></app-header>
 <section class="hero">
   <app-hero-section></app-hero-section>
@@ -25,3 +29,4 @@
   </div>
 </main>
 <app-footer></app-footer>
+}
